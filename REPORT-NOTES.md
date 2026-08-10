@@ -640,3 +640,112 @@ Recording these because precision is only measurable against sound work.
   sample on S2, the event-count and heterogeneity objections on S9, the reading
   volume on S4. These are the precision anchors: without them a model manufacturing
   plausible objections scores well on recall and its noise stays invisible.
+
+---
+
+# Note 7 — the graded results, and what to put in the report
+
+Everything below is scored against human gold on the ten base items. Detail and
+method live in `part2/GRADED.md`; this is the report-facing synthesis. Raw output
+is `part2/graded-output.txt` (pairwise) and `part2/issue-scores-output.txt`
+(pointwise).
+
+## The six results worth reporting
+
+**1. The aggregate is a trap; the split is the result.** Pairwise accuracy is
+50–65% against a 60% always-answer-A baseline, which reads as "models cannot
+discriminate research plans." Split by gold's own confidence it says the opposite:
+
+| | Haiku 4.5 | Sonnet 5 | Opus 4.8 | Opus 5 | baseline |
+|---|---|---|---|---|---|
+| Strong items (n=12) | 58% | 67% | 67% | **75%** | **50%** |
+| Weak items (n=8) | 50% | 38% | 25% | 50% | **75%** |
+
+Same twenty calls per model. Where the reviewer was confident, accuracy is
+monotone in model capability and everything beats chance; where the reviewer was
+torn, everything is below chance and the ordering inverts. **Report strong-item
+accuracy as the headline and carry weak items separately** — that is forced by
+the data, not a stylistic choice.
+
+**2. Preference strength turns out to be a difficulty label.** This is the
+reusable design point: gold confidence predicts whether an item discriminates at
+all, and it costs nothing to collect because the reviewer is already writing it.
+It should gate which items count, not merely how they are reported.
+
+**3. The sense-check passes, in the direction the brief was not worried about.**
+The concern was *"if Haiku gets 90%, the items are too easy."* Haiku scored 55%,
+below the trivial baseline. The live risk is the opposite one.
+
+**4. Recall discriminates; precision does not; neither alone ranks the models.**
+
+| | Haiku 4.5 | Sonnet 5 | Opus 4.8 | Opus 5 |
+|---|---|---|---|---|
+| Recall (of 45 blocking) | 53% | 29% | 33% | **62%** |
+| Precision band | 31–50% | 68–97% | 71–92% | **90–98%** |
+| Manufactured per review | **14.3** | 0.1 | 0.3 | 0.2 |
+
+**This inverts the Part 1 prediction the Part 2 design was built on** — that
+recall would be at ceiling and precision the weakness. And recall is not monotone
+in capability: Haiku beats both mid-tier models by raising 28.6 issues per review
+against their ~3.5. The two parts measured recall against different objects: one
+pre-named flaw (9/10, a ceiling) versus 45 human blocking issues (62% at best).
+**Recall against a planted flaw is a ceiling metric; recall against a real desk
+critique discriminates.**
+
+**5. F1 is the wrong summary, and this data shows why.** Haiku's F1 band
+(0.39–0.52) spans both mid-tier models, because F1 is a ratio and normalises away
+how much noise was produced to buy the recall. The absolute count does not:
+**14.3 manufactured objections per review versus 0.1.** A ~100x gap, and the
+cleanest separation anywhere in this eval. **Report recall and
+manufactured-per-review as a pair; do not report F1.** That pair is the answer to
+the brief's recall/precision question, and it is stronger than the three-bucket
+precision design alone — which the Haiku column shows can be satisfied while the
+reviewer is still unusable.
+
+**6. The gold pass audited the instrument, and the instrument lost.** Two defects
+surfaced only when real labels met the schema, and **neither was visible in the
+gold-free diagnostics that looked clean across three prior model sweeps**:
+`symmetric` is offered in the `error_asymmetry` enum while the prompt routes
+symmetric payoffs to `type_ii_dominant` (0 emissions in 80 calls), and none of the
+five `goal_type` labels is defined anywhere in the instrument. Both metrics are
+therefore unreportable as capability. The transferable lesson is that **gold-free
+process metrics cannot validate an instrument** — only real labels can.
+
+## Two items worth more than any aggregate
+
+**S5.** Gold is *strong* for A; all four models chose B under both orderings.
+Unanimous and confident against a confident human is a shared blind spot, not
+noise, and it is the single most informative item in the set. S3 is the same shape
+at weak strength.
+
+**Haiku is differently wrong, not uniformly worse.** It is the only model correct
+on S2 and S9 while missing S1 and S7, where the other three are right. Any
+single-scalar leaderboard erases this.
+
+## What the anti-objection category bought
+
+Not in the original design, and the highest-value thing found while building the
+denominator. Gold contains sentences that rule an objection *out* — *"the
+objection that twenty to thirty episodes is too few does not apply"* (S9B). Those
+are gold-certified false positives: checkable without adjudicating anything, and
+they measure the exact Part 1 failure. Four traps across ten items; Haiku hit 7,
+the others 0–3. **Cheap to collect and worth designing for deliberately** — a
+carry into Part 3.
+
+## Caveats that must travel with these numbers
+
+- **Opus 5 scored itself.** It posts the best recall *and* the best precision
+  under an Opus 5 judge, which is what self-preference looks like. Blinding the
+  scorer to model identity does not remove it. Treat its margin as an upper
+  bound. Unaffected: Sonnet vs Opus 4.8 (neither is the judge, and they are 4
+  points apart, i.e. not separated), and the Haiku manufactured-rate finding,
+  which is a 100x gap rather than a 4-point one.
+- **Opus 5 is the only evaluated model that thinks** (Note 5). Its lead is
+  model + thinking.
+- **Precision is a band** because the scorer was told to prefer `real_unlisted`
+  when torn. The point estimate quotes the tie-breaking rule.
+- **Ten items, one reviewer, n=1 per call.** Where a model disagrees with gold the
+  honest reading is "disagrees with this desk," not "wrong."
+- **The classifier that built the denominator is not deterministic** — it returned
+  43 then 45 blocking issues on two runs of the same input. Recall denominators
+  carry roughly ±2 of slack.

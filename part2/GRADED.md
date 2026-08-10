@@ -129,12 +129,9 @@ spread is narrow and this does not separate models.
 
 ## Still outstanding
 
-Pointwise **recall and precision are not computed here.** They require semantic
-matching of each model issue against gold's prose critiques — 65 gold issue
-paragraphs across the 10 items — which is a judgment call per issue and belongs
-in a separate scorer, not in deterministic comparison. That is the remaining
-piece of the SCORING.md design, and it is where the Part 1 finding predicts the
-real separation lives (recall was at ceiling; precision was the weakness).
+The four context-flip items (`S2F`, `S5F`, `S8F`, `S9F`) have no gold, so the
+context-sensitivity axis — the only one that holds the plan fixed and varies the
+firm — is unscored. `flip_test.py` reports it gold-free in the meantime.
 
 ---
 
