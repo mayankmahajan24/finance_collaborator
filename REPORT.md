@@ -27,12 +27,11 @@ of 10 critiques**, at about 2.6 objections each that do not apply. It also overs
 confidence with precise numbers it never derived — "stop below 0.5%" looks like
 discipline, but the number came from nowhere (**Table 3**).
 
-**On the fundamental ideas, is the failure "anchors on the narrative" or "can't tell
-mechanism from correlation"?** Neither. Only one plan was too anchored, and two
-actively rejected the conclusion their seed implied. The real failures were about
-**context and feasibility** — a 40,000 firm-quarter panel proposed to a five-person
-shop running on Bloomberg and Excel. Claude reasons about mechanism well and
-misjudges who it is working for.
+**On the fundamental ideas, is it "anchors on the narrative" or "can't tell mechanism
+from correlation"?** Neither — only one plan was too anchored, and two rejected the
+conclusion their seed implied. The real failures were **context and feasibility**: a
+40,000 firm-quarter panel proposed to a five-person shop running on Bloomberg and
+Excel. Claude reasons about mechanism well and misjudges who it is working for.
 
 **Does it catch its own mistakes?** The critique is better than the plan, but knowing
 the problem never changes the recommendation. One plan leads with a random 20% holdout
@@ -49,21 +48,19 @@ labels must be human, and the eval cannot rest on planted flaws.
 
 ## Part 2 — An eval for the discriminator
 
-**How the items are built** (**Table 4**). Ten seeds, each with two genuinely
-different methodologies, each plan written against an anonymous token so the model
-never knew a second plan existed. Plans in a pair match within 2.2% on length, since
-these models prefer longer answers and an uncontrolled gap lets one win without doing
-any finance reasoning. Every item states **which firm is asking**. I expected the
-first methodology to be stronger in every pair; my blind labels chose it **5 of 10
-times**, so my expectation did not reach the answer key.
+**How the items are built:** ten seeds, two genuinely different methodologies each,
+with blind generation, length matched within 2.2%, and a stated firm per item
+(**Table 4**). I expected the first methodology to win every pair; my blind labels
+chose it **5 of 10 times**, so my expectation did not reach the answer key.
 
 ### Result 1 — the average hides the result; the split shows it
 
-My labels prefer plan A on 6 of 10 items, so always answering A scores 60%. Against
-that, three of four models fail to beat a coin flip. Splitting by **how confident I
-was** (**Table 5**) tells a different story. Where I was confident, accuracy rises
-with model quality (58% → 67% → 67% → 75%) and every model beats chance. Where I was
-torn, every model falls below its own 75% baseline and the order reverses.
+My labels prefer plan A on 6 of 10 items, so always answering A scores 60% — and
+against that, three of four models fail to beat a coin flip. Splitting by **how
+confident I was** (**Table 5**) tells a different story. Where I was confident,
+accuracy rises with model quality (58% → 67% → 67% → 75%) and every model beats
+chance. Where I was torn, every model falls below its own 75% baseline and the order
+reverses.
 
 **Reviewer confidence is a measure of item difficulty, not just a way to group
 results.** It takes one keystroke to record and predicts whether an item separates
@@ -78,13 +75,13 @@ issues, 4 comments that were praise, and 4 **anti-objections** — places where 
 explicitly that a criticism does not apply. Matching is by meaning, with three
 precision buckets so valid issues I never wrote still count as real.
 
-**The results reversed the assumption the design was built on** (**Table 7**). Part 1
+**The results reversed the assumption behind the design** (**Table 7**). Part 1
 suggested recall would be near its ceiling and precision would separate the models.
 The opposite holds, because Part 1 measured recall against a *single* flaw named in
 advance (9 of 10) while Part 2 measures it against *45 real review objections* (62%
-at best). But recall does not rise with model quality either: Haiku beats both
-mid-tier models by raising 28.6 issues per review — enough volume to cover half the
-answer key by chance.
+at best). Recall does not rise with model quality either: Haiku beats both mid-tier
+models by raising 28.6 issues per review, enough volume to cover half the answer key
+by chance.
 
 **So F1 is the wrong summary statistic.** Haiku's F1 range overlaps both mid-tier
 models, because F1 is a ratio and ignores how much noise was produced to get that
@@ -99,8 +96,8 @@ mattered, and how much noise did I read to get there.
 Two fields turned out to be broken, and **neither was visible in the diagnostics I ran
 first, which looked clean across three model sweeps** (**Table 8**): **checks that
 don't need an answer key cannot tell you whether your instrument works.** Four further
-limits apply to every number above (**Table 13**), the most serious being that Opus 5
-graded its own reviews.
+limits apply to every number above (**Table 13**), most seriously that Opus 5 graded
+its own reviews.
 
 ---
 
@@ -108,7 +105,7 @@ graded its own reviews.
 
 Part 2 happened to run both halves of the brief's question: I wrote gold labels by
 hand for twenty plan reviews, and four models produced issue lists for the same plans,
-every issue adjudicated. So this is measured, not assumed.
+every issue adjudicated. So the following is measured.
 
 **Having the expert strike out model suggestions caps recall** (**Table 9**). The
 labels can only contain what the model proposed, and the best model covers **62%** of
@@ -116,10 +113,10 @@ the blocking issues I wrote by hand. **Writing by hand has the opposite gap:** m
 raised 46 to 236 valid issues I never wrote. Neither wins outright, which is why they
 should be combined.
 
-**Suggestion quality determines the mix of labels, and good suggestions ruin it**
+**Suggestion quality determines the label mix, and good suggestions ruin it**
 (**Table 10**). An expert reviewing Opus 5's suggestions strikes out 3 of 133 and
-spends the session agreeing, producing a set that is 98% positive labels and useless
-for evaluating a discriminator.
+spends the session agreeing — a set that is 98% positive labels, and useless for
+evaluating a discriminator.
 
 **The strikes are the valuable output, not the discarded part.** Each strike is an
 anti-objection — the label type Part 2 found most useful, and the one writing by hand
