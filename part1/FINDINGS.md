@@ -21,7 +21,7 @@ That inverts the brief's framing of the question. The failure is not primarily
 finance," and the methodological fluency is what disguises it.
 
 *(An earlier draft of this file argued the opposite, on the automated scoring
-alone. The human verdicts overturned it — see "Where the two readings disagree".)*
+alone. The human verdicts overturned it.)*
 
 ## Answering the brief's four questions
 
@@ -66,24 +66,39 @@ full project regardless** — S5's plan says in its own pitfalls section that th
 signal is mined, then budgets eight weeks to confirm it. The knowledge is present
 and does not reach the recommendation.
 
-## Where the two readings disagree
+## Dodging the named flaw is a poor proxy for plan quality
 
-| | Human desk verdict | Subagent vs gold flaw |
+The two readings answer different questions. The subagent asked *"did this handle
+the one flaw specified in advance?"*; the human asked *"is this good work?"*
+Comparing the totals — 7/10 avoided the flaw, 4/10 judged acceptable — invites
+the reading that one reviewer is simply harsher. The per-item breakdown says
+otherwise, because **the disagreement runs in both directions**:
+
+| | Count | Seeds |
 |---|---|---|
-| Plans acceptable | **4 / 10** | 7 / 10 avoided the flaw |
-| Critiques clean | **0 / 10** | 9 / 10 caught the flaw |
-| Manufactured objections | 5 / 10 critiques | 26 total (2.6 per critique) |
+| Avoided the named flaw, still **bad** | **5** | S2, S4, S6, S8, S10 |
+| Only *partially* handled it, still **fine** | **2** | S3, S5 |
+| Agree | 3 | S1, S7, S9 |
 
-The gap is the most useful thing in Part 1. A subagent applying a written rubric
-scored these plans nearly twice as favourably as a practitioner reading them.
-**Rubric-following is not judgment**, and the difference is concentrated exactly
-where the rubric could not reach: whether a standard objection applies *here*,
-whether the horizon suits the phenomenon, whether the firm could execute it.
+The five in the first row failed for reasons the gold flaw never mentioned —
+*"overly complex and disorganized"* (S6), *"poor assumptions on context… and
+implementability"* (S8), *"too anchored"* (S4). The two in the second row carried
+a partial version of the named flaw and were still worth staffing.
 
-Two consequences. First, gold for Part 2 has to be human — a model-generated
-standard would have certified six plans the desk rejected. Second, the automated
-recall number (9/10) is close to meaningless on its own; the same critiques the
-scorer called "caught" were, to a reader, uniformly defective.
+**A plan's quality is not reducible to whether it dodged one pre-named defect.**
+That is the finding, and it is more useful than a harshness comparison: it says
+flaw-based scoring measures something narrower than what a desk decides on.
+
+The same caution applies to the critique numbers. The subagent scored 9/10
+critiques as having "caught" the flaw; the human found a defect in **10 of 10**.
+Both can be true — catching the named flaw and being a good review are different
+achievements. The automated recall figure should not be read as a quality score.
+
+Two consequences, both carried into Part 2. **Gold must be human**, since a
+flaw-matching standard would have certified five plans the desk rejected. And
+**the eval should not be built on planted flaws** — a design we abandoned for a
+separate reason (generators repaired them) but which this evidence independently
+condemns.
 
 ## What the numbers are worth
 

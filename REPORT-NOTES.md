@@ -247,21 +247,35 @@ the flaw:
 **Date:** 2026-08-09
 **Trigger:** the `your_verdict` column got filled in, which changed the headline.
 
-### The two readings disagree, and the gap is the finding
+### Dodging the named flaw is a poor proxy for plan quality
 
-| | Human desk verdict | Subagent vs gold flaw |
+The two readings answer different questions — the subagent asked "did this handle
+the one flaw specified in advance", the human asked "is this good work". The
+totals (7/10 avoided vs 4/10 acceptable) invite a harshness reading; the per-item
+breakdown rules it out, because the disagreement runs **both ways**:
+
+| | Count | Seeds |
 |---|---|---|
-| Plans acceptable | **4 / 10** | 7 / 10 avoided the flaw |
-| Critiques clean | **0 / 10** | 9 / 10 caught the flaw |
+| Avoided the named flaw, still bad | **5** | S2, S4, S6, S8, S10 |
+| Partially handled it, still fine | **2** | S3, S5 |
+| Agree | 3 | S1, S7, S9 |
 
-A subagent applying a written rubric scored the plans nearly twice as favourably
-as a practitioner reading them, and found nine clean critiques where the human
-found none. **Rubric-following is not judgment.** The divergence sits exactly
-where a rubric cannot reach: whether a standard objection applies *here*, whether
-the horizon suits the phenomenon, whether the firm could execute it.
+The five failed for reasons the gold flaw never named — "overly complex and
+disorganized" (S6), "poor assumptions on context and implementability" (S8), "too
+anchored" (S4). The two carried a partial version of the flaw and were still
+worth staffing.
 
-Direct consequence for Part 2: gold must be human. A model-generated standard
-would have certified six plans the desk rejected.
+> **A plan's quality is not reducible to whether it dodged one pre-named
+> defect.** Flaw-based scoring measures something narrower than what a desk
+> decides on.
+
+Same caution on the critique numbers: 9/10 "caught the flaw" versus 10/10 with a
+defect. Both true — catching the named flaw and being a good review are different
+achievements, and the recall figure is not a quality score.
+
+Consequences for Part 2: gold must be human (a flaw-matching standard would have
+certified five plans the desk rejected), and the eval should not rest on planted
+flaws — a design abandoned for a separate reason, independently condemned here.
 
 ### Headline reversed
 
