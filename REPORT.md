@@ -23,21 +23,26 @@ the market prices information (**Table 1**). So this is closer to "doesn't know 
 finance" than "doesn't know how research goes wrong," and its fluent methodology hides
 that. Both columns of Table 1 are one problem: falling back on the standard checklist
 is what a model does when it lacks the specific insight. I found a real defect in **10
-of 10 critiques**, at about 2.6 objections each that do not apply. It also overstates
-confidence with precise numbers it never derived — "stop below 0.5%" looks like
+of 10 critiques**, at about 2.6 objections each that do not apply. Claude also overstates confidence in two ways. It gets high coverage by writing a lot
+— a 2,400-word plan listing every possible caveat scores well on "did it catch the
+flaw," and that same volume produces the objections that don't apply. And it makes
+work look rigorous with precise numbers it never derived: "stop below 0.5%" reads as
 discipline, but the number came from nowhere (**Table 3**).
 
 **On the fundamental ideas, is it "anchors on the narrative" or "can't tell mechanism
 from correlation"?** Neither — only one plan was too anchored, and two rejected the
 conclusion their seed implied. The real failures were **context and feasibility**: a
 40,000 firm-quarter panel proposed to a five-person shop running on Bloomberg and
-Excel. Claude reasons about mechanism well and misjudges who it is working for.
+Excel, and public methods for identifying retail orders proposed to a market maker
+that already has the real labels in its own systems. Claude reasons about mechanism
+well and misjudges who it is working for.
 
 **Does it catch its own mistakes?** The critique is better than the plan, but knowing
-the problem never changes the recommendation. One plan leads with a random 20% holdout
-and notes *in the same sentence* that random splits leak — the brief's own example of
-validation that leaks, in a sharper form where the plan identifies the problem and
-keeps going.
+the problem never changes the recommendation. One plan says in its own pitfalls
+section that the signal is already well known, then budgets eight weeks to test it.
+Another leads with a random 20% holdout and notes *in the same sentence* that random
+splits leak — the brief's own example of validation that leaks, in a sharper form
+where the plan identifies the problem and keeps going.
 
 **Avoiding a known flaw is a poor measure of plan quality.** Seven of ten plans
 avoided the flaw I wrote down; only four were good enough to staff, and the
@@ -66,7 +71,15 @@ reverses.
 results.** It takes one keystroke to record and predicts whether an item separates
 models at all — the most useful thing this eval produced, and the headline number
 should be accuracy on high-confidence items. The brief's sense check passes in the
-direction it was not worried about: **Haiku scored 55%, not 90%** (**Table 6**).
+direction it was not worried about: **Haiku scored 55%, not 90%.**
+
+Two individual items are worth more than the average (**Table 6**). On one, all four
+models picked the same plan under both orderings — against a preference I had marked
+*strong* in the other direction. Four models agreeing confidently and being wrong
+against a confident reviewer is a shared blind spot, not noise, and it is the most
+informative item in the set. Separately, Haiku is the only model right on two items
+the other three miss: it is **wrong differently, not uniformly worse**, which a single
+score cannot show.
 
 ### Result 2 — the right recall and precision framing is not F1
 
