@@ -196,6 +196,30 @@ def report(models: list[str]) -> None:
         print(f"{m:<22}{f'{lo:.0%} - {hi:.0%}':>16}{c['matched']:>10}"
               f"{c['real_unlisted']:>10}{c['manufactured']:>10}"
               f"{c['contradicts_gold']:>9}{unc:>8}")
+    print()
+    print("=" * 78)
+    print("COMBINED — does anything order all four models?")
+    print("=" * 78)
+    print(f"{'model':<22}{'recall':>10}{'precision':>18}{'F1 band':>18}"
+          f"{'manufactured':>14}")
+    print("-" * 78)
+    for m, d in rows.items():
+        c = {k: 0 for k in ("matched", "real_unlisted", "manufactured", "contradicts_gold")}
+        unc = 0
+        for b in d["buckets"]:
+            c[b["bucket"]] += 1
+            unc += b.get("uncertain", False) and b["bucket"] == "real_unlisted"
+        n = sum(c.values())
+        real = c["matched"] + c["real_unlisted"]
+        rec = sum(1 for r in d["recall"] if r["surfaced"]) / len(d["recall"])
+        f1 = lambda p: 2 * rec * p / (rec + p) if rec + p else 0
+        hi, lo = real / n, (real - unc) / n
+        bad = c["manufactured"] + c["contradicts_gold"]
+        print(f"{m:<22}{rec:>9.0%}{f'{lo:.0%} - {hi:.0%}':>18}"
+              f"{f'{f1(lo):.2f} - {f1(hi):.2f}':>18}{bad:>14}")
+    print("\nF1 is the standard way to combine these. Read whether it actually ranks the")
+    print("models, or whether raising far more issues buys enough recall to offset the")
+    print("precision it costs.")
     print("\nprecision = (matched + real_unlisted) / all raised.")
     print("The scorer was told to choose real_unlisted when torn and flag `uncertain`, so the")
     print("upper bound counts those as real and the LOWER bound counts them as manufactured.")
@@ -208,6 +232,9 @@ def main() -> None:
     ap.add_argument("--models", nargs="*")
     ap.add_argument("--scorer", default="claude-opus-5")
     ap.add_argument("--workers", type=int, default=4)
+    # Haiku emits up to 90 issues in one review; the scorer must bucket every one,
+    # and Opus 5 thinks by default, so thinking tokens share this budget.
+    ap.add_argument("--max-tokens", type=int, default=48000)
     ap.add_argument("--report", action="store_true")
     args = ap.parse_args()
 
@@ -239,7 +266,7 @@ def main() -> None:
                             plan=items[it][f"plan_{slot}"],
                             gold=fmt_gold(gold[it][slot]),
                             issues=fmt_issues(issues), n=len(issues)),
-                SCHEMA, 32000)
+                SCHEMA, args.max_tokens)
             print(f"  {it:>4} {slot}  {len(issues):>3} issues -> "
                   f"{sum(1 for x in res['gold_recall'] if x['surfaced'])} gold surfaced")
             return it, slot, res, len(issues)
