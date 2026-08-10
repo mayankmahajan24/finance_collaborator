@@ -28,9 +28,11 @@ Ten seed ideas, five quant and five fundamental, mixing obviously good, obviousl
 
 My labels prefer plan A on 6 of 10 items, so always answering A scores 60% — and against that, three of four models fail to beat a coin flip. Splitting by **how confident I was** (**Table 5**) tells a different story. Where I was confident, accuracy rises with model quality (58% → 67% → 67% → 75%) and every model beats chance. Where I was torn, every model falls below its own 75% baseline and the order reverses.
 
-**How confident the reviewer was tells you whether the item works at all.** Items I marked confident separate the models cleanly. Items I was torn on separate nothing — every model scores below chance on them, and the ranking scrambles. So that flag is not just a way to group results; it is a difficulty label, it costs one keystroke because the reviewer is already recording it, and it should decide which items count. Report accuracy on confident items as the headline number, since averaging the rest back in pulls it toward chance and hides the result.
+**Noting how sure I was about each answer turned out to predict whether the item was any good.** On the items I was sure about, the better models scored better, and all four beat a coin flip. On the items I was unsure about, all four models did worse than a coin flip and the ranking fell apart. Those items measure nothing.
 
-The brief warned that if Haiku scored 90% the items would be too easy. **Haiku scored 55%**, so that is not the problem here. If anything the risk runs the other way — the items I was torn on may be too hard to score reliably.
+This is worth collecting because it is free — the reviewer already knows how sure they are. Use it to decide which items count, and report accuracy on the sure items as the headline. Averaging the unsure ones back in drags the number toward chance and hides the result.
+
+The brief warned that if Haiku scored 90%, the items would be too easy. **Haiku scored 55%**, so that is not the problem here. The opposite might be: the items I was unsure about may just be too hard to score.
 
 Two individual items are worth more than the average (**Table 6**). On one, all four models picked the same plan under both orderings — against a preference I had marked *strong* in the other direction. Four models agreeing confidently and being wrong against a confident reviewer is a shared blind spot, not noise, and it is the most informative item in the set. Separately, Haiku is the only model right on two items the other three miss: it is **wrong differently, not uniformly worse**, which a single score cannot show.
 
