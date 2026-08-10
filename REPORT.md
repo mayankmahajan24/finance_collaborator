@@ -4,8 +4,8 @@
 Repo: `github.com/mayankmahajan24/finance_collaborator` — seeds, generation and
 critique scripts, eval items, gold, scoring, and every raw model call.
 
-*All figures and tables are in Appendix A and referenced by number. Part 0 is
-Appendix B; repo map is Appendix C.*
+*Figures and tables are in Appendix A, referenced by number. Part 0 is Appendix B;
+repo map is Appendix C.*
 
 ---
 
@@ -13,81 +13,72 @@ Appendix B; repo map is Appendix C.*
 
 Ten seeds, five quant and five fundamental, across obviously-good,
 obviously-flawed and subtly-flawed. Claude produced a plan per seed then critiqued
-it, seeing only the seed sentence. Two readings followed: my desk verdict per
-item, and an automated score against a pre-written flaw.
+it, seeing only the seed sentence. Two readings followed: my desk verdict, and an
+automated score against a pre-written flaw.
 
 **Claude over-applies generic research methodology and under-applies finance
-domain knowledge.** It knows the catalogue of ways research goes wrong and recites
-it whether or not the entries apply; what it misses is almost always an
-institutional or mechanical fact about the instrument, the data, or how the market
-prices information (**Table 1**). That inverts the brief's framing: the failure is
+domain knowledge.** It recites the catalogue of ways research goes wrong whether
+or not the entries apply; what it misses is almost always an institutional or
+mechanical fact about the instrument, the data, or how the market prices
+information (**Table 1**). That inverts the brief's framing — the failure is
 closer to **"doesn't know the finance,"** and methodological fluency disguises it.
-Table 1's two columns are one failure — reaching for the generic checklist is what
+Table 1's two columns are one failure: reaching for the generic checklist is what
 a model does when the domain insight is absent. I found a defect in **10 of 10
-critiques**; five contained an outright overreach, at ~2.6 manufactured objections
-each.
+critiques**, at ~2.6 manufactured objections each.
 
-**Unearned confidence shows up in two registers.** Claude *buys recall with
-volume* — a ~2,400-word plan enumerating every plausible caveat scores well on "did
-it catch the flaw?", and the same surface area produces the manufactured
-objections. It also **buys credibility with precision**, reaching for exact-looking
-thresholds never derived from anything and then hanging decisions on them
-(**Table 3**, five of ten items). "We will stop if the effect is small" is honest;
-"we will stop below 0.5%" manufactures a load-bearing rule — discipline to read,
-decoration in function.
+**Unearned confidence appears in two registers.** Claude *buys recall with volume*
+— a ~2,400-word plan enumerating every caveat scores well on "did it catch the
+flaw?", and that surface area is what produces the manufactured objections. It also
+**buys credibility with precision**, hanging decisions on exact-looking thresholds
+it never derived (**Table 3**). "Stop if the effect is small" is honest; "stop below
+0.5%" is discipline to read and decoration in function.
 
-**On the discretionary ideas — "anchors on the narrative" or "can't tell
-mechanism from correlation"?** Neither. Only S4 was judged *too anchored*, and both
-S4 and S7 plans actively refused their seed's embedded conclusion. The real failures
-were **context and implementability**: a 40,000 firm-quarter panel proposed to a
-five-person Bloomberg shop; public retail-identification proxies to a market maker
-that internalises retail flow and already holds the real labels. Claude reasons
-about mechanism competently and misjudges who it is working for.
+**On the discretionary ideas — "anchors on the narrative" or "can't tell mechanism
+from correlation"?** Neither. Only S4 was judged *too anchored*, and both S4 and S7
+refused their seed's embedded conclusion. The real failures were **context and
+implementability**: a 40,000 firm-quarter panel proposed to a five-person Bloomberg
+shop; public retail-identification proxies to a market maker that internalises
+retail flow and already holds the real labels. Claude reasons about mechanism
+competently and misjudges who it is working for.
 
-**Does it catch its own mistakes?** Partially — the critique is the stronger
-artifact, but self-diagnosis never reaches the recommendation. S5's plan says in
-its own pitfalls section that the signal is mined, then budgets eight weeks to
-confirm it. S2's plan headlines a random 20% holdout and notes *in the same
-sentence* that random splits leak — **the brief's own named failure, "proposes
-validation that leaks," in the sharper form where the plan diagnoses itself and
-proceeds anyway.**
+**Does it catch its own mistakes?** The critique is the stronger artifact, but
+self-diagnosis never reaches the recommendation. S5's plan says in its own pitfalls
+section that the signal is mined, then budgets eight weeks to confirm it. S2's plan
+headlines a random 20% holdout and notes *in the same sentence* that random splits
+leak — **the brief's own named failure, "proposes validation that leaks," in the
+sharper form where the plan diagnoses itself and proceeds anyway.**
 
 **Dodging a named flaw is a poor proxy for quality.** Seven of ten plans avoided
 the pre-written flaw; four were acceptable to me, and the disagreement ran both
-ways (**Table 2**). This killed two design options for Part 2: gold must be
-human, and the eval must not rest on planted flaws.
+ways (**Table 2**). That killed two options for Part 2: gold must be human, and the
+eval must not rest on planted flaws.
 
 ---
 
 ## Part 2 — An eval for the discriminator
 
-**Construction** (**Table 4**). Ten seeds × two distinct methodologies, each
-written against an opaque `sha256` token so generators never knew a sibling plan
-existed — neither side is a strawman. Plans were matched within 2.2% on length,
-because LLM judges favour length and an uncontrolled gap lets a model win without
-doing any finance reasoning. Every item names **which firm is asking**, because a
-plan is good or bad *for someone*. Judging runs against 13 tenets, pairwise and
-pointwise, each pair scored A/B and B/A.
-
-**A construction check that mattered:** I built every pair intending M1 to be the
-stronger side; my blind gold preferred M1 on **5 of 10**. The design prior washed
-out, so the eval is not scoring models against my own generation bias.
+**Construction** (**Table 4**). Ten seeds × two distinct methodologies, each written
+against an opaque `sha256` token so generators never knew a sibling plan existed —
+neither side is a strawman. Plans are matched within 2.2% on length, because LLM
+judges favour length and an uncontrolled gap lets a model win without doing any
+finance reasoning. Every item names **which firm is asking**, because a plan is good
+or bad *for someone*. I built every pair intending M1 to be stronger; my blind gold
+preferred M1 on **5 of 10**, so the design prior washed out.
 
 ### Result 1 — the aggregate is a trap; the split is the result
 
-Gold prefers A on 6/10, so *always answer A* scores 60%, and on that aggregate
+Gold prefers A on 6/10, so *always answer A* scores 60% — and on that aggregate
 three of four models fail to beat a coin. Split by **my own stated confidence**
 (**Table 5**), the same twenty calls say something else: where I was confident,
-accuracy is monotone in capability (58→67→67→75) and everything beats chance;
-where I was torn, everything falls below its 75% baseline and the order inverts.
+accuracy is monotone in capability (58→67→67→75) and everything beats chance; where
+I was torn, everything falls below its 75% baseline and the order inverts.
 
-**Preference strength is a difficulty label, not just a reporting split.** It costs
-one keystroke and predicts whether an item discriminates at all — the most reusable
-thing this eval produced. Report strong-item accuracy as the headline. Two
-individual items also carry more than the aggregate does: a unanimous confident
-miss, and evidence Haiku is *differently* wrong rather than uniformly worse
-(**Table 6**). The brief's sense-check meanwhile passes in the direction it was not
-worried about — **Haiku scored 55%, not 90%.** The items are not too easy.
+**Preference strength is a difficulty label, not just a reporting split** — one
+keystroke that predicts whether an item discriminates at all, and the most reusable
+thing this eval produced. Report strong-item accuracy as the headline. Two items
+also carry more than the aggregate: a unanimous confident miss, and evidence Haiku
+is *differently* wrong rather than uniformly worse (**Table 6**). The sense-check
+passes in the direction the brief was not worried about — **Haiku scored 55%.**
 
 ### Result 2 — the right recall/precision framing is *not* F1
 
@@ -95,48 +86,39 @@ Gold prose was classified into **45 blocking** issues (the recall denominator), 
 secondary, 4 praise, and 4 **anti-objections** — places I explicitly rule an
 objection *out*. Matching is semantic, with three precision buckets so legitimate
 issues I never wrote still count as real, and `why_it_applies_here` required per
-issue, so an objection that would read identically against any plan in the asset
-class is self-revealing.
+issue, so an unearned objection is self-revealing.
 
 **This inverted the prediction the design was built on** (**Table 7**). Part 1
 implied recall would sit at ceiling and precision would discriminate; the reverse
-holds, because Part 1 measured recall against *one pre-named flaw* (9/10, a
-ceiling) and Part 2 measures it against *45 real desk objections* (62% at best).
-**Recall against a planted flaw is a ceiling metric; recall against a real
-critique discriminates.**
+holds, because Part 1 measured recall against *one pre-named flaw* (9/10, a ceiling)
+and Part 2 measures it against *45 real desk objections* (62% at best). But recall is
+**not monotone in capability** — Haiku beats both mid-tier models by firing 28.6
+issues per review, wide enough to cover half the answer key by volume.
 
-But recall is **not monotone in capability** — Haiku beats both mid-tier models by
-firing 28.6 issues per review, a shotgun wide enough to cover half the answer key
-by volume. **So F1 is the wrong summary.** Haiku's F1 band spans both mid-tier
-models, because F1 is a ratio and normalises away how much noise was produced to
-buy the recall. The absolute count does not: **14.3 manufactured objections per
-review versus 0.1** — a ~100x gap, and the cleanest separation in this eval.
-
-**My answer to the brief's question: report recall and manufactured-per-review as
-a pair, and do not report F1.** That pair reads in desk terms — did you find what
-mattered, and how much noise did I read to get it. A reviewer raising fourteen
-unearned objections per plan is unusable regardless of coverage.
+**So F1 is the wrong summary.** Haiku's F1 band spans both mid-tier models, because
+F1 is a ratio and normalises away how much noise was produced to buy the recall.
+The absolute count does not: **14.3 manufactured objections per review versus
+0.1** — a ~100x gap, and the cleanest separation in this eval. **My answer to the
+brief's question: report recall and manufactured-per-review as a pair, not F1.**
+That pair reads in desk terms — did you find what mattered, and how much noise did
+I read to get it.
 
 ### Result 3 — the gold pass audited the instrument, and it lost
 
-Two defects surfaced only when real labels met the schema, and **neither was
-visible in gold-free diagnostics that had looked clean across three prior sweeps**
-(**Table 8**). Both metrics they touch are unreportable as capability. The
-transferable lesson: **gold-free process metrics cannot validate an instrument.**
-
-**Caveats.** Opus 5 scored its own reviews and posts the best recall *and*
-precision under its own judge, so treat its margin as an upper bound — this does
-not touch the Haiku result, a 100x gap. It is also the only evaluated model with
-thinking on by default. And all gold is one reviewer, so "wrong" and "disagrees
-with this desk" are indistinguishable throughout.
+Two defects surfaced only when real labels met the schema, and **neither was visible
+in gold-free diagnostics that had looked clean across three prior sweeps**
+(**Table 8**). Both metrics they touch are unreportable as capability. The lesson
+transfers: **gold-free process metrics cannot validate an instrument.** Four further
+limitations bound every number above and are stated in **Table 13** — the sharpest
+being that Opus 5 scored its own reviews, so its margin is an upper bound.
 
 ---
 
 ## Part 3 — Collecting discriminator data at scale
 
-Part 2 accidentally ran both halves of the brief's experiment: I wrote gold
-free-hand for twenty plan-critiques, and four models produced issue lists for the
-same plans, every issue adjudicated. So this is measured, not intuited.
+Part 2 accidentally ran both halves of the brief's experiment: I wrote gold free-hand
+for twenty plan-critiques, and four models produced issue lists for the same plans,
+every issue adjudicated. So this is measured.
 
 **Strike-out imposes a hard recall ceiling** (**Table 9**): gold can only contain
 what the generator proposed, and the best covers **62%** of the blocking issues I
@@ -144,31 +126,28 @@ wrote free-hand, so even at its best it silently loses 38%. **Free-hand writing 
 the opposite gap** — models raised 46–236 legitimate issues I never wrote. Neither
 dominates, which is the real argument for a hybrid.
 
-**Candidate quality controls the label distribution, and good candidates break
-it** (**Table 10**) — the brief's explicit question, and the answer inverts the
-instinct. An expert reviewing Opus 5's candidates strikes 3 of 133 and spends the
-session agreeing: a 98%-positive label set that no discriminator can be evaluated
-on, because it has almost no negatives.
+**Candidate quality controls the label distribution, and good candidates break it**
+(**Table 10**) — the brief's explicit question, and the answer inverts the instinct.
+An expert reviewing Opus 5's candidates strikes 3 of 133 and spends the session
+agreeing, producing a 98%-positive set no discriminator can be evaluated on.
 
 **The reframe: the strikes are the product, not the waste.** Every strike *is* an
-anti-objection — the label type Part 2 found sharpest, and the one free prose
-produces least (4 across twenty critiques, incidentally). Haiku candidates would
-yield **286**, deliberately. **So use a high-recall, low-precision generator:
-Haiku is right here for exactly the reason it was the worst discriminator.** Its
-noise is the negative-label supply.
+anti-objection — the label Part 2 found sharpest, and the one free prose produces
+least (4 across twenty critiques, incidentally). Haiku candidates would yield
+**286**, deliberately. **So use a high-recall, low-precision generator: Haiku is
+right here for exactly the reason it was the worst discriminator.** Its noise is the
+negative-label supply.
 
-The process is three stages (**Table 11**), ordered so anchoring cannot
-contaminate judgment. **Not poisoning the labels:** write-first ordering means un-anchored issues exist
-before candidates are seen; a **15% write-only control arm** makes anchoring
-measurable rather than merely unmeasured; **never generate candidates with a model
-under evaluation**, since Part 2 hit exactly this contamination; and keep-rate is
-the live health metric — drifting toward 100% means either the generator improved
-or the expert stopped reading, which only the control arm separates (**Table 12**).
+The process is three stages (**Table 11**), ordered so anchoring cannot contaminate
+judgment, with four controls against poisoning the labels (**Table 14**) and five
+health metrics to detect it happening anyway (**Table 12**). The one that generalises
+past this proposal: **never generate candidates with a model under evaluation** —
+Part 2 hit exactly that contamination.
 
-**Buy a second expert before buying more items.** All Part 2 gold is one reviewer,
-and that ambiguity is the binding constraint on every number in this report.
-**Honest limit:** these economics are argued in operations, not measured hours —
-nobody timed the gold pass, so time stage 1 against stage 2 in the first session.
+**Buy a second expert before buying more items.** All gold here is one reviewer, and
+that ambiguity is the binding constraint on every number above. **Honest limit:**
+these economics are argued in operations, not measured hours — nobody timed the gold
+pass, so time stage 1 against stage 2 in the first session.
 
 ---
 ---
@@ -314,6 +293,25 @@ deliberately.*
 | Write-only vs strike-out gold composition | Anchoring | Systematic divergence |
 | Preference-strength distribution | Item difficulty mix | Mostly weak → items not discriminating |
 | Inter-expert agreement on a shared subset | Is gold reproducible | Low → the eval measures one desk |
+
+### Table 13 — Limitations that bound every number in this report
+
+| Limitation | Effect |
+|---|---|
+| **Opus 5 scored its own reviews** in the pointwise pass | It posts the best recall *and* precision under its own judge — exactly what self-preference produces. Treat its margin as an upper bound. Does **not** touch the Haiku result (a 100x gap, not a 4-point one) |
+| **Opus 5 is the only evaluated model with thinking on** by default | The runner passes no `thinking` parameter, so each model runs as shipped. Opus 5's lead is model + thinking, and is not attributable to capability alone |
+| **All gold is one reviewer** | "The model is wrong" and "the model disagrees with this desk" are not separable anywhere in this work |
+| **Ten items, n=1 per call, no re-rolls** | Run-to-run variance is unmeasured; treat any single-item difference as noise |
+| The gold-issue classifier is **non-deterministic** | Returned 43 then 45 blocking issues on identical input, so recall denominators carry ~±2 of slack |
+
+### Table 14 — Part 3: controls against poisoning the labels
+
+| Control | What it prevents | Measurable? |
+|---|---|---|
+| **Write-first ordering** — un-anchored issues recorded before any candidate is shown | Anchoring overwriting the expert's own judgment | Structural |
+| **15% write-only control arm** — no candidates ever shown | Makes drift *detectable*; without it anchoring is unmeasurable, not merely unmeasured | **Yes** |
+| **Never generate candidates with a model under evaluation** | Self-preference contamination — Part 2 hit exactly this | **Yes** |
+| **Keep-rate as a live health metric** | Distinguishes "generator improved" from "expert stopped reading" — only separable against the control arm | **Yes** |
 
 ---
 
