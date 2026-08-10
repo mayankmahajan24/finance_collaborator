@@ -20,8 +20,6 @@ Ten seed ideas, five quant and five fundamental, mixing obviously good, obviousl
 
 **Avoiding a known flaw is a poor measure of plan quality.** Seven of ten plans avoided the flaw I wrote down; only four were good enough to staff, and the disagreement ran both ways (**Table 2**). That ruled out two options for Part 2: gold labels must be human, and the eval cannot rest on planted flaws.
 
----
-
 ## Part 2 — An eval for the discriminator
 
 **How the items are built:** ten seeds, two genuinely different methodologies each, with blind generation, length matched within 2.2%, and a stated firm per item (**Table 4**). I expected the first methodology to win every pair; my blind labels chose it **5 of 10 times**, so my expectation did not reach the answer key.
@@ -44,8 +42,6 @@ I split my critiques into **45 blocking issues** (the recall denominator), 7 sec
 
 **Limits.** Five caveats apply to every number above (**Table 12**), most seriously that Opus 5 graded its own reviews, so its margin should be read as a best case.
 
----
-
 ## Part 3 — Collecting more of this data at scale
 
 **The proposal.** Run each item through three stages (**Table 10**). The expert first writes down the blocking issues alone, with no model output in front of them, plus which plan they prefer and how confident they are. Only then do they see 20-30 candidate issues from a model and mark each keep, strike, or duplicate. A model merges the two passes; the expert reviews only conflicts.
@@ -59,9 +55,6 @@ Part 2 happened to run both halves of the brief's question already — I wrote g
 **Why the noisy model.** Suggestion quality decides the label mix, and good suggestions ruin it (**Table 9**). An expert reviewing Opus 5's suggestions strikes out 3 of 133 and spends the session agreeing — 98% positive labels, useless for evaluating a discriminator. **The strikes are the valuable output, not the discarded part.** Each is an anti-objection, the label type Part 2 found most useful and the one writing by hand produces least (4 across twenty reviews, only in passing). Haiku's suggestions would produce **286** from the same reviews, on purpose — right here for exactly the reason it was the worst discriminator.
 
 **Hire a second reviewer before writing more items.** All labels come from one person, which limits every number above — and this cost argument counts steps rather than timing them, so time stage 1 against stage 2 in the first session.
-
----
----
 
 # Appendix A — Figures and tables
 
@@ -203,8 +196,6 @@ Part 2 happened to run both halves of the brief's question already — I wrote g
 | **Never generate candidates with a model under evaluation** | Self-preference contamination — Part 2 hit exactly this | **Yes** |
 | **Keep-rate as a live health metric** | Distinguishes "generator improved" from "expert stopped reading" — only separable against the control arm | **Yes** |
 
----
-
 # Appendix B — Part 0: two ideas, written before touching Claude
 
 Both written without model assistance and not revised afterward. They are deliberately the **same shape** — third-party panel data used to infer a company's reported financials. One works, one doesn't. The point isn't "alt data good/bad"; it's whether the panel observes the thing that drives the reported number.
@@ -234,8 +225,6 @@ Before interpreting results, confirm the domain and app mapping for each company
 **It dies on the billing mechanic.** Seat-based ARR bills on seats *contracted*, not seats used — so shelfware lets ARR compound while MAU is flat, and free viewer tiers let MAU climb on seats that bill nothing. Even where the two co-move, ARR is seats × price and MAU is silent on the price/mix half, which carries most of the growth in a mature seat model. The panel makes this worse rather than better: enterprise traffic behind SSO and VPN is largely invisible to third-party measurement, so coverage skews toward exactly the small accounts contributing least to ARR. A level regression across SaaS names will still print a high R² because both series trend up — which is precisely what makes the result convincing and wrong.
 
 Every step in B2 is individually standard practice. The caveats it *does* raise — survivorship, thin samples, concentration — are real and responsible, and **none of them is what kills it.** It succeeds on its own terms, which is what makes it the right shape for a subtly-flawed eval seed. It became **S2**.
-
----
 
 # Appendix C — Repo map
 
