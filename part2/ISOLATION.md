@@ -60,3 +60,33 @@ to an opaque filename that is mapped to a slot afterwards. Whichever way this is
 resolved, **all 20 plans must be produced under the same condition** — a mixed
 set is worse than a uniformly-marked one, because it introduces a difference
 between items that has nothing to do with the methodology being tested.
+
+## Sampling configuration — a known confound in the model sweep
+
+The fingerprints prove every model saw the same prompt and the same schema. They
+do **not** cover sampling configuration, and one difference matters.
+
+`run_eval.py` never passes `thinking`, so each model runs at its shipped default.
+Measured directly (`messages.create`, inspect returned content-block types):
+
+| model | thinking by default |
+|---|---|
+| claude-haiku-4-5 | off |
+| claude-sonnet-5 | off |
+| claude-opus-4-8 | off |
+| **claude-opus-5** | **ON (adaptive)** |
+
+So Opus 5 is the only model in the sweep that reasons before answering. Any Opus 5
+vs Opus 4.8 difference is therefore **model + thinking**, not model alone, and must
+not be read as a clean capability gap.
+
+This is a defensible primary configuration — it is how each model behaves when
+invoked as shipped, which is how a desk would actually use it — but it is a
+configuration choice, not a neutral one, and the ordering it produces is not
+evidence about model capability on its own.
+
+The control that separates the two: re-run Opus 5 with `thinking` explicitly
+disabled and compare against its default-on run. Until that exists, the sweep
+supports "Haiku < Sonnet ≈ Opus 4.8" as a capability ordering and treats the
+Opus 5 row as not-yet-attributable.
+

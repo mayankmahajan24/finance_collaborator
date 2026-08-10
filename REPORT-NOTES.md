@@ -393,3 +393,94 @@ enumerate. This fixes truncation, makes precision meaningful, and matches what a
 desk review actually is. It changes the instrument, so it must be decided before
 the other models run — and the Haiku data would need re-running to stay
 comparable.
+
+---
+
+# Note 5 — the four-model sweep, gold-free
+
+All four models completed 28 pairwise + 28 pointwise calls, zero errors, matching
+prompt and schema fingerprints. Opus 5 required two credit top-ups and a merge
+retry; `retry_eval.py` preserved the 17 calls that had already succeeded.
+
+| | Haiku 4.5 | Sonnet 5 | Opus 4.8 | Opus 5 |
+|---|---|---|---|---|
+| Self-consistent (AB vs BA) | 11/14 | 11/14 | 12/14 | **13/14** |
+| Frame stable (`goal_type`) | 8/14 | 11/14 | 10/14 | **13/14** |
+| Slot-A rate (50% = unbiased) | 61% | **46%** | **50%** | 54% |
+| Issues per pointwise review | **26.3** | 3.9 | 3.9 | 6.6 |
+| `goal_type` categories used | 3/5 | 4/5 | **5/5** | **5/5** |
+| Preference moved on a context flip | 0/4 | 0/1 | 1/3 | **2/3** |
+
+## Finding: no single metric orders all four models
+
+This is the practical result of the sweep, and it is a design finding rather than
+a model finding.
+
+- **Issues per review** separates Haiku (26.3, max 90) from everything else, then
+  goes non-monotone — Opus 5 raises *more* than Sonnet and Opus 4.8 (6.6 vs 3.9).
+  Verbosity resolves the bottom band only.
+- **`goal_type` coverage** is monotone but saturates: 3 → 4 → 5 → 5. It cannot
+  separate the top two.
+- **`explainability_fit = over_demanded`** fires 9 times for Opus 4.8 and 0–1 for
+  everyone else including Opus 5. This looked like a top-band discriminator on
+  three models; the fourth shows it is an Opus 4.8 idiosyncrasy. **One model can
+  invent a trend across three points.**
+- **Stability metrics** (self-consistency, frame stability) are the only ones that
+  are monotone *and* still separating at the top — and they are exactly the
+  metrics the thinking confound below contaminates.
+
+**Consequence:** the eval needs a metric panel, and the panel must be read by
+band. Reporting a single headline number would have picked a metric that resolves
+one band and flattens the rest.
+
+## The context-flip result inverts a metric that looks like a win
+
+`flip_test.py` reports two things per model: whether preference moves when only
+the firm changes, and whether the model's reading of *the plan* drifts (it should
+not — the plan is byte-identical).
+
+| | Haiku 4.5 | Sonnet 5 | Opus 4.8 | Opus 5 |
+|---|---|---|---|---|
+| Implied-asker drift (lower better) | **0/8** | **0/8** | 3/8 | 2/8 |
+| Preference moved (capability) | 0/4 | 0/1 | 1/3 | **2/3** |
+
+Read alone, the drift row says Haiku and Sonnet are the disciplined readers. The
+second row says why: **they never moved anything.** Zero drift is free if the
+model is scoring plans in the abstract and ignoring the stated firm entirely —
+which is a tenet-2 failure, not a success.
+
+Neither row is interpretable without the other. A stability metric only counts as
+a virtue when paired with evidence the model *can* move.
+
+## Confound: Opus 5 is the only model that thinks
+
+Measured directly rather than assumed — inspect the returned content-block types:
+
+| model | thinking by default |
+|---|---|
+| haiku-4-5, sonnet-5, opus-4-8 | off |
+| **opus-5** | **ON (adaptive)** |
+
+`run_eval.py` never passes `thinking`, so every model runs as shipped. The
+fingerprints cover prompt and schema, **not sampling configuration**, so this
+difference was invisible in the comparability check that otherwise guards this
+sweep.
+
+Opus 5 leads on precisely the two metrics extended reasoning would be expected to
+improve — self-consistency and frame stability. So its lead is **model + thinking**
+and is not attributable to capability on this data.
+
+Running each model as shipped is a defensible primary configuration; it is how a
+desk would actually invoke them. But it is a choice, and the ordering it produces
+is not on its own evidence about capability. The separating control is Opus 5 with
+thinking explicitly disabled, versus its default-on run. Until that exists this
+sweep supports **Haiku < Sonnet ≈ Opus 4.8** as a capability ordering and holds
+the Opus 5 row as not-yet-attributable.
+
+## What still gates the headline claim
+
+Everything above is gold-free. The assignment's sense-check — *scores should scale
+with model intelligence; if Haiku gets 90% the items are too easy* — is an
+**accuracy** claim, and accuracy needs gold, which is still empty. The diagnostics
+show Haiku is clearly separated on process; they cannot yet show it is separated
+on being right.

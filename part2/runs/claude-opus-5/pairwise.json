@@ -6,9 +6,9 @@
   "prompt_fingerprint": "3a2276335156",
   "schema_fingerprint": "f2de1208421d",
   "n_calls": 28,
-  "n_errors": 11,
-  "tokens_in": 152132,
-  "tokens_out": 75086,
+  "n_errors": 0,
+  "tokens_in": 249034,
+  "tokens_out": 113011,
   "results": [
     {
       "id": "S1",
@@ -664,101 +664,448 @@
     {
       "id": "S9",
       "tag": "BA",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8672,
+        "out": 4088
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4bhmb27fPFjvzYfEW'}"
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "firm_fit",
+          "goal_mismatch",
+          "sequencing"
+        ],
+        "key_differentiator": "Plan B answers the actual question about this company using filings a single analyst can work in Excel and an IC can inspect, while Plan A is a 20-30 episode cross-industry base-rate study requiring half a dozen vendor subscriptions and PACER/customs work this five-person shop cannot staff or pay for.",
+        "rationale": "The question is single-name and fundamental: a company we may hold for three to five years has guided to shortages and the market is capitalizing that as duration. What the firm needs is a defensible view on whether this company's commitment book is cash-backed and enforceable, and whether the current EV already assumes it. Plan B delivers exactly that: an RPO/backlog/LTA reconciliation from ASC 606 footnotes, an agreement register scored on structural attributes (minimum quantities, indexation, customer cash, take-or-pay damages, reschedulability, RPO inclusion), coverage ratios by segment, customer mirror disclosures as an independent cross-check, and a reverse DCF that states the market-implied durable horizon. Every input is Bloomberg, EDGAR, transcripts and IR decks. A revenue bridge with a tiering table is precisely the artifact a skeptical IC can pick apart line by line, and the pre-committed constructive/negative thresholds make the output judgeable without any pretense of statistical significance the setting could never produce. Its cheapest and most damaging checks - definition drift in the backlog line, finished goods rising while backlog is called record, negative implied gross bookings, cross-supplier double ordering - are exactly the entropy-reducing ones, and any of them alone can kill the thesis in days. It also engages the other side honestly: suppliers do not sue their biggest customers, so damages are an upper bound and renegotiation the base case; reflexivity is named; duration without growth is flagged as a downgrade against a growth multiple.\n\nPlan A is intellectually the better piece of economics. Its core insight - that shortage LTAs are honored in volume and broken in price, and that the discriminating variable is requalification cost rather than contract label - is the mechanism, with a genuine best case (aero forgings, LNG) and worst case (containers, MLCC) and a stated falsifier. But it has been written for a different firm. Coding twenty to thirty episodes' Exhibit 10 contracts, building per-market capacity ledgers, and reconciling against TrendForce, Fastmarkets, UxC, Argus, Drewry/Xeneta, Panjiva, SEMI and PACER/Chancery/ICC filings is a multi-analyst quantitative research program with six-plus data licences, committed before any cheap version has been tried. This shop has one analyst, no database, and buys data occasionally. Worse, it drifts from the asked question: the deliverable is a cross-industry base rate and a probability-weighted haircut, with the company's own contracts, RPO trajectory, customer purchase-obligation tables and valuation reached only at the end as a 'live case' with 12-month checks. The step that most cheaply kills or confirms the thesis for this holding - does the company's committed book carry customer cash and appear in RPO, and do customers' own filings mirror it - is buried behind months of historical coding. For a concentrated book where being wrong about the business is what kills you, and where Type I error dominates, the demanding plan is right, but demanding must mean demanding about this business, not exhaustively demanding about twelve other industries.\n\nWhat I would do is put the analyst on B and steal A's best idea: make requalification lag and second-source fungibility an explicit attribute in the agreement register, and use two or three of A's episodes - not twenty - as the calibration anchor for the tier haircuts. That costs a week and closes B's real gap.",
+        "issues_with_winner": [
+          "Tier haircuts (90-95/70/25-35%) and nearly all the constructive/negative thresholds (60% NTM coverage, 40% year-two, 15% cash support, 45% top-3 share, 2-year horizon gap) are asserted numbers; only the tiers claim calibration, and one prior semiconductor cycle is thin calibration for percentages quoted to five points",
+          "Six conjunctive constructive gates plus four independent kill criteria is a lot of machinery; a conjunctive screen this tight can reject a genuinely durable book on one arbitrary cutoff",
+          "Weaker on economic mechanism than A - it scores contract structure but never derives from first principles where lock-in should be structurally impossible (cheap requalification, fungible product) versus unbreakable, which is the actual driver of outcomes",
+          "Does not explicitly sequence its cheap coherence checks first, even though they are the ones that could kill the thesis in days",
+          "Four-episode backtest plus RPO rollforward plus scenarios plus reverse DCF is still a heavy load for one analyst; the backtest is the part most likely to be dropped under time pressure and no priority is stated",
+          "Reverse DCF and EV/committed-gross-profit comparison edge toward a valuation verdict the plan does not fully specify how to defend"
+        ],
+        "issues_with_loser": [
+          "Data requirements (TrendForce, Fastmarkets/Benchmark, UxC, Argus/ICIS, Drewry/Xeneta, Panjiva/ImportGenius, SEMI fab database, PACER plus foreign court and ICC/SIAC filings) are far beyond what a $400M five-person shop buys or can operate",
+          "Coding Exhibit 10 contract terms and ordinal outcomes at T+4/8/12 across 20-30 episodes, plus per-market capacity ledgers, is a multi-analyst program; one analyst cannot deliver it in a useful timeframe",
+          "Answers a generalizable cross-industry base-rate question rather than the single-name question asked; the company's own RPO, contract liabilities, customer purchase-obligation tables and valuation are the last thing addressed, not the first",
+          "Badly sequenced for information: the pre-registered live-case checks that would actually move the PM's view are on a 12-month clock, behind the historical build",
+          "No engagement with the company's price - a haircut on durability without a market-implied durability benchmark leaves the incremental view unstated",
+          "Output ('probability-weighted haircut, not a verdict') is hard for a skeptical IC to inspect because the weights come from a hand-coded episode dataset nobody at the firm can re-derive",
+          "Holdout design is elegant but expensive, and its cost is not justified relative to simply testing this company's contracts against two or three well-chosen analogues"
+        ]
       }
     },
     {
       "id": "S10",
       "tag": "AB",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8509,
+        "out": 1512
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4ccLR7yBbJi3WudNB'}"
+        "winner": "A",
+        "confidence": 5,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "firm_fit",
+          "proxy_substitution"
+        ],
+        "key_differentiator": "The question is about one company's margin exposure to a specific licence renewal; Plan A sizes that exposure with filings work one analyst can do and an IC can inspect, while Plan B builds a 40,000-firm-quarter NLP signal research program this five-person shop cannot execute and that never answers the actual question.",
+        "rationale": "Plan A correctly reframes an unfalsifiable tone observation into the decidable question \u2014 how many basis points are actually at stake, with what probability \u2014 and puts the killing step first: size the spend. If the licence is 25bps of margin, the whole worry dies in a few days, which is exactly the early kill criterion this setting wants. Everything is sourced from 10-K purchase obligations, material contract exhibits, vendor disclosures and public price schedules \u2014 Bloomberg/Excel/filings work, one analyst, and an IC can trace every cell of the sensitivity table. It engages the other side (comparable renewals as a distribution, switching-cost NPV determining where in that distribution the vendor prices), calibrates management's credibility against the prior two or three renewals rather than against tone, and inverts to ask what uplift would actually breach guidance or consensus \u2014 which is the decision-relevant number. Type I error dominates for a 25-30 name book held three to five years, and Plan A's demanding standard is the reconciliation and back-test against the last renewal, which is the right kind of rigor here. Plan B is a well-designed plan for a different firm entirely: a systematic shop with engineers, licensed transcript feeds, Visible Alpha, CRSP, pinned LLMs, elastic net, Driscoll-Kraay, Romano-Wolf. It substitutes an easier adjacent target \u2014 does evasiveness scoring predict gross-margin surprises across the market \u2014 for the asked question, which is about this company's contract. Even if H2 came back positive with t=2.7, it would tell the PM that caginess is on average mildly informative, not whether this renewal costs 30bps or 300bps. Its own stated modal outcome is the null, meaning months of work most likely returns nothing actionable on the name. And nothing in it is inspectable by an IC skeptical of models it cannot audit, nor maintainable by a shop with no engineers or database. Plan A's flaws are real but minor by comparison: contract mechanics are often not publicly filed, so Step 2 may return blanks, and the hypothesis states 30-90bps and 15-30% uplift ranges before any evidence, which risks anchoring. It is also less adaptive than it could be about what happens if the top-down and bottom-up estimates fail to reconcile. But it explicitly handles the case where immateriality is shown and discomfort remains, logging it as a separate open question rather than declaring victory.",
+        "issues_with_winner": [
+          "Pre-states 30-90bps and 15-30% uplift as the hypothesis before any sizing work, which anchors the analyst on numbers nothing has produced yet",
+          "Contract mechanics (price caps, metric definitions, audit clauses) are usually not in filed exhibits for vendor licences; Step 2 may come back largely empty and the plan does not say what it does then",
+          "Comparable-customer renewal uplifts are rarely observable publicly; the 'distribution' in Step 3 may rest on a handful of anecdotes and vendor-side inference",
+          "The back-test against a single prior renewal is n=1 and confounded by everything else moving in those four quarters"
+        ],
+        "issues_with_loser": [
+          "Answers a broad cross-sectional signal question when the question asked was about one company's margin exposure to one contract",
+          "Requires transcript feeds, Visible Alpha, Compustat, IBES, CRSP, spaCy, embeddings and pinned LLMs \u2014 infrastructure a five-person shop with no engineers cannot license, build, or maintain",
+          "Elastic net, block bootstrap, Driscoll-Kraay and Romano-Wolf are uninspectable by an IC that is explicitly skeptical of models it cannot examine",
+          "Its own modal expected outcome is the null, so most likely delivers nothing actionable on the position after months of work",
+          "Even a positive result gives an average cross-sectional lift, not the basis points at stake on this specific licence \u2014 the decision the PM has to make",
+          "No cheap early kill: the case-specific filings work that could resolve the question in days is buried behind panel construction"
+        ]
       }
     },
     {
       "id": "S10",
       "tag": "BA",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8509,
+        "out": 2043
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4daNqa5bamxQwyYTd'}"
+        "winner": "B",
+        "confidence": 5,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "firm_fit",
+          "proxy_substitution",
+          "evidence_standard"
+        ],
+        "key_differentiator": "The question is whether one holding's margins are at near-term risk from one vendor renegotiation; Plan B sizes that exposure directly with filings a single analyst can defend to committee, while Plan A builds a 40,000-firm-quarter NLP panel to validate a tone metric that answers a different question entirely.",
+        "rationale": "Goal: this is a single-name, single-event fundamental question for a concentrated 3-5 year holder. Plan B answers it \u2014 what is the licence spend, what are the contract mechanics, what does the vendor actually charge comparables, and how many bps does that translate to \u2014 with an inversion (what uplift would breach guidance or miss consensus by 2%) that directly diffs the finding against what management has communicated. That is the incremental view the PM asked for. Plan A answers a wholly different question: does executive evasiveness on procurement topics have cross-sectional predictive content for gross-margin surprises. Even if executed perfectly, its H2 output is a panel t-statistic, not a view on this company's margins; the single-name work is a footnote (\"case-specific\" data) buried under the panel.\n\nFirm fit: Plan A requires Capital IQ and StreetEvents transcript licences, Visible Alpha, Compustat, IBES, CRSP, spaCy, pinned embedding and LLM pipelines, 1,000+ hand labels, elastic net, block bootstrap, Driscoll-Kraay, Romano-Wolf. Five people, no engineers, no data scientists, nobody maintaining a database, Bloomberg and Excel. This cannot be built, staffed, or maintained here, and the committee is explicitly skeptical of models it cannot inspect \u2014 a deflection classifier with kappa 0.70 is exactly that model. Plan A reads as written for a systematic equity shop that already owns the data plumbing. Plan B is a filings-and-spreadsheet exercise ending in a sensitivity table an IC can read line by line.\n\nProxy substitution: Plan A takes management tone as the object of study and never tests whether tone maps to this company's margin exposure; it even concedes the modal outcome is that tone is informationless (NDA constraints). Plan B correctly identifies tone as confounded by the negotiation itself, refuses to weight it, and substitutes the measurable quantity that actually drives the answer. That is the right call.\n\nSequencing and kill criteria: Plan B's Step 1 is the decisive check and comes first \u2014 if the licence is a fraction of a point of opex, the question is dead in days and the analyst stops. It pre-commits thresholds (under ~25bps makes tone moot; over ~75bps and unguided forces a call), so the result is judgeable without any t-statistic, which was never available for a single renegotiation anyway. Plan A's decisive test is a strict out-of-sample panel split that arrives at the end of months of pipeline construction and produces nothing actionable on this name at any intermediate point.\n\nError asymmetry: for a concentrated book, being wrong about the business is the dominant loss. Plan B's evidence standard \u2014 top-down/bottom-up reconciliation within 20%, back-test against the prior renewal, adversarial review that the licence is half the assumed size, treating the 75th percentile as median for high-switching-cost customers \u2014 is calibrated to that. Plan A's rigor is real but aimed at a hypothesis whose falsification does not protect this position.\n\nPlan B does carry pre-committed magnitude ranges (30-90bps, 15-30% uplift) stated as hypothesis, which is a mild invention-of-economics flag, but they are framed as priors to be tested against the vendor's observed uplift distribution and explicitly overturnable in the single-source step-function case. Plan A also quotes precise bp and lift thresholds it has not yet earned, so this does not separate them.",
+        "issues_with_winner": [
+          "Opening hypothesis states specific magnitudes (mid-single-digit opex share, 15-30% uplift, 30-90bps) before Step 1 measures anything \u2014 anchoring risk if the analyst treats these as priors rather than as pre-registered thresholds",
+          "Step 2 assumes material-contract exhibits exist; most enterprise licence agreements are never filed, so contract mechanics may be partly unobservable and the analyst should have a stated fallback",
+          "Comparable-set uplift distribution from 5-10 renewals is soft evidence with heavy selection (bad deals go unpublicized); the plan flags this but the 75th-percentile-as-median fix is a judgment call, not a correction",
+          "Little explicit conditionality between Steps 2-4 \u2014 could be tightened to say which steps are skipped if Step 1 shows immateriality",
+          "No explicit engagement with why the sell side or management would be wrong about this if the exposure is large and disclosed"
+        ],
+        "issues_with_loser": [
+          "Answers a cross-sectional signal question, not the single-name margin question that was asked",
+          "Requires transcript, Visible Alpha, Compustat, IBES and CRSP licences plus NLP/LLM pipelines and 1,000+ hand labels \u2014 unbuildable and unmaintainable by a five-person shop with no engineers",
+          "Output is a classifier and panel regression the IC has explicitly said it will not trust because it cannot inspect it",
+          "Decisive out-of-sample test arrives at the very end; nothing actionable on the company in question is produced at any midpoint",
+          "Concedes the modal outcome is that tone carries no information, meaning the most likely result of months of work is that the premise was empty \u2014 worth knowing, but discoverable far more cheaply",
+          "Cost is enormous relative to what it unlocks for one position; multiple new data licences committed before any cheap check on this company's licence spend",
+          "Case-specific evidence (purchase obligations, Item 1A redlines, vendor filings) is listed but never given a method, weight, or sequence \u2014 the actual answer is an afterthought"
+        ]
       }
     },
     {
       "id": "S2F",
       "tag": "AB",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8835,
+        "out": 4452
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4eCb19mhsDtu2HLF6'}"
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "mechanism_test",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "measure_validity",
+          "sequencing",
+          "proxy_substitution",
+          "evidence_standard"
+        ],
+        "key_differentiator": "Plan B puts the one question that determines whether anything else is worth doing \u2014 does panel MAU actually track disclosed billable seats \u2014 first, on the cheap subsample where seats are disclosed, with a pre-committed kill; Plan A assumes that link and spends the whole budget regressing ARR on MAU across 35-60 names.",
+        "rationale": "Both plans are heavier econometrically than a five-person Bloomberg-and-Excel shop can defend to a skeptical IC, so the decision turns on sequencing and measurement validity rather than on rigor per se.\n\nThe premise inherited from the question is that portal MAU stands in for the billed unit. Plan A names this problem in its hypothesis (\"MAU is not seats; the mechanism needs MAU-per-seat and price per seat drifting slowly\") and then never tests it directly \u2014 it goes straight to log ARR on log MAU across the full 35-60 name panel, buying multiple distinct-user panels plus mobile plus Visible Alpha line items up front, and only learns about the proxy failure indirectly, through a coefficient that could be contaminated by price, mix, or panel drift. Plan B makes that exact question the gate: regress YoY disclosed seat-like counts (pays-per-control, employees on platform, paying users, customers-above-threshold) on YoY panel MAU on a small disclosing subsample, with pre-registered pass thresholds and an explicit commitment that failure produces a negative result plus a taxonomy of why, not a fallback regression on revenue. That is the entropy-reducing order: the crude check that can invalidate the premise before the elegant one. It is also the cheapest branch \u2014 a handful of disclosers, not the whole universe \u2014 so a kill arrives in weeks rather than after full data spend.\n\nPlan B's second decisive advantage is that its pre-model deliverable is the one an old-school fundamental IC can actually read: the per-company variance decomposition of ARR growth into seat growth, price/mix growth, and covariance, published before any model results. That tells the analyst whether usage data can ever be informative for a given name, which is exactly the durable, business-level insight a 3-5 year holder wants. The coverage ratio (panel MAU / disclosed seats) trended per company with drift and residual-SD kill rules is likewise a hand-inspectable intermediate output \u2014 a human can eyeball it and prune a toxic name.\n\nPlan A does two things better and I weighed them. Its falsification test \u2014 refit on the excluded consumption-metered names and abandon if performance is equal \u2014 is a genuine mechanism-derived negative control, and B's negative controls (paid-surface vs admin-console split) are weaker. And A explicitly benchmarks against sell-side cross-analyst dispersion, which is a real edge diff. But A also keeps a test it admits leaks (random company-quarter holdout) as its headline, and its guard battery \u2014 CIPS panel unit root, Westerlund cointegration, ECM, Pesaran CD, Bai-Perron \u2014 is a level-regression apparatus that this IC cannot evaluate and that exists mainly because A chose to work in levels in the first place. For a concentrated book where a false positive about a business is the expensive error, a spurious-cointegration-adjacent level result is precisely the wrong shape of evidence; B's YoY-growth framing sidesteps most of it.\n\nB's real defects are that the ridge plus empirical-Bayes shrinkage stage is unnecessary complexity nobody at this firm can inspect, and that its nowcast framing (five business days after quarter end, consensus-surprise regression) is borrowed from a shorter-horizon shop than the one asking. But that machinery is conditional on the gate passing, and the surprise-space test is at least the right question about incrementality. Neither plan invents a Sharpe or a P&L figure, which is to both their credit.",
+        "issues_with_winner": [
+          "Ridge with nested CV plus empirical-Bayes shrinkage in the conditional stage is machinery this IC cannot inspect and that a shrunk pooled OLS would likely match",
+          "Nowcast-five-days-after-quarter-end and consensus-surprise framing imports a quarterly-catalyst shop's concerns into a 3-5 year holding horizon; the durable output for this firm is the seats-vs-price decomposition, not a print-day forecast",
+          "Point-in-time vendor vintages, two panel providers plus mobile, and scraped price histories are infrastructure this firm cannot maintain without an outside provider doing it",
+          "Weak mechanism-derived negative controls: it excludes consumption-metered names rather than using them as the placebo where MAU should not work",
+          "Gate sample of seat-like disclosers is small and heterogeneous (payroll pays-per-control vs paying users vs customers-above-threshold), so pooling them risks manufacturing N from units that should not be pooled \u2014 the leave-one-out and two-thirds-of-firms conditions partly but not fully address this"
+        ],
+        "issues_with_loser": [
+          "Never directly tests whether portal MAU tracks billable seats, despite naming that as the mechanism; the proxy-to-target link is assumed and only inferred from a fitted beta",
+          "Commits full data spend across 35-60 names before any cheap check could kill the idea; no early kill criterion",
+          "Retains a holdout it concedes leaks as the headline validation, gating on the honest tests only afterward",
+          "Level log-log specification drags in CIPS/Westerlund/ECM/Pesaran CD \u2014 a battery this IC cannot evaluate and that exists only because of the initial specification choice",
+          "Horizon chosen by out-of-sample fit across h in {0,1,2} plus a joint-lag form invites specification search on ~40 effective clusters, acknowledged in pitfalls but not constrained by pre-registration",
+          "Price/mix control depends on Wayback pricing-page scrapes with the fallback of excluding quarters after announced increases, which quietly removes much of the variation the test needs"
+        ]
       }
     },
     {
       "id": "S2F",
       "tag": "BA",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8835,
+        "out": 4804
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4epYQF3JxHMFcPkLc'}"
+        "winner": "A",
+        "confidence": 3,
+        "goal_type": "mechanism_test",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "proxy_substitution",
+          "sequencing",
+          "falsification",
+          "unnecessary_complexity",
+          "firm_fit"
+        ],
+        "key_differentiator": "Plan A gates on the actual mechanism \u2014 does panel MAU track disclosed billable seats \u2014 and pre-commits to a negative result rather than falling back on a MAU-versus-revenue correlation, while Plan B names the MAU-is-not-seats problem in its hypothesis and then proceeds to regress revenue proxies on MAU anyway.",
+        "rationale": "Both plans were written for a systematic shop, not for this one. Both assume multiple panel-data licences, point-in-time vintages, and quarterly nowcasting five days after the print \u2014 infrastructure and a horizon that a five-person, 3-to-5-year-hold, Bloomberg-and-Excel manager cannot operate or use. Neither plan asks the question this firm actually needs answered: does portal usage tell us whether the seat base is genuinely growing, i.e. is the business what we think it is. So the choice is which plan degrades better.\n\nPlan A wins on the decisive point. The question is about seat-based pricing, and the mechanism is MAU -> billable seats -> ARR. A makes that link the first gate, tested against the small set of firms that actually disclose a seat-like unit (pays-per-control, employees on platform, paying users, seat-tier mix), and pre-commits that gate failure produces a negative result plus a taxonomy of why, explicitly refusing the MAU-versus-revenue fallback. That is a real kill criterion at the front. It also publishes the variance decomposition of ARR growth into seat growth, price/mix growth and their covariance *before* any model results \u2014 a cheap, inspectable check that can invalidate the whole premise if price and mix dominate ARR-growth variance, which for enterprise SaaS they plausibly do. That is the highest uncertainty-removed-per-dollar step in either document, and A puts it early.\n\nA's evidence standard is also better matched to a setting with maybe ten seat-disclosing companies: the load-bearing tests are sign consistency across two-thirds of firms, within-company partial correlation, coverage-ratio trend per company, leave-one-out stability. Those are judgeable by a skeptical IC from charts, not from a t-statistic manufactured by pooling units that should not be pooled. A's genuinely undefendable machinery \u2014 ridge with nested CV, empirical-Bayes shrinkage \u2014 sits at the end and is conditional on the gate passing, so it can be pruned or never built.\n\nPlan B has real virtues: broader sample, and the best falsification test in either plan (refit on the excluded consumption-priced names; equal performance sinks the thesis \u2014 a negative control derived from the mechanism itself). But it substitutes an easier adjacent target for the one that matters. Its dependent variable is a three-tier ladder \u2014 disclosed ARR, else annualized subscription revenue, else total revenue less services \u2014 regressed directly on MAU, with the seat link asserted rather than tested. If MAU-per-seat drifts, or if price actions drive the result, B's regression still fits and B has no way to tell which. It flags exactly this in the hypothesis and then does not test it.\n\nB is also worse on sequencing and firm fit. Its core estimation stage opens with CIPS panel unit-root tests, Westerlund cointegration, error-correction forms, Bai-Perron breakpoints and wild cluster bootstrap \u2014 all before establishing that the variable measures what it is named after, and all unevaluable by an IC that is skeptical of models it cannot inspect. Cointegration testing on twenty quarters and forty clusters is fragile machinery placed ahead of the basic question. B further imports the wrong firm's preoccupations wholesale: 'expect edge in smaller-cap names, decaying,' 'split performance by year before scaling capital,' and an unexplained 3% MAPE bar that nothing in the plan derives.\n\nGiven a concentrated book where a false positive cannot be diversified away, A's more demanding, mechanism-first gate is the right burden of proof.",
+        "issues_with_winner": [
+          "Written for a systematic shop: point-in-time panel vintages, three separate data licences (primary panel, replication panel, mobile), and a five-business-days-after-quarter-end nowcast that this firm has no infrastructure to run and no reason to want.",
+          "Horizon mismatch \u2014 a quarterly ARR nowcast is not what a 3-to-5-year holder needs; the useful output would be a durability read on seat growth, which the gate produces almost incidentally.",
+          "Ridge with nested cross-validation plus empirical-Bayes shrinkage toward pooled is a black box to this IC; it survives only because it is late and conditional.",
+          "Gate sample of seat-disclosers is roughly ten names; the demand for significance at 5% under a company-block bootstrap may be borderline unavailable, and the plan leans on it as one of four required conditions.",
+          "No negative-control test on the excluded consumption-metered names, which Plan B has and which would directly probe whether the effect is measuring something more generic than seats.",
+          "Does not scope the data spend down to a cheap first pass; the replication vendor and mobile panel should be conditional on the gate, not committed up front."
+        ],
+        "issues_with_loser": [
+          "Skips the mechanism: regresses revenue proxies on MAU without ever validating MAU against disclosed seat counts, despite naming MAU-is-not-seats as the central risk.",
+          "Dependent-variable ladder (ARR, else annualized subscription revenue, else revenue less services) drifts from the target and mixes non-comparable units across companies.",
+          "Leads with CIPS, Westerlund, ECM and Bai-Perron before establishing measurement validity \u2014 sophisticated machinery ahead of the crude check that could kill the premise, and none of it evaluable by this IC.",
+          "The 3% level-MAPE bar and the expectation of 'edge in smaller-cap names, decaying' are asserted, not derived; scaling-capital and decay language belongs to a different firm.",
+          "No early kill criterion \u2014 the falsification test on consumption-priced names is good but sits at the end, after the full estimation apparatus is built.",
+          "Random 20% company-quarter holdout is acknowledged to leak and is still kept as the headline, with the honest rolling-origin test demoted to a gate."
+        ]
       }
     },
     {
       "id": "S5F",
       "tag": "AB",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 9339,
+        "out": 3173
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4fzyntEB9sXGipGgx'}"
+        "winner": "B",
+        "confidence": 5,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "firm_fit",
+          "unnecessary_complexity",
+          "sequencing",
+          "no_edge"
+        ],
+        "key_differentiator": "Plan B answers the question in two weeks with a dictionary measure a skeptical IC can inspect and a front-loaded check on whether the signal is already a purchasable commodity; Plan A proposes a multi-month NLP infrastructure build (domain-adaptive pretraining, hand-annotation program, TAQ/Markit cost modelling) that this five-person shop cannot staff, operate, or defend.",
+        "rationale": "Both plans treat this as a cross-sectional broad-effect question, which is the right reading \u2014 the firm is asking whether call tone is a usable input at all, not pitching one name. From there the plans diverge on feasibility and sequencing.\n\nPlan A is a beautifully specified academic paper written for a firm with engineers, a data science team, and a research infrastructure: continued MLM pretraining on ~2B transcript tokens with deberta-v3-large, a 6,000-sentence dual-annotator labelling program with Krippendorff alpha targets, 150k LLM silver labels, seven-way ablation ladders, TAQ time-weighted spreads, Markit borrow data, capacity curves and deflated Sharpe. There is no one at this firm who can build it, no one who can maintain it, and no one on the investment committee who can evaluate it. The stated constraint \u2014 'defensible to an investment committee that is skeptical of models it cannot inspect' \u2014 is directly violated by a fine-tuned encoder whose tone score is a probability aggregate nobody can trace. It also imports the wrong firm's kill risks: capacity, borrow cost, break-even bps and crowding as a 'primary result' are the concerns of a systematic book, not of a manager whose failure mode is being wrong about a business. And every stage is a prerequisite for the next: the domain-adaptive pretraining and annotation program must be finished before any return test exists, so the plan cannot be stopped at week four with anything learned.\n\nPlan B starts with the simplest thing that could resolve the question \u2014 Loughran-McDonald counts on management Q&A turns, differenced within firm \u2014 and puts the decisive test at the front. It gets to a pooled panel result with an incremental t-statistic by day 10, has a pre-committed, dated specification before touching returns (which genuinely constrains researcher degrees of freedom rather than merely mentioning multiple testing), and four explicit numeric kill thresholds including 'a t of 2.1 is a kill.' The complexity budget is spent only after the gate passes. Crucially, the half day of vendor calls is the best edge work in either plan: if S&P, MarketPsych or RavenPack already sell this score to hundreds of clients, the idea is dead on arrival, and the rank-correlation-above-0.7 test makes 'commodity duplication' a falsifiable outcome rather than a caveat. The 2004-2010 replication plus decay prior is an honest attempt to establish what is incremental versus published, and the placebo over [-63,-3] and shuffled-speaker-label test are checks that can actually fail. Plan A's placebo list is longer but its edge question \u2014 does anyone already know this \u2014 is left to a pitfalls bullet.\n\nOn evidence standard, Type I dominates for a concentrated book, and Plan B's bar (clustered t\u22652.5 with Bonferroni escalation, sign in 7 of 10 years, robustness across size quartiles, net spread and IR floors) is demanding without being unreachable. Plan A's Harvey-Liu-Zhu t>3 is defensible too, but it buys that rigour at a cost the firm cannot pay.\n\nBoth plans share a horizon problem for a 3-5 year holder, and Plan B's day 11-14 mention of 'latency and capacity' is a stray systematic-firm concern. Neither is disqualifying relative to the gap in executability. I would put the analyst on Plan B, and if it passes the gate, the natural follow-on for this firm is licensing a vendor score or using tone qualitatively in the existing fundamental process \u2014 not building Plan A.",
+        "issues_with_winner": [
+          "Still requires WRDS, Capital IQ transcripts, I/B/E/S, CRSP and Compustat merges plus panel regressions with two-way clustering \u2014 a real stretch for a Bloomberg-and-Excel shop with no database maintainer; the plan should have named who runs this and whether the data is licensed.",
+          "Days 11-14 'infrastructure, latency, capacity' is imported from a systematic firm's playbook and irrelevant here; the right branch for this firm is 'license the vendor score or use tone as a qualitative overlay.'",
+          "Next-quarter [+2,+63] horizon and monthly rebalancing do not match a three-to-five-year holding period; the plan never translates a 60-day signal into anything a concentrated long-only can act on.",
+          "'Net spread \u22653% annualised, IR \u22650.4' as a kill threshold presupposes a tradable long-short the firm would never run; the 20bp round-trip assumption is asserted, not derived.",
+          "The 2004-2010 replication requires transcript coverage back to 2004 that the stated data window (2015 onward) does not include \u2014 a small internal inconsistency.",
+          "LM dictionary tone is a coarse measure; if the gate fails, the plan cannot distinguish 'no effect' from 'measure too crude,' though the negative memo does name the audio channel as a residual hypothesis."
+        ],
+        "issues_with_loser": [
+          "Requires domain-adaptive pretraining on ~2B tokens, a 6,000-sentence dual-annotator labelling program, and 150k LLM silver labels \u2014 none of which a five-person shop with no engineers or data scientists can build or maintain.",
+          "Output is a fine-tuned transformer's tone probability; the investment committee is explicitly skeptical of models it cannot inspect, and no simple corroborating measure is offered as the headline (LM is relegated to a benchmark).",
+          "Every stage gates the next: no return result exists until pretraining, annotation and orthogonalization are complete, so the plan cannot be stopped early and cannot be steered.",
+          "Imports systematic-firm failure modes \u2014 capacity, Markit borrow, TAQ spreads, break-even bps as a primary result \u2014 onto a manager whose stated risk is being wrong about a business.",
+          "Never asks whether the signal is already sold by a vendor or published and arbitraged; crowding appears only as a pitfalls bullet, so the incremental-edge question is left unanswered.",
+          "No early kill criterion tied to a date; the pre-registered commit constrains specification search but the expensive model build precedes any evidence that the effect exists at all.",
+          "Spends heavily (transcript licences, Snowflake/Xpressfeed, TAQ, Markit) before a free dictionary proxy has had a chance to kill the idea."
+        ]
       }
     },
     {
       "id": "S5F",
       "tag": "BA",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 9339,
+        "out": 3210
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4gbSsnob8TguzB2n8'}"
+        "winner": "A",
+        "confidence": 5,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "firm_fit",
+          "sequencing",
+          "unnecessary_complexity",
+          "no_edge"
+        ],
+        "key_differentiator": "Plan A delivers a defensible yes/no in two weeks with a word-count tone measure a skeptical IC can inspect, while Plan B proposes a domain-adaptive DeBERTa pretraining program, a 6,000-sentence annotation project, TAQ/Markit cost modelling and walk-forward retraining that a five-person shop with no engineers cannot build, staff, maintain, or defend.",
+        "rationale": "Both plans answer the right question \u2014 a broad cross-sectional effect, not a single-name story \u2014 so goal fit is a wash. Firm fit decides it. This is a $400M fundamental shop on Bloomberg and Excel, two analysts, no engineers, no database, and an IC hostile to models it cannot inspect. Plan B was written for a systematic quant firm with a GPU budget and a research engineering team: ~2B-token domain-adaptive masked LM pretraining, dual-head encoder, two-annotator gold sets plus 150k LLM silver labels, per-speaker embedding-cosine evasion measures, TAQ time-weighted spreads, Markit borrow, capacity-where-net-alpha-halves. None of that can be executed by one analyst here, none of it can be maintained, and the headline output would rest on a pipeline nobody at the firm can inspect or reproduce \u2014 exactly the thing the IC rejects. Plan B's preoccupations (borrow cost, break-even bps, crowding, alpha decay, managers writing for machines) are the right worries for a book that lives on capacity and cost; they are the wrong worries for a firm whose stated failure mode is being wrong about a business.\n\nPlan A is sized to the actual constraint. It uses the simplest measure that could resolve the question \u2014 Loughran-McDonald counts on parsed management Q&A turns, differenced within firm \u2014 which is arithmetic an analyst can show the IC in a spreadsheet and which the committee can gut-check. One primary specification, frozen before returns are touched, with pre-committed kill thresholds and an explicit statement that a t of 2.1 is a kill. That is the right burden of proof for a concentrated book that cannot diversify away a false positive: Type I dominates, and Plan A's Bonferroni bump plus year-by-year sign consistency plus size-quintile robustness is a demanding but cheap standard. Plan B's t>3.0 and deflated Sharpe are equally demanding but arrive after months of machinery whose researcher degrees of freedom are far larger than its formal gate acknowledges.\n\nSequencing and edge also favour A. Plan A opens with the literature and decay prior (McLean-Pontiff, a one-third-of-published prior), then a half-day of vendor calls that establish the crowding question directly \u2014 if S&P, MarketPsych and RavenPack all sell this to hundreds of clients, the effect is a commodity and licensing beats building. That is the cheapest possible test of whether anyone else already knows, and it is done before any data spend. Plan A also pre-commits the vendor-score rank-correlation check as a duplication test. Plan B treats crowding as a pitfall and break-even cost as a 'primary result,' but only reaches it at the far end of a long pipeline. Plan A can be stopped on day 10 with a two-page negative memo naming the residual hypothesis (audio) \u2014 a genuinely valuable kill. Plan B has almost no point before the encoder is trained where a PM learns anything actionable, and its expensive stage (pretraining, annotation) precedes the cheap stage (does LM tone even show a signal), which is backwards: LM is only its baseline-to-beat, not its first filter.\n\nNeither plan invents economics; both state kill criteria honestly and both admit a clean null is an output. Plan A's weakest moment is the day 11-14 'build scope \u2014 infrastructure, latency, capacity,' which is the wrong firm's next step, but that is a two-line contingency after a pass, not the spine of the plan.",
+        "issues_with_winner": [
+          "Assumes WRDS access to Capital IQ transcripts, CRSP, I/B/E/S and Compustat, plus point-in-time GICS and Hoberg-Phillips TNIC \u2014 a real subscription and data-handling burden for a shop with no database and no engineers; the plan should have named a Bloomberg/AlphaSense fallback path",
+          "Contingent next step on a pass is 'infrastructure, latency, capacity' \u2014 imported from a systematic firm; the right branch here is 'license the vendor score or use tone as an overlay on the 25-30 names we own'",
+          "Parsing speaker tags and running LM negation handling across ~90,000 firm-quarters is more engineering than the described stack supports; timeline of days 4-10 is optimistic",
+          "Two-way clustering plus Fama-MacBeth with Newey-West is more econometric vocabulary than this IC can evaluate; a simple decile spread table by year would carry more conviction and is only implied",
+          "Never connects the finding back to how this concentrated long-only would actually use it in a 3-5 year holding period \u2014 a 60-day decile spread is not obviously actionable for them",
+          "Sample starts 2015 for the primary test while the 2004-2010 replication is a subordinate step, so the decay estimate rests on the shorter modern window"
+        ],
+        "issues_with_loser": [
+          "Requires GPU pretraining, a two-annotator labelling project with adjudication, silver-label generation, and walk-forward retraining \u2014 none executable or maintainable by one analyst at a five-person shop with no data scientists",
+          "Output rests on a fine-tuned transformer the IC cannot inspect; explainability is far below what a skeptical committee needs, and the plan offers no simple corroborating check as the headline",
+          "Expensive machinery precedes the cheap decisive test: LM tone is relegated to a baseline-to-beat rather than used first to see whether any signal exists at all",
+          "Cost, capacity, borrow, TAQ spreads and break-even bps are the wrong firm's failure mode; this manager is killed by being wrong about a business, not by 30bp",
+          "Enormous specification surface (three peer definitions, seven factor models, K in {1,2,3}, four horizons, seven ablation rungs) creates the t-hunting risk it names in its own pitfalls and then proceeds anyway",
+          "No stopping point that yields an actionable answer for weeks or months; almost every stage is a prerequisite for the next, and nothing early would kill the idea cheaply",
+          "Never asks whether the sentiment score is already a commodity product \u2014 no vendor or crowding check before committing the build"
+        ]
       }
     },
     {
       "id": "S8F",
       "tag": "AB",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8800,
+        "out": 3254
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4h4UcGDjCuoT7e8Ei'}"
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "mechanism_test",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "sequencing",
+          "firm_fit",
+          "falsification"
+        ],
+        "key_differentiator": "Plan B leads with a free, spreadsheet-only Rule 605 / FINRA MPID check that can kill the premise in days, and pre-commits to stopping before any signal is built; Plan A requires the entire TAQ-plus-cost-model pipeline to exist before its own decisive test can be run.",
+        "rationale": "Neither plan belongs at this firm \u2014 a five-person, no-engineer, 3-to-5-year-holding long-only shop has no business building a daily microstructure signal, and both plans assume WRDS TAQ-scale infrastructure nobody there can operate. Given that, the choice is which plan a single analyst can start, learn from, and stop. Plan B's Benchmark C is exactly the right entropy-reducing first move: Rule 605 wholesaler reports broken out by odd-lot/fractional/dollar buckets plus FINRA OTC transparency by MPID, all doable in Excel with public filings, and Plan B explicitly says this alone can kill the project. It also states a real prior (retail has migrated to dollar-denominated/fractional orders arriving as odd lots while VWAP schedulers slice into 100s, making round lots an institutional signature), which is the plausible answer, and pre-commits that the deliverable in that case is a documented negative plus a map of better identifiers. That is a defensible two-week output for this IC. Plan B also scopes to claim (1) only and refuses to quote a P&L number it has not earned.\n\nPlan A is the better-executed version of the wrong project. It reads as written for a quant shop: borrow fees, square-root impact calibration, participation caps, capacity from $50M to $5B, in-house factor construction, net-alpha t>3.0. Every one of those concerns belongs to a firm whose failure mode is crowding and cost decay, not being wrong about a business. Worse, Plan A's own falsification test \u2014 the incremental Fama-MacBeth coefficient of RLOIB against ALLOIB and RETOIB \u2014 cannot be run until the full trade-cleaning, signing, and factor pipeline exists, so the step that decides whether anything else is worth doing sits behind months of build this firm cannot staff. Plan A is also non-adaptive: a fixed sensitivity grid and placebo battery scheduled regardless of what the first regression returns. And its terminal output is a daily decile long-short book with a short leg and borrow constraints \u2014 a product this manager would never trade at any Sharpe, on a one-to-twenty-day horizon utterly disconnected from a three-to-five-year holding period.\n\nOn error asymmetry: a false positive here is expensive not because of a bad position but because it commits a two-analyst shop to infrastructure and a strategy outside its competence. Plan B's hard stop and stated kill criteria serve that; Plan A's exhaustiveness raises confidence in a result the firm cannot use.\n\nBoth plans fail the explainability bar in places \u2014 Hui-Walter latent-class estimation and Benjamini-Hochberg gating are no more inspectable to this IC than Newey-West-corrected Fama-MacBeth \u2014 but Plan B's decisive evidence (published wholesaler execution reports showing where retail order flow actually sits by lot size) is something a skeptical PM can read directly.",
+        "issues_with_winner": [
+          "Phase 1 still assumes NYSE Daily TAQ, partitioned Parquet, DuckDB/Spark and exchange proprietary RLP feeds \u2014 infrastructure this firm cannot build, operate, or maintain; only Benchmark C is genuinely executable here",
+          "Hui-Walter latent-class estimation, double-clustered panel SEs and Benjamini-Hochberg correction are not defensible to an IC that distrusts models it cannot inspect",
+          "Five gates each with its own kill threshold plus two mechanism tests is a lot of machinery and arbitrary cutoffs (lift 2.0x, recall 35%, r>0.40) for a question the free first test may already settle",
+          "Even a clean pass on claim (1) leaves this firm with a retail-identification capability it has no way to monetize on a three-to-five-year horizon \u2014 the plan never asks whether the answer is usable here",
+          "Restricting the sample to pre-half-penny-compliance means the identification may be answered for a regime that no longer exists",
+          "Precision/recall of a retail label is a step removed from the asked target (profitable to trade against); the proxy-to-target link is deferred to a Phase 2 that may never run"
+        ],
+        "issues_with_loser": [
+          "Imports a systematic firm's concerns wholesale \u2014 capacity curves, borrow fees, impact calibration, commission assumptions, crowding \u2014 none of which are what kills this manager",
+          "The decisive test (does the lot filter add anything beyond all-lot and sub-penny imbalance) cannot be executed until the entire TAQ cleaning, signing, and factor pipeline is built, so the kill criterion sits at the end rather than the front",
+          "No stoppable intermediate deliverable: every stage is a prerequisite for the next, and nothing a PM could act on emerges for months",
+          "Requires WRDS TAQ, Compustat, IBES, Markit or Ortex, and 13F data plus daily portfolio construction \u2014 a spend and a maintenance burden with no cheap prior check that the premise survives",
+          "Fixed, non-adaptive sensitivity grid and placebo battery scheduled in advance regardless of intermediate results",
+          "Output is a daily-rebalanced beta-neutral long-short decile book with a short leg \u2014 not a form of conclusion this concentrated long-only committee could use or defend",
+          "Horizon (one to twenty days) is unrelated to the firm's three-to-five-year holding period, and the plan never confronts that mismatch"
+        ]
       }
     },
     {
       "id": "S8F",
       "tag": "BA",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8800,
+        "out": 3710
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4heT7MvRuwbMqW95e'}"
+        "winner": "A",
+        "confidence": 4,
+        "goal_type": "mechanism_test",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "sequencing",
+          "firm_fit",
+          "goal_mismatch",
+          "invented_economics"
+        ],
+        "key_differentiator": "Plan A puts the one cheap, spreadsheet-only test that can kill the whole premise (Rule 605 wholesaler reports plus FINRA MPID data) first and pre-commits to stopping there, whereas Plan B buries the identification question inside a full systematic long-short signal build that this five-person, no-engineer, 3-5-year-horizon shop could never run, staff, or defend.",
+        "rationale": "Neither plan is a natural fit for a $400M concentrated long-only manager on Bloomberg and Excel \u2014 this is a microstructure question the firm probably should not be asking \u2014 so the decision turns on which plan can produce something useful before the infrastructure requirement bites, and which one is answering a question this firm could act on.\n\nPlan A splits the question into its two real claims and refuses to build a signal until claim (1) \u2014 does round-lot size actually identify retail origination \u2014 survives. Its first step is Benchmark C: Rule 605 wholesaler execution reports broken out by odd-lot/fractional/dollar buckets, plus FINRA OTC transparency by MPID. That is genuinely free, genuinely Excel-executable by one analyst, genuinely inspectable by a skeptical IC, and it is explicitly designated as the step that alone can kill the project. Plan A also states H0 as its own prior with an economic story (retail has migrated to dollar/fractional orders arriving as odd or mixed lots, while VWAP/TWAP schedulers slice into 100-share children, making round lots closer to an institutional signature). If that is right \u2014 and it likely is \u2014 the firm learns in a week or two that the premise is dead, and the deliverable is a negative result plus a map of better retail identifiers. Killing this early is exactly the right outcome for a shop with two analysts. Plan A's mechanism tests (round-notional clustering at $100/$500/$1,000 versus round-share clustering; price-elasticity of round-lot frequency) are the kind of crude, entropy-reducing checks that separate 'retail behavioral signature' from 'algo slicing artifact,' and they are checks an IC can follow verbally.\n\nPlan A also correctly identifies the circularity risk that Plan B soft-pedals: round-lot imbalance can predict returns mechanically through generic order-flow imbalance with no retail content whatsoever, so backtesting first and retrofitting the retail story is backwards.\n\nPlan B is a competent quant equity research plan written for a different firm. It assumes WRDS, TAQ tick cleaning per Holden-Jacobsen, Markit or Ortex borrow fees, Fama-MacBeth with Newey-West cross-checked against Hansen-Hodrick and block bootstrap, a square-root impact model with three k calibrations, and a sensitivity grid across signing algorithm, NBBO lag, scaling, smoothing, weighting and decile count. Its output is a daily-rebalanced, beta-neutral, dollar-neutral long-short book with a five-day holding period. This firm holds 25-30 names for three to five years and has no one to maintain a database; the horizon mismatch is total and the infrastructure requirement is unbuildable. The capacity analysis across $50M-$5B AUM is a number produced for a fund that does not exist here, and it anchors sizing on a book the firm cannot run. Nothing in Plan B is inspectable before the end; there is no cheap early gate and no branch that gets dropped.\n\nPlan B's falsification is also weaker than it looks in one specific place: 'a positive 20-day coefficient is reinterpreted, not failure' converts a sign flip from disconfirmation into narrative flexibility. Combined with the size of the sensitivity grid, that is a lot of researcher degrees of freedom in a design whose primary risk it already concedes is that the result is short-term reversal relabeled.\n\nPlan A is far from clean \u2014 the tiered-round-lot recomputation, exchange proprietary RLP feeds, Hui-Walter latent-class estimation and DuckDB/Spark partitioning are all beyond this firm, and its five sequential kill gates with pre-registered thresholds and Benjamini-Hochberg are more machinery than the question needs. Its Phase 2 after-cost Sharpe gate of 1.0 is a criterion for a fund that cannot exist here. But all of that sits behind a free first step that will most likely stop the work, and that is the difference that matters.",
+        "issues_with_winner": [
+          "Phase 1 proper still requires NYSE Daily TAQ, exchange proprietary RLP flag feeds, and DuckDB/Spark partitioning \u2014 unbuildable and unmaintainable at a five-person shop with no engineers",
+          "Hui-Walter latent-class precision estimation is not something this investment committee can inspect or evaluate; no simple corroborating check is paired with it",
+          "Five sequential gates with pre-registered thresholds plus Benjamini-Hochberg is more apparatus than the decisive question requires",
+          "Phase 2's after-cost Sharpe >=1.0 and net/gross >0.40 criteria describe a systematic book this manager would never operate; that whole branch is dead weight for this reader",
+          "Confirming which historical feeds carry RLP flags may itself consume weeks before any result appears"
+        ],
+        "issues_with_loser": [
+          "Written for a quant equity fund with a data team: WRDS TAQ tick cleaning, Markit/Ortex borrow, square-root impact calibration, Hansen-Hodrick and block bootstrap cross-checks \u2014 none operable by one analyst here",
+          "One-day-ahead returns and a five-day overlapping holding period are irreconcilable with a three-to-five-year concentrated book; the horizon follows the data frequency, not this firm's phenomenon",
+          "Capacity figures across $50M-$5B AUM and a headline breakeven-cost output are economics for a book this firm cannot run, and risk anchoring on fabricated numbers",
+          "No cheap early kill: the identification question is embedded inside the full signal build rather than resolved before spending on it; nothing inspectable until late",
+          "'A positive 20-day coefficient is reinterpreted, not failure' makes part of the validation unfalsifiable, which is dangerous alongside a very large sensitivity grid",
+          "Free Rule 605 and FINRA MPID evidence \u2014 which could have killed the premise before any TAQ work \u2014 is never used; the plan buys the tick data to run a test a free proxy could have settled",
+          "Task-list structure with no stated branch that gets dropped depending on what comes back"
+        ]
       }
     },
     {
       "id": "S9F",
       "tag": "AB",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8632,
+        "out": 3770
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4iH9huMLssxarZxNX'}"
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_ii_dominant",
+        "decisive_tenets": [
+          "firm_fit",
+          "breadth",
+          "falsification",
+          "evidence_hierarchy"
+        ],
+        "key_differentiator": "Plan B produces a cross-episode, feature-coded base rate with a genuine out-of-sample holdout and mechanism-derived negative controls \u2014 something 200 quants and a replication committee can re-run and turn into a cross-sectional signal \u2014 whereas Plan A produces a bespoke single-name valuation model with hand-set haircuts that this firm cannot replicate, trade, or generalize.",
+        "rationale": "The question as posed to a systematic firm is not 'what is this one company worth' but 'is shortage guidance a repeatable predictor of contract-backed revenue durability, and is that already priced.' Plan A answers the first question: a forward revenue bridge, an agreement register, a reverse DCF, EV/haircut-adjusted committed gross profit, and a constructive/negative threshold list. That output is an investment-committee memo for a concentrated long-only shop. It is not something a research platform can replicate \u2014 the entire result hinges on analyst-assigned Tier 1/2/3 haircuts (90-95%, 70%, 25-35%) and pass/fail thresholds (60% NTM coverage, 45% top-3 share, 2-year horizon gap) that are asserted rather than estimated. Plan A's only breadth is a four-episode 'backtest' appended at the end, after all the modeling machinery \u2014 exactly backwards: the historical base rate is the check that determines whether the bespoke model is worth building at all.\n\nPlan B is built the way this firm reasons. It defines the event mechanically at first allocation-language filing via EDGAR, keeps every episode regardless of outcome, codes contract features and outcomes on an ordinal scale separating price from volume, and reports conditional base rates by feature rather than regressing a 25-observation sample into false precision \u2014 the right evidence standard for a setting where cross-sectional significance was never available. It builds the framework on most episodes, holds out the 2021-24 auto-semi cycle, and predicts it with dates before checking. It derives from its own mechanism where the effect should be absent \u2014 aerospace forgings and LNG should hold, MLCC and container slots should break, ordered by qualification lag not contract label \u2014 and treats that as the test. It states a falsifier that would kill the hypothesis (contracted price above spot for 8+ quarters absent a qualification moat). And it pre-registers 3-5 checkable predictions on the live HBM case with a 12-month clock, so the work generates forward evidence rather than only backward description. Where sources disagree, shipment data wins \u2014 a stated arbitration rule, not a hope.\n\nOn edge: B's variant view is explicit and contrarian \u2014 LTAs honored in volume, broken in price; a large disclosed LTA book as a coincident cycle-peak indicator; prepayments funding the capacity that destroys pricing. That is a diff against the consensus 'duration story deserving a higher multiple' the plan names in its first line. A's prior is similar in spirit but is resolved by a valuation exercise on one name rather than by evidence that generalizes. On invented economics, B is the more disciplined: its output is an explicitly probability-weighted haircut with a statement of what would justify the multiple, not a number. A's tier haircuts and threshold grid are precise figures with only loose calibration behind them, and they will anchor sizing.\n\nBoth plans miss the firm's actual scoreboard \u2014 neither measures forward returns net of costs, capacity, or crowding, and both work on quarterly horizons against a days-to-weeks book. That is a real defect in both, and it partly reflects a question whose signature does not match the firm. But B's output is the one that can be extended into a cross-sectional signal: an event definition, a feature vector, a coded outcome, and base rates by feature are one step from a tradeable specification. A's output is a single EV comparison that cannot be.",
+        "issues_with_winner": [
+          "Horizon is T+4/8/12 quarters against a days-to-weeks book; the plan never states how a contract-outcome base rate becomes a tradeable signal, and never touches transaction costs, capacity, or crowding \u2014 the firm's stated pass/fail criteria.",
+          "Measures contract price/volume outcomes, not stock returns; the proxy-to-P&L link is asserted by the framing rather than tested even once.",
+          "Commits to a lot of licensed data (TrendForce, Fastmarkets, UxC, Argus/ICIS, Drewry/Xeneta, Panjiva, PACER) before any cheap version has shown the base rate separates; a free-proxy pass on three or four episodes could have killed or confirmed the price-versus-volume split first.",
+          "25-ish episodes with conditional base rates cut by four features leaves cells of two or three; the plan says 'ranked not regressed,' which is honest, but does not state how many episodes per cell it needs before it will report a rate.",
+          "No early kill gate. The falsifier is defined but sits at the end of the framework build; hand-coding Exhibit 10 contracts and building capacity ledgers per market is weeks of work before the first judgeable output.",
+          "Adaptivity is thin \u2014 it says what would falsify the hypothesis but not which branches get dropped if, say, the qualification-lag split fails to order the episodes."
+        ],
+        "issues_with_loser": [
+          "Answers a single-name valuation question for a systematic firm whose research committee re-runs results independently; the tier haircuts, six-attribute scores, and adversarial transcript reads are irreproducible analyst judgment.",
+          "Threshold grid and haircut ladder are invented magnitudes \u2014 90-95%/70%/25-35%, 60% NTM coverage, 15% cash support, 2-year horizon gap \u2014 asserted as if calibrated, and they will anchor position sizing.",
+          "Sequenced backwards: the historical episode base rate that would determine whether shortage guidance means anything at all is appended as 'validation' after the entire bridge, register, scenario and reverse-DCF machinery is built.",
+          "No cross-sectional breadth and no negative controls derived from a mechanism \u2014 no statement of where the lock-in effect should fail to appear.",
+          "Enormous machinery (RPO roll-forward with cancellations as a plug, 10-15 year depreciation schedules, three full scenario paths) for a question the firm would resolve with an event study; every extra stage adds degrees of freedom and none is shown to be necessary.",
+          "Output is EV/haircut-adjusted committed gross profit versus a reverse DCF \u2014 not a form this firm can trade, size, or capacity-check."
+        ]
       }
     },
     {
       "id": "S9F",
       "tag": "BA",
-      "status": "error",
-      "usage": {},
+      "status": "ok",
+      "usage": {
+        "in": 8632,
+        "out": 3909
+      },
       "result": {
-        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4iscrR3C8MatdbnG9'}"
+        "winner": "A",
+        "confidence": 4,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_ii_dominant",
+        "decisive_tenets": [
+          "firm_fit",
+          "falsification",
+          "breadth",
+          "invented_economics"
+        ],
+        "key_differentiator": "Plan A builds a cross-episode, base-rate framework with mechanism-derived negative controls and a pre-committed holdout \u2014 the only output form a 200-researcher systematic shop can independently re-run and eventually turn into a cross-sectional signal \u2014 whereas Plan B is a single-name accounting valuation whose verdict rests on hand-set thresholds nobody can replicate.",
+        "rationale": "Neither plan is a natural fit: the question arrives at a systematic firm with a days-to-weeks horizon, and both plans reason in quarters and years, neither measures returns net of cost, and neither asks whether the 'shortage guidance implies durable revenue' narrative is already crowded or vendor-supplied. So the choice is which misfit is closer to something this firm can use and re-run.\n\nPlan A is structured as an event study across 20-30 episodes with a machine-findable T=0 (first allocation-language filing in EDGAR), an explicit coding scheme, ranked conditional base rates rather than an over-parameterized regression on tiny N, a genuine holdout (build on everything except 2021-24 auto semis, then predict the holdout with dates before looking), and pre-registered checks on the live HBM case. Most importantly it derives from its own mechanism where the effect should be absent: aerospace forgings and LNG SPAs should hold, MLCC and container slots should break, ordered by requalification lag rather than by contract label. That is a real negative control, and it directly attacks the premise inherited from the question rather than assuming it. Its secondary hypothesis \u2014 a large disclosed LTA book as a coincident cycle-peak marker \u2014 is exactly the kind of variant, contrarian, cross-sectionally testable claim this firm can take to a research committee and later convert into a signal. It also refuses to manufacture a P&L number: the output is a probability-weighted haircut plus a statement of what would justify the multiple.\n\nPlan B is the better piece of fundamental accounting work and would win at a concentrated long-only shop. It knows more about ASC 606 mechanics, and its reverse DCF at least asks what the market already prices, which is a real edge check Plan A only gestures at. But almost everything decisive in it is unreplicable judgment: Tier haircuts of 90-95/70/25-35 percent, and a constructive gate requiring simultaneously >=60% NTM Tier 1/2 coverage, >=40% year-two, >=15% cash support, <45% top-3 concentration, >=50% mirror reconciliation and a modeled horizon >=2 years beyond market-implied. Those numbers are asserted, not derived from anything the plan produces, and a conjunctive six-condition gate is precisely the Type II-expensive design a breadth-oriented systematic firm should avoid \u2014 almost no real case clears all six, and a research committee cannot re-derive any of the cut points. The RPO roll-forward that solves net bookings as a plug and then backs out cancellations is a lot of derived-from-derived arithmetic before anything judgeable emerges, and the plan's only cross-episode work (four episodes, descriptive) sits at the end as validation rather than at the front as the test of whether the premise holds at all.\n\nSequencing and steerability also favor A: coding contracts and outcomes produces inspectable intermediate artifacts (a hand-checkable sample of coded episodes, base rates by feature) early, and it names a specific falsifier \u2014 contracted price materially above spot for 8+ quarters post-normalization absent a qualification moat \u2014 that would kill the hypothesis. Plan B's pitfalls list names enforcement weakness and reflexivity and then proceeds to a coverage ratio that treats take-or-pay damages as a scoring attribute anyway.",
+        "issues_with_winner": [
+          "Never measures returns: no test of whether shortage guidance or LTA disclosure predicts price, no transaction-cost, capacity or crowding analysis \u2014 the three things this firm actually judges work on.",
+          "Outcome horizon of T+4/8/12 quarters is far outside the stated days-to-weeks holding period; the bridge from base rates to a tradable signal is left unbuilt.",
+          "N of 20-30 heterogeneous episodes across polysilicon, semis, LNG, shipping and uranium; pooling is defensible for base rates but the conditional cuts by feature will have handfuls of observations each and no stated way to judge whether a rate difference is meaningful beyond ordering.",
+          "Contract coding across Exhibit 10 filings, PACER and foreign arbitration records is heavy manual work; it is AI-tractable but the plan does not specify a hand-checked sample or coverage-by-period audit.",
+          "Edge is only implicit \u2014 it asserts the market reads this as a duration story but does not diff against sell-side estimate revisions or positioning."
+        ],
+        "issues_with_loser": [
+          "Tier haircuts (90-95%, 70%, 25-35%) and the entire threshold battery (>=60%, >=40%, >=15%, <45%, >=50%, >=2 years) are asserted magnitudes that nothing in the plan derives; they would anchor a decision on fabricated numbers.",
+          "Conjunctive six-condition constructive gate is tight enough to reject nearly every real case \u2014 a Type II cost, not a virtue, at a firm that needs breadth.",
+          "Output is a single-name valuation verdict (EV vs haircut-adjusted committed gross profit, reverse DCF) that a systematic research committee cannot independently re-run.",
+          "Decisive question \u2014 does shortage guidance historically portend durable revenue and returns \u2014 is deferred to a four-episode backtest at the end, after all the accounting machinery; the cheap test that could kill the idea is last.",
+          "No mechanism-derived negative controls: nothing states where the lock-in effect should be absent, so the framework cannot fail.",
+          "RPO roll-forward solving net bookings as a plug and backing out cancellations from book-to-bill stacks inference on inference with many free parameters."
+        ]
       }
+    }
+  ],
+  "retries": [
+    {
+      "at": "2026-08-09T22:19:18-0400",
+      "calls": [
+        "S10AB",
+        "S10BA",
+        "S2FAB",
+        "S2FBA",
+        "S5FAB",
+        "S5FBA",
+        "S8FAB",
+        "S8FBA",
+        "S9BA",
+        "S9FAB",
+        "S9FBA"
+      ],
+      "max_tokens": 64000
     }
   ]
 }
