@@ -749,3 +749,157 @@ carry into Part 3.
 - **The classifier that built the denominator is not deterministic** — it returned
   43 then 45 blocking issues on two runs of the same input. Recall denominators
   carry roughly ±2 of slack.
+
+---
+
+# Note 8 — Part 3: collecting expert judgment at scale
+
+**Date:** 2026-08-10
+**Produced by:** four parallel design explorations, then verification of every load-bearing
+number against `part2/runs/` and `part2/gold/` directly. Numbers marked **[measured]** were
+recomputed from repo files; those marked **[estimated]** come from the design analyses and
+have not been validated against a stopwatch.
+
+## What Note 7 already settles
+
+The recall / precision / F1 results and the recall-is-not-monotone-in-capability finding
+live in **Note 7 §§ 4–5** and are not restated here. Note 7's framing is the one to use:
+report recall and manufactured-per-review as a pair, and do not report F1. The two facts
+from it that this section builds on:
+
+- Haiku raises **28.6 issues per review at 50.0% precision**, against ~3.5 at 92–97% for the
+  mid-tier models and 6.7 at 97.7% for Opus 5.
+- Opus 5 was the adjudicating scorer for every model's issues.
+
+**One [measured] result Note 7 does not cover, and Part 3 turns on it: the frame is where
+models fail hardest.** Agreement with gold across 20 order-swapped pairwise calls each is
+13/20 (Opus 5), 11/20 (Sonnet), 11/20 (Haiku), 10/20 (Opus 4.8) — barely above the 10/20
+coin flip. `goal_type` agreement is **3–6 of 20 for every model**. Frame fields are also the
+cheapest thing an expert can produce, because they follow from the seed and the firm context
+without reading either plan closely. **The label models get most wrong is the label that
+costs least to collect**, and no protocol in the design space was built around that.
+
+## What this does to the brief's Part 3 question
+
+The brief asks whether it is cheaper for the expert to write the gold issue list, or for
+Claude to propose eight candidates and the expert to **strike out the wrong ones** — and what
+the second approach does to the label distribution.
+
+**[measured]** The answer is generator-dependent, and the dependence is enormous:
+
+| Generator | candidates/review | share not real | escalations needing human |
+|---|---|---|---|
+| Opus 5 | 6.7 | **2.3%** | 16 / 133 |
+| Sonnet 5 | 3.3 | 3.0% | 20 / 66 |
+| Opus 4.8 | 3.6 | 8.3% | 19 / 72 |
+| Haiku 4.5 | 28.6 | **50.0%** | 172 / 572 |
+
+With a strong generator the brief's premise is close to empty: 97.7% of what Opus 5 raises is
+defensible, so **the expert is not a truth filter, they are a materiality filter.** Against
+~6.6 available candidates the human raised 2.6 — they surface 39% of what is true. Instructed
+as the brief words it ("strike the wrong ones") the expert strikes almost nothing and gold
+issue counts inflate roughly 2.5x. Reworded as "strike what you would not raise at a desk
+review," the same mechanic yields ~11 labelled negatives per critique against the 0.2 the
+expert produces spontaneously.
+
+**So the instruction wording is worth more than the candidate count**, and the honest answer
+to the brief's question is that its framing applies to Haiku and not to Opus 5.
+
+**On the self-scoring exposure Note 7 flags:** it is narrower than it looks for the purpose
+of *choosing a generator*. Opus 5 rates Sonnet at 97.0% against its own 97.7% — a 0.7pp gap,
+no self-flattery — and the 50% it assigns Haiku is a large real spread. Generator selection
+turns on that spread, not on the contested middle.
+
+## Four designs, compared
+
+| | **A · Strike-out triage** | **B · Disagreement routing** | **C · Interview capture** | **D · Gold by construction** |
+|---|---|---|---|---|
+| Expert min/item **[est]** | 27, or 41 as a 2nd pass | 10.1 blended | 17.4 | 11 → ~2.4 amortized |
+| vs. free-hand (~27–32) | ~1.2x | 2.5x | 1.6x | 2.4x → 10x |
+| Produces best | ~11 negatives per critique | frame labels at ~1.8 min each | idiosyncratic findings, anti-objections | volume; single-tenet counterfactuals |
+| Cannot produce | recall denominator (capped at generator recall, 62%) | precision anchors (~45 min each) | clean provenance | omission and frame issues; **no `weak` items at all** |
+| Poisoning mechanism | supply constraint; generator fingerprint enters gold | correlated blind spots invisible by construction | ~86% of gold words model-authored | model detects the seam, not the defect |
+| Pairwise headline | survives if preference elicited before candidates | survives | survives — enums captured before any prose | n/a — cannot make close calls |
+
+Three cross-cutting results:
+
+**1. The cheapest label is the one models get most wrong, and no design was built for it.**
+Frame fields are derivable from seed plus context alone, so a ~2.5-minute label is as good as
+a 25-minute one. The value spread **[est]** is ~1.8 expert-minutes per frame correction, ~9
+per preference resolution, ~45 per anti-objection — 25x, sitting unexploited.
+
+**2. Disagreement routing fails its own kill criterion on this data. [measured]** Of the four
+items where all eight votes agreed, the ensemble is right on two; on S5 — a gold *strong*
+item — all four models in both orders picked wrong. Minority share on strong items (0.167) is
+indistinguishable from weak (0.156). It is justified for frame labels and for item QA, not as
+difficulty triage.
+
+**3. Construction cannot make the items half of this gold consists of. [measured]** Four of
+ten base items are `weak` — genuine close calls between two defensible approaches, and a
+constructed item has a right answer by definition. Only ~25 of the 45 blocking gold issues are
+span-injectable; the missing 20 are domain-knowledge omissions (Robinhood-routed users, the
+half-penny regime break, the firm's own internalized flow) and whole-document frame failures,
+which is where tenets 1 and 2 live — 8 of the 20 decisive slots.
+
+## The recommended pipeline
+
+Four stages, each doing only what it is uniquely best at. Costs **[estimated]**.
+
+| Stage | Scope | Min/item | Yields |
+|---|---|---|---|
+| **Frame pass** | every item | 2.5 | `goal_type`, `error_asymmetry` — the fields models fail hardest |
+| **Judgment pass** | every item | 17 | preference, critiques, rationale, anti-objections |
+| **Precision pass** | items that already have gold | 9 | ~11 labelled negatives per critique |
+| **Volume layer** | separate slice, never aggregated | ~2.4 | per-tenet sensitivity curves |
+
+The judgment pass is interview capture: the expert talks, a model structures, with a
+**verbatim spine** (the first sentence of every critique stays the expert's words), a
+provenance sidecar, and a **trichotomy confirm** — keep / cut / *true but not mine*. That third
+bucket is the sharpest mechanism the exploration produced: partial agreement routes to
+`secondary`, never `blocking`, so a half-held objection can help a model's precision score and
+can never hurt its recall. Non-response defaults to **cut**, so acquiescence removes model
+content instead of ratifying it.
+
+The precision pass runs **second, never first** — showing candidates only for items whose gold
+already exists, minus anything already matched, asking only "would you raise this?" The recall
+denominator is fixed before any candidate exists, so the supply constraint cannot bite.
+
+Rough cost for 100 items: ~250 min frame + ~28 h judgment + ~15 h precision ≈ **48 expert-hours**,
+against ~45 h for 100 free-hand items carrying no negatives, no frame verification and no
+per-tenet resolution.
+
+## The stream the Haiku data unlocks: harvest negatives, don't elicit them
+
+**[measured]** This gold contains **4 anti-objections in 60 issues** — the scarcest and, at an
+estimated ~45 expert-minutes each, the most expensive label in the system. `SCORING.md` calls
+them the precision anchors: without them a model manufacturing plausible objections scores well
+on recall and its noise stays invisible.
+
+Haiku produced **286 manufactured objections, 227 of them adjudicated with no uncertainty
+flag**, each carrying a written reason:
+
+> *"Canonical look-ahead objection misapplied: the OLS slope over −6..−1 uses only pre-period
+> data, so there is no look-ahead."*
+>
+> *"Overfitting objection rests on an invented sample size for a licensed card-and-bank panel."*
+
+That is exactly the class the Part 1 gold caught four times by hand — canonical concerns
+recited without checking whether they bite. **So run a weak model deliberately and adjudicate
+its output.** It is the one place in the system where a cheap model is the right instrument
+rather than a compromise: 227 labelled precision failures at roughly two orders of magnitude
+less expert time than eliciting them, with 79% of the adjudication already free.
+
+Two cautions. The adjudicator was Opus 5, so a harvested corpus inherits one model's judgment
+of what counts as unearned — the 59 uncertain cases are where a human should look first. And
+harvested negatives describe *Haiku's* error distribution; they are training and evaluation
+material for recognizing recited objections, not a general model of how discriminators fail.
+
+## Open
+
+- The Sonnet / Opus 4.8 precision inversion (97.0 vs 91.7) is the one place the scorer's
+  identity could be moving the ranking. Rescoring that pair with a non-Claude adjudicator, or
+  with Opus 4.8 as scorer, would settle it cheaply.
+- Every expert-minute figure above is an estimate. The one real data point is this session:
+  10 items in roughly a 3-hour block, ~18 min/item, which is close to the interview-capture
+  estimate of 17.4 and is the only number here with any observational basis.
+- The four flip items remain unlabelled, so the context-sensitivity axis has no gold.
