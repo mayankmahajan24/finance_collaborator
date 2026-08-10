@@ -1,0 +1,764 @@
+{
+  "model": "claude-opus-5",
+  "mode": "pairwise",
+  "max_tokens": 64000,
+  "run_at": "2026-08-09T22:15:13-0400",
+  "prompt_fingerprint": "3a2276335156",
+  "schema_fingerprint": "f2de1208421d",
+  "n_calls": 28,
+  "n_errors": 11,
+  "tokens_in": 152132,
+  "tokens_out": 75086,
+  "results": [
+    {
+      "id": "S1",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 9086,
+        "out": 4797
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 3,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "unnecessary_complexity",
+          "evidence_standard",
+          "firm_fit",
+          "sequencing"
+        ],
+        "key_differentiator": "Plan A's primary estimand is the clean adoption event study that directly answers the question and can be defended to the PM, whereas Plan B leads with a share regressor whose denominator contains the outcome \u2014 a mechanically-signed specification it then needs permutation nulls, an invented instrument and a demoted Callaway\u2013Sant'Anna \"cross-check\" to rescue.",
+        "rationale": "Both are serious designs by capable people, and neither is lazy. The decision turns on what each puts first and whether the firm can use the output.\n\nThe question is a single-name KPI question: does Kalshi adoption cannibalize DKNG deposits, enough to move sizing on a named short/long. Plan A answers exactly that with the simplest credible design \u2014 first Kalshi debit as treatment, matched non-adopters within cohort, stacked event study in dollars per user-month, pre-trends, placebos, and a partial-identification breakdown value so the PM learns how much differential trend would have to exist for the effect to vanish. The headline is a dollar path around adoption that a PM can look at and judge, and the \"what would have to be true for this to be wrong\" answer is built in: A names the real alternative story (users hitting DraftKings limits or self-excluding and migrating to Kalshi) and tests it three ways \u2014 pre-trend F-test, exclusion of adopters already fading in \u22123..\u22121, and stratification by whether deposits were already shrinking, both reported. It also handles the mundane thing most likely to fake the result: panel attrition masquerading as churn, with an explicit rule for which outcome headlines if the codings disagree. And it refuses to overclaim \u2014 dollars observed, not trades; sports-specific substitution flagged as inference.\n\nPlan B's primary specification is its problem. `K/(K+DK+FD)` puts the outcome in the regressor's denominator, so a negative coefficient is partly definitional. B knows this and says so, but the fix \u2014 analytic mechanical null, 1,000 within-user reshuffles, baseline-deflated variant, leave-out share, an IV built from a holdout-fitted affinity times national non-sports Kalshi volume, Arellano\u2013Bond, Driscoll\u2013Kraay \u2014 is a lot of machinery to earn back the interpretability that a straightforward adoption event study has for free. Tellingly, B carries the clean estimator (Callaway\u2013Sant'Anna on first Kalshi use vs not-yet-adopters) as a subordinate cross-check and pre-commits to letting it win if the two disagree. If that estimator is the arbiter, it should be the headline. That is inverted sequencing, and it costs a fundamental shop with one engineer and a three-person data team weeks it does not need to spend.\n\nAudience fit reinforces this. A 30-person fundamental fund can evaluate matched adopters, a spend path, and a sensitivity to differential trend. It cannot meaningfully interrogate a Kleibergen\u2013Paap statistic on a constructed affinity instrument, and a PM asked to defend a short on that basis will not.\n\nWhat Plan B genuinely has and A lacks: two measurement-validity points that are real, not decorative. Kalshi distributed through Robinhood and Webull leaves no Kalshi descriptor, so the identified adopter set is a possibly unrepresentative slice \u2014 B proposes to quantify the undercount, A only lists Robinhood in its taxonomy. And DraftKings' own prediction-market launch creates a regime break that contaminates the DK deposit outcome in late cohorts; B verifies dates in filings and cuts the window, A only drops a couple of cohorts as generic robustness. B's wallet-accounting decomposition (cannibalization vs expansion) and its FanDuel symmetry test (category substitution vs brand switching) are also more directly useful to a DKNG thesis than A's secondary wallet-share measures, and converting deposits at explicit hold rates rather than asserting a revenue number is the honest way to reach the KPI. I would graft the broker-attribution check, the launch-date regime cut, and the FanDuel symmetry test onto Plan A on day one.\n\nGiven Type I error dominates \u2014 a false positive here sizes a real short \u2014 A's design is the more defensible one, and it is the one whose failure modes the PM can actually cross-examine.",
+        "issues_with_winner": [
+          "No treatment of Kalshi volume routed through Robinhood/Webull, which leaves no Kalshi descriptor; the identified adopter set may be a biased slice and the plan cannot say how large the undercount is",
+          "Sample runs to the latest month without flagging DraftKings' own prediction-market launch, which puts prediction-market deposits inside the DK outcome column for late cohorts",
+          "No engagement with what sell-side or the market already believes about Kalshi cannibalization, so the plan may measure something true that is already priced",
+          "Deposits are never translated into revenue at a hold rate, so the output stops one step short of the KPI that moves sizing",
+          "Adaptivity is thin \u2014 mostly pre-specified robustness lists rather than explicit branch-and-drop rules; only the MDE check and the attrition tie-break say what changes conditional on results",
+          "Robustness surface is wide enough (multiple estimators, several matching variants, many placebos) to create researcher degrees of freedom despite the stated pre-registration"
+        ],
+        "issues_with_loser": [
+          "Primary regressor contains the outcome in its denominator, making the headline coefficient partly definitional; the permutation and deflation fixes add complexity to recover what a clean adoption design has for free",
+          "The estimator it pre-commits to trust when specifications disagree (Callaway\u2013Sant'Anna) is demoted to a cross-check rather than led with \u2014 inverted sequencing",
+          "Constructed instrument (holdout-fitted affinity \u00d7 national non-sports Kalshi volume) is not defensible to this audience and its exclusion restriction is never argued, only its F-statistic promised",
+          "Stack of Driscoll\u2013Kraay, Arellano\u2013Bond, two permutation schemes, Lee bounds and ten splits is more machinery than a three-person data team and one engineer should spend on a single-name sizing question",
+          "Explainability is mismatched to a fundamental IC that must defend the conclusion end to end",
+          "Little in the plan produces something actionable early; almost every stage is a prerequisite for the next"
+        ]
+      }
+    },
+    {
+      "id": "S1",
+      "tag": "BA",
+      "status": "ok",
+      "usage": {
+        "in": 9086,
+        "out": 3869
+      },
+      "result": {
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "unnecessary_complexity",
+          "firm_fit",
+          "sequencing",
+          "measure_validity"
+        ],
+        "key_differentiator": "Plan B answers the question asked with a matched event-study a fundamental PM can actually read and challenge, while Plan A leads with a regressor that contains its own outcome and then buys its way out with IV, Arellano\u2013Bond, Driscoll\u2013Kraay and permutation machinery this firm cannot evaluate, staff, or defend to an IC.",
+        "rationale": "The job is to move sizing on DKNG and survive a PM asking what would have to be true for this to be wrong. That favours the design whose headline number is a directly interpretable dollars-per-adopter-per-month displacement with a raw event-time plot behind it. Plan B delivers exactly that: label descriptors (one week), match adopters to controls within cohort, plot -6..-1 parallel trends, then estimate. It is stoppable halfway and still informative \u2014 a flat pre-trend plus a visible post-adoption gap in raw dollars is a 60%-confidence answer a PM can act on before any of the robustness list runs. Its evidence standard is well matched: pre-committed specification, SMD balance thresholds with held-out covariates, joint pre-trend F-test with power against the claimed effect, and Rambachan\u2013Roth-style breakdown M reported honestly (with the nice touch that M=0.5 is declared not a result in advance). Its placebo set is derived from the mechanism rather than recited: grocery/fuel, pseudo-adoption on then-inactive adopters, a comparable-ticket unrelated new merchant, and the whole pipeline run on FanDuel-only non-DraftKings users. The reverse-causality threat that actually matters here \u2014 DraftKings limiting or self-excluding a heavy bettor who then wanders to Kalshi \u2014 is named and handled with a -3..-1 fade exclusion and stratification, not just listed.\n\nPlan A is the more ambitious study and it is not a bad one. Its two genuine advantages are real: it is the only plan that confronts broker-distributed Kalshi (Robinhood/Webull order flow carries no Kalshi descriptor, so those adopters silently sit in Plan B's control group), and it is the only plan that converts deposit dollars to revenue at explicit hold rates, which is what sizing actually needs. But its core design choice is self-inflicted. Making the primary regressor a within-user share whose denominator contains DraftKings spend builds a mechanical relationship into the estimate, and the entire permutation-null, baseline-deflated, leave-out-share apparatus exists to undo that choice rather than to answer the question. The clean version of the question \u2014 did adopters spend less than they otherwise would have \u2014 is available and is what Plan A relegates to a Callaway\u2013Sant'Anna 'cross-check.' The tie-break rule (if the elasticity and the ATT disagree by more than 2x, the event study wins) is an admission that the event study was the right primary all along.\n\nFit compounds this. Three data people and one engineer, no production ML, output going to an investment committee: an IV built from a held-out-fitted affinity score interacted with national Kalshi volume, plus Arellano\u2013Bond, plus Driscoll\u2013Kraay lags, plus ppmlhdfe, plus ten pre-specified splits, is more researcher degrees of freedom and more surface area to defend, and none of it produces conviction with an audience that cannot evaluate it. In a concentrated book where a false positive on cannibalization gets expressed as a short and cannot be diversified away, the defensible-and-inspectable design beats the maximally instrumented one, because the failure mode is a PM unable to interrogate the machinery and either over-trusting or discarding the result.\n\nNeither plan does the incremental-view work \u2014 what the sell side already assumes about Kalshi cannibalization of DKNG, and whether a measured displacement would even be news \u2014 and Plan A gets a partial credit here for at least mapping deposits to revenue at take rates. That is not enough to overturn the sequencing and firm-fit gap. I would put the analyst on B and graft two things from A onto it before the first run: an explicit measurement of how many Kalshi users are invisible because they trade through a broker, treated as a control-contamination bound rather than an afterthought, and a stated conversion from displaced deposit dollars to DKNG revenue at hold.",
+        "issues_with_winner": [
+          "Robinhood/Webull-distributed Kalshi activity has no distinct descriptor, so an unknown share of true adopters sits in the control pool; the plan lists Robinhood in its taxonomy but never says how it handles this, and the contamination biases the estimate toward zero",
+          "Stops at displaced deposit dollars and never converts to DraftKings revenue at hold rates, so the PM still has to do the step that determines sizing",
+          "No engagement with what consensus already believes about event-contract cannibalization, so a confirmed effect might be entirely priced",
+          "Does not address DraftKings' own late-2025 prediction-market launch, which changes what 'Kalshi adoption' means in the later cohorts",
+          "Robustness list is long enough that the analyst will need discipline to actually treat the frozen primary specification as the headline"
+        ],
+        "issues_with_loser": [
+          "Primary regressor K/(K+DK+FD) has the outcome in its own denominator; the permutation null and baseline-deflated variants are repairs for a choice that did not need to be made",
+          "IV (affinity x national Kalshi volume), Arellano\u2013Bond, Driscoll\u2013Kraay and ppmlhdfe are unevaluable by this firm's PM and unmaintainable by one engineer and a three-person data team",
+          "Buries the clean, directly interpretable adopter-vs-counterfactual event study as a 'cross-check,' then concedes it wins in a disagreement \u2014 the sequencing is inverted",
+          "Ten pre-specified splits plus pooled results plus three regressor variants plus multiple estimators is a large researcher-degrees-of-freedom surface for a concentrated-book decision",
+          "Slower to a first actionable read: nothing inspectable resembling a raw event-time picture appears early in the sequence"
+        ]
+      }
+    },
+    {
+      "id": "S2",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 8813,
+        "out": 7174
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 3,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "measure_validity",
+          "falsification"
+        ],
+        "key_differentiator": "Plan B makes its hard kill depend on an MAU\u2192seats gate whose \"seat\" variable is itself a ragbag of non-comparable disclosures (pays-per-control, paying users, customer counts, employees-on-platform), so it can foreclose the question actually asked \u2014 does MAU predict ARR \u2014 on evidence that cannot support that verdict; Plan A tests the asked target directly, with a clean negative control.",
+        "rationale": "Both plans are competent, over-engineered, and firm-feasible; the choice turns on what each actually delivers to a PM sizing named positions. The question is whether MAU predicts ARR. Plan A tests exactly that: ARR/subscription revenue as a carefully tiered, point-in-time dependent variable (three definitions, never mixed within a series, explicit splice rules), log MAU at h=0,1,2 so there is a genuinely forward-looking read consistent with a 6\u201318 month book, benchmarked against carry-forward, trailing growth and a no-MAU two-way FE model, gated on rolling-origin and leave-one-company-out rather than the leaky random split it flags itself. Its falsification is the best single test in either plan and is derived from the mechanism: refit on the deliberately excluded consumption-metered names, and if MAU works equally well there, the seat story is measuring something generic and the thesis dies. Plan B's virtues are real \u2014 a mechanism gate up front, a kill criterion, the variance decomposition of ARR growth into seats versus price published before model results (cheap and genuinely entropy-reducing), and the sharpest edge test in either plan (regressing consensus surprise on model-minus-consensus). But its primary claim is MAU\u2192seats, not MAU\u2192ARR, and it pre-commits to reporting a negative result rather than falling back to the reduced form the fund actually needs. That kill rests on a gate sample of roughly eight to ten firms whose disclosed quantities are not the same object \u2014 ADP pays-per-control, Dropbox paying users, Atlassian customers and tier mix, Dayforce employees on platform \u2014 pooled into a single g^seat with four simultaneous thresholds (\u03b2 in [0.5,1.5], partial correlation \u22650.45, positive in two-thirds of firms, LOO stability). On that N, with that measurement heterogeneity, failure is at least as likely from the gate's own construction as from the hypothesis, and the plan then stops. That is a Type II error dressed as discipline, and it also leaves the firm without the one output it asked for. Plan B is additionally more print-event shaped (nowcast five business days after quarter end) than the stated horizon, and its ridge-plus-empirical-Bayes stack is the part a PM can least interrogate. Plan A's own excesses \u2014 CIPS panel unit-root and Westerlund cointegration on ~20 quarters and ~40 clusters are near-powerless, and the horizon is fitted \u2014 are cosmetic by comparison, and it keeps a plain log-log FE headline the PM can read. Close, but A answers the question on the right variable with a falsification that can actually fail.",
+        "issues_with_winner": [
+          "Panel unit-root and cointegration testing on ~20 quarters and ~40 clusters is underpowered ceremony; the ECM branch will be decided by noise",
+          "Horizon (h=0,1,2) plus joint-lag is fitted, adding researcher degrees of freedom even with rolling-origin selection",
+          "No upfront kill gate: the plan is largely one block, with the cheap, high-information falsification (consumption-metered names) sitting at the end rather than early",
+          "Does not directly validate the MAU\u2192seats link that the mechanism depends on; relies on a Wayback price index and an asymmetry interaction instead",
+          "The 3% level MAPE bar and 'expect \u03b2 0.4\u20130.8' are asserted rather than derived",
+          "Random 20% company-quarter holdout is named as leaky yet still kept as the headline number"
+        ],
+        "issues_with_loser": [
+          "Gate dependent variable pools incommensurate disclosures (pays-per-control, paying users, customer counts, employees-on-platform) into one 'seat growth' series, manufacturing an N the setting does not support",
+          "Four simultaneous gate thresholds on that tiny, heterogeneous sample make a false kill likely; refusing a reduced-form MAU\u2192revenue fallback discards the answer the firm actually asked for",
+          "Primary claim is MAU\u2192seats rather than MAU\u2192ARR, so a failed gate leaves the question as posed unanswered",
+          "Contemporaneous nowcast five days after quarter end plus t+1 is closer to an event-driven print trade than a 6\u201318 month sizing input",
+          "Ridge with nested CV plus empirical-Bayes shrinkage is the least defensible component to a PM asking what would have to be true for it to be wrong",
+          "No cross-sample negative control: consumption-metered names are excluded but never used to test where the effect should be absent"
+        ]
+      }
+    },
+    {
+      "id": "S2",
+      "tag": "BA",
+      "status": "ok",
+      "usage": {
+        "in": 8813,
+        "out": 4726
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 3,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "sequencing",
+          "proxy_substitution",
+          "measure_validity",
+          "evidence_standard"
+        ],
+        "key_differentiator": "Plan A puts the premise-killing test first \u2014 does panel MAU actually track disclosed billable seats, and do seats even drive ARR-growth variance \u2014 while Plan B assumes the MAU\u2192seat link and only learns the answer after building the full ARR forecasting stack.",
+        "rationale": "The question's hidden premise is that portal MAU measures the billed unit. Plan A tests exactly that, up front, against companies that disclose seat-like counts (pays-per-control, paying users, employees-on-platform, customers \u00d7 seats), with pre-committed pass thresholds and an explicit refusal to fall back on a MAU-vs-revenue regression if it fails. It then publishes the ARR-growth variance decomposition (seats vs price/mix) before any model results, which can scope the whole idea out cheaply if price and NRR dominate. That is the right entropy-reducing order for a fundamental fund whose PM will ask what would have to be true for this to be wrong: the answer is 'panel MAU tracks contracted seats and seat growth carries ARR growth,' both of which get measured before anything is modelled. It also gets to an actionable read early \u2014 a gate result plus a taxonomy of failures is a usable week-four output. Plan A's edge check is also the sharper of the two: regressing realised consensus surprise on model-minus-consensus is a direct test of incremental information rather than just beating analyst dispersion.\n\nPlan B is a competent plan and has one thing A lacks \u2014 a clean mechanism-derived negative control (refit on consumption-priced names; equal performance sinks the thesis). But it opens with log-level panel regressions and then reaches for CIPS unit-root, Westerlund cointegration and an ECM to repair the spuriousness it invited, when the differenced/YoY form Plan A leads with is both simpler and the specification it will actually trade. It fits the horizon (h \u2208 {0,1,2} plus a joint-lag form) on out-of-sample performance, which adds researcher degrees of freedom on ~40 effective clusters, and it never independently validates the MAU\u2192seat link that its own hypothesis flags as the load-bearing assumption. Its 3% MAPE and 150bp bars are asserted rather than derived, as is 'expect edge in smaller-cap names, decaying.'\n\nGiven a concentrated-ish long/short book sizing named positions, Type I error dominates, so Plan A's heavier gate is appropriate rather than excessive. Both plans are close, and Plan A's pooled ridge plus empirical-Bayes shrinkage is machinery this audience will struggle to interrogate, but it is bolted onto a simple OLS gate and a damped-persistence baseline a PM can verify. That is why it wins, not by a wide margin.",
+        "issues_with_winner": [
+          "Pooled fixed-effects ridge with nested CV and empirical-Bayes shrinkage is more machinery than a ~40-company panel needs and is hard for a fundamental PM to evaluate; the simple pooled OLS plus damped-persistence baseline is doing most of the real work",
+          "No explicit negative control on non-seat-metered names \u2014 the one place Plan B is clearly better; an effect that also works on Snowflake or Toast would mean MAU is proxying something generic",
+          "Using payroll processors (ADP, Paycom, Dayforce) as the seat anchor is a strained analogy: employees-on-platform portals are employee-facing with large non-paying usage, and this sits awkwardly beside the stated exclusion of end-customer portals",
+          "The four-part simultaneous gate (\u03b2 sign, significance, \u03b2 \u2208 [0.5,1.5], partial correlation \u22650.45, LOO stability) could discard a real but noisy relationship; defensible given Type I dominance but it is tight",
+          "Stops at ARR nowcast accuracy and never connects to the fund's 6\u201318 month horizon or to how much a given surprise should move a position"
+        ],
+        "issues_with_loser": [
+          "Never tests the central premise that portal MAU tracks billable seats; it names MAU-per-seat and price-per-seat drift as the mechanism's requirements and then proceeds without measuring either",
+          "Leads with log-level regressions and then imports a cointegration/ECM battery to fix the resulting inference problem, when the YoY-difference form it would actually trade is simpler and should have been first",
+          "Decisive test (out-of-sample beat over two-way FE without MAU) arrives only after the entire panel, DV-tiering and break-screening build is complete \u2014 nothing kills the idea early",
+          "Horizon and specification are selected on out-of-sample performance across three lags plus a joint form, on ~40 effective clusters, which reintroduces the search the plan says it is guarding against",
+          "3% MAPE and 150bp median-error bars, and 'expect edge in smaller-cap names, decaying,' are asserted magnitudes nothing in the plan derives",
+          "Three-tier DV construction (ARR, annualised subscription revenue, revenue less services/licence) risks measuring a different quantity per company even with splicing rules; no check that tier choice does not drive the result"
+        ]
+      }
+    },
+    {
+      "id": "S3",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 9351,
+        "out": 3942
+      },
+      "result": {
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "capability_build",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "proxy_substitution",
+          "falsification",
+          "error_asymmetry",
+          "evidence_standard"
+        ],
+        "key_differentiator": "Plan B validates the thing that actually kills the desk \u2014 whether a named match is correct \u2014 against external ground truth with a calibrated abstain rate, while Plan A spends nearly all its rigor certifying cluster cohesion, a proxy that can be excellent while every name is wrong.",
+        "rationale": "The deliverable is a defensible ID\u2192ticker crosswalk, and the stated failure mode is a confident wrong match. That makes match precision the only metric that matters and abstention cheap: an UNKNOWN costs a foregone position, a wrong name costs a sized position in the wrong bank. Plan B is built exactly around that asymmetry \u2014 per-ID abstain sink, accept only at max p\u22650.80 with margin and \u22653 independent comparators agreeing, thresholds recalibrated to a 95% precision target, coverage (deposit-volume-weighted) as the quantity sacrificed, and a pre-committed kill: if the Netherlands pilot fails, stop; below 40% assigned coverage the country is not identifiable. Its holdout unit is the institution, not the transaction, which is the correct unit for this problem, and the A/B register split with CI enforcement is a real guard against the circularity that would otherwise ruin the work (vendor 'market shares' that are themselves panel-derived, anchors leaking into features). Crucially, several comparators are humanly checkable one at a time \u2014 exact cents-level recurring fee matched to a published Preis- und Leistungsverzeichnis, branch/ATM footprint vs NUTS-3 geography, benefit-payment calendars, disclosed neobank growth \u2014 so a PM can interrogate any single match end to end and answer 'what would have to be true for this to be wrong.' Controls come first: permuted fingerprints must score at chance, three phantom IDs must abstain, dropping the largest comparator must degrade gracefully. That is a falsifiable design.\n\nPlan A is a technically strong clustering study answering an adjacent question. Its hypotheses are about separation, stability and interpretability of clusters; its gates are silhouette, Hennig bootstrap Jaccard, window ARI and a permutation null. All of that can pass with flying colours while the actual naming \u2014 the only step the desk can trade on \u2014 rests on a thin, unvalidated final move: rank panel customer counts against market share within a country\u00d7archetype cell and run Hungarian on rank distance, accepting when the top-to-runner-up gap clears a preset margin. There is no ground truth anywhere in Plan A, so precision of names is never measured, only asserted; the escalation rule is 'calibrated' against nothing. Worse, the rank-matching assumes the panel's institution shares track market shares, which is precisely the assumption Plan A's own pitfalls section says is violated (young/urban/digital/multi-banked skew inflating neobanks, under-representing Sparkassen and cooperatives) \u2014 it names the risk and then proceeds to build the naming step on it, with 'use panel-reweighted shares; state bias' as the whole remedy. Its Tier A output (country + archetype) is honest but unusable: you cannot underwrite a ticker with 'a German savings specialist.' The account-role confound (primary vs secondary vs savings) is a genuinely sharp observation and the strongest thing in Plan A, but Plan B's per-type selection term and post-stratification cover much of the same ground, and B could absorb that check cheaply.\n\nSequencing and steerability also favour B: a single-country pilot with a stop rule, controls before scoring, and intermediate artefacts a person can inspect (candidate sets, abstain reason codes, type-level confusion, risk\u2013coverage curve). Plan A produces nothing tradable until the whole clustering pipeline has passed its gates, and its most inspectable step \u2014 hand-reading 20 customer narratives per cluster \u2014 is scheduled last.",
+        "issues_with_winner": [
+          "Heavy build for a three-person data team and one engineer: consented surveys in five countries, OSM Overpass extraction, tariff-document parsing and benefit-calendar logic; the NL-first pilot mitigates this but the plan should explicitly stage the data spend behind the pilot result.",
+          "25\u201360 validation labels per country cannot establish 95% precision with any tightness; the plan should lean harder on the per-match consistency argument (multiple independent comparators agreeing, out-of-time stability across quarters) than on a precision point estimate it cannot support.",
+          "Some machinery is unnecessary and unevaluable by this audience \u2014 Sinkhorn marginals entropy-matched to a Gibbs sampler, Venn\u2013Abers calibration, leave-one-country-out weight transfer. The Jonker\u2013Volgenant point estimate plus a hand-checkable comparator table would carry most of the conviction; the rest adds researcher degrees of freedom.",
+          "Does not test the simplest thing first: exact fee-signature matching alone may resolve a large share of IDs, and that one-page check should precede the full min-cost-flow scoring apparatus.",
+          "Does not address the primary/secondary/savings account-role confound that Plan A correctly flags, which can distort n_share, payday and benefit_mix fingerprints."
+        ],
+        "issues_with_loser": [
+          "Validates cluster cohesion and stability, not match correctness \u2014 all gates can pass while the names are wrong; no ground truth of any kind is collected.",
+          "The naming step, the only output the desk can trade, is the least validated part: Hungarian on rank distance with a 'preset margin' and no measured precision or abstain calibration.",
+          "Relies on panel institution-size ranks tracking market share, an assumption its own pitfalls section identifies as violated by panel skew, and then proceeds with reweighting as the sole fix.",
+          "Tier A/B/C output degrades to country+archetype, which cannot be attached to a ticker; the honest negative is useful but arrives after the full pipeline rather than from an early cheap test.",
+          "Naming rests on gradient-boosted feature importance, co-association matrices and UMAP pictures \u2014 hard for a fundamental PM to interrogate at the level of a single institution, which is exactly what will be asked.",
+          "Little use of external anchors that would independently discriminate individual institutions (branch footprints, published tariffs, benefit calendars, disclosed growth), so no comparator can contradict a proposed match."
+        ]
+      }
+    },
+    {
+      "id": "S3",
+      "tag": "BA",
+      "status": "ok",
+      "usage": {
+        "in": 9351,
+        "out": 3517
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 4,
+        "goal_type": "capability_build",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "measure_validity",
+          "error_asymmetry",
+          "falsification",
+          "evidence_standard"
+        ],
+        "key_differentiator": "Plan A validates the thing that actually matters \u2014 whether a named match is correct, against external labels, with abstention and a pre-committed precision floor \u2014 whereas Plan B's entire validation apparatus measures cluster cohesion and stability, which can be excellent while every name is wrong.",
+        "rationale": "The deliverable here is a defensible ID\u2192ticker crosswalk, and the stated failure mode is a confident wrong match feeding position sizing. That makes this a capability build with a hard Type I asymmetry, and the decisive question is: how do you know a match is right, and what abstains when you don't know?\n\nPlan A answers that directly. It builds an external label set (consented survey seeds, provider-revealed IDs, unambiguous public cases), holds out at the institution level (leave-one-institution-out with in-fold refitting, then leave-one-country-out), and pre-commits a criterion in the units the desk cares about \u2014 share of panel deposit volume assigned at \u226595% precision, with countries below 40% coverage declared unidentifiable. It ships UNKNOWN as a first-class output with typed reasons, a not-in-roster sink, and margin/comparator-count requirements. It runs the cheap invalidating controls first: permuted fingerprints must score at chance, three phantom IDs must abstain, dropping the largest comparator must degrade gracefully. And it puts a kill gate at the front \u2014 if the Netherlands, the easiest concentrated market, fails, stop.\n\nCrucially, A's evidence is the kind a PM can hand-check. \"This ID's modal recurring debit is \u20ac4.90 to the cent, matching bank X's Preis- und Leistungsverzeichnis; benefit credits arrive on the Kindergeldnummer digit schedule; NUTS-3 footprint matches the branch register\" is an argument that survives the question \"what would have to be true for this to be wrong?\" The register separating anchor variables from feature-building variables, with CI enforcement, is a genuine leakage control on exactly the axis that would inflate apparent accuracy.\n\nPlan B is a well-built clustering study answering an adjacent question. Its gates \u2014 silhouette, Calinski-Harabasz, Hennig bootstrap Jaccard, window ARI, permutation null \u2014 all test whether the feature space has structure, not whether names are right. It even says \"cohesion isn't correctness\" and then proceeds with cohesion as the gating metric. Worse, its naming step rests on rank-ordering panel customer counts against market deposit share within country-archetype cells \u2014 that is size matching, precisely the channel most contaminated by the panel skew B itself documents (young, urban, digital, multi-banked, inflating neobanks, under-representing Sparkassen and cooperatives). A confident Tier-B name from that procedure is the exact failure the desk fears, and nothing in B can measure its precision because B has no ground truth at all. Its most likely honest output \u2014 country plus archetype \u2014 cannot be attached to a ticker, so the plan's realistic success case is not actionable.\n\nB is also mis-ordered for information: NMF co-holding loadings, PageRank on the transfer graph, and UMAP pictures come before any external check that a single ID has been correctly named. A's crude-invalidation-first ordering removes more uncertainty per unit cost.\n\nAgainst A: the machinery is heavier than this shop's three-person data team and one engineer will comfortably own, and the entropy-matched Sinkhorn / Venn-Abers layer is not obviously necessary before a simpler score-plus-threshold version has failed. But A does pair the sophistication with hand-verifiable corroborators, which is the mitigation the setting calls for, and both plans reach for an assignment algorithm anyway.",
+        "issues_with_winner": [
+          "Precision claims at 95% rest on 25\u201360 labels per country; the confidence interval on that estimate is wide and the plan should say so rather than treat 95% as measurable at that N",
+          "Sinkhorn marginals with \u03b5 calibrated to a Gibbs sampler's entropy, Venn\u2013Abers recalibration and nested CV are more machinery than the simple version has yet earned; a score-plus-margin baseline should be shown to fail first",
+          "Consented survey of 500 respondents per country is real cost and calendar time, and is scheduled as infrastructure rather than gated on the NL pilot succeeding on public-case labels alone",
+          "Leave-one-country-out generalization is interesting but not needed for the desk's decision, since anchors are built per country anyway",
+          "Only one engineer to maintain quarterly re-versioned anchor joins across seven regulators plus OSM Overpass extracts"
+        ],
+        "issues_with_loser": [
+          "Every validation gate measures cluster quality, not identification accuracy; no external ground-truth labels exist anywhere in the plan, so the precision of a name is never estimated",
+          "Naming rests on rank-correlating panel customer counts against market deposit share \u2014 the channel most corrupted by the panel skew the plan itself documents, making confident wrong matches likely in fragmented markets",
+          "The plan's realistic honest output, country plus archetype, cannot be attached to a ticker and so does not underwrite a position",
+          "No pre-committed kill criterion tied to the actual question of named identification, and no abstain mechanism grounded in anything external",
+          "Ordering is backwards: NMF co-holding loadings, transfer-graph PageRank and UMAP visuals precede any check that a single ID is correctly named",
+          "Hand-reading 20 customer narratives per cluster is inspectable but tests archetype plausibility, not institution identity"
+        ]
+      }
+    },
+    {
+      "id": "S4",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 9009,
+        "out": 4191
+      },
+      "result": {
+        "winner": "B",
+        "confidence": 3,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "firm_fit",
+          "sequencing",
+          "no_edge"
+        ],
+        "key_differentiator": "Plan B runs the cheapest disconfirming document test first and produces a priced-in/mispricing verdict the desk can trade, while Plan A front-loads a 40\u201360 case coded comparable set and Bayesian likelihood-ratio framework that this desk \u2014 explicitly with no quant staff and no dataset-building capacity \u2014 cannot build and would not use.",
+        "rationale": "Both plans are strong on the same core insight: the modal explanation is a pre-agreed release trigger (completion/COD/DSCR), the second-most-likely is substitution of a different form of credit support (keepwell, LC, reserve, take-or-pay, RVG), and the strategic-leverage story only survives if both die with contemporaneous independent qualification evidence. Both pre-register falsifiers. The choice turns on fit and sequencing.\n\nPlan A's methodological centerpiece is a coded sample of 40\u201360 comparable guarantee releases across semiconductor JVs, digital-infrastructure SPVs and classic project finance, sourced from DealScan, Infralogic/IJGlobal and Bloomberg CACS, converted into a stated prior (20:1\u201330:1 against H1, ~25x LR required). That is a dataset build for a desk that the brief says consumes sell-side, filings and expert calls and cannot build datasets. It also drifts toward an on-average base-rate question when the desk's stated need is whether this specific situation is mispriced right now. The Bayesian LR framing is also not the language this PM and risk manager will use to size a weeks-to-months catalyst position, and the priors are asserted before the coding that would justify them.\n\nPlan B is ordered for information. The as-signed release language and whether its condition was met is the single test most likely to kill the idea, and it is first. The consent-solicitation/fee check is a genuinely clever near-dispositive discriminator between a negotiated release and a mechanical spring-off, and it is cheap. The VIE maximum-exposure-to-loss QoQ delta is correctly identified as the best test of substituted support rather than removed support. The base rate is scoped proportionately \u2014 5\u201310 same-vintage sponsor-supported SPVs with shared arrangers and counsel \u2014 and reachable through counsel and syndicate calls, which is exactly the desk's real capability. The expert-network chain (deal counsel, lender desk, ex-planners, OSAT/substrate, EDA/IP, rival foundry) with a two-independent-sources rule matches how this shop actually earns conviction, and the requirement that qualification must predate the change respects the 18\u201336 month timing arrow.\n\nOn edge, B asks whether the market already reacted and cross-checks SPV spread against the hyperscaler curve and CDS on both names; A computes economic magnitude but never really asks whether this is already in the price. On output, B ends with a bridge, dated timeline, document-cited verdict and a trade sized to the weakest link, plus the correct trading nuance that dual sourcing is about pricing power and can coexist with rising incumbent volumes. A ends with a chronology and a verdict but no path to a position.\n\nType I dominates here \u2014 concentrated single-name, fast-cutting risk manager \u2014 and both set a demanding bar. But B's bar rests on primary documents the desk can actually obtain, whereas A's higher formal bar rests on comparable coding it cannot credibly complete inside the catalyst window, which makes the rigor notional rather than real.",
+        "issues_with_winner": [
+          "\"Check the price reaction first\" is buried in pitfalls when it should be the opening step alongside the release-language read",
+          "Expected-loss framework with shadow ratings, through-cycle PD and LGD on advanced-node tooling exceeds what a two-analyst fundamental desk can defensibly estimate; the 60\u201390bp threshold for \"real risk moved\" is asserted rather than derived",
+          "Redaction back-solving from debt quantum and assumed DSCR is presented confidently but is speculative and could anchor the whole read",
+          "Document scope is enormous \u2014 LLC agreements, OMs, supply agreements, amendments, both issuers' notes \u2014 with no explicit triage of what gets read in week one versus week three",
+          "Lacks Plan A's cheap and high-value cross-vehicle sweep: if guarantees were withdrawn across unrelated SPVs, this is treasury policy and the thesis is dead in a day",
+          "Does not carry Plan A's alternative that the project is souring (demand shortfall, node slip), which is externally identical to the leverage story with opposite trade implications"
+        ],
+        "issues_with_loser": [
+          "Coding 40\u201360 comparable releases across three strata using DealScan, Infralogic/IJGlobal and Bloomberg CACS is a dataset build the desk explicitly cannot staff or license",
+          "Likelihood-ratio and prior-odds framing (20:1\u201330:1, ~25x LR needed) is stated before any coding is done and is not the vocabulary this PM or risk manager can evaluate or act on",
+          "The base-rate construction is scheduled ahead of the pre-commitment test, which is the step that most cheaply kills the idea",
+          "Never asks whether the market has already priced the release; the pricing section measures economic magnitude, not incremental view versus consensus",
+          "No path from verdict to a position \u2014 no sizing, no trade expression, no statement of what would be bought or sold",
+          "Drifts toward an on-average question about how guarantee releases behave generally, when the desk needs a judgment on this specific situation inside a weeks-to-months window",
+          "Portfolio sweep of eight quarters of guarantee inventory across every SPV, lease vehicle and JV is a large amount of work for what should be a quick disconfirming glance"
+        ]
+      }
+    },
+    {
+      "id": "S4",
+      "tag": "BA",
+      "status": "ok",
+      "usage": {
+        "in": 9009,
+        "out": 3551
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 3,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "firm_fit",
+          "sequencing",
+          "no_edge"
+        ],
+        "key_differentiator": "Plan A is built to resolve this one situation on a catalyst clock and ends in a priced, sized trade; Plan B diverts a two-analyst desk into coding 40\u201360 project-finance comparables to establish an average base rate the desk was not asking about.",
+        "rationale": "Both plans read the same way on the core mechanics \u2014 they identify the same modal null (scheduled completion/DSCR release), the same accounting null (ASC 810 / VIE maximum-exposure-to-loss), the same substitution null (keepwell, ECL, LC, take-or-pay), and the same independent-corroboration channels (PDK/IP licensing, OSAT and substrate orders, mask/MPW activity, hiring reqs, prepayment lines at the alternative). The tie breaks on fit and sequencing.\n\nPlan A states its order explicitly and conditionally: cheapest disconfirmation first, H1 only entertained if the release-language and substitution hypotheses die, with named killers and an 'any two, no' stop rule. It also puts the one question this desk actually has to answer \u2014 is it mispriced now \u2014 inside the workflow: check the price reaction first, cross-check SPV spread against the hyperscaler curve at matched tenor and both CDS, and convert the guarantee change into a notional and expected-loss bridge that either shows real risk moved (60\u201390bp plus funded reserve) or shows the guarantee did little. The consent-solicitation check is close to dispositive and is cheap. The deliverable is a dated timeline, a verdict citing as-signed documents, and a trade sized to the weakest link. That is the output an event-driven PM with a fast risk manager can act on inside weeks.\n\nPlan B is the better-written epistemology paper. Its pre-registered falsifiers are sharp, and it is genuinely stronger on two points: it separates H1 (strategic leverage) from H3 (project souring), which are externally identical and imply opposite trades, and it flags the arrow-of-time problem that foundry decisions precede silicon by years. But its center of gravity is a 40\u201360 case coded comparables study spanning fab SPVs, data-center ABS/CMBS and power/LNG/toll project finance, plus an eight-quarter portfolio-wide guarantee inventory sweep. That is average-effect work for a desk whose question is always this specific situation, it needs DealScan/Infralogic/IJGlobal, and it is weeks of two-analyst time scheduled largely regardless of what the primary documents say. Worse, it pre-writes the answer the study is meant to produce \u2014 'leverage-driven one to three in fifty, 20:1 to 30:1 against, ~25x LR needed' \u2014 an invented base rate and an invented evidentiary bar that will anchor the verdict before a single filing is read. And after all that machinery, B never asks what the market already believes; its pricing section quantifies the risk transferred, not whether the transfer is in the price. Plan A's smaller, targeted base rate (5\u201310 same-vintage sponsor-supported SPVs, shared arrangers and counsel) is the version of that check proportionate to the decision.\n\nType I dominates here \u2014 concentrated single-name, explicit loss, a risk manager who cuts fast \u2014 and A's burden of proof is demanding enough: verbatim as-signed release language, no consent solicitation or fee, exposure-to-loss delta consistent with the released notional, volumes flat or rising, no qualification predating the change. I would take B's H1-versus-H3 discipline as a required addition to A, not as a reason to run B.",
+        "issues_with_winner": [
+          "Folds two opposite readings into H1 \u2014 'alternate source qualifying' and 'refusal to back capacity it may not fill' \u2014 without a test that separates strategic leverage from a souring project; those imply different trades and Plan B handles this better",
+          "Does not confront the timing/arrow problem: qualification evidence predating the release could be cause or coincidence, and foundry commitments lead silicon by years",
+          "Expected-loss chain (shadowed standalone rating \u2192 through-cycle PD \u2192 LGD on narrow-use advanced-node tooling) produces a precise-looking number from several judgment calls; the 60\u201390bp threshold for 'real risk moved' is asserted, not derived",
+          "Telegraphic to the point of ambiguity in places; a junior analyst could not execute it without the PM reconstructing the order",
+          "Assumes 601(b)(10)(iv) redactions can be back-solved from debt quantum and assumed DSCR \u2014 plausible but may simply fail, and there is no fallback"
+        ],
+        "issues_with_loser": [
+          "The 40\u201360 case comparables coding across semis, digital infra and classic project finance is average-effect work for a desk that only cares whether this situation is mispriced, and consumes most of the available analyst time",
+          "Pre-writes the prior it intends to measure ('one to three in fifty', '20:1\u201330:1 against', '~25x LR needed') \u2014 fabricated magnitudes that anchor the verdict before evidence arrives",
+          "No check on what is already priced: computes spread change x duration x notional to size the risk transferred, never asks what consensus or the sell-side already assumes about the release",
+          "Requires DealScan, Infralogic/IJGlobal, Bloomberg CACS/DDIS plus five overseas company registries \u2014 real spend and infrastructure for a shop that consumes sell-side, filings and expert calls",
+          "Non-adaptive: the comparables study and eight-quarter portfolio guarantee sweep are scheduled irrespective of whether the as-signed release language already settles the question",
+          "Ends in a chronology and a coded cause, not in a sized, tradable expression of the view"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 9299,
+        "out": 4651
+      },
+      "result": {
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_ii_dominant",
+        "decisive_tenets": [
+          "sequencing",
+          "no_edge",
+          "unnecessary_complexity",
+          "falsification"
+        ],
+        "key_differentiator": "Plan B answers the commercially decisive question \u2014 is this residual effect still there and is it already sold by a vendor \u2014 in two weeks for near-zero spend, whereas Plan A commits a quarter of annotation and domain-adaptive pretraining before the first return regression and never asks whether the signal is already licensed.",
+        "rationale": "Both plans are competent, correctly framed as cross-sectional broad-effect work, and both fit a systematic shop in vocabulary and machinery. The split is sequencing and edge.\n\nThe premise here is heavily published (LM 2011, Price et al. 2012) and packaged by at least half a dozen vendors. For a firm judged on crowding, cost and capacity, the first-order question is not 'can we build a better tone measure' but 'is there any residual, uncrowded, post-cost predictability left after SUE, CAR and guidance.' Plan B puts exactly that in front: a frozen pre-registration on day 3, a decay prior anchored to McLean-Pontiff, half a day of vendor calls where availability and client count are themselves read as crowding evidence, then a single LM-dictionary specification and a gate by day 10, with a rank-correlation test against a purchased vendor score that would demote the whole project to 'commodity duplication.' It replicates the 2004-2010 published era as an out-of-time sanity anchor before touching the modern sample, has four pre-committed kill thresholds that include net spread and size-concentration (not just a t-stat), and is genuinely adaptive: pass leads to a build/licence comparison, fail leads to a two-page memo naming residual hypotheses. Stopped halfway it has still taught the firm something.\n\nPlan A is a better-engineered measurement program and a worse research plan. Its economics test \u2014 does peer-relative residual tone add anything beyond SUE, announcement return and momentum \u2014 is the step most likely to kill the idea, and it sits behind ~2B tokens of domain-adaptive MLM, 6,000 adjudicated gold sentences, 150k silver labels, and a two-head encoder. The LM/FinBERT baselines that could have resolved the question in a week appear as rung one of an ablation ladder run at validation time, i.e. after the spend. It also never asks the crowding question at all: 'break-even cost' is a cost question, not an is-this-already-sold question, and no vendor or published-decay diff appears anywhere. That is a plan that can be flawless and still worth nothing to this firm. Its Cao-Jiang-Wang-Yang machine-readability check and its 'clean null is a real output' line are honest, but a null after a quarter of encoder work is exactly the outcome good sequencing exists to avoid.\n\nWhere A genuinely beats B: its cost model (per-share plus TAQ spread plus impact, ADV cap, borrow, capacity where net alpha halves) is real work against B's flat 20bp, and it tests shorter decay horizons closer to the firm's days-to-weeks mandate. But that refinement is post-gate work, and B schedules it explicitly in days 11-14 if the signal survives. I would put an analyst on B and lift A's cost and capacity machinery into that second phase.",
+        "issues_with_winner": [
+          "Kill thresholds are tight for a Type-II-dominant setting: t>=2.5/2.9, net spread >=3% annualised and IR >=0.4 measured off a crude LM dictionary could discard a real but noisily-measured effect, and the fail branch jumps to the audio channel rather than to a better text measure",
+          "Flat 20bp round-trip cost is unserious for a firm with tick data and in-house execution; no spread, impact or ADV-capacity modelling until the post-gate phase",
+          "Horizon [+2,+63] with 60-day holds is at the far edge of the stated days-to-weeks mandate and no shorter decay profile is tested pre-gate",
+          "Pooled panel with industry-by-quarter fixed effects plus two-way clustering is a defensible primary spec, but the Fama-MacBeth cross-check is the one the research committee will actually re-run, and it is listed second",
+          "Vendor seat-cost/client-count inference as a crowding proxy is cheap and clever but weak evidence on its own"
+        ],
+        "issues_with_loser": [
+          "The decisive economic test sits behind a quarter of encoder construction; the LM/FinBERT baseline that could resolve the question in days is demoted to an ablation rung run at validation",
+          "No crowding or incrementality check anywhere: never asks whether S&P, MarketPsych, RavenPack or the published literature already price this, which is the firm's own stated failure mode",
+          "No early kill gate or branch points; every stage is a prerequisite for the next, so nothing is inspectable-and-actionable until late",
+          "Break-even cost is presented as a crowding answer when it is only a cost answer",
+          "Enormous researcher-degrees-of-freedom surface (multiple peer definitions, three tone constructions, prepared/Q&A/CEO/CFO cuts, four horizons, EW/VW) partly but not fully controlled by the pre-registered primary spec and specification count",
+          "No engagement with who is on the other side or why a well-published effect would persist"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "tag": "BA",
+      "status": "ok",
+      "usage": {
+        "in": 9299,
+        "out": 5092
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 3,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_ii_dominant",
+        "decisive_tenets": [
+          "sequencing",
+          "unnecessary_complexity",
+          "no_edge"
+        ],
+        "key_differentiator": "Plan A resolves the decisive question \u2014 does call tone add anything beyond SUE, announcement reaction and guidance, and has it decayed \u2014 in ten days with a pre-committed kill, while Plan B spends a domain-adaptive pretraining run and a 6,000-sentence human annotation project before learning whether any tone measure predicts anything at all.",
+        "rationale": "Both plans are competent and both are executable at this firm; capability is not the constraint, so the question is order and spend. The literature this question comes from was built on dictionary tone, and McLean-Pontiff-style decay is the single most likely reason the idea fails here. Plan A puts exactly that at the front: a frozen pre-registration, one specification, an incremental-to-SUE/CAR/guidance test, a 2004-2010 replication to estimate the decay curve directly, and four pre-committed kill thresholds \u2014 reachable in two weeks at near-zero marginal cost. It also does the one thing this firm's stated criteria demand and Plan B never does: it diffs against what is already sold. Vendor seat costs, client counts, and a one-month trial with a rank-correlation threshold above which the vendor score becomes the control is a direct, cheap crowding test on a signal family that ten vendors already commercialize. Plan A's handling of LLM look-ahead (models trained through 2024 have read the outcomes, so LLM variants sit outside the gate) is the sharper treatment of a risk that is fatal to this specific question. Plan B is the better-engineered version of step two. Its cost stack (per-share, half-spread, impact, ADV cap, Markit borrow, break-even bp, capacity where alpha halves) and its split-sample discipline are genuinely superior to A's flat 20bp and deferred capacity work, and its model-quality diagnostics (gold F1, reliability, ECE, sector-year stability) are the right way to validate a learned tone measure. But the ordering is backwards: LM and FinBERT appear only as rungs on an ablation ladder run after ~2B tokens of continued pretraining and weeks of scarce human annotation. If the LM-tone residual carries no incremental information after SUE and the announcement return, none of that spend was needed, and B has no early gate that would find out. Human attention is the binding constraint here, and B commits the most of it earliest. B is also silent on whether anyone else already sells this score, treating break-even cost as its crowding answer, which is not the same thing. On Type II risk I side with A anyway: it is honest that a dictionary null leaves residual hypotheses (audio channel, LLM variants) and names them in the negative memo, which is precisely the mandate to escalate to Plan B's machinery with evidence rather than on spec.",
+        "issues_with_winner": [
+          "Flat 20bp round-trip cost is crude for a firm with tick data and in-house execution; no borrow, short-leg feasibility, impact model or capacity work until after the gate passes",
+          "Killing on a single differenced LM dictionary measure risks discarding a real effect that a learned measure would detect \u2014 the measure-validity exposure is real, only partly mitigated by naming residual hypotheses",
+          "Bonferroni-inflated t of 2.9 plus a 3% net / IR 0.4 threshold is a demanding bar in a setting where Type II is the expensive error",
+          "Timestamp leakage is named as the worst pitfall in small illiquid names but gets no concrete audit comparable to B's 200-call EDGAR reconciliation",
+          "Days 1-3 citation parade is partly performative; the useful content is the decay prior and the vendor calls"
+        ],
+        "issues_with_loser": [
+          "Domain-adaptive pretraining on ~2B tokens plus 6,000 gold sentences with two annotators and adjudicator plus 150k silver labels is committed before any evidence that tone adds information beyond SUE and the announcement return",
+          "No early kill criterion and no branch that stops the project halfway; the LM/FinBERT baselines that could have killed it in a week sit inside a post-build ablation",
+          "No external crowding or vendor-duplication check, despite this firm judging work on whether a signal is already crowded; break-even cost is not a substitute",
+          "Base model pretrained over part of the evaluation period; mitigations are listed but the primary path still runs on a contaminated encoder",
+          "Very large specification surface (three peer definitions, K in {1,2,3}, four decay horizons, seven factor models, EW/VW, multiple tone variants) against a t>3 plus deflated-Sharpe bar \u2014 high researcher degrees of freedom paired with gating tight enough to discard a modest real effect",
+          "Months to first actionable output, and every stage is a prerequisite for the next"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 9244,
+        "out": 5477
+      },
+      "result": {
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "mechanism_test",
+        "error_asymmetry": "symmetric",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "firm_fit",
+          "unnecessary_complexity"
+        ],
+        "key_differentiator": "Plan B answers the question actually asked \u2014 the size of the peer-relative re-rating elasticity to revenue and EBITDA CAGR revisions, cut by industry, in turns of multiple a PM can apply to a named position \u2014 while Plan A demotes that to a pass/fail gate and spends its effort on regime instability and market-efficiency questions using machinery this fund cannot evaluate or, in the case of TAQ, even access.",
+        "rationale": "Both analysts spot the same real trap (the revised estimate sits in the forward-multiple denominator) and both fix it credibly: A by holding realized LTM EBITDA fixed, B by decomposing \u0394log EV = \u0394log EBITDA + \u0394log multiple as an identity and headlining the EV leg. A's fix is slightly cleaner conceptually; B's is transparent and doubles as a pipeline check. So circularity does not decide it.\n\nWhat decides it is what each plan delivers and to whom. The firm is a fundamental long/short with a 6\u201318 month horizon whose output must change sizing on named companies and survive a PM asking what would have to be true for it to be wrong. B produces exactly that: an elasticity reported in %/100bp and in turns at the industry median multiple, a separate loading on revenue versus EBITDA revisions (the question explicitly asks about both), empirical-Bayes-shrunk industry-level elasticities with a rank-stability test that decides whether to pool, and a dispersion interaction. Every one of those is a lever a sector analyst can apply to a specific name where the fund already holds a variant forecast \u2014 the edge stays with the fund's own estimates and this study supplies the translation from forecast delta to expected re-rating. The methods (sub-industry\u00d7quarter FE, two-way clustering, Driscoll-Kraay, EB shrinkage) are within reach of a three-person data team and defensible in a meeting. B also gives the PM two independent gut checks: the elasticity must land at 25\u201350% of a stated DCF-implied value (above that flags a pipeline error, which is a genuine falsifier), and a within-industry quintile sort run out-of-sample from 2012.\n\nPlan A reads as though written for a quant shop. Its two stated primary hypotheses are that \u03b2 is regime-unstable and that the initial re-rating is inefficient; the question as asked becomes a first-stage threshold. Regime instability of a re-rating coefficient across VIX terciles, established via Bai-Perron sup-F, a Kalman-filtered \u03b2 path, and a variance-ratio-plus-block-bootstrap decision rule, is not something this PM will underwrite or size on. Worse, the identification leans on I/B/E/S detail activation timestamps and a TAQ two-hour signed-return check \u2014 the brief says explicitly no tick data. That is a plan step this firm cannot run. Its industry gate (SD \u2265 75bp, median |\u0394| \u2265 25bp, \u226550% of firm-months, in \u226560% of months) is a stack of arbitrary thresholds dressed as pre-commitment, and it may exclude precisely the sectors the fund covers without any diagnostic of what was lost. A also never asks the most decision-relevant cut for a sector-organized fundamental fund: where the effect is large and where it is not.\n\nA does have real virtues B lacks \u2014 an explicit feasibility gate and stop rule up front, a cleaner off-cycle identification, and the underreaction test (H2), which is genuinely the tradable question for a 6\u201318 month book. If B is put on the desk I would graft A's H0 feasibility screen and its drift test onto it as a second phase. But B is the plan I can staff, that a PM can interrogate, and that produces a number an analyst can carry into a name. A is the plan that answers a question nobody at this firm asked, with tools nobody there can check, partly on data they do not have.",
+        "issues_with_winner": [
+          "Scope creep in the data ask: Russell 3000 plus MSCI World developed ex-US with Worldscope balance-sheet items, and Visible Alpha 'preferred' for EBITDA, before a cheap US-only pass has shown the effect exists \u2014 the US/ex-US split should be a later robustness step, not a day-one universe.",
+          "No explicit kill criterion or early stop; the plan is closer to a comprehensive single pass plus a large robustness grid than an adaptive sequence, and the robustness grid (alt DVs, three horizons, FE granularity, crisis windows, ex-2019, contributor cutoffs) is more researcher degrees of freedom than the question needs.",
+          "DV still carries an estimated NTM EBITDA denominator; the identity decomposition mitigates but does not fully break the shared-tape problem the way A's fixed realized-LTM denominator does.",
+          "H4's list of high-elasticity industries (software, semis, tools, medtech) is asserted as prior rather than derived, and the EB shrinkage will partly manufacture the ordering it predicts.",
+          "Dispersion-test endogeneity from news volume is named and then explicitly left unresolved \u2014 honest, but it means H3 will not be conclusive.",
+          "Timing/predictive version (month-t revision, t+1 multiple) is buried in validation; for a 6\u201318 month book it is closer to the money question than the contemporaneous elasticity and deserves earlier placement."
+        ],
+        "issues_with_loser": [
+          "Relies on a TAQ intraday reverse-causality check; the firm explicitly has no tick data or execution infrastructure.",
+          "Primary hypotheses (regime instability, over/underreaction) reframe the assignment; the elasticity actually asked about is demoted to a pass/fail gate, and revenue-versus-EBITDA weighting \u2014 half the question \u2014 is never a hypothesis.",
+          "Bai-Perron sup-F, Kalman-filtered \u03b2 path, variance-ratio decision rule, stationary block bootstrap, 2SLS on fitted initial re-rating: none of this can be evaluated by a three-person data team or defended to a fundamental PM, and it is paired with no simple corroborating check the audience can verify.",
+          "The industry gate is a stack of arbitrary thresholds (75bp/25bp/50%/60%) presented as pre-commitment, with no reporting of which sectors it removes or whether the fund covers them.",
+          "No industry-level heterogeneity \u2014 the single most decision-relevant cut for a sector-organized fundamental fund \u2014 and no output expressed in turns of multiple for a named company.",
+          "t>5 as a first-stage pass gate plus Benjamini-Hochberg across regime interactions is a burden of proof calibrated to a systematic factor library, not to a study whose purpose is to modulate sizing on names the fund already researches.",
+          "Off-cycle restriction discards 60\u201370% of events for identification cleanliness; defensible, but combined with the \u22658-peer, \u22653-broker, same-analyst-set filters the surviving sample may be small and unrepresentative of the names the fund trades, and the plan does not report expected event counts."
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "tag": "BA",
+      "status": "ok",
+      "usage": {
+        "in": 9244,
+        "out": 4165
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 4,
+        "goal_type": "mechanism_test",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "firm_fit",
+          "unnecessary_complexity",
+          "horizon_mismatch"
+        ],
+        "key_differentiator": "Plan A answers the question actually asked \u2014 how much peer-relative multiple moves per 100bp of 2-year growth revision, by industry, in a form a fundamental PM can apply to a named position \u2014 while Plan B silently substitutes two different questions (is \u03b2 regime-unstable, is the initial reaction efficient) and requires TAQ data and time-series-break machinery this firm neither has nor can evaluate.",
+        "rationale": "The ask is a mechanism/valuation-elasticity question whose output changes sizing on named companies over 6\u201318 months, defensible to a PM who wants to know what would have to be true for it to be wrong. Plan A delivers exactly that: a within-sub-industry-quarter elasticity in %/100bp, industry-level heterogeneity (shrunk, with rank-stability check), an explicit resolution of the shared-EBITDA-tape circularity via the \u0394log EV / \u0394log EBITDA / \u0394multiple identity, a placebo peer reassignment and pre-trend test that can actually fail, and an anchoring of the measured elasticity against a DCF-implied one \u2014 an external gut-check a fundamental PM can reason about. Every piece is runnable by a three-person data team on I/B/E/S plus Compustat.\n\nPlan B is the better-written paper and the worse plan for this firm. Its diagnosis of circularity is sharp and its LTM-denominator fix is arguably cleaner than A's, and its H0 feasibility gate and first-stage kill threshold are genuinely good sequencing. But it then reframes the question: the two 'primary' hypotheses are regime instability of \u03b2 and market over/underreaction. Those are interesting, and the drift branch is even horizon-relevant, but they presuppose the elasticity the question actually asked about and relegate it to a gate. Worse, the identification is a (\u22121,+1) CAR around single-broker revisions on off-cycle days \u2014 a three-day announcement proxy for a 6\u201318 month re-rating, deliberately excluding 60\u201370% of events including the earnings-day revisions that matter most to a fundamental book. It then demands t>5 and 20bp/100bp to proceed, thresholds invented rather than derived, which risks killing a real but noisy effect. And the machinery \u2014 Bai-Perron sup-F, Kalman-filtered \u03b2 paths, variance ratios, block bootstraps, 2SLS on fitted initial re-rating, BH correction, plus a TAQ reverse-causality check on tick data this fund explicitly does not have \u2014 is unbuildable here and unevaluable by the audience. A conclusion resting on a Kalman \u03b2 path is not something a PM can defend in an IC.\n\nA is not without cost: it is a large simultaneous grid with no explicit stop/kill point and little adaptivity, and it never asks whether this elasticity is already common knowledge. But its out-of-sample quintile sort from 2012 and its industry-by-industry elasticities give the PM something actionable within weeks, in units he can apply to a name, with named ways to be wrong.",
+        "issues_with_winner": [
+          "No explicit feasibility gate or pre-committed kill criterion up front; the plan is a large simultaneous robustness grid rather than an adaptive sequence with branches dropped on failure",
+          "Never asks what consensus already believes about growth-to-multiple elasticity \u2014 no test of whether this is already priced or widely known, so 'edge' is implicit in the industry heterogeneity rather than established",
+          "The '25\u201350% of theoretical elasticity is coherent' band is a judgment call presented as a validation threshold; a result outside it is ambiguous rather than decisive",
+          "Skips the over/underreaction question entirely, which is the part most directly monetizable at a 6\u201318 month horizon",
+          "H3 dispersion-interaction endogeneity is acknowledged and left unresolved, so that hypothesis will not produce a clean answer",
+          "Quarterly QoQ sampling may smear the timing of revisions; only the monthly predictive variant addresses this, and it is secondary"
+        ],
+        "issues_with_loser": [
+          "Requires TAQ intraday data and execution-style microstructure checks the firm explicitly does not have",
+          "Primary DV is a 1\u20133 day CAR around single-broker revisions \u2014 a proxy for the 6\u201318 month peer-relative re-rating actually asked about, with no validation of the proxy-to-target link",
+          "Reframes the question: the two stated primary hypotheses are regime instability and reaction efficiency, not whether growth revisions drive re-rating; the asked question is demoted to a gate",
+          "Excluding earnings, guidance and M&A days removes 60\u201370% of events including the revisions that matter most economically to a fundamental book, and no argument is given that the off-cycle subset generalizes",
+          "Gate thresholds (\u03b2\u226520bp/100bp, t>5, industry inclusion at 60% of months, VR\u22652) are asserted rather than derived and are strict enough to discard a real effect",
+          "Bai-Perron breaks, Kalman \u03b2 paths, variance ratios, 2SLS on fitted re-rating and 10,000-rep block bootstraps cannot be staffed by one engineer and three data analysts, and cannot be evaluated by the PM who has to defend the conclusion",
+          "\u03b2* from a two-stage DCF at r=9%, g=3% is an invented economic benchmark against which efficiency is judged; the sensitivity grid does not make it derived",
+          "No simple version of the core test is run first \u2014 the sophisticated regime and efficiency machinery is reached for before the basic elasticity is established"
+        ]
+      }
+    },
+    {
+      "id": "S7",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 8168,
+        "out": 2696
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 4,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "sequencing",
+          "unnecessary_complexity",
+          "firm_fit",
+          "invented_economics"
+        ],
+        "key_differentiator": "Plan A puts the idea-killing question \u2014 is the public channel-check thesis already in consensus and price, and does this CFO ever raise the full year at this quarter \u2014 first and gates on it, while Plan B buries the same cheap kill behind weeks of bottom-up revenue reconstruction, ramp-curve fitting and Monte Carlo that this desk has no staff to build or defend.",
+        "rationale": "The information is public sell-side commentary, so the only edge available is a variant view on whether management converts it into a guide raise and whether that is priced. Plan A is built exactly around that: information-date dating, consensus revision and whisper-versus-stale-consensus, comp-relative CAR, implied-fundamentals arithmetic (logos x defensible ACV x in-year landing fraction) versus what the move already embeds, with an explicit two-of-three gate and a written pass note if it fails. Only then does it spend time on the thing that actually determines the catalyst \u2014 the CFO's revealed guidance policy at this specific fiscal quarter, the raise-to-beat pass-through ratio, and whether signature-to-recognition lag even lets new logos reach the full-year guide. That is entropy-reducing order for a weeks-to-months event trade, and it can be stopped after a few days having taught the PM something. Its default is 'no' with three of four outcome states bad, which is the right burden of proof for a concentrated book with a fast-cutting risk manager where a false positive is an explicit loss that cannot be diversified away. It also flags the expert-network MNPI issue, which matters at a multi-manager platform.\n\nPlan B contains genuinely better fundamental craft in places \u2014 expert calls specified by role including a share-loser, services/implementation headcount leading claimed bookings, new-logo ARR per ramped rep against its own distribution, cRPO cross-check. But it is written for a firm with a modeling team. Reconstructing twelve quarters of revenue bottom-up to within 1%, fitting a ramp curve R(k) by least squares seeded off an S-1 cohort chart, and running a Monte Carlo over four parameters is a lot of machinery whose output nobody on a one-PM, two-analyst desk can audit or defend to the IC, and it adds large researcher degrees of freedom to a number (FY revenue in bps versus midpoint) that the guidance-policy question may render irrelevant. Worse, the check that would render all of it unnecessary \u2014 prior-episode channel commentary versus actual raises, and whether the stock already moved \u2014 sits at the end under Validation, and is even reported with a pre-filled result (6/8 positive checks, 3/8 raises) as though already known. Plan B also asserts economics its work does not produce: a ~12% downside scenario, a 4% NAV position, an 8% stop, all fixed before any of the analysis has run.",
+        "issues_with_winner": [
+          "Thresholds (0.5% / 0.2% consensus revision, 1.2x straddle, 1 estimation-window SD) are asserted without justification, though at least they are pre-committed",
+          "Event study with a hand-picked 6-10 name comp basket over a single event is statistically thin; the CAR is a directional read, not a test, and the plan should say so more plainly",
+          "12-16 quarter base rate for full-year raises has a wide interval, acknowledged but still the load-bearing input to the stage-two decision",
+          "Weaker on primary-source channel work than B: no expert-call design, no independent capacity/implementation cross-check on whether the logo wins are real and sized as claimed",
+          "No explicit position sizing or stop framework, so the PM still has to bridge from expected value versus straddle to a trade"
+        ],
+        "issues_with_loser": [
+          "Decisive cheap kills (prior-episode check-to-raise base rate, has the market already moved) are placed last, after the expensive modeling",
+          "Bottom-up revenue reconstruction to 1%, least-squares ramp-curve fitting and four-parameter Monte Carlo exceed what a two-analyst fundamental desk with no quant staff can build, audit, or defend at IC",
+          "Pre-fills its own backtest result (positive checks 6/8, raises 3/8) as if known, which is either an invented finding or a placeholder that undermines the stated kill test",
+          "Invents economics: 12% downside scenario, 4% NAV position, 8% price stop, all asserted before any analysis produces them",
+          "Widens scope to a twelve-month ARR thesis when the question asked is about the upcoming print \u2014 useful optionality, but it dilutes the catalyst work",
+          "Heavy parameterization (haircuts, 0.5x credit, bounded fits) creates many free knobs that can be tuned to whatever answer is wanted"
+        ]
+      }
+    },
+    {
+      "id": "S7",
+      "tag": "BA",
+      "status": "ok",
+      "usage": {
+        "in": 8168,
+        "out": 3820
+      },
+      "result": {
+        "winner": "B",
+        "confidence": 4,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "sequencing",
+          "firm_fit",
+          "unnecessary_complexity",
+          "no_edge"
+        ],
+        "key_differentiator": "Plan B puts the cheapest idea-killer \u2014 is the channel-check thesis already in consensus and price, and does this CFO ever raise the full year at this quarter \u2014 in front as an explicit gate, using tools this desk actually owns; Plan A does the same tests but buries them behind a Monte Carlo revenue reconstruction the desk cannot staff or defend.",
+        "rationale": "The question is a single-name catalyst call for a desk with one PM, two analysts, no quant staff, and a risk manager who cuts fast. Two things decide the trade: (1) the checks are already public in sell-side notes, so what is left to earn, and (2) whether management's guidance policy at this point in the fiscal year even permits a raise big enough to matter. Plan B makes exactly those two things the gates, in that order, with pre-committed stop thresholds and a written pass note as an acceptable outcome. Stage one is days of work on vendor consensus, revision timing, a comp-relative CAR, and a back-of-envelope logo x ACV x in-year fraction sanity check against what the CAR already implies. That is a 60%-confidence answer fast, and it can kill the trade before any expensive work is sunk. Stage two is transcript and 8-K archaeology on guidance philosophy and raise-to-beat pass-through \u2014 precisely this desk's native competence \u2014 and it refuses to size until EV is established. Plan A contains the single sharpest test in either plan (the eight-prior-print map of channel commentary to actual guidance action, with an explicit 'stop' if positive checks rarely produce raises), but it sits under Validation, after a full twelve-quarter bottom-up revenue reconstruction tying to 1%, a fitted ramp curve with an invented functional form (R(0) = max(0,(45-L)/90), justified by nothing), a least-squares fit of lag and expansion path, and a Monte Carlo. That is a quant shop's plan dropped on a desk with no quantitative research staff: nobody there can evaluate or maintain it, and it produces false precision \u2014 p10/50/90 on full-year revenue in basis points whose inputs are expert-call estimates of registration-to-close rates. The pre-committed gate (>=75bps above midpoint, >=50bps above consensus) then hangs off that fabricated distribution, and the 12% downside scenario and resulting 4% NAV size are asserted rather than derived. Plan A does credit the priced-in problem, but as a late cross-check rather than the gate; B makes the incremental-edge question the whole of stage one. Plan A's edge is its primary-source count work \u2014 the desk's real comparative advantage \u2014 and B is thinner there; that is the main reason this is not a blowout. But Plan B is adaptive (explicit stop-vs-continue branches), stoppable halfway with something learned, correctly defaults to no in a Type-I-dominant concentrated book, engages the other side (analysts who did not raise, the reverse-sandbag trap), flags the MNPI exposure that platform compliance would actually care about, and reports the small-N base rate as wide rather than dressing it up. Better sequenced, better fit, and no invented economics.",
+        "issues_with_winner": [
+          "Light on the desk's real edge: minimal primary-source or expert-network work to form a variant view on logo counts and ACV; it mostly measures what others already think",
+          "Backtesting 'never raises here' on the two most recent instances is very thin, even with the acknowledged wide CI",
+          "Two-factor event study with pre-chosen comp basket is defensible but still more machinery than a fundamental PM will interrogate; a simple relative-to-comps price chart since the note date would corroborate it and is not named",
+          "Stage one's arithmetic check on in-year revenue impact is sketched rather than specified, which is the mechanism leg that ultimately decides the print"
+        ],
+        "issues_with_loser": [
+          "Sequencing inverted: the twelve-quarter bottom-up rebuild, ramp-curve fit and Monte Carlo come before the base-rate test that could kill the idea in days",
+          "Ramp curve R(0) = max(0,(45-L)/90) is an invented functional form with no stated justification; least-squares fitting it to eight quarters of noisy actuals invites overfit",
+          "Firm fit: no quant staff to build, review or maintain a Monte Carlo revenue model; the output is not the kind of thing this PM or the IC can defend end to end",
+          "False precision \u2014 p10/50/90 in basis points of full-year revenue derived from expert-call guesses about registration-to-close conversion",
+          "12% downside scenario and the resulting 4% NAV size are asserted, not produced by anything in the plan; the 75bps/50bps/1.5x gates inherit that fabricated distribution",
+          "Return-mapping regression on eight post-earnings observations against forward-estimate changes is too small to support the required 1.2x expected-versus-implied move test",
+          "Priced-in question is treated as a late cross-check rather than the first gate, despite the plan itself noting the notes are already public"
+        ]
+      }
+    },
+    {
+      "id": "S8",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 8760,
+        "out": 4938
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 3,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_ii_dominant",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "firm_fit",
+          "error_asymmetry"
+        ],
+        "key_differentiator": "The question asks whether round-lot flow is profitable to trade against; A answers both the identification premise and the money question on the firm's own terms (net-of-cost alpha, capacity, incremental to published retail-imbalance and short-term reversal), whereas B hard-stops before any profitability test behind a conjunction of five arbitrary identification thresholds that would discard a tradeable signal for failing a recall or label-correlation gate that has no economic content.",
+        "rationale": "Plan B is the better-sequenced document in the abstract: it starts with a free spreadsheet test (Rule 605 wholesaler buckets, FINRA MPID) that can kill the premise in a week, and its mechanism tests \u2014 price-elasticity of round-lot frequency, round-notional versus round-share clustering \u2014 are the sharpest measure-validity work in either plan. If the question had been 'can we identify retail flow at all,' B wins outright.\n\nBut the question as asked is whether round-lot flow is profitable to trade against, and the firm's stated criteria are net-of-cost survival, capacity, and crowding. B explicitly refuses to touch any of that in Phase 1 and gates the whole project on identification purity: kill if lift <2x, kill if recall <35%, kill if mean stock-day correlation with a benchmark it itself describes as having 'sign-error rates in the tens of percent' falls below 0.40. Those thresholds are pre-registered, which is good practice, but they are not the firm's decision criterion, and requiring all five to pass simultaneously in a single partition against deliberately noisy labels is a very high Type II rate. For a 200-researcher systematic shop with a replication committee that independently re-runs anything before it trades, the expensive error is discarding a real days-to-weeks signal, not letting a marginal one through. A round-lot imbalance signal that is only partly retail in origin but earns net alpha with capacity is exactly the thing this firm wants to know about, and B's hard stop throws it away by construction while calling that a 'well-evidenced negative result.'\n\nPlan A is not the naive version B caricatures. It treats retail origination as a testable proxy rather than an assumption, and its decisive test is the right one and comes before the expensive machinery: does RLOIB carry an incremental Fama-MacBeth coefficient after controlling for all-lot imbalance and the standard sub-penny retail imbalance? That single test simultaneously handles the mechanism question ('is the lot filter adding anything beyond generic OFI?') and the edge question ('is this just the published BJZZ retail-imbalance signal, or short-term reversal relabeled?'), with day-t return and the STR factor declared non-negotiable controls. It states both failure modes explicitly \u2014 nothing incremental, versus real but unharvestable \u2014 and makes breakeven cost a headline output rather than asserting a Sharpe. Horizons (1/5/20 day, 5-day holding) match the firm's book; the cost model, borrow fees, participation caps and $50M\u2013$5B capacity sweep are exactly what this committee will ask for; the 2019 split and Q1 2021 stress test are the right regime cuts. The data build is a normal quarter here.\n\nA's real weaknesses are the sprawling sensitivity grid (researcher degrees of freedom, no correction) and the fact that its retail identification leans on residualization against a sub-penny proxy that degrades badly after the migration to midpoint pricing \u2014 B is right about that, and I would graft B's Rule 605 pre-check and RLP-flag validation onto A as a first-week, one-analyst screen before the TAQ build. But that is an amendment to A, not a reason to run B, which spends a full project answering the premise and never reaches the question.",
+        "issues_with_winner": [
+          "Retail identification rests on residualization against a sub-penny RETOIB proxy whose precision decays after the migration to midpoint/off-tick pricing; A validates it 'against venue retail data' in one clause but does not restrict the sample or quantify the label error the way B does",
+          "Very large sensitivity grid (signing algorithm, NBBO lag, scaling, smoothing, deciles/quintiles, weighting, impact calibration) with no multiple-testing discipline \u2014 this is the main source of false-positive risk in the plan",
+          "Plan is scheduled rather than adaptive: few statements of which branches are dropped if an early check fails, beyond the two headline falsification conditions",
+          "No direct use of the cheap external anchors (Rule 605 wholesaler odd-lot/fractional buckets, exchange RLP flags) that would settle the retail-origination premise almost for free before the TAQ build",
+          "Crowding is addressed only implicitly via factor controls; no explicit check on whether this is already vendor-sold or a known published effect"
+        ],
+        "issues_with_loser": [
+          "Answers only half the question asked \u2014 profitability, cost, capacity and crowding are all deferred to a conditional Phase 2 that the gates make unlikely to be reached",
+          "Five pre-registered kill thresholds must all pass in one partition; the numbers (2x lift, 35% recall, r>0.40 against an admittedly noisy label) are not economically derived, and a high-precision/low-recall identifier or a partly-institutional-but-profitable imbalance signal is killed by construction",
+          "Recall gate in particular has no economic content: you can trade a signal that captures a small slice of retail flow if the slice is clean and the alpha survives costs",
+          "Hui-Walter latent-class estimation assumes conditional independence across labels that are all derived from the same tape and venue structure \u2014 plausibly violated, and it is a method the plan leans on for the primary kill decision",
+          "36-month single-regime sample with no out-of-time replication window, unusual for a firm that judges work by whether it replicates",
+          "Rejects the possibility that round-lot imbalance predicts returns mechanically without retail content as if that were uninteresting \u2014 for this firm it is a potential signal, not a nuisance"
+        ]
+      }
+    },
+    {
+      "id": "S8",
+      "tag": "BA",
+      "status": "ok",
+      "usage": {
+        "in": 8760,
+        "out": 4511
+      },
+      "result": {
+        "winner": "B",
+        "confidence": 3,
+        "goal_type": "broad_market_effect",
+        "error_asymmetry": "type_ii_dominant",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "no_edge",
+          "error_asymmetry",
+          "falsification"
+        ],
+        "key_differentiator": "The question asks whether round-lot flow is profitable to trade against, and Plan B answers exactly that \u2014 incremental predictive power over all-lot and published subpenny retail imbalance, net of a real cost model, at the firm's days-to-weeks horizon \u2014 whereas Plan A pre-commits to stopping before the money question behind five conjunctive identification gates.",
+        "rationale": "Both plans are microstructure-literate and written for a systematic firm. The difference is what they deliver. Plan A converts a signal question into a mechanism-validation question and hard-stops before Phase 2 unless all five gates pass in a single venue partition. Its motivating worry is legitimate \u2014 round-lot imbalance could predict returns mechanically as order-flow imbalance with no retail content \u2014 but Plan B disposes of that worry directly and more cheaply by residualizing RLOIB on ALLOIB and ODDOIB and requiring incremental Fama-MacBeth significance over RETOIB (the published BJZZ-style subpenny measure). That single test is both the falsification test and the edge test: if round lots add nothing over the already-known retail proxy, there is no incremental view to trade, and the plan says so and stops. Plan A's gate stack, by contrast, has an arbitrary conjunction (2x lift AND 35% recall AND 70% signing accuracy AND r>0.40 vs a benchmark whose own sign-error rate it concedes is in the tens of percent) that will kill signals whose retail purity is imperfect but whose after-cost economics are fine. For a firm running breadth with an independent replication platform, that Type II rate is the expensive error; Type I is partly absorbed institutionally by the committee re-run. Plan B also matches the firm's decision criteria as stated: survives transaction costs, has capacity. It produces effective-half-spread-plus-square-root-impact economics, a breakeven-cost headline, a $50M\u2013$5B capacity curve, and holding-band turnover control. Plan A's economics are one line of asserted thresholds in a phase that probably never runs. On negative controls Plan B is stronger where it matters: 250\u2013750 mixed lots and exact-100-only buckets are placebos derived from the mechanism, plus a shifted-signal and sign-randomization null; it also pre-commits that a result which is short-term reversal relabeled is a failure, which is the single most likely way this whole idea is spurious and Plan A barely touches. Plan A's real advantages \u2014 venue partitioning rather than pooling, the tiered round-lot definition, RLP-flagged executions as near-ground-truth, and the free Rule 605/FINRA spreadsheet check run first as a kill test \u2014 are genuine and I would graft the Rule 605 check and the RLP validation onto Plan B as a week-one gate. But those are improvements to a plan, not a reason to choose one that stops short of the question. Plan A's 36-month pre-half-penny window is also oddly thin for a shop where a ten-year intraday build is a normal quarter, and its likely deliverable \u2014 'round lots are not a clean retail marker, here are better identifiers' \u2014 is something 200 quant researchers with RLP flags and subpenny classification plausibly already know.",
+        "issues_with_winner": [
+          "Monolithic and long: the sensitivity grid, alternative SE estimators, and lending-fee/13F layers are largely unearned before the incremental t-stat comes back; a lot of machinery is scheduled regardless of intermediate results",
+          "Says nothing about crowding \u2014 whether round-lot or retail-imbalance signals are already published, vendor-sold, or in competitors' books \u2014 despite the firm judging work on exactly that",
+          "Residualizing on ALLOIB and ODDOIB risks stripping the economic content along with the confound; interpretation of the residual signal is not fully worked out",
+          "Does not exploit exchange RLP flags or Rule 605 wholesaler breakouts, which are the cheapest near-ground-truth validation of the retail premise",
+          "Fixes the 100-share definition through the tiered-round-lot regime change; defensible for consistency but leaves a known structural break unmodelled",
+          "No explicit calendar checkpoint or inspectable intermediate artefact list; the falsification regression is early in logic but the plan does not gate spend on it"
+        ],
+        "issues_with_loser": [
+          "Pre-commits to hard-stopping before the profitability question that was actually asked; a well-evidenced negative on retail identification is a mechanism answer, not the answer",
+          "Five conjunctive kill gates with arbitrary thresholds (2x lift, 35% recall, 70% signing, r>0.40) create a high Type II rate; a modestly noisy retail proxy can still be tradeable",
+          "G4's kill threshold is benchmarked against a label whose own sign-error rate the plan concedes is in the tens of percent, so failure is uninformative about the hypothesis",
+          "36-month pre-half-penny sample is short for a firm that builds decade-long intraday panels, and precludes the 2019 zero-commission / 2021 retail-surge regime comparison",
+          "Phase 2 economics (Sharpe \u22651.0, net/gross >0.40) are asserted thresholds with no cost or impact model behind them",
+          "Does not seriously engage short-term reversal \u2014 the most likely benign explanation for any round-lot return predictability"
+        ]
+      }
+    },
+    {
+      "id": "S9",
+      "tag": "AB",
+      "status": "ok",
+      "usage": {
+        "in": 8672,
+        "out": 3969
+      },
+      "result": {
+        "winner": "A",
+        "confidence": 4,
+        "goal_type": "single_name_kpi",
+        "error_asymmetry": "type_i_dominant",
+        "decisive_tenets": [
+          "goal_mismatch",
+          "firm_fit",
+          "no_edge"
+        ],
+        "key_differentiator": "The question is whether one held-or-considered company's shortage guidance converts into durable revenue, and only Plan A actually interrogates that company's disclosures and compares the answer to what the price already implies \u2014 Plan B builds a cross-industry base-rate library this five-person shop cannot source or staff and never returns to the name.",
+        "rationale": "Goal first. A company just guided to shortages; a two-PM, two-analyst long-only shop with a three-to-five-year holding period needs to know whether this business's forward revenue is genuinely committed and whether the multiple already reflects it. Plan A answers exactly that: separate RPO from company-defined backlog from announced LTA value (the LTA-to-RPO gap is the right first cut and is cheap), build an agreement register from 8-Ks, IR decks, commitments footnotes and \u2014 the strongest single move \u2014 the customers' own purchase-obligation tables, which is the closest thing to an external audit of whether the commitment is real. It then closes the loop on edge with a reverse DCF for market-implied versus modeled durable horizon, which is the only place in either plan where 'does anyone already know this' is asked about the actual security. Every input is a filing or a Bloomberg pull; one analyst can do it in Excel, and an IC can inspect each tier assignment line by line. Firm fit is close to exact.\n\nPlan B is the better piece of economics and the worse piece of research for this firm. Its central claim \u2014 LTAs are honored in volume and broken in price, and the variable is requalification cost, not contract language, with prepayments funding the capacity that destroys the pricing \u2014 is genuinely the thing that would keep this fund from being wrong about the business. It also has the better falsification design: a named falsifier, a held-out auto-semi cycle predicted before checking, and derived negative controls (aerospace/LNG should hold, containers/MLCC should break, ordered by qualification lag not label). But it has misread who is asking. Coding Exhibit 10 contracts across 20-30 episodes in polysilicon, uranium, LNG, containers, ABF substrates and lithium, against TrendForce, Fastmarkets, UxC, Argus/ICIS, Drewry/Xeneta, Panjiva bill-of-lading data, SEMI's fab database and PACER/ICC/SIAC/foreign court dockets, is a multi-analyst multi-quarter build with meaningful licence spend, proposed to a shop with no engineers, no database, and occasional dataset purchases. Worse, at the end of it the firm has a probability-weighted haircut and a general framework but no work product on the company in question, no valuation, and nothing an IC can trace to this name. It has answered a question nobody asked, later and more expensively.\n\nThe insurance is that Plan A already carries B's key insight in reduced form: it separates quantity coverage from price coverage, states that enforcement damages are an upper bound because suppliers do not sue major customers and renegotiation is the likely outcome absent cash received, notes reflexivity, and requires cash support or real take-or-pay before crediting a commitment. It calibrates haircuts off the 2021-23 semiconductor episode and screens prior shortage cycles. That is roughly 70% of B's economics at 15% of B's cost, on the right security. Type I dominates in a 25-30 position book, and Plan A's demanding, pre-committed thresholds plus explicit disqualifiers (negative implied gross bookings two quarters, channel inventory above 1.5x, a backlog definition change in a quarter that would otherwise have declined, finished goods rising while backlog is called a record) are the right burden of proof \u2014 and, unusually, they are the kind of check an analyst can run in week one rather than month three.\n\nWhere Plan A is weakest: the numbers are more precise than anything in the plan earns. Tier haircuts of 90-95/70/25-35%, and gates at 60% NTM coverage, 40% year-two, 15% cash support, 20% damages, 45% customer share, two years of horizon, are asserted with a gesture at calibration from a single prior episode. I would make the analyst show the 2021-23 realized conversion arithmetic before those numbers are allowed to gate anything, and I would drop the 10-15 year depreciation schedule and the four-episode backtest unless the LTA-to-RPO gap and the customer mirror-disclosure reconciliation come back ambiguous. Plan A is also a task list rather than an adaptive plan \u2014 it does not say which branches die if mirror recovery is below 50% or if almost nothing sits in RPO, which is the point at which the story is over and the rest is unnecessary. That is a fixable sequencing instruction, not a reason to prefer B.",
+        "issues_with_winner": [
+          "Haircut percentages and every constructive threshold are stated with false precision; 'calibrated from the prior episode' is asserted, not demonstrated, and these invented numbers will anchor the IC",
+          "Not adaptive \u2014 no branch is dropped conditional on results; the plan should stop if the LTA-to-RPO gap is trivial or customer purchase-obligation tables fail to reconcile",
+          "Machinery that has not earned its place for a first pass: 10-15 year depreciation schedule against 3-year agreements, three full resolution-path scenarios, four-episode historical backtest, EV/haircut-adjusted committed gross profit across peers",
+          "No explicit statement of what would count as a kill in week one versus month two; the decisive cheap tests (RPO composition, mirror disclosures) are present but not put first",
+          "Reverse DCF for market-implied durable horizon is the edge test and it is buried near the end; it also depends on assumptions the IC will contest",
+          "Weaker on the cross-sectional base rate \u2014 it will struggle to say how often shortage-era commitments hold, which is exactly what B would have told it"
+        ],
+        "issues_with_loser": [
+          "Data requirements (five commodity price vendors, Panjiva/ImportGenius customs, SEMI fab database, PACER/ICC/SIAC/foreign dockets, Exhibit 10 contract corpus) are unbuyable and unoperable for a five-person shop with no engineers and no database",
+          "Answers a general base-rate question, not the question asked about this company; produces no company-specific coverage estimate, no valuation, and nothing tied to what the price implies",
+          "Time to first actionable output is a quarter or more; the live HBM pre-registered checks resolve over 12 months, far too slow for a guidance-driven decision",
+          "Scope is a multi-analyst project presented as one analyst's work \u2014 20-30 episodes coded on contract features and ordinal outcomes at T+4/8/12 across fifteen years and eight industries",
+          "Nothing inspectable early; the IC gets a probability-weighted haircut resting on a coding pipeline they cannot audit, which is precisely what this committee refuses",
+          "Never asks what consensus or the sell side already believes about this company, so no incremental view is established even if the framework is correct",
+          "Cites specific committed volumes and prices ($16bn LTSA, $2bn Renesas deposit, $60-100/kg, $6-8k/FEU) as though the analysis were already done rather than as episodes to be tested"
+        ]
+      }
+    },
+    {
+      "id": "S9",
+      "tag": "BA",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4bhmb27fPFjvzYfEW'}"
+      }
+    },
+    {
+      "id": "S10",
+      "tag": "AB",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4ccLR7yBbJi3WudNB'}"
+      }
+    },
+    {
+      "id": "S10",
+      "tag": "BA",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4daNqa5bamxQwyYTd'}"
+      }
+    },
+    {
+      "id": "S2F",
+      "tag": "AB",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4eCb19mhsDtu2HLF6'}"
+      }
+    },
+    {
+      "id": "S2F",
+      "tag": "BA",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4epYQF3JxHMFcPkLc'}"
+      }
+    },
+    {
+      "id": "S5F",
+      "tag": "AB",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4fzyntEB9sXGipGgx'}"
+      }
+    },
+    {
+      "id": "S5F",
+      "tag": "BA",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4gbSsnob8TguzB2n8'}"
+      }
+    },
+    {
+      "id": "S8F",
+      "tag": "AB",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4h4UcGDjCuoT7e8Ei'}"
+      }
+    },
+    {
+      "id": "S8F",
+      "tag": "BA",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4heT7MvRuwbMqW95e'}"
+      }
+    },
+    {
+      "id": "S9F",
+      "tag": "AB",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4iH9huMLssxarZxNX'}"
+      }
+    },
+    {
+      "id": "S9F",
+      "tag": "BA",
+      "status": "error",
+      "usage": {},
+      "result": {
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdtG4iscrR3C8MatdbnG9'}"
+      }
+    }
+  ]
+}

@@ -126,10 +126,14 @@ def main() -> None:
     print(f"{'model':<22}{'calls':>6}{'err':>5}{'consist':>9}{'slotA':>7}"
           f"{'frame':>8}{'decis':>7}{'conf':>6}")
     print("-" * 78)
+    incomplete = []
     for m in models:
         d = load(m, "pairwise")
         if not d:
             continue
+        if d["n_errors"]:
+            incomplete.append(f"{m} pairwise ({d['n_errors']} failed)")
+            continue        # a partial run is not a result
         fps.setdefault(("pairwise", d["prompt_fingerprint"]), []).append(m)
         s = pairwise_stats(d)
         print(f"{m:<22}{len(d['results']):>6}{s['errors']:>5}"
@@ -146,10 +150,19 @@ def main() -> None:
         d = load(m, "pointwise")
         if not d:
             continue
+        if d["n_errors"]:
+            incomplete.append(f"{m} pointwise ({d['n_errors']} failed)")
+            continue
         fps.setdefault(("pointwise", d["prompt_fingerprint"]), []).append(m)
         s = pointwise_stats(d)
         print(f"{m:<22}{len(d['results']):>6}{s['errors']:>5}{s['issues_mean']:>8.1f}"
               f"{s['issues_max']:>5}{s['blocking_mean']:>10.1f}{s['no_falsifier']:>14}")
+
+    if incomplete:
+        print()
+        print("EXCLUDED — run incomplete, partial data is not a result:")
+        for x in incomplete:
+            print(f"   {x}   (retry with scripts/retry_eval.py --failed)")
 
     drops = {m: load(m, "pairwise")["dropped"] for m in models if load(m, "pairwise")}
     if any(drops.values()):
