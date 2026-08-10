@@ -1,151 +1,64 @@
 # Can Claude tell good research from bad?
 
 **Mayank Mahajan · Finance Domain Research Lead take-home**
-Repo: `github.com/mayankmahajan24/finance_collaborator` — seeds, scripts, eval
-items, gold labels, scoring, and every raw model call.
 
-*Tables are in Appendix A, referenced by number. Part 0 is Appendix B; repo map is
-Appendix C.*
+Repo: `github.com/mayankmahajan24/finance_collaborator` — seeds, scripts, eval items, gold labels, scoring, and every raw model call.
+
+*Tables are in Appendix A, referenced by number. Part 0 is Appendix B; repo map is Appendix C.*
 
 ---
 
 ## Part 1 — Where Claude breaks as a research planner
 
-Ten seed ideas, five quant and five fundamental, mixing obviously good, obviously
-flawed and subtly flawed. Claude wrote a plan for each, then critiqued it, seeing only
-the seed sentence. I scored each item myself, and separately against a flaw written
-down in advance.
+Ten seed ideas, five quant and five fundamental, mixing obviously good, obviously flawed and subtly flawed. Claude wrote a plan for each, then critiqued it, seeing only the seed sentence. I scored each item myself, and separately against a flaw written down in advance.
 
-**Claude applies too much generic research methodology and too little finance
-knowledge.** It lists the standard ways research goes wrong whether or not they apply.
-What it misses is almost always a specific fact about the instrument, the data, or how
-the market prices information (**Table 1**). So this is closer to "doesn't know the
-finance" than "doesn't know how research goes wrong," and its fluent methodology hides
-that. Both columns of Table 1 are one problem: falling back on the standard checklist
-is what a model does when it lacks the specific insight. I found a real defect in **10
-of 10 critiques**, at about 2.6 objections each that do not apply. Claude also overstates confidence in two ways. It gets high coverage by writing a lot
-— a 2,400-word plan listing every possible caveat scores well on "did it catch the
-flaw," and that same volume produces the objections that don't apply. And it makes
-work look rigorous with precise numbers it never derived: "stop below 0.5%" reads as
-discipline, but the number came from nowhere (**Table 3**).
+**Claude applies too much generic research methodology and too little finance knowledge.** It lists the standard ways research goes wrong whether or not they apply. What it misses is almost always a specific fact about the instrument, the data, or how the market prices information (**Table 1**). So this is closer to "doesn't know the finance" than "doesn't know how research goes wrong," and its fluent methodology hides that. Both columns of Table 1 are one problem: falling back on the standard checklist is what a model does when it lacks the specific insight. I found a real defect in **10 of 10 critiques**, at about 2.6 objections each that do not apply. Claude also overstates confidence in two ways. It gets high coverage by writing a lot — a 2,400-word plan listing every possible caveat scores well on "did it catch the flaw," and that same volume produces the objections that don't apply. And it makes work look rigorous with precise numbers it never derived: "stop below 0.5%" reads as discipline, but the number came from nowhere (**Table 3**).
 
-**On the fundamental ideas, is it "anchors on the narrative" or "can't tell mechanism
-from correlation"?** Neither — only one plan was too anchored, and two rejected the
-conclusion their seed implied. The real failures were **context and feasibility**: a
-40,000 firm-quarter panel proposed to a five-person shop running on Bloomberg and
-Excel, and public methods for identifying retail orders proposed to a market maker
-that already has the real labels in its own systems. Claude reasons about mechanism
-well and misjudges who it is working for.
+**On the fundamental ideas, is it "anchors on the narrative" or "can't tell mechanism from correlation"?** Neither — only one plan was too anchored, and two rejected the conclusion their seed implied. The real failures were **context and feasibility**: a 40,000 firm-quarter panel proposed to a five-person shop running on Bloomberg and Excel, and public methods for identifying retail orders proposed to a market maker that already has the real labels in its own systems. Claude reasons about mechanism well and misjudges who it is working for.
 
-**Does it catch its own mistakes?** The critique is better than the plan, but knowing
-the problem never changes the recommendation. One plan says in its own pitfalls
-section that the signal is already well known, then budgets eight weeks to test it.
-Another leads with a random 20% holdout and notes *in the same sentence* that random
-splits leak — the brief's own example of validation that leaks, in a sharper form
-where the plan identifies the problem and keeps going.
+**Does it catch its own mistakes?** The critique is better than the plan, but knowing the problem never changes the recommendation. One plan says in its own pitfalls section that the signal is already well known, then budgets eight weeks to test it. Another leads with a random 20% holdout and notes *in the same sentence* that random splits leak — the brief's own example of validation that leaks, in a sharper form where the plan identifies the problem and keeps going.
 
-**Avoiding a known flaw is a poor measure of plan quality.** Seven of ten plans
-avoided the flaw I wrote down; only four were good enough to staff, and the
-disagreement ran both ways (**Table 2**). That ruled out two options for Part 2: gold
-labels must be human, and the eval cannot rest on planted flaws.
+**Avoiding a known flaw is a poor measure of plan quality.** Seven of ten plans avoided the flaw I wrote down; only four were good enough to staff, and the disagreement ran both ways (**Table 2**). That ruled out two options for Part 2: gold labels must be human, and the eval cannot rest on planted flaws.
 
 ---
 
 ## Part 2 — An eval for the discriminator
 
-**How the items are built:** ten seeds, two genuinely different methodologies each,
-with blind generation, length matched within 2.2%, and a stated firm per item
-(**Table 4**). I expected the first methodology to win every pair; my blind labels
-chose it **5 of 10 times**, so my expectation did not reach the answer key.
+**How the items are built:** ten seeds, two genuinely different methodologies each, with blind generation, length matched within 2.2%, and a stated firm per item (**Table 4**). I expected the first methodology to win every pair; my blind labels chose it **5 of 10 times**, so my expectation did not reach the answer key.
 
 ### Result 1 — the average hides the result; the split shows it
 
-My labels prefer plan A on 6 of 10 items, so always answering A scores 60% — and
-against that, three of four models fail to beat a coin flip. Splitting by **how
-confident I was** (**Table 5**) tells a different story. Where I was confident,
-accuracy rises with model quality (58% → 67% → 67% → 75%) and every model beats
-chance. Where I was torn, every model falls below its own 75% baseline and the order
-reverses.
+My labels prefer plan A on 6 of 10 items, so always answering A scores 60% — and against that, three of four models fail to beat a coin flip. Splitting by **how confident I was** (**Table 5**) tells a different story. Where I was confident, accuracy rises with model quality (58% → 67% → 67% → 75%) and every model beats chance. Where I was torn, every model falls below its own 75% baseline and the order reverses.
 
-**Reviewer confidence is a measure of item difficulty, not just a way to group
-results.** It takes one keystroke to record and predicts whether an item separates
-models at all — the most useful thing this eval produced, and the headline number
-should be accuracy on high-confidence items. The brief's sense check passes in the
-direction it was not worried about: **Haiku scored 55%, not 90%.**
+**Reviewer confidence is a measure of item difficulty, not just a way to group results.** It takes one keystroke to record and predicts whether an item separates models at all — the most useful thing this eval produced, and the headline number should be accuracy on high-confidence items. The brief's sense check passes in the direction it was not worried about: **Haiku scored 55%, not 90%.**
 
-Two individual items are worth more than the average (**Table 6**). On one, all four
-models picked the same plan under both orderings — against a preference I had marked
-*strong* in the other direction. Four models agreeing confidently and being wrong
-against a confident reviewer is a shared blind spot, not noise, and it is the most
-informative item in the set. Separately, Haiku is the only model right on two items
-the other three miss: it is **wrong differently, not uniformly worse**, which a single
-score cannot show.
+Two individual items are worth more than the average (**Table 6**). On one, all four models picked the same plan under both orderings — against a preference I had marked *strong* in the other direction. Four models agreeing confidently and being wrong against a confident reviewer is a shared blind spot, not noise, and it is the most informative item in the set. Separately, Haiku is the only model right on two items the other three miss: it is **wrong differently, not uniformly worse**, which a single score cannot show.
 
 ### Result 2 — the right recall and precision framing is not F1
 
-I split my critiques into **45 blocking issues** (the recall denominator), 7 secondary
-issues, 4 comments that were praise, and 4 **anti-objections** — places where I say
-explicitly that a criticism does not apply. Matching is by meaning, with three
-precision buckets so valid issues I never wrote still count as real.
+I split my critiques into **45 blocking issues** (the recall denominator), 7 secondary issues, 4 comments that were praise, and 4 **anti-objections** — places where I say explicitly that a criticism does not apply. Matching is by meaning, with three precision buckets so valid issues I never wrote still count as real.
 
-**The results reversed the assumption behind the design** (**Table 7**). Part 1
-suggested recall would be near its ceiling and precision would separate the models.
-The opposite holds, because Part 1 measured recall against a *single* flaw named in
-advance (9 of 10) while Part 2 measures it against *45 real review objections* (62%
-at best). Recall does not rise with model quality either: Haiku beats both mid-tier
-models by raising 28.6 issues per review, enough volume to cover half the answer key
-by chance.
+**The results reversed the assumption behind the design** (**Table 7**). Part 1 suggested recall would be near its ceiling and precision would separate the models. The opposite holds, because Part 1 measured recall against a *single* flaw named in advance (9 of 10) while Part 2 measures it against *45 real review objections* (62% at best). Recall does not rise with model quality either: Haiku beats both mid-tier models by raising 28.6 issues per review, enough volume to cover half the answer key by chance.
 
-**So F1 is the wrong summary statistic.** Haiku's F1 range overlaps both mid-tier
-models, because F1 is a ratio and ignores how much noise was produced to get that
-recall. The raw count does not: **14.3 objections per review that don't apply, versus
-0.1** — roughly 100x, and the cleanest separation in the eval. **My answer to the
-brief's question: report recall alongside invalid-objections-per-review, and don't
-report F1.** That pair answers what a reviewer cares about — did you find what
-mattered, and how much noise did I read to get there.
+**So F1 is the wrong summary statistic.** Haiku's F1 range overlaps both mid-tier models, because F1 is a ratio and ignores how much noise was produced to get that recall. The raw count does not: **14.3 objections per review that don't apply, versus 0.1** — roughly 100x, and the cleanest separation in the eval. **My answer to the brief's question: report recall alongside invalid-objections-per-review, and don't report F1.** That pair answers what a reviewer cares about — did you find what mattered, and how much noise did I read to get there.
 
-### Result 3 — the gold labels found two problems in my own eval
-
-Two fields turned out to be broken, and **neither was visible in the diagnostics I ran
-first, which looked clean across three model sweeps** (**Table 8**): **checks that
-don't need an answer key cannot tell you whether your instrument works.** Four further
-limits apply to every number above (**Table 13**), most seriously that Opus 5 graded
-its own reviews.
+**Limits.** Five caveats apply to every number above (**Table 12**), most seriously that Opus 5 graded its own reviews, so its margin should be read as a best case.
 
 ---
 
 ## Part 3 — Collecting more of this data at scale
 
-Part 2 happened to run both halves of the brief's question: I wrote gold labels by
-hand for twenty plan reviews, and four models produced issue lists for the same plans,
-every issue adjudicated. So the following is measured.
+Part 2 happened to run both halves of the brief's question: I wrote gold labels by hand for twenty plan reviews, and four models produced issue lists for the same plans, every issue adjudicated. So the following is measured.
 
-**Having the expert strike out model suggestions caps recall** (**Table 9**). The
-labels can only contain what the model proposed, and the best model covers **62%** of
-the blocking issues I wrote by hand. **Writing by hand has the opposite gap:** models
-raised 46 to 236 valid issues I never wrote. Neither wins outright, which is why they
-should be combined.
+**Having the expert strike out model suggestions caps recall** (**Table 8**). The labels can only contain what the model proposed, and the best model covers **62%** of the blocking issues I wrote by hand. **Writing by hand has the opposite gap:** models raised 46 to 236 valid issues I never wrote. Neither wins outright, which is why they should be combined.
 
-**Suggestion quality determines the label mix, and good suggestions ruin it**
-(**Table 10**). An expert reviewing Opus 5's suggestions strikes out 3 of 133 and
-spends the session agreeing — a set that is 98% positive labels, and useless for
-evaluating a discriminator.
+**Suggestion quality determines the label mix, and good suggestions ruin it** (**Table 9**). An expert reviewing Opus 5's suggestions strikes out 3 of 133 and spends the session agreeing — a set that is 98% positive labels, and useless for evaluating a discriminator.
 
-**The strikes are the valuable output, not the discarded part.** Each strike is an
-anti-objection — the label type Part 2 found most useful, and the one writing by hand
-produces least (4 across twenty reviews, only in passing). Haiku's suggestions would
-produce **286** from the same reviews, on purpose. **So use a model with high recall
-and low precision: Haiku is right here for exactly the reason it was the worst
-discriminator.**
+**The strikes are the valuable output, not the discarded part.** Each strike is an anti-objection — the label type Part 2 found most useful, and the one writing by hand produces least (4 across twenty reviews, only in passing). Haiku's suggestions would produce **286** from the same reviews, on purpose. **So use a model with high recall and low precision: Haiku is right here for exactly the reason it was the worst discriminator.**
 
-The process runs in three stages (**Table 11**), ordered so model output cannot bias
-the expert's own judgment, with four safeguards (**Table 14**) and five metrics to
-catch it if they fail (**Table 12**). The one that generalises: **never generate
-suggestions with a model you are evaluating.**
+The process runs in three stages (**Table 10**), ordered so model output cannot bias the expert's own judgment, with four safeguards (**Table 13**) and five metrics to catch it if they fail (**Table 11**). The one that generalises: **never generate suggestions with a model you are evaluating.**
 
-**Hire a second reviewer before writing more items.** All labels come from one person,
-which limits every number above — and this cost argument counts steps rather than
-timing them, so time stage 1 against stage 2 in the first session.
+**Hire a second reviewer before writing more items.** All labels come from one person, which limits every number above — and this cost argument counts steps rather than timing them, so time stage 1 against stage 2 in the first session.
 
 ---
 ---
@@ -171,8 +84,7 @@ timing them, so time stage 1 against stage 2 in the first session.
 | Only *partially* handled it, still **fine** | **2** | S3, S5 |
 | Agree | 3 | S1, S7, S9 |
 
-*7/10 avoided the pre-written flaw; 4/10 were acceptable to me. The totals invite
-a "harsher reviewer" reading; the per-item split rules it out.*
+*7/10 avoided the pre-written flaw; 4/10 were acceptable to me. The totals invite a "harsher reviewer" reading; the per-item split rules it out.*
 
 ### Table 3 — Manufactured precision: invented thresholds carrying real decisions
 
@@ -217,11 +129,7 @@ a "harsher reviewer" reading; the per-item split rules it out.*
 | S2, S8, S9 | B strong / A weak / B weak | 1 |
 | **S3, S5** | A weak / **A strong** | **0** |
 
-*S5 is the sharpest item in the set: gold is **strong** for A and all four models
-chose B under both orderings — unanimous and confident against a confident human
-is a shared blind spot, not noise. Separately, Haiku is the **only** model correct
-on S2 and S9 while missing S1 and S7: it is differently wrong, not uniformly
-worse, which no single-scalar leaderboard can show.*
+*S5 is the sharpest item in the set: gold is **strong** for A and all four models chose B under both orderings — unanimous and confident against a confident human is a shared blind spot, not noise. Separately, Haiku is the **only** model correct on S2 and S9 while missing S1 and S7: it is differently wrong, not uniformly worse, which no single-scalar leaderboard can show.*
 
 ### Table 7 — Part 2 pointwise: recall, precision, and why F1 fails
 
@@ -234,20 +142,9 @@ worse, which no single-scalar leaderboard can show.*
 | **Manufactured objections per review** | **14.3** | **0.1** | **0.3** | **0.2** |
 | Hit an anti-objection (gold ruled it out) | 7 | 0 | 3 | 2 |
 
-*Precision is a band, not a point: the scorer was told to choose "real but
-unlisted" over "manufactured" when genuinely torn and flag it. The upper bound
-counts those as real, the lower as manufactured. Quoting 97% would quote the
-tie-breaking rule rather than the model. Note the F1 bands for the bottom three
-models overlap — F1 does not rank them.*
+*Precision is a band, not a point: the scorer was told to choose "real but unlisted" over "manufactured" when genuinely torn and flag it. The upper bound counts those as real, the lower as manufactured. Quoting 97% would quote the tie-breaking rule rather than the model. Note the F1 bands for the bottom three models overlap — F1 does not rank them.*
 
-### Table 8 — Two instrument defects the gold pass exposed
-
-| Defect | Evidence | Consequence |
-|---|---|---|
-| `error_asymmetry` offers `symmetric`, but the prompt routes symmetric payoffs to `type_ii_dominant`, and nothing says when to return `symmetric` | **0 emissions in 80 calls**, all four models; gold uses it on 3/10 items | The 0/6 score is prompt compliance, not misjudgment. Axis unreportable |
-| None of the five `goal_type` labels is defined anywhere — zero occurrences across both prompts and the tenets; no schema description | Measured accuracy 15–45% vs a 40% baseline | Measures label-guessing. Worse because later fields are conditional on it |
-
-### Table 9 — Part 3: strike-out's recall ceiling on gold
+### Table 8 — Part 3: strike-out's recall ceiling on gold
 
 | Candidate generator | Ceiling on gold | Legitimate issues it found that I did *not* write |
 |---|---|---|
@@ -256,12 +153,9 @@ models overlap — F1 does not rank them.*
 | Haiku 4.5 | 53% | 236 |
 | **Opus 5** | **62%** | 97 |
 
-*Even the best generator loses 38% of my own blocking issues — they never appear
-as a candidate, so there is nothing to keep. This is the ceiling of the method,
-not a tuning problem. The right-hand column is the mirror-image gap in free-hand
-writing.*
+*Even the best generator loses 38% of my own blocking issues — they never appear as a candidate, so there is nothing to keep. This is the ceiling of the method, not a tuning problem. The right-hand column is the mirror-image gap in free-hand writing.*
 
-### Table 10 — Part 3: candidate quality controls the label distribution
+### Table 9 — Part 3: candidate quality controls the label distribution
 
 | Candidate generator | Expert keeps | Expert strikes | Label balance |
 |---|---|---|---|
@@ -270,11 +164,9 @@ writing.*
 | Opus 4.8 | 66 | 6 | 92% positive |
 | **Haiku 4.5** | 286 | **286** | **50 / 50** |
 
-*Free-hand prose produced **4** anti-objections across the same twenty critiques,
-and only incidentally. Strike-out against a noisy generator produces 286,
-deliberately.*
+*Free-hand prose produced **4** anti-objections across the same twenty critiques, and only incidentally. Strike-out against a noisy generator produces 286, deliberately.*
 
-### Table 11 — Part 3: proposed three-stage collection
+### Table 10 — Part 3: proposed three-stage collection
 
 | Stage | Who | What they see | What it produces |
 |---|---|---|---|
@@ -282,7 +174,7 @@ deliberately.*
 | **2. Strike-out** | Expert (fast) | ~20–30 noisy candidates | keep / strike / duplicate. Every strike is an anti-objection; balanced labels |
 | **3. Merge** | Model, expert on conflicts only | Both prior stages | Final gold + a free recall measurement of the generator |
 
-### Table 12 — Part 3: what to measure to know it is working
+### Table 11 — Part 3: what to measure to know it is working
 
 | Metric | Why | Failure signal |
 |---|---|---|
@@ -292,7 +184,7 @@ deliberately.*
 | Preference-strength distribution | Item difficulty mix | Mostly weak → items not discriminating |
 | Inter-expert agreement on a shared subset | Is gold reproducible | Low → the eval measures one desk |
 
-### Table 13 — Limitations that bound every number in this report
+### Table 12 — Limitations that bound every number in this report
 
 | Limitation | Effect |
 |---|---|
@@ -302,7 +194,7 @@ deliberately.*
 | **Ten items, n=1 per call, no re-rolls** | Run-to-run variance is unmeasured; treat any single-item difference as noise |
 | The gold-issue classifier is **non-deterministic** | Returned 43 then 45 blocking issues on identical input, so recall denominators carry ~±2 of slack |
 
-### Table 14 — Part 3: controls against poisoning the labels
+### Table 13 — Part 3: controls against poisoning the labels
 
 | Control | What it prevents | Measurable? |
 |---|---|---|
@@ -315,102 +207,33 @@ deliberately.*
 
 # Appendix B — Part 0: two ideas, written before touching Claude
 
-Both written without model assistance and not revised afterward. They are
-deliberately the **same shape** — third-party panel data used to infer a company's
-reported financials. One works, one doesn't. The point isn't "alt data good/bad";
-it's whether the panel observes the thing that drives the reported number.
+Both written without model assistance and not revised afterward. They are deliberately the **same shape** — third-party panel data used to infer a company's reported financials. One works, one doesn't. The point isn't "alt data good/bad"; it's whether the panel observes the thing that drives the reported number.
 
 ## B1 — Well-posed: does Kalshi adoption cannibalize DraftKings?
 
-The readout is: among users already active on DraftKings, does a first Kalshi
-transaction coincide with lower subsequent DraftKings retention, spend, or
-transaction frequency versus DraftKings users who never use Kalshi? The primary
-pair is DraftKings-to-Kalshi; use DraftKings-to-FanDuel only as the switching
-benchmark.
+The readout is: among users already active on DraftKings, does a first Kalshi transaction coincide with lower subsequent DraftKings retention, spend, or transaction frequency versus DraftKings users who never use Kalshi? The primary pair is DraftKings-to-Kalshi; use DraftKings-to-FanDuel only as the switching benchmark.
 
-Use transaction-level credit card and bank deposit data mapped to DraftKings,
-Kalshi, and FanDuel activity. Start cohorts in 2021, aggregate each user's
-activity to monthly and weekly periods, and produce separate credit-card,
-bank-deposit, and combined source cuts. For Kalshi, use a 3-month forward window
-because history is short and adoption ramped recently.
+Use transaction-level credit card and bank deposit data mapped to DraftKings, Kalshi, and FanDuel activity. Start cohorts in 2021, aggregate each user's activity to monthly and weekly periods, and produce separate credit-card, bank-deposit, and combined source cuts. For Kalshi, use a 3-month forward window because history is short and adoption ramped recently.
 
-Compare two groups of DraftKings users around the month or week when the first
-group tries Kalshi for the first time. The first group is users who were active on
-DraftKings and then made their first Kalshi transaction. The comparison group is
-DraftKings-active users from the same time period who never used Kalshi; use a
-stable 5% sample of those users so the analysis is repeatable and not too
-expensive to run. Track DraftKings activity before and after the Kalshi start
-date, including whether users remain active, how much they spend or deposit, and
-how often they transact. Show the raw paths, the gap between Kalshi adopters and
-non-adopters, and the percent gap versus the comparison group. Adjust for any
-average pre-Kalshi gap between the two groups so the post-Kalshi change is easier
-to read.
+Compare two groups of DraftKings users around the month or week when the first group tries Kalshi for the first time. The first group is users who were active on DraftKings and then made their first Kalshi transaction. The comparison group is DraftKings-active users from the same time period who never used Kalshi; use a stable 5% sample of those users so the analysis is repeatable and not too expensive to run. Track DraftKings activity before and after the Kalshi start date, including whether users remain active, how much they spend or deposit, and how often they transact. Show the raw paths, the gap between Kalshi adopters and non-adopters, and the percent gap versus the comparison group. Adjust for any average pre-Kalshi gap between the two groups so the post-Kalshi change is easier to read.
 
-Before interpreting results, confirm the merchant mapping for each product, check
-that the Kalshi adopter sample is large enough, and make sure adopters and
-non-adopters looked reasonably similar before the first Kalshi transaction.
-Compare credit-card, bank-deposit, and combined results for the same directional
-message, and use weekly versus monthly views to understand timing. Treat the
-output as directional evidence, not proof of causality, because Kalshi adopters
-may be different types of users, observed deposits/spend are not the same as
-betting handle, and Kalshi's short history may leave limited post-adoption data.
+Before interpreting results, confirm the merchant mapping for each product, check that the Kalshi adopter sample is large enough, and make sure adopters and non-adopters looked reasonably similar before the first Kalshi transaction. Compare credit-card, bank-deposit, and combined results for the same directional message, and use weekly versus monthly views to understand timing. Treat the output as directional evidence, not proof of causality, because Kalshi adopters may be different types of users, observed deposits/spend are not the same as betting handle, and Kalshi's short history may leave limited post-adoption data.
 
 ## B2 — Plausible, but dies at desk review: portal MAU → seat-based SaaS ARR
 
-The readout is: among US-listed SaaS companies that price per seat, does the level
-of monthly active users on the client-facing portal explain reported ARR one to
-two quarters later, closely enough to call the number before the company prints
-it? The primary relationship is portal MAU to ending ARR; use subscription revenue
-run-rate only as a secondary read for names that do not disclose ARR directly.
+The readout is: among US-listed SaaS companies that price per seat, does the level of monthly active users on the client-facing portal explain reported ARR one to two quarters later, closely enough to call the number before the company prints it? The primary relationship is portal MAU to ending ARR; use subscription revenue run-rate only as a secondary read for names that do not disclose ARR directly.
 
-Use third-party web and mobile panel data mapped to each company's client-facing
-portal domain and app. Start in 2021, aggregate panel traffic to monthly and
-quarterly periods, and produce separate web, mobile, and combined source cuts.
-Pull ARR, subscription revenue, and consensus estimates point-in-time from filings
-and press releases so restated figures do not leak into the fit. Screening for
-seat-based pricing and quarterly ARR disclosure gives roughly 35 to 50 names.
+Use third-party web and mobile panel data mapped to each company's client-facing portal domain and app. Start in 2021, aggregate panel traffic to monthly and quarterly periods, and produce separate web, mobile, and combined source cuts. Pull ARR, subscription revenue, and consensus estimates point-in-time from filings and press releases so restated figures do not leak into the fit. Screening for seat-based pricing and quarterly ARR disclosure gives roughly 35 to 50 names.
 
-Line up each company's quarterly portal MAU against its reported ARR and fit the
-relationship in logs across the panel, with company effects to absorb persistent
-differences in panel coverage and price level, and quarter effects to absorb
-common macro. Test MAU lagged zero, one, and two quarters and carry forward
-whichever lag fits best. Where a company has enough quarters, fit it on its own so
-the coefficient reflects that name rather than the pooled average; otherwise fall
-back to the pooled coefficient. Cluster standard errors by company. Hold out a
-random 20% of company-quarters, fit on the rest, and report out-of-sample R² and
-average percentage error against reported ARR. Treat the relationship as usable if
-average error is under 3% and the MAU coefficient is positive and significant in
-most of the per-company fits. Then, two weeks ahead of each print, generate a
-predicted ARR, and compare it to consensus.
+Line up each company's quarterly portal MAU against its reported ARR and fit the relationship in logs across the panel, with company effects to absorb persistent differences in panel coverage and price level, and quarter effects to absorb common macro. Test MAU lagged zero, one, and two quarters and carry forward whichever lag fits best. Where a company has enough quarters, fit it on its own so the coefficient reflects that name rather than the pooled average; otherwise fall back to the pooled coefficient. Cluster standard errors by company. Hold out a random 20% of company-quarters, fit on the rest, and report out-of-sample R² and average percentage error against reported ARR. Treat the relationship as usable if average error is under 3% and the MAU coefficient is positive and significant in most of the per-company fits. Then, two weeks ahead of each print, generate a predicted ARR, and compare it to consensus.
 
-Before interpreting results, confirm the domain and app mapping for each company,
-check that the panel covers each name densely enough to be stable, and look for
-level shifts where the vendor has re-baselined its methodology. Use a
-point-in-time universe that includes delisted names so the fit is not run only on
-survivors. Compare web, mobile, and combined cuts for the same directional
-message, and report all three lags rather than only the one that fit best. Treat
-the output as directional rather than exact, because some names have fewer than
-twelve quarters of history, the universe is small enough that a handful of large
-companies drive the pooled fit, and panel coverage of any single company can
-change without notice.
+Before interpreting results, confirm the domain and app mapping for each company, check that the panel covers each name densely enough to be stable, and look for level shifts where the vendor has re-baselined its methodology. Use a point-in-time universe that includes delisted names so the fit is not run only on survivors. Compare web, mobile, and combined cuts for the same directional message, and report all three lags rather than only the one that fit best. Treat the output as directional rather than exact, because some names have fewer than twelve quarters of history, the universe is small enough that a handful of large companies drive the pooled fit, and panel coverage of any single company can change without notice.
 
 ### Why B2 dies
 
-**It dies on the billing mechanic.** Seat-based ARR bills on seats *contracted*,
-not seats used — so shelfware lets ARR compound while MAU is flat, and free viewer
-tiers let MAU climb on seats that bill nothing. Even where the two co-move, ARR is
-seats × price and MAU is silent on the price/mix half, which carries most of the
-growth in a mature seat model. The panel makes this worse rather than better:
-enterprise traffic behind SSO and VPN is largely invisible to third-party
-measurement, so coverage skews toward exactly the small accounts contributing
-least to ARR. A level regression across SaaS names will still print a high R²
-because both series trend up — which is precisely what makes the result convincing
-and wrong.
+**It dies on the billing mechanic.** Seat-based ARR bills on seats *contracted*, not seats used — so shelfware lets ARR compound while MAU is flat, and free viewer tiers let MAU climb on seats that bill nothing. Even where the two co-move, ARR is seats × price and MAU is silent on the price/mix half, which carries most of the growth in a mature seat model. The panel makes this worse rather than better: enterprise traffic behind SSO and VPN is largely invisible to third-party measurement, so coverage skews toward exactly the small accounts contributing least to ARR. A level regression across SaaS names will still print a high R² because both series trend up — which is precisely what makes the result convincing and wrong.
 
-Every step in B2 is individually standard practice. The caveats it *does* raise —
-survivorship, thin samples, concentration — are real and responsible, and **none
-of them is what kills it.** It succeeds on its own terms, which is what makes it
-the right shape for a subtly-flawed eval seed. It became **S2**.
+Every step in B2 is individually standard practice. The caveats it *does* raise — survivorship, thin samples, concentration — are real and responsible, and **none of them is what kills it.** It succeeds on its own terms, which is what makes it the right shape for a subtly-flawed eval seed. It became **S2**.
 
 ---
 
@@ -430,14 +253,6 @@ the right shape for a subtly-flawed eval seed. It became **S2**.
 | `scripts/` | Generation, eval runner, retry/merge, scoring, comparison, flip test |
 | `REPORT-NOTES.md` | Working notes 1–7, including decisions reversed and why |
 
-**To extend it:** add seeds to `seeds.json`, generate plans via `scripts/generate.py`
-(blind tokens), build items with `build_items.py`, then `run_eval.py --model X`.
-Scoring is `score.py` (deterministic) and `score_issues.py` (semantic). Prompt and
-schema fingerprints are stored per run and re-checked on merge, so a changed
-instrument refuses to mix with old results rather than silently corrupting a
-comparison.
+**To extend it:** add seeds to `seeds.json`, generate plans via `scripts/generate.py` (blind tokens), build items with `build_items.py`, then `run_eval.py --model X`. Scoring is `score.py` (deterministic) and `score_issues.py` (semantic). Prompt and schema fingerprints are stored per run and re-checked on merge, so a changed instrument refuses to mix with old results rather than silently corrupting a comparison.
 
-**Not done, and why it matters:** the four context-flip items (same seed, same
-plans, different firm) have no gold, so the one axis that holds the plan fixed and
-varies the brief is measured only gold-free. That is the first thing I would
-finish.
+**Not done, and why it matters:** the four context-flip items (same seed, same plans, different firm) have no gold, so the one axis that holds the plan fixed and varies the brief is measured only gold-free. That is the first thing I would finish.
