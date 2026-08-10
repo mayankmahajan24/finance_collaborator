@@ -19,9 +19,11 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import pathlib
 import re
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 import anthropic
@@ -252,6 +254,15 @@ def load_prompt(name: str) -> tuple[str, str]:
     return m.group(1).strip(), m.group(2).strip()
 
 
+def fingerprint(*parts: str) -> str:
+    """Short hash of the exact prompt text, so a later run can prove it used the same
+    instrument. If this differs between models, the comparison is invalid."""
+    h = hashlib.sha256()
+    for p in parts:
+        h.update(p.encode())
+    return h.hexdigest()[:12]
+
+
 def call(client, model: str, system: str, user: str, schema: dict, max_tokens: int) -> dict:
     with client.messages.stream(
         model=model,
@@ -263,8 +274,10 @@ def call(client, model: str, system: str, user: str, schema: dict, max_tokens: i
         msg = stream.get_final_message()
     if msg.stop_reason == "refusal":
         raise RuntimeError(f"refused: {msg.stop_details}")
+    if msg.stop_reason == "max_tokens":
+        raise RuntimeError("truncated: raise --max-tokens")
     text = next(b.text for b in msg.content if b.type == "text")
-    return json.loads(text)
+    return json.loads(text), {"in": msg.usage.input_tokens, "out": msg.usage.output_tokens}
 
 
 def main() -> None:
@@ -272,7 +285,7 @@ def main() -> None:
     ap.add_argument("--mode", choices=["pairwise", "pointwise", "both"], default="both")
     ap.add_argument("--model", default="claude-opus-5")
     ap.add_argument("--items", nargs="*", help="seed ids; default all")
-    ap.add_argument("--max-tokens", type=int, default=8000)
+    ap.add_argument("--max-tokens", type=int, default=32000)  # weaker models emit very long issue lists; same cap for every model
     ap.add_argument("--workers", type=int, default=4)
     args = ap.parse_args()
 
@@ -315,22 +328,37 @@ def main() -> None:
 
         def run(job):
             iid, tag, user = job
+            usage = {}
             try:
-                out = call(client, args.model, system, user, schema, args.max_tokens)
+                out, usage = call(client, args.model, system, user, schema, args.max_tokens)
                 status = "ok"
             except Exception as e:  # record rather than abort the sweep
                 out, status = {"error": f"{type(e).__name__}: {e}"}, "error"
             print(f"  {mode:9s} {iid:>4} {tag}  {status}")
-            return {"id": iid, "tag": tag, "mode": mode, "model": args.model,
-                    "max_tokens": args.max_tokens, "result": out}
+            return {"id": iid, "tag": tag, "status": status, "usage": usage, "result": out}
 
         print(f"{args.model} · {mode} · {len(jobs)} calls")
         with ThreadPoolExecutor(max_workers=args.workers) as pool:
             results = list(pool.map(run, jobs))
 
+        n_err = sum(1 for r in results if r["status"] == "error")
+        payload = {
+            "model": args.model,
+            "mode": mode,
+            "max_tokens": args.max_tokens,
+            "run_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
+            "prompt_fingerprint": fingerprint(system, template),
+            "schema_fingerprint": fingerprint(json.dumps(schema, sort_keys=True)),
+            "n_calls": len(results),
+            "n_errors": n_err,
+            "tokens_in": sum(r["usage"].get("in", 0) for r in results),
+            "tokens_out": sum(r["usage"].get("out", 0) for r in results),
+            "results": results,
+        }
         out = outdir / f"{mode}.json"
-        out.write_text(json.dumps(results, indent=2) + "\n")
-        print(f"  -> {out.relative_to(ROOT)}")
+        out.write_text(json.dumps(payload, indent=2) + "\n")
+        print(f"  -> {out.relative_to(ROOT)}  ({len(results)} calls, {n_err} errors, "
+              f"{payload['tokens_out']:,} out)")
 
 
 if __name__ == "__main__":

@@ -319,3 +319,77 @@ verdicts note "better simplification" (S6), "better scoped" (S10), "picked up on
 the wrong construct and overengineering" (S3). On the obviously-flawed seeds the
 plan proposed a kill once, the critique three times. Claude knows an idea is weak
 while writing the plan and scopes the full project anyway.
+
+---
+
+## Note 4 — Haiku 4.5 sweep (baseline model)
+
+**Date:** 2026-08-09
+**Status:** 28 pairwise + 28 pointwise calls, 0 errors after retries. Gold not yet
+written, so these are the diagnostics that do not require an answer key.
+
+### Pairwise — works, with two real weaknesses
+
+| Diagnostic | Result |
+|---|---|
+| Self-consistent across A/B and B/A | **11 / 14** (chance 50%) |
+| Agreement with my design intent | **10 / 11** consistent items = 91% |
+| `goal_type` stable across orderings | **8 / 14** |
+| Slot-A rate | 61% |
+| Mean confidence | 3.7 / 5 |
+
+Three items (S1, S6, S7) flip when the plans are swapped — on those Haiku is
+responding to presentation, not discriminating. `goal_type` instability is worse:
+the same seed and plans are read as `mechanism_test` one way and
+`single_name_kpi` the other on 6 of 14. Since every later tenet is conditional on
+the goal read, that instability propagates.
+
+**Construction flaw, recorded:** in all ten forks I made M1 the intended-stronger
+methodology. Slot assignment is mixed 5/5 so nothing leaks to an evaluator (it
+never sees M1/M2), but my prior was never varied. That is why "agreement with
+design intent" is cleanly measurable here — and why it must not be mistaken for
+accuracy.
+
+**The 91% needs care.** The brief's sense-check says a 90% Haiku score means the
+items are too easy. But this is 91% agreement with *my prior*, not with gold. In
+Part 1 the human verdicts diverged sharply from automated scoring; if gold
+diverges from my intent on even three items, real accuracy falls toward 65%.
+**Gold decides whether this eval is too easy, and nothing else can.** It also
+promotes the no-tenets control from optional to necessary: with 13 tenets in the
+prompt, 91% may be rubric-following rather than judgment.
+
+### Pointwise — Haiku cannot follow the precision instruction
+
+| | |
+|---|---|
+| Issues per review | mean **26.3**, median 17, max **90** |
+| Severity split | ~90% secondary |
+| Truncations before retry | 7 / 28 at 32k; 2 still failed at 48k; cleared at 64k |
+| `explainability_fit` "over-" value used | **0 times** |
+| Top category | `measure_validity` raised **194 times** |
+
+A desk review is 3–8 findings. Haiku produced a median of 17 and one review of
+90 against a 600-word plan — a ~15x overshoot. It marks ~90% of them secondary,
+so it partly knows they do not matter, and emits them anyway. This is the
+exhaustiveness/Type I failure the error-asymmetry tenet exists to catch.
+
+**Consequence for scoring:** against a gold list of ~4 blocking issues, a
+90-issue review scores near-zero precision by construction. The metric would
+measure verbosity, not judgment.
+
+**Partly the prompt's fault, and worth saying so.** The pointwise prompt is
+~2,600 words over 13 tenets, most with sub-checks. A literal-minded model reads
+it as a checklist and emits one issue per checkpoint. `measure_validity` at 194
+mentions — the newest and most narrowly scoped tenet — supports that reading.
+
+**What did work:** `why_it_applies_here` was never left generic (0 of 585 issues
+had a justification under 80 characters). Forcing per-issue justification
+produces real reasoning even when the model over-produces.
+
+### Open decision before running Sonnet / Opus
+
+Cap `issues` with `maxItems` (~12) so the model must *select* rather than
+enumerate. This fixes truncation, makes precision meaningful, and matches what a
+desk review actually is. It changes the instrument, so it must be decided before
+the other models run — and the Haiku data would need re-running to stay
+comparable.
