@@ -48,15 +48,15 @@ I split my critiques into **45 blocking issues** (the recall denominator), 7 sec
 
 ## Part 3 — Collecting more of this data at scale
 
-Part 2 happened to run both halves of the brief's question: I wrote gold labels by hand for twenty plan reviews, and four models produced issue lists for the same plans, every issue adjudicated. So the following is measured.
+**The proposal.** Run each item through three stages (**Table 10**). The expert first writes down the blocking issues alone, with no model output in front of them, plus which plan they prefer and how confident they are. Only then do they see 20-30 candidate issues from a model and mark each keep, strike, or duplicate. A model merges the two passes; the expert reviews only conflicts.
 
-**Having the expert strike out model suggestions caps recall** (**Table 8**). The labels can only contain what the model proposed, and the best model covers **62%** of the blocking issues I wrote by hand. **Writing by hand has the opposite gap:** models raised 46 to 236 valid issues I never wrote. Neither wins outright, which is why they should be combined.
+**Generate those candidates with a high-recall, low-precision model — Haiku, not Opus.** This is the counterintuitive part, and it is the main recommendation. Four safeguards keep the labels clean (**Table 13**) and five metrics catch it if they fail (**Table 11**); the one that generalises beyond this proposal is **never generate suggestions with a model you are evaluating.**
 
-**Suggestion quality determines the label mix, and good suggestions ruin it** (**Table 9**). An expert reviewing Opus 5's suggestions strikes out 3 of 133 and spends the session agreeing — a set that is 98% positive labels, and useless for evaluating a discriminator.
+Part 2 happened to run both halves of the brief's question already — I wrote gold labels by hand for twenty plan reviews, and four models produced issue lists for the same plans — so the reasoning below is measured.
 
-**The strikes are the valuable output, not the discarded part.** Each strike is an anti-objection — the label type Part 2 found most useful, and the one writing by hand produces least (4 across twenty reviews, only in passing). Haiku's suggestions would produce **286** from the same reviews, on purpose. **So use a model with high recall and low precision: Haiku is right here for exactly the reason it was the worst discriminator.**
+**Why the expert still writes first.** Strike-out alone caps recall (**Table 8**): the labels can only contain what the model proposed, and the best model covers just **62%** of the blocking issues I wrote by hand. Writing by hand has the opposite gap — the models raised 46 to 236 valid issues I never wrote. Neither wins outright, which is why both stages are needed.
 
-The process runs in three stages (**Table 10**), ordered so model output cannot bias the expert's own judgment, with four safeguards (**Table 13**) and five metrics to catch it if they fail (**Table 11**). The one that generalises: **never generate suggestions with a model you are evaluating.**
+**Why the noisy model.** Suggestion quality decides the label mix, and good suggestions ruin it (**Table 9**). An expert reviewing Opus 5's suggestions strikes out 3 of 133 and spends the session agreeing — 98% positive labels, useless for evaluating a discriminator. **The strikes are the valuable output, not the discarded part.** Each is an anti-objection, the label type Part 2 found most useful and the one writing by hand produces least (4 across twenty reviews, only in passing). Haiku's suggestions would produce **286** from the same reviews, on purpose — right here for exactly the reason it was the worst discriminator.
 
 **Hire a second reviewer before writing more items.** All labels come from one person, which limits every number above — and this cost argument counts steps rather than timing them, so time stage 1 against stage 2 in the first session.
 
