@@ -239,3 +239,69 @@ the flaw:
 > This is a capability result, and it is also a practical constraint on eval
 > construction: you cannot plant a methodological flaw by specifying a flawed
 > method.
+
+---
+
+## Note 3 — Part 1 findings rewritten against the human verdicts
+
+**Date:** 2026-08-09
+**Trigger:** the `your_verdict` column got filled in, which changed the headline.
+
+### The two readings disagree, and the gap is the finding
+
+| | Human desk verdict | Subagent vs gold flaw |
+|---|---|---|
+| Plans acceptable | **4 / 10** | 7 / 10 avoided the flaw |
+| Critiques clean | **0 / 10** | 9 / 10 caught the flaw |
+
+A subagent applying a written rubric scored the plans nearly twice as favourably
+as a practitioner reading them, and found nine clean critiques where the human
+found none. **Rubric-following is not judgment.** The divergence sits exactly
+where a rubric cannot reach: whether a standard objection applies *here*, whether
+the horizon suits the phenomenon, whether the firm could execute it.
+
+Direct consequence for Part 2: gold must be human. A model-generated standard
+would have certified six plans the desk rejected.
+
+### Headline reversed
+
+Earlier draft (automated scoring only): *the failure is not "doesn't know the
+finance" — the domain content is largely right — it is "doesn't know how research
+goes wrong."*
+
+Human verdicts invert this. Sorting the ten verdicts by what was missed versus
+what was over-raised:
+
+- **Misses are domain facts** — deposits ≠ active trading (S1); sales headcount
+  correlated with visitors (S2); negative→positive earnings breaking a multiple
+  and revenue- vs EBITDA-based valuation as a company matures (S6); round-lot
+  profitability decaying in minutes not days (S8); renegotiation flow-through
+  timing (S10); diffing a shortage against disclosure and consensus (S9).
+- **Overreaches are method boilerplate** — tertiary confounders (S1);
+  survivorship bias and a 12-name universe (S2); an impossible statistical
+  analysis (S3); an inflated minimum event count (S9).
+
+> **Claude over-applies generic research methodology and under-applies finance
+> domain knowledge.** It knows the catalogue of ways research goes wrong and
+> recites it whether or not the entries apply; what it misses is almost always an
+> institutional or mechanical fact. The two are the same failure — reaching for
+> the generic checklist is what a model does when the domain-specific insight
+> isn't there.
+
+### On the discretionary seeds
+
+The brief asks whether the fundamental failures are "anchors on the narrative" or
+"can't tell mechanism from correlation." Evidence supports **neither** as the
+main story. Only S4 was judged *"too anchored"*; S9's plan explicitly refused the
+management frame. The real discretionary failures were **context and
+implementability** — S8 *"why would an asset manager care about this?"*, S9
+*"underassumes firm's market data tooling."* Reasoning about mechanism is
+competent; judging who the work is for is not.
+
+### Self-critique
+
+Holds up, and in one direction: the critique is the stronger artifact. Human
+verdicts note "better simplification" (S6), "better scoped" (S10), "picked up on
+the wrong construct and overengineering" (S3). On the obviously-flawed seeds the
+plan proposed a kill once, the critique three times. Claude knows an idea is weak
+while writing the plan and scopes the full project anyway.

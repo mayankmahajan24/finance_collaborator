@@ -1,99 +1,122 @@
-# Part 1 — qualitative read
+# Part 1 — qualitative read on Claude as research planner and critic
 
-10 seeds, 5 quant / 5 fundamental, across three buckets. Plans and critiques
-generated blind (`PROVENANCE.md`); each seed scored by an independent subagent
-against a pre-written gold flaw (`scorecard.md`).
+10 seeds, 5 quant / 5 fundamental, across three difficulty buckets. Every plan and
+critique was produced by a model that saw only the seed sentence — no bucket
+label, no known flaw, no sibling seed (`PROVENANCE.md`). Two independent readings
+followed: a human desk verdict per item (`findings-table.md`) and a subagent
+scored against a pre-written gold flaw (`scorecard.md`).
 
-## The headline result contradicts the assignment's premise
+---
 
-The brief says Claude "produces plans that *look* reasonable but often wouldn't
-survive a desk review: they overfit the question, ignore regime dependence,
-propose validation that leaks, anchor on the management narrative, or miss the
-obvious confounder."
+## The headline
 
-That is not what we measured on Opus 5.
+**Claude over-applies generic research methodology and under-applies finance
+domain knowledge.** It knows the catalogue of ways research goes wrong — and
+recites it whether or not the entries apply. What it misses is almost always an
+institutional or mechanical fact about the instrument, the data, or how the
+market prices information.
 
-| axis | result |
+That inverts the brief's framing of the question. The failure is not primarily
+"doesn't know how research goes wrong." It is closer to "doesn't know the
+finance," and the methodological fluency is what disguises it.
+
+*(An earlier draft of this file argued the opposite, on the automated scoring
+alone. The human verdicts overturned it — see "Where the two readings disagree".)*
+
+## Answering the brief's four questions
+
+**Where does it break?** On precision, not recall, and on domain specificity, not
+method. The human review found a defect in **10 of 10 critiques** — every one
+either missed something a desk would raise or raised something that does not
+apply here. Five of ten contained an outright overreach.
+
+**"Doesn't know the finance" or "doesn't know how research goes wrong"?** The
+misses and the overreaches split cleanly, and the split is the finding:
+
+| The **misses** are domain facts | The **overreaches** are method boilerplate |
 |---|---|
-| Critique recall | 9 caught / 1 partial / **0 missed** of 10 |
-| Plan quality | 7 of 10 plans **avoided the known flaw unprompted** |
-| Critique precision | **2.6 manufactured objections per critique** |
-| Right-sizing (dead ideas) | critique proposed shrinking in **3 of 3**; plan in only 1 of 3 |
+| deposits ≠ active trading (S1) | tertiary confounding variables (S1) |
+| sales headcount correlates with visitors (S2) | survivorship bias, 12-name universe (S2) |
+| negative→positive earnings break a multiple; revenue-based vs EBITDA-based valuation as a company matures (S6) | a statistical analysis that is not possible (S3) |
+| round-lot profitability decays in **minutes**, not days (S8) | minimum event count set far too high (S9) |
+| renegotiation flow-through timing to margins (S10) | scope expanded to irrelevant analyses, e.g. scale estimation (S1) |
+| the shortage must be diffed against existing disclosure and buy-side consensus (S9) | |
 
-Every named failure mode in the brief was tested and mostly did not reproduce:
+Every left-column item requires knowing how an instrument, a dataset, or a market
+actually behaves. Every right-column item is a canonical concern recited without
+checking whether it bites. **This is why the two failures are the same failure:**
+reaching for the generic checklist is what a model does when the domain-specific
+insight is not there.
 
-- **Validation that leaks** (S3) — the plan partially leaked; the critique caught
-  it precisely: KPI correlation used both to match institutions and to validate
-  the match.
-- **Anchors on the management narrative** (S9) — the plan *refused the seed's
-  frame outright* and pre-committed to the bear null. There was no anchoring left
-  to catch.
-- **Misses the obvious confounder** (S10, S4) — S10's plan named the
-  legal-constraint confound as its own primary hypothesis and got the buyer/COGS
-  direction right. S4's plan led with the deconsolidation null rather than
-  reaching for strategic intent.
-- **Can't tell mechanism from correlation** (S8) — the plan flagged that round
-  lots may be the algo-child population and gated the project on proving it in
-  week one.
+**On the discretionary ideas — "anchors on the narrative" or "can't tell
+mechanism from correlation"?** Neither, mostly. Of the five fundamental seeds,
+only S4 was judged *"too anchored."* S9's plan explicitly refused the seed's
+management frame and pre-committed to the bear null. The discretionary failures
+were instead about **context and implementability** — S8, *"why would an asset
+manager care about this?"*; S9, *"underassumes firm's market data tooling."* The
+model reasons about mechanism competently and misjudges who it is working for.
 
-## Where it actually breaks
+**Does it catch its own mistakes when asked to critique?** Partially, and
+consistently in one direction: the critique is the stronger artifact. Human
+verdicts note *"better simplification"* (S6), *"better scoped"* (S10), *"picked up
+on the wrong construct and overengineering"* (S3). On the three obviously-flawed
+seeds the plan proposed killing or shrinking the idea once; the critique did it
+three times. **Claude knows an idea is weak while writing the plan and scopes a
+full project regardless** — S5's plan says in its own pitfalls section that the
+signal is mined, then budgets eight weeks to confirm it. The knowledge is present
+and does not reach the recommendation.
 
-**1. Precision, not recall.** 26 manufactured objections across 10 critiques.
-The critique step reliably finds the real problem *and* several that aren't
-problems — S4 and S9 drew 4 apiece. Two representative failures: an S5
-objection that GICS cells are degenerate at 9 firms (reached by reading "sector"
-as "sub-industry"), and an S6 claim that a mechanical-bias sign is backwards,
-asserted unconditionally when it holds only in one case. Both are confidently
-argued and wrong. A PM reading these has to adjudicate every finding, which is
-exactly the work the tool was supposed to save.
+## Where the two readings disagree
 
-**This is the finding that matters for Part 2.** A discriminator eval built only
-on flawed seeds cannot see this failure at all — a model that reflexively
-generates five objections per plan scores perfectly on recall. Precision needs
-sound plans in the eval set to be measurable, which is why the recall/precision
-framing the brief asks for is the right one.
+| | Human desk verdict | Subagent vs gold flaw |
+|---|---|---|
+| Plans acceptable | **4 / 10** | 7 / 10 avoided the flaw |
+| Critiques clean | **0 / 10** | 9 / 10 caught the flaw |
+| Manufactured objections | 5 / 10 critiques | 26 total (2.6 per critique) |
 
-**2. The plan step over-scopes; the critique step is the corrective.** On the
-three obviously-flawed seeds, the plan proposed killing or shrinking the idea
-only once (S6). The critique did it all three times, and aggressively: S7's plan
-built a month of machinery to price a published broker note, and the critique cut
-it to half a day. S5's plan said in its own pitfalls section that the signal is
-mined, then budgeted eight weeks to confirm it anyway — the critique named that
-sequencing inversion directly.
+The gap is the most useful thing in Part 1. A subagent applying a written rubric
+scored these plans nearly twice as favourably as a practitioner reading them.
+**Rubric-following is not judgment**, and the difference is concentrated exactly
+where the rubric could not reach: whether a standard objection applies *here*,
+whether the horizon suits the phenomenon, whether the firm could execute it.
 
-So Claude *knows* the idea is weak while writing the plan and scopes a full
-project regardless. The knowledge is present; it doesn't reach the
-recommendation. Asking for a critique recovers it.
+Two consequences. First, gold for Part 2 has to be human — a model-generated
+standard would have certified six plans the desk rejected. Second, the automated
+recall number (9/10) is close to meaningless on its own; the same critiques the
+scorer called "caught" were, to a reader, uniformly defective.
 
-**3. Self-critique works, which is the more surprising half.** The brief asks
-"does it catch its own mistakes?" On this set, yes — consistently, and the
-critique is the stronger artifact. The most valuable single output in the run was
-S5's critique deriving that the plan's own IR 0.5 target could not clear its own
-t>3 hurdle on any subsample: an internal contradiction found by arithmetic, not
-by pattern-matching a known pitfall.
+## What the numbers are worth
 
-## Caveats worth stating in the report
-
-- **The gold flaws are my read, not a market outcome.** "Caught" means the
-  critique matched a flaw written in advance by one reviewer. The `your_verdict`
-  column in `findings-table.md` is deliberately empty — the assignment calibrates
-  Claude against *your* instinct, and that column is where the actual Part 1
-  judgment lives.
 - **Recall is measured against flaws the plan usually already handled.** Seven of
-  ten plans avoided the flaw unprompted, so the critique was often ratifying
-  rather than rescuing. That makes the recall number less impressive than it looks
-  and the precision number more damning.
-- **One model, one effort setting, n=10.** No claim about scaling across model
-  size — that is what Part 2's eval is for.
+  ten plans avoided the known flaw unprompted, so the critique was often
+  ratifying rather than rescuing. That makes 9/10 less impressive than it looks
+  and 2.6 manufactured objections more damning.
+- **The manufactured objections are not noise.** They are canonical concerns —
+  survivorship, sample size, look-ahead, confounders — recited without checking
+  applicability. That is a specific, addressable failure, not general sloppiness.
+- **One model, one effort setting, n = 1 per call.** No re-rolls, so run-to-run
+  variance is unmeasured. Ten items; treat any single-item difference as noise.
+- **Gold is one reviewer.** Where Claude disagrees, the honest reading is
+  "disagrees with this desk," not "wrong."
 - **Mixed harness.** Six seeds via bare API contexts, four via Claude Code
-  subagents after the API credit ran out. Scores straddle both sources with no
-  visible gap, but see `PROVENANCE.md`.
+  subagents after the API credit ran out. Measured effect: none detectable
+  (`PROVENANCE.md`).
 
 ## What this implies for Part 2
 
-Design the discriminator eval around **precision under a plausible-looking plan**,
-not recall against a broken one. The interesting discriminating item is a pair
-where plan A and plan B are both competent and the difference is whether the
-critique invents a reason to prefer one. On this evidence, that is where models
-separate — and a recall-only eval would score Haiku and Opus identically at
-ceiling.
+**Build the eval around precision under a plausible-looking plan, not recall
+against a broken one.** A discriminator eval on flawed plans measures recall
+only, and every model scores near-perfect — the ceiling this data already shows.
+
+Three design consequences, all carried into `part2/`:
+
+1. **Both plans in a pair must be competent.** Precision is only measurable when
+   some plans are sound; otherwise a model that manufactures five objections
+   apiece scores perfectly and its noise is invisible.
+2. **Every objection must carry its own justification.** The `why_it_applies_here`
+   field exists because of the four verdicts above — a justification that would
+   read identically against any plan in the asset class is a misapplied objection,
+   and that is far easier to detect than adjudicating the objection itself.
+3. **Judge fit, not rigor.** The domain misses cluster around firm context,
+   horizon, and what the data measures. Those became tenets 2, 5 and 6, and the
+   error-asymmetry tenet exists so that "more thorough" is not a free win.
