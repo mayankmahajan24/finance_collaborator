@@ -1,7 +1,7 @@
 # Filling in gold
 
-One file per item: `part2/gold/S1.json` … `S10.json`. Nine fields each, one item
-per seed. (Four context-flip items were built and cut — see `../contexts.json`.)
+One file per item: `part2/gold/S1.json` … `S10.json`, plus the four flips
+(`S2F`, `S5F`, `S8F`, `S9F`). Nine fields each.
 
 **Judge blind** — don't open `design-intent.json` in this directory until you're
 done. It holds my private read of which plan is stronger, and the value of your

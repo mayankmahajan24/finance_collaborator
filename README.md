@@ -24,10 +24,10 @@ part0/                  my own two ideas, written before touching Claude
 part1/                  plans, critiques, per-seed scores, findings table, qualitative read
 part2/
   forks.json            the two methodologies per seed
-  contexts.json         firm context per item (context-flip mechanism retained, unused)
+  contexts.json         firm context per item, and the four context-flip items
   plans/raw/            the 20 generated plans (opaque token filenames)
   plans/short/          the same plans edited to 500-600w — what items use
-  items/S1..S10         assembled eval items: context, seed, plan_A, plan_B, gold
+  items/S1..S10,*F      assembled eval items: context, seed, plan_A, plan_B, gold
   gold/                 QUARANTINED — human labels + my private design intent
   evaluator/            TENETS.md and the two prompts (pairwise, pointwise)
   ISOLATION.md          what each agent tier may and may not know
@@ -69,9 +69,5 @@ may know.
 ## Status
 
 Part 0 and Part 1 are complete. Part 2 is built and unblocked except for two
-things: the human gold pass (`part2/gold/HOW-TO-FILL.md`, 9 fields × 10 items;
-S1–S3 done) and API credits for the model sweep. Part 3 is not started.
-
-One item per seed. Four context-flip items (same seed and plans under a second
-firm) were built and cut — see `contexts.json` for how to restore them and
-`SCORING.md` § 4 for what the eval gives up without them.
+things: the human gold pass (`part2/gold/HOW-TO-FILL.md`, 9 fields × 14 items;
+S1–S4 done) and API credits for the model sweep. Part 3 is not started.
