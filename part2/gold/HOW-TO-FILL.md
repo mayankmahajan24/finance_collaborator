@@ -1,5 +1,15 @@
 # Filling in gold
 
+> **Status:** the ten base items (`S1`–`S10`) are filled and scored. The four
+> context-flip items (`S2F`, `S5F`, `S8F`, `S9F`) are still empty — `score.py`
+> excludes them by name rather than shrinking the denominator silently. Filling
+> them is the one thing that would unblock the context-sensitivity axis.
+>
+> Gold prose is classified into blocking / secondary / anti-objection / praise by
+> `scripts/split_gold.py`; the **anti-objection** label (explicitly ruling an
+> objection *out*) turned out to be the highest-value thing in gold, so write those
+> down when you have them.
+
 One file per item: `part2/gold/S1.json` … `S10.json`, plus the four flips
 (`S2F`, `S5F`, `S8F`, `S9F`). Nine fields each.
 

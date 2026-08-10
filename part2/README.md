@@ -7,6 +7,12 @@ the eval that measures it.
 
 Part 1 found recall at ceiling and **precision** as the real weakness — 2.6
 manufactured objections per critique. So the pairs here are **both competent**.
+
+> **The results inverted this premise.** Scored against gold, recall discriminates
+> (29–62%) and precision does not. Part 1's recall was at ceiling because it was
+> measured against *one pre-named flaw*; against 45 real desk objections it is the
+> sharpest axis in the eval. The design decision below is still right — both plans
+> must be competent — but the reason it is right changed. See `GRADED.md`.
 Each seed forks into two genuinely different strategies, each built as the
 strongest version of its own approach. An eval built on broken plans measures
 recall only, and every model scores near-perfect.

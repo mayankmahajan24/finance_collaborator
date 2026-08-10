@@ -1,5 +1,19 @@
 # How the discriminator is scored
 
+> **Read with `GRADED.md`.** This document is the metric *design*, written before
+> gold existed. Running it revised two of its claims, and both revisions are load-
+> bearing:
+>
+> - **Axis 1 (error asymmetry) is broken as implemented.** The enum offers
+>   `symmetric` while the prompt routes symmetric payoffs to `type_ii_dominant`;
+>   all four models emitted `symmetric` 0 times in 80 calls. The axis is sound in
+>   principle and unmeasurable with the current instrument.
+> - **Axis 4 (context sensitivity) is unscored** — the four flip items have no gold.
+> - **The precision design below is necessary but not sufficient.** Haiku satisfies
+>   the three-bucket framing while producing 14.3 manufactured objections per
+>   review. The reported pair should be **recall + manufactured-per-review**, and
+>   **not F1**, whose bands fail to rank the bottom three models.
+
 The brief notes that "does it match my critique" is too brittle for pointwise
 scoring and asks for the right recall/precision framing. This is the answer, and
 it comes out of the Part 1 finding: recall was at ceiling (9 caught / 1 partial /
