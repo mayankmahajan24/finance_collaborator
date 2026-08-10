@@ -135,3 +135,92 @@ paragraphs across the 10 items — which is a judgment call per issue and belong
 in a separate scorer, not in deterministic comparison. That is the remaining
 piece of the SCORING.md design, and it is where the Part 1 finding predicts the
 real separation lives (recall was at ceiling; precision was the weakness).
+
+---
+
+# Pointwise — recall and precision
+
+`split_gold.py` classifies gold's prose into scoreable issues; `score_issues.py`
+does the semantic matching. Scorer is Opus 5, blind to which model wrote the
+review. Haiku is **not scored** — credits ran out 17 reviews in.
+
+Building the denominator changed it twice, and both changes matter:
+
+| | count | |
+|---|---|---|
+| **blocking** | **45** | the recall denominator |
+| secondary | 7 | real, but not decisive |
+| **anti_objection** | **4** | gold *explicitly rules the objection out* |
+| praise | 4 | not a criticism; a model cannot "surface" it |
+
+Splitting prose on paragraphs alone would have put 8 non-criticisms into a
+60-item denominator and depressed every recall number by ~13%.
+
+The **anti_objection** category was not in the original design and is the more
+useful find. Gold contains sentences like *"the objection that twenty to thirty
+episodes across ten industries is too few does not apply"* (S9B) and *"the
+thinness of the seat-disclosing gate sample is not an objection here"* (S2B).
+These are **gold-certified false positives**: a reviewer bothered to write down
+that a specific canonical objection does not bite. A model raising it anyway is
+committing the exact Part 1 failure, and it is checkable without adjudicating
+anything. Four traps exist across the ten items.
+
+## Results
+
+| | Sonnet 5 | Opus 4.8 | Opus 5 | Haiku |
+|---|---|---|---|---|
+| **Recall** (of 45 blocking) | 29% | 33% | **62%** | not run |
+| Issues raised | 66 | 72 | 133 | (526 expected) |
+| Per review | 3.3 | 3.6 | 6.7 | 26.3 |
+| **Precision band** | 68–97% | 71–92% | **90–98%** | not run |
+| Matched / real-unlisted / manufactured | 17/47/2 | 20/46/3 | 33/97/1 | — |
+| **Contradicts gold** (anti-objection hit) | 0 | **3** | 2 | — |
+
+**Precision is reported as a band, not a point.** The scorer was instructed to
+choose `real_unlisted` over `manufactured` when genuinely torn and to flag
+`uncertain`. The upper bound counts those as real, the lower bound as
+manufactured. Sonnet's spread is 29 points on 19 uncertain calls out of 66 — the
+point estimate is mostly an artifact of that tie-breaking rule, and quoting 97%
+would be quoting the rule rather than the model.
+
+## The headline finding: recall discriminates, precision does not
+
+**This inverts the Part 1 prediction**, which was carried into the Part 2 design:
+that recall would sit at ceiling and precision would be the weakness worth
+measuring.
+
+- **Recall separates sharply** — 29% → 33% → **62%**. Opus 5 roughly doubles the
+  other two.
+- **Precision separates weakly and only at the bottom of the band** — all three
+  overlap once uncertainty is honoured.
+
+The reason is that Part 1 and Part 2 measured recall against different objects.
+Part 1 asked *"did the critique catch the one flaw named in advance?"* and got
+9/10 — a ceiling. Part 2 asks *"did the review surface what a desk actually
+raised?"* against 45 human blocking issues, and the best model reaches 62%.
+
+**Recall against a planted flaw is a ceiling metric; recall against a real desk
+critique is the sharpest discriminator in this eval.** That is an independent
+argument for the decision to abandon planted flaws, and it inverts the design
+intent, so it is worth stating as a correction rather than a confirmation.
+
+Opus 5's recall is not bought with verbosity: it raises ~2x the issues of Sonnet
+and Opus 4.8 *and* its precision band sits above both. Haiku is the test of
+whether that holds — at 26.3 issues per review it should show the opposite shape,
+high recall bought with collapsed precision, and it is the missing cell.
+
+## Limitation: the scorer is grading its own homework
+
+Opus 5 scored all four models, including Opus 5. The scorer never sees which
+model produced a review, but blinding does not remove self-preference — a model
+can recognise its own style and reasoning idiom. Opus 5 posts the best recall
+*and* the best precision under an Opus 5 judge, which is exactly the pattern
+self-preference would produce.
+
+This is not resolvable by inspection. The check is to re-score a subsample with a
+different judge and compare, and until that exists **Opus 5's margin should be
+treated as an upper bound**. Sonnet vs Opus 4.8 is unaffected — neither is the
+judge — and those two are separated by 4 points, i.e. not separated.
+
+The thinking confound from Note 5 applies here too: Opus 5 is the only evaluated
+model reasoning before it answers.

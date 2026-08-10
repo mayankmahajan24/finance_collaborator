@@ -1,0 +1,3136 @@
+{
+  "claude-sonnet-5": {
+    "scorer": "claude-opus-5",
+    "recall": [
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 1,
+        "gist": "Kalshi users trading via Robinhood produce no Kalshi descriptor, so treated users sit in the control group, attenuating estimates; misclassification never addressed",
+        "surfaced": false
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 2,
+        "gist": "Panel from Jan 2022 pools politics/election adopters with post-2025 sports adopters as one population instead of estimating distinct regimes separately",
+        "surfaced": false
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 3,
+        "gist": "Promotional free credit means adopters trade without a qualifying $5 bank debit, so treatment definition misdates or misses them and contaminates controls",
+        "surfaced": false
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "n": 1,
+        "gist": "regression is the wrong test for a switching/cannibalization question, and the regressor mechanically contains the outcome",
+        "surfaced": false
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "n": 1,
+        "gist": "headline validation uses a random company-quarter holdout that leaks future quarters for the same company, so the reported out-of-sample number is not clean; the honest rolling-origin test is demoted to a gate",
+        "surfaced": false
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "n": 1,
+        "gist": "the gate wrongly constrains beta magnitude (band [0.5,1.5] plus beta=1 test) instead of just requiring a positive significant per-company MAU correlation, so it can kill real per-name signal",
+        "surfaced": false
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "n": 1,
+        "gist": "identification by size-ranking panel customer counts against market share is not evidence-based and inherits panel skew; should match geographic/demographic properties to researched institution properties",
+        "surfaced": true
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "n": 2,
+        "gist": "no external ground truth, so validation gates only measure cluster stability, not naming correctness",
+        "surfaced": false
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "n": 1,
+        "gist": "Plan B is disproportionate to the setting: it needs nonexistent ground-truth labels manufactured via an uncommissionable 500-per-country survey, an unmaintainable anchor stack for a three-person team, and a GDPR gate that can kill the project before output",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 1,
+        "gist": "coding 40-60 guarantor releases wrongly treats idiosyncratic structures as draws from a common distribution; base rate is not a valid reference frame for this case",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 2,
+        "gist": "the prior on cause mix is asserted rather than derived, so the 25x likelihood-ratio bar rests on an invented denominator",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 3,
+        "gist": "the plan requires a dataset build the desk has no quantitative staff or capacity to do",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "n": 1,
+        "gist": "plan only sizes the numbers (notional, expected loss, spread) and has no view on how the market narrative reprices, which is how event-desk trades actually work",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 1,
+        "gist": "kitchen-sink fit-everything-then-orthogonalize approach instead of starting from strong priors on targeted subsets",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 2,
+        "gist": "leads with custom-trained transformer domain adaptation without first establishing what cheap baselines (FinBERT, z-score) deliver",
+        "surfaced": true
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 3,
+        "gist": "no vendor-provided score set as the hurdle the custom signal must beat",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 2,
+        "gist": "treats commoditization as dispositive, conflating alpha decay with death and never testing whether a published signal still carries alpha",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 3,
+        "gist": "single pooled specification estimates only the average effect and cannot detect surviving niche pockets, so killing on a t of 2.1 is uninformative",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 4,
+        "gist": "cost/constraint modeling too thin (flat 20bp, no borrow, no ADV cap, no capacity) to give a defensible net number",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 1,
+        "gist": "EV/LTM trailing EBITDA does not reflect how public markets price assets (forward earnings), so the fix substitutes an invalid measure",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 2,
+        "gist": "TAQ tick data is horizon-mismatched: multiple re-rating plays out over months to years, not milliseconds",
+        "surfaced": true
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 3,
+        "gist": "plan never delivers the elasticity estimate that is the actual deliverable, substituting regime-stability and efficiency questions",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 1,
+        "gist": "circularity should be fixed by making the independent variable backward-looking realized CAGR and dependent forward-looking; the EV identity decomposition is only a workaround",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 2,
+        "gist": "log multiples are inappropriate here",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 3,
+        "gist": "screening to positive NTM/N2Y EBITDA drops exactly the firm-quarters with the most violent re-rating; a revenue multiple would retain them",
+        "surfaced": false
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "n": 1,
+        "gist": "the four decision thresholds (0.5% revision, 0.2%, one estimation-window SD on CAR, 1.2x straddle median) are arbitrary and undermined by not being derived, yet carry the whole stop-go decision",
+        "surfaced": true
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 1,
+        "gist": "solving for initial land value is irrelevant to the question",
+        "surfaced": false
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 2,
+        "gist": "Monte Carlo/distributional apparatus implies false precision with a single name and single print, no law of large numbers",
+        "surfaced": true
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 3,
+        "gist": "the plan's horizon is wrong \u2014 suited to fast swing trading, not the longer horizon here",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 1,
+        "gist": "horizon mismatch: daily signal with t+1 entry and five-day hold instead of nanosecond-to-second liquidity provision",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 2,
+        "gist": "cost and capacity constraints modeled are wrong for a quoting business; should be realized spread net of adverse selection and in-loop classification",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 4,
+        "gist": "fails to address half-penny tick regime break that degrades sub-penny retail classification underlying RETOIB",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 1,
+        "gist": "gating the project on retail-vs-institutional labels that cannot be established cleanly means label failure is mistaken for signal failure",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 2,
+        "gist": "plan uses public-data proxies for retail labels when the firm has proprietary ground truth on its own internalized flow",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 3,
+        "gist": "truncating the sample before the half-penny compliance date instead of modelling the structural break",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 4,
+        "gist": "horizon mismatch: daily decile sorts and Fama-MacBeth for a nanosecond-to-second market-making question",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 5,
+        "gist": "all economic content deferred to a Phase 2 conditional on passing all five gates",
+        "surfaced": false
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "n": 1,
+        "gist": "tiers agreements on contract-language attributes rather than switching cost and requalification lag, so it sorts on the wrong axis",
+        "surfaced": false
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "n": 3,
+        "gist": "haircuts calibrated off a single episode (2021-23 semis) that may be the wrong prior for a different industry",
+        "surfaced": false
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "n": 1,
+        "gist": "plan assumes access to a long list of expensive vendor data subscriptions the firm does not have; must be redesigned around analyst-assembled data points",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 1,
+        "gist": "plan sidesteps the core question of whether the CFO's language is informative, merely sizing impact and asserting tone is uninformative rather than establishing it",
+        "surfaced": false
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 2,
+        "gist": "much of the plan re-derives what the analyst already knows (vendor pricing sensitivity) instead of addressing the new question raised by the call",
+        "surfaced": false
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 3,
+        "gist": "the per-customer realized uplift distribution underpinning the likelihood weighting is private/unobtainable; benchmarks give only directional ranges",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "n": 1,
+        "gist": "the design is infeasible for a five-person nontechnical team and produces a black box the investment committee won't trust or want",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "n": 2,
+        "gist": "given the error asymmetry, tying up the only analyst on this research while the renegotiation resolves risks being blindsided on the key risk",
+        "surfaced": true
+      }
+    ],
+    "buckets": [
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate desk-level concern for this firm: output must change position sizing and be defensible to a PM, and the plan is silent on what magnitude is already priced given DraftKings management and sell-side have publicly discussed event-contract competition. Grounded in the specific situation rather than a generic 'is there edge' recital."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold but a sharp, plan-specific point: the plan lists DraftKings wallet share and total wallet including Kalshi as secondary outcomes and also uses wallet share as a seasonality cross-check, and that ratio falls mechanically once Kalshi dollars enter the denominator. This is a genuine definitional-circularity risk in a stated cross-check, not a canned objection."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Adjacent to gold blocking#2 but a distinct objection (external validity of early-adopter composition for a 6-18 month hold, rather than pooling politically-driven and sports-driven regimes). It is anchored to a real feature of the plan (the Nov 2024/Jan 2025 cohort-drop robustness and the recency edge of usable post-period data), so it is a defensible unlisted concern rather than a match; borderline against being a softer restatement of the reviewer's timing point."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Specific to the plan's fixed -6..+6 window and its +1..+3 / +4..+6 aggregation against the fund's stated six-to-eighteen-month horizon; the plan indeed offers no persistence evidence past month six and no re-run/extension protocol. Legitimate for a PM sizing a multi-quarter position."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not the gold objection (which is about estimand choice and the outcome-in-regressor problem, not staffing), but a defensible desk concern grounded in the stated firm profile: a three-person licensing/cleaning data team plus one engineer, no econometrician, and a PM who must be able to interrogate the result. The plan stacks holdout-fitted IV, Arellano-Bond, Callaway-Sant'Anna, Driscoll-Kraay and wild bootstrap. Marked uncertain because it partially overlaps the gold point about design budget being spent on defending complexity, and because a fundamental fund's analyst could plausibly execute standard panel estimators without dedicated econometric staff."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Partly a document-ordering complaint that the plan itself pre-empts ('Power first' with an explicit MDE formula, design effect and rho range), which pushes toward the canonical sample-size objection. But the specific bite \u2014 that the clean adopter count is further eroded by the broker-distributed Kalshi attribution gap (Robinhood/Webull have no descriptor) plus the \u22656 pre/\u22656 post and payroll-anchor filters, so effective N for the displacement test may be too small to detect an economically relevant dollar figure \u2014 is tied to this plan's own stated gaps and is worth a cheap gate before the descriptor audit and multi-model build. Uncertain because the plan does commit to power first and to quantifying the undercount."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate and specific to this firm's stated output (change sizing on named companies). The plan converts deposits to revenue at explicit take rates and headlines '$ displaced per 10-point share rise', but never bridges the panel-user coefficient to DKNG/Flutter consolidated revenue: panel-to-population coverage, what share of DK's handle the affected cohort represents, and flow-through timing to reported financials. Without that bridge the PM must improvise the extrapolation the rest of the plan carefully avoids."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and not a generic recitation: prediction-market cannibalization of sportsbooks is an actively traded DKNG bear narrative, so the plan needs to state where its finding differs from consensus (magnitude, timing, or the H4 concentration in long-tenured whales) for the work to be incremental at a six-to-eighteen-month horizon. The plan never addresses priced-in expectations at all, so the objection is earned by an actual omission rather than asserted in the abstract."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a legitimate, plan-specific critique: it uses the plan's own admission of ~40 effective clusters and the firm's stated defensibility constraint (PM asking what would have to be true) to argue the CIPS/Westerlund/ECM/Driscoll-Kraay/wild-bootstrap/CD layer is beyond both its asymptotic warrant and the audience's ability to interrogate. This is earned against this plan's specific machinery, not a generic 'too complex' recital."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate sequencing objection tied to this plan: it names companies with long disclosed-ARR histories (Atlassian, Salesforce, HubSpot, Workday) where a cheap scatter would establish sign and magnitude of \u03b2 before committing to second-vendor licensing, Wayback pricing scrapes, break detection and event logs. Fits the firm's small data team/one-engineer constraint and is not a canned objection."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Sharp, plan-specific measurement critique the reviewer did not list: the plan's chosen price control is Wayback pricing-page snapshots, which capture list price only, and the evaluator correctly identifies that this control is blind exactly for the enterprise-negotiated names (Salesforce, Workday, ServiceNow, Adobe) that would carry the largest positions, while working for the SMB self-serve names. It bites on the specific control the plan proposes."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "'No edge / already priced' is a canonical objection, but here it is at least partly earned: the plan's primary pass/fail gate is a Diebold-Mariano win over a two-way FE model with no MAU, which is indeed a statistical-accuracy bar rather than an information-advantage bar, and the evaluator correctly notes the consensus-dispersion criterion is relegated to a secondary growth-terms check. Weakened by the fact that the plan does include the cross-analyst dispersion comparison and expects edge to concentrate in smaller-cap names, so the point is closer to a re-ordering of existing gates than a gap; flagged uncertain."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. The firm-fit reading is arguable \u2014 a pooled ridge with nested CV and empirical-Bayes shrinkage is a standard research-side estimator, not 'production ML' infrastructure, and a 3-person data team plus engineer can run it in a notebook, so the label is a stretch. But the underlying point that the quarter-over-quarter deliverable driving position sizing becomes a model whose penalty and shrinkage weights a PM cannot interrogate the way they can interrogate a fixed-effects beta is grounded in this brief's explicit 'defensible to a PM who will ask what would have to be true' requirement, and the plan really does put the opaque layer at the decision-relevant stage. Torn, so escalating."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, and specific to this plan: the gate stage already estimates a company-FE beta that could itself be walk-forward tested, yet the plan jumps to ridge plus EB shrinkage with no stated condition under which the simpler estimate would have sufficed. That adds tuning degrees of freedom (penalty, shrinkage weighting) ahead of any demonstration they are needed, which cuts against the plan's own pre-registration and specification-count discipline. A desk would take this seriously."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and not contradicting the anti-objection \u2014 it does not complain that the seat-disclosing sample is thin; it uses that thinness as the reason the gate can be tested cheaply on one primary vendor first. The concern is ordering of spend: the data section commits to a replication panel plus two mobile vendors as part of the standard build, while the plan's own kill criterion makes that spend unnecessary if the gate fails. Legitimate sequencing point about this plan's stated cost structure."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Crowding/no-edge is a canonical alt-data objection and the plan partly pre-empts it: pre-print consensus is an explicit baseline and the surprise-space regression is precisely a test of whether the link is already in estimates \u2014 the evaluator concedes both. That makes the bite weaker than presented, and the naming of Similarweb/Sensor Tower on Dropbox/Atlassian/Asana would read similarly against any SaaS web-panel plan. Still, the sharper version \u2014 the plan never states what consensus currently assumes about the MAU-to-seat link or why it would be wrong, so crowding is only learned at the end of the budget rather than argued up front \u2014 is a real gap in a plan whose output must be defended to a PM. Borderline, escalating."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#1: the naming/Hungarian step ranks IDs by raw panel customer count against market share, importing the panel skew the plan itself documents, so a wrong high-conviction name can clear the margin and rank-agreement gates."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and specific enough to bite: the external market-structure and payments-habits ingestion (ECB SDW, EBA, NCB reports, scheme lists, SPACE) is only needed for the country/archetype/naming rungs, yet the plan sequences the full 60-80 feature build plus tri-algorithm ensemble before the cheap kill gate (silhouette <0.25) fires. For a one-engineer team that is a genuine ordering criticism, not a recited canonical objection."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Team-bandwidth concern is plausible for a three-person data team plus one engineer, and the 500-iteration bootstrap does require re-featuring from customer-level transactions rather than just re-clustering. But the compute framing is weak on this data: clustering 150-400 institutions in 8-14 PCA dimensions three ways is near-trivial, so the 'large compute commitment' claim is partly unearned and the objection edges toward a generic capacity complaint. Torn, so flagged for escalation."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same substance as blocking#1's maintenance-burden component: the multi-country anchor build (five regulators, OSM, tariff schedules, national benefit-numbering joins, surveys) is unaffordable for a three-person data team and one engineer. Reframed as a sequencing fix (defer DE/ES/FR/PL anchors until NL clears the 40% bar) rather than as disproportionality, and it omits the labels-do-not-exist and GDPR-gate-zero strands, but it is recognisably the same concern about the same plan components."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and earned on this plan's specifics rather than recited. The plan's holdout units are explicitly institution and country (LOIO, LOCO) with quarter-versioned fingerprints, and several comparators \u2014 growth correlation against N26/Revolut/bunq disclosures, fee_signature against published tariff schedules \u2014 are tied to a fast-moving landscape; consolidation is handled on the anchor/roster side but nothing tests whether an accepted match's confidence decays over the 6-18 month hold it will be sized on. That is a concrete gap between the validation design and how the crosswalk will be used, not a generic 'no out-of-sample test' complaint, and a PM asking 'what would have to be true for this to be wrong' would reasonably ask for a forward-quarter test."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1 (and adjacent to #2): the plan builds a cross-sectional generalization when the desk needs a read on this one situation; the comparables set is a study meant to generalize."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Directly matches gold blocking#3 \u2014 the plan is an infrastructure/dataset build beyond a 3-person desk with no quant staff, and the evaluator names the specific paid databases and registry sweeps."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches gold blocking#1 (pooling idiosyncratic structures into one base rate) and overlaps gold blocking#2 (the 25x LR bar rests on a statistic that is not a real base rate for this case)."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold but earned on this plan's own text: the falsifier requires no independent qualification within twelve months and cites 9-18 month pre-product silicon/OSAT evidence, which cannot resolve inside a weeks-to-months catalyst window with a fast-cutting risk manager. Specific to the plan's stated timelines, not a generic horizon complaint."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate sequencing point grounded in the plan's own contents: the Guarantee Release Date / Completion / Sponsor Support Termination definitions in the pulled EX-10 exhibits can settle H0-a in days, yet the effort budget is dominated by the 40-60 case build and multi-registry sweep. Desk would take this seriously; mildly arguable since H0-a is listed first in the hypothesis section."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Sharp point the reviewer missed. The plan's Pricing section computes the economics of the release (spread x duration x notional vs release fee) but never establishes what the market or sell-side already infers from the same public 8-K, which is the desk's actual test of mispricing-now. Anchored to this plan's omission rather than a generic 'is there edge' recital."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Legitimate desk-resourcing concern (two analysts, weeks-to-months window, need an explicit stop rule and time budget before expert calls and credit modeling start), and gold does not raise it. But it partly mischaracterizes the plan, which already states 'H1 only if H2/H3 die, cheapest disconfirmation first', names the consent solicitation 'near-dispositive', and in the Output section defers channel work to 'if H1 survives'. The unhedged part \u2014 the EL/sizing bridge is genuinely not gated \u2014 keeps it on the real side, but the overstatement makes it borderline."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Earned against this specific firm brief: one PM, two analysts, no quantitative research staff, consumes sell-side/filings/expert calls, and a risk manager who cuts fast. Asking that team to shadow-rate the SPV, assign through-cycle PDs and LGDs for purpose-built shells and narrow-use advanced-node tooling is a real defensibility problem, and the evaluator names the cheaper substitute (pre/post notional, reserve funding, spread move) that the plan itself already contains. This is distinct from the anti_objection, which rules out complaints about the volume of reading (handled by an AI reader), not about building a quant-credit model the desk has no staff to defend."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Specific to this situation rather than canonical: the seed calls the chip-manufacturer relationship 'longstanding', so prior SPVs or capacity agreements between this exact pair would be more probative of guarantee/release behavior than an industry sample matched only on vintage, arrangers and counsel. It attacks a concrete line in the plan ('Base rate: 5-10 same-vintage sponsor-supported SPVs, shared arrangers/counsel') and would not read identically against any other plan. Not in gold."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#2: the expensive custom encoder may be unnecessary and the cheap measure (LM/FinBERT) should establish the baseline before the build, not appear as a terminal ablation row. The justification is specific to this plan's own ablation table and parsed-transcript pipeline."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. It is anchored to specifics of this plan (the [+2,+63] window, 60-day holds, monthly rebalance) and to the firm's stated days-to-weeks horizon, and it makes a concrete point about days 11-14 defaulting into a build without checking book fit. Arguably soft \u2014 a quarterly earnings-call signal with ~3-month holds is only modestly outside 'days to weeks', and the seed question itself asks about next-quarter returns, so a desk might treat this as an acceptable extension rather than a defect. Overlaps the neighbourhood of blocking#4 (capacity/costs) without making that objection, so it lands as an additional, plausible concern rather than a match."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same target as gold blocking#2: the TAQ pre/post-activation signed-return check does not belong in this project. Evaluator argues from the firm's lack of tick data and thin engineering, which the reviewer names explicitly as part of the same objection; only the horizon-mismatch framing is absent."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. The overlapping instability machinery (Wald/bootstrap, Bai-Perron, VR, Kalman) plus Fama-MacBeth, 2SLS and BH corrections is genuinely heavy for a three-person data team and one engineer, and the PM-defensibility standard in the brief is a fair lens. Uncertain because the specific 'no stated rule' claim is partly wrong on the face of the plan \u2014 it pre-commits that instability is declared only if VR\u22652 and bootstrap p<0.05, with Kalman as a complement \u2014 so the arbitration gap is smaller than asserted; the residual complexity/maintenance point still stands."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but earned and specific to this plan: H2 is essentially post-revision drift, and the H1 DV/IV pairing is close kin to long-documented estimate-revision effects. For a fund whose output is position sizing, no step in the plan asks whether a significant result is proprietary or a repackaging of an already-crowded pattern. The justification names the actual DV/IV pairing rather than reciting a generic 'is there edge' worry."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Adjacent to gold blocking#3 but not the same objection: the reviewer's point is that the seed's elasticity is abandoned as a deliverable, whereas this issue accepts the panel coefficients and asks for the missing bridge from a panel statistic to a sizing change on a named holding. That bridge gap is a legitimate desk concern given the stated output requirement. Flagged uncertain because it overlaps in spirit with gold#3's 'never produces a usable one'."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Overlaps the topic of gold blocking#1 (mechanical DV/regressor linkage) but makes a different objection: ordering the identity/placebo checks as a cheap pre-build gate rather than disputing that the decomposition fixes the circularity. As a standalone point it is a legitimate desk concern for a plan that sinks a 20-year two-region point-in-time build before the most diagnostic test; but it sits close enough to gold#1 that it should escalate for human read."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but earned with specifics tied to this firm: three-person data team plus one engineer, multi-vendor PIT consensus (I/B/E/S Detail / Visible Alpha), PIT GICS and constituency with dead tickers, adjusted-vs-reported EBITDA harmonization, IFRS16 break handling, Russell 3000 plus MSCI World ex-US back to 2005. The bandwidth/time-to-answer risk against a 6-18 month sizing decision is a concern a desk would take seriously and is not a generic recitation."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Crowding/decay is a familiar objection, but here it is tied to a concrete design gap: the practical validation reports a single pooled spread/t-stat from an expanding window starting 2012 with no time-varying or recent-subsample decomposition, and the signal overlaps the long-established estimate-revision factor. The critique bites on this plan's actual validation step rather than being asset-class boilerplate."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Sharp, plan-specific point the reviewer did not list: H1 pre-commits to a measured elasticity below the DCF benchmark and the economic-validation rule treats 25-50% of theoretical as 'coherent', which is equally consistent with rational discounting of noisy revisions as with underreaction. The proposed discriminator (do N2Y CAGR revisions actually materialize k quarters later) uses data already in the panel, so it is actionable and not a canned objection."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold, but it is anchored in this firm's stated constraints (one PM, two analysts, no quant research staff, no dataset-building capacity) against a stage one that is explicitly a dated-event-log build plus two-factor CAR model with standard errors, and a stage two CAR-on-guidance-revision regression. That is a specific, checkable mismatch rather than a generic 'too quanty' complaint, and a desk would take it seriously. Uncertain because the reviewer's praise item suggests they viewed the overall shape (bar-setting plus supplementary datasets) as appropriate for this desk, implying they did not see feasibility as disqualifying."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Overlaps heavily with [0] but makes a distinct sequencing point: the formal dual-specification event study is the default first move rather than a fallback after a cheap price-vs-comps and headline-revision read, which matters given a weeks-to-print runway. It is earned off the plan's own admission that the check data is directional only. Uncertain because it edges toward a canonical 'simplify it' objection, and the reviewer explicitly praised the plan for establishing a bar with supplementary datasets \u2014 suggesting they thought the machinery was warranted here."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1: the stage-one gate cutoffs (0.5%, 0.2%, 1.2x straddle median) are asserted rather than derived from this name's own revision and volatility history, so arbitrary numbers carry the entire stop-go decision."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same target as gold blocking#2: the bottom-up reconstruction, fitted ramp curve and Monte Carlo should not be in this plan. Reached via the desk's stated lack of quant staff and dataset capacity (quoted from context, so earned, not generic) rather than via the single-name precision argument, but it is the same concrete objection about the same components, plus the alt-data workstream."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. A legitimate desk-level point: the guidance-history backtest needs only transcripts already on the data list and, by the plan's own account, kills the thesis ('signal is uninformative \u2014 stop'), so it should gate the expensive build rather than appear in a later validation section. Mildly weakened by the fact that the plan already reports the backtest result, so the complaint is partly about write-up order rather than actual work order \u2014 hence uncertain."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but earned and specific: it quotes the plan's own R(0)\u2248max(0,(45\u2212L)/90) seed, ties the unexplained 45/90 constants to the headline <75bps call and the \u226575bps go/no-go gate, and shows how a seed shape can drive a least-squares fit on 8\u201312 quarters. This is a concrete critique of this plan's formula, not a recited canonical objection."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "manufactured",
+        "uncertain": false,
+        "why": "Asserts the firm 'explicitly judges signals on crowding' and calls it 'one of the three things this firm explicitly evaluates on' \u2014 the stated criteria are realized spread capture net of adverse selection, inventory risk, and in-loop latency feasibility. Crowding is a generic recited concern ('everyone with TAQ access can build the same classifier') that would read identically against any published-anomaly plan, and it is misattributed to this firm's mandate."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as secondary#3: the plan holds the 100-share threshold fixed despite the SEC's tiered round-lot redefinition, making 'round' mean different things across the sample."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Point-in-time versus full-sample universe screens is the canonical look-ahead/selection objection, and it bites weakly here because the deliverable is a descriptive measurement of label precision/recall rather than a return backtest, and the plan already stratifies by size quintiles plus a $250+ bucket. That said, the justification is at least plan-specific (liquidity screens over-select names where VWAP/TWAP round-lot slicing dominates, tilting G1/G2 toward H0), which is a defensible composition critique of this particular universe, so I keep it as real but flag it as borderline."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "manufactured",
+        "uncertain": true,
+        "why": "Misstates the firm: it attributes a 'days-to-weeks mandate' and 'portfolio construction' horizon to an electronic market maker whose horizon is nanoseconds to seconds and for whom overnight inventory is a hedging failure. The concern is then inverted - it worries a seconds-scale signal would be unmonetizable, when seconds is exactly the firm's operating horizon. The plan-fit reasoning is therefore unearned generic literature-horizon boilerplate, and it misses the real defect (Phase 2 uses daily decile sorts and Fama-MacBeth)."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Sharp, plan-specific technical critique the reviewer did not list: Hui-Walter requires conditional independence of the imperfect labels, and sub-penny TRF price improvement, RLP certification and Rule 605 wholesaler buckets all trace to the same wholesaler internalization/PFOF mechanism, so correlated label errors would bias the G1 latent-class precision estimate that gates the whole project. A desk would take this seriously; it is adjacent to gold#1 on label quality but is a distinct, earned objection rather than the reviewer's structural point."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Grounded in this firm's constraints \u2014 assembling backlog/LTA/realized-revenue history across telecom 2000, memory/passives 2017-18 and an undefined 'AI-cycle' basket with no database and one analyst is a real cost objection, and it cites the plan's own calibration sentence rather than reciting a generic worry. But it runs directly against gold blocking#3, which holds that the single-episode calibration is the plan's central weakness and implicitly requires more historical breadth, not less. Flagged uncertain: legitimate as a resourcing point, but it argues away the evidence base the reviewer thinks is already too thin."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. A genuine and plan-specific point: the plan does list several cheap kill-shots (negative implied gross bookings, definition changes, mirror reconciliation <50%) in the same undifferentiated block as the agreement register, six-attribute scoring, segment coverage math and the 10-15 year capex schedule, with no stated order. For a two-analyst shop the sunk-cost exposure is material, and a desk would take the sequencing note seriously."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. The plan defines coverage as haircut-adjusted committed revenue divided by 'modeled revenue per quarter' and never specifies where that denominator comes from; if it is guidance- or backlog-derived, the ratio is partly self-referential and the 60%/40% gates fire mechanically. This is a specific, earned measure-validity objection tied to a named quantity in the plan, distinct from secondary#2's complaint that the threshold levels are unjustified."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate and earned: the plan's own hypothesis makes switching cost/requalification lag the determining variable, yet every method step operates on the 20-30 reference episodes and nothing gathers the subject company's contract terms, customer concentration, or qualification process. For a 25-30 name concentrated book answering one guidance event, the missing bridge from framework to single-name haircut is a real desk-level concern, not a recited canonical objection."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1 \u2014 the plan presupposes roughly eight paid specialty data subscriptions plus multi-jurisdiction litigation research that this firm cannot buy, operate, or maintain."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. A genuine sequencing point specific to this plan: the plan itself asserts qualification lag rather than contract label drives the outcome, and that classification for the subject company is answerable from filings and the business description in days, well before the episode database, contract coding, and capacity ledgers. Given a two-analyst shop, ordering the cheap decisive test first is a real desk objection rather than boilerplate."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold, and it cuts against the plan's stated 'key predictor' (the capacity ledger / LTA-maturity gap), so there is some risk it is second-guessing a deliberate design choice rather than finding a flaw. Still defensible for this firm: per-market capacity ledgers with fab additions, ramp curves and hidden capacity across eight-plus unrelated end markets, plus breach-arithmetic PV models, is more machinery than one analyst can sustain for a directional durability call on one holding, and no cheaper first-pass check is shown to fail. Torn, so scored real_unlisted with uncertainty flagged."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Direct semantic match to blocking#3 \u2014 the comparable-set uplift distribution is unobtainable/unsourced, and the likelihood weighting and Step 5 inversion depend on it. Also correctly grounded in this firm's lack of a data function."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but earned by this plan's specific text: Step 4 mines the last 2-3 renewals to calibrate phasing/uplift expectations, and the Validation section then back-tests against 'the prior renewal's known inputs' \u2014 with n=2-3 for this vendor-customer pair the check is plausibly in-sample. This is not a recited overfitting canon; it points at a concrete structural overlap between two named sections and explains why the IC's confidence would be misplaced."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Directly mirrors the gold's core framing \u2014 blocking#1's 'nor would this firm be interested in that kind of analysis even if it is stronger statistically' plus praise#3's prescription to ask the same two questions of this company's own transcript history rather than a market-wide panel."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#1: the tooling, hand-labelling and vendor stack are not executable by a five-person, no-engineer, no-database shop with one analyst."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches the second clause of blocking#1 explicitly \u2014 the IC is skeptical of models it cannot inspect, and elastic net / LLM labels / Driscoll-Kraay are uninspectable in committee."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches blocking#2 (and the praise#3 prescription): the company's own record is available now and cheap, yet is scheduled behind the panel build, so resources and time are committed before the decisive evidence is examined."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "A sharper restatement of the gold's scaling objection (blocking#1 'not interested' / praise#3 'this company's own transcript history'): a pooled coefficient does not yield a calibrated read on this single holding. Same concern as gold, refined rather than new."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold, and partly blunted by the plan itself (outcomes are defined as surprises vs Visible Alpha GM consensus, IBES revisions and CAR are secondary outcomes, and the plan flags that a signal without return predictability is 'correct but worthless'). But for the case at hand the plan never specifies checking what sell-side/consensus already says about this company's renegotiation, which a desk would ask about; the justification is somewhat generic 'is it already priced' boilerplate, hence uncertain."
+      }
+    ]
+  },
+  "claude-opus-4-8": {
+    "scorer": "claude-opus-5",
+    "recall": [
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 1,
+        "gist": "Kalshi users trading via Robinhood produce no Kalshi descriptor, so treated users sit in the control group, attenuating estimates; misclassification never addressed",
+        "surfaced": false
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 2,
+        "gist": "Panel from Jan 2022 pools politics/election adopters with post-2025 sports adopters as one population instead of estimating distinct regimes separately",
+        "surfaced": false
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 3,
+        "gist": "Promotional free credit means adopters trade without a qualifying $5 bank debit, so treatment definition misdates or misses them and contaminates controls",
+        "surfaced": false
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "n": 1,
+        "gist": "regression is the wrong test for a switching/cannibalization question, and the regressor mechanically contains the outcome",
+        "surfaced": true
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "n": 1,
+        "gist": "headline validation uses a random company-quarter holdout that leaks future quarters for the same company, so the reported out-of-sample number is not clean; the honest rolling-origin test is demoted to a gate",
+        "surfaced": false
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "n": 1,
+        "gist": "the gate wrongly constrains beta magnitude (band [0.5,1.5] plus beta=1 test) instead of just requiring a positive significant per-company MAU correlation, so it can kill real per-name signal",
+        "surfaced": false
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "n": 1,
+        "gist": "identification by size-ranking panel customer counts against market share is not evidence-based and inherits panel skew; should match geographic/demographic properties to researched institution properties",
+        "surfaced": true
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "n": 2,
+        "gist": "no external ground truth, so validation gates only measure cluster stability, not naming correctness",
+        "surfaced": true
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "n": 1,
+        "gist": "Plan B is disproportionate to the setting: it needs nonexistent ground-truth labels manufactured via an uncommissionable 500-per-country survey, an unmaintainable anchor stack for a three-person team, and a GDPR gate that can kill the project before output",
+        "surfaced": false
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 1,
+        "gist": "coding 40-60 guarantor releases wrongly treats idiosyncratic structures as draws from a common distribution; base rate is not a valid reference frame for this case",
+        "surfaced": false
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 2,
+        "gist": "the prior on cause mix is asserted rather than derived, so the 25x likelihood-ratio bar rests on an invented denominator",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 3,
+        "gist": "the plan requires a dataset build the desk has no quantitative staff or capacity to do",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "n": 1,
+        "gist": "plan only sizes the numbers (notional, expected loss, spread) and has no view on how the market narrative reprices, which is how event-desk trades actually work",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 1,
+        "gist": "kitchen-sink fit-everything-then-orthogonalize approach instead of starting from strong priors on targeted subsets",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 2,
+        "gist": "leads with custom-trained transformer domain adaptation without first establishing what cheap baselines (FinBERT, z-score) deliver",
+        "surfaced": true
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 3,
+        "gist": "no vendor-provided score set as the hurdle the custom signal must beat",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 2,
+        "gist": "treats commoditization as dispositive, conflating alpha decay with death and never testing whether a published signal still carries alpha",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 3,
+        "gist": "single pooled specification estimates only the average effect and cannot detect surviving niche pockets, so killing on a t of 2.1 is uninformative",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 4,
+        "gist": "cost/constraint modeling too thin (flat 20bp, no borrow, no ADV cap, no capacity) to give a defensible net number",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 1,
+        "gist": "EV/LTM trailing EBITDA does not reflect how public markets price assets (forward earnings), so the fix substitutes an invalid measure",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 2,
+        "gist": "TAQ tick data is horizon-mismatched: multiple re-rating plays out over months to years, not milliseconds",
+        "surfaced": true
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 3,
+        "gist": "plan never delivers the elasticity estimate that is the actual deliverable, substituting regime-stability and efficiency questions",
+        "surfaced": true
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 1,
+        "gist": "circularity should be fixed by making the independent variable backward-looking realized CAGR and dependent forward-looking; the EV identity decomposition is only a workaround",
+        "surfaced": true
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 2,
+        "gist": "log multiples are inappropriate here",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 3,
+        "gist": "screening to positive NTM/N2Y EBITDA drops exactly the firm-quarters with the most violent re-rating; a revenue multiple would retain them",
+        "surfaced": false
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "n": 1,
+        "gist": "the four decision thresholds (0.5% revision, 0.2%, one estimation-window SD on CAR, 1.2x straddle median) are arbitrary and undermined by not being derived, yet carry the whole stop-go decision",
+        "surfaced": false
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 1,
+        "gist": "solving for initial land value is irrelevant to the question",
+        "surfaced": false
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 2,
+        "gist": "Monte Carlo/distributional apparatus implies false precision with a single name and single print, no law of large numbers",
+        "surfaced": true
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 3,
+        "gist": "the plan's horizon is wrong \u2014 suited to fast swing trading, not the longer horizon here",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 1,
+        "gist": "horizon mismatch: daily signal with t+1 entry and five-day hold instead of nanosecond-to-second liquidity provision",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 2,
+        "gist": "cost and capacity constraints modeled are wrong for a quoting business; should be realized spread net of adverse selection and in-loop classification",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 4,
+        "gist": "fails to address half-penny tick regime break that degrades sub-penny retail classification underlying RETOIB",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 1,
+        "gist": "gating the project on retail-vs-institutional labels that cannot be established cleanly means label failure is mistaken for signal failure",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 2,
+        "gist": "plan uses public-data proxies for retail labels when the firm has proprietary ground truth on its own internalized flow",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 3,
+        "gist": "truncating the sample before the half-penny compliance date instead of modelling the structural break",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 4,
+        "gist": "horizon mismatch: daily decile sorts and Fama-MacBeth for a nanosecond-to-second market-making question",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 5,
+        "gist": "all economic content deferred to a Phase 2 conditional on passing all five gates",
+        "surfaced": false
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "n": 1,
+        "gist": "tiers agreements on contract-language attributes rather than switching cost and requalification lag, so it sorts on the wrong axis",
+        "surfaced": false
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "n": 3,
+        "gist": "haircuts calibrated off a single episode (2021-23 semis) that may be the wrong prior for a different industry",
+        "surfaced": true
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "n": 1,
+        "gist": "plan assumes access to a long list of expensive vendor data subscriptions the firm does not have; must be redesigned around analyst-assembled data points",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 1,
+        "gist": "plan sidesteps the core question of whether the CFO's language is informative, merely sizing impact and asserting tone is uninformative rather than establishing it",
+        "surfaced": false
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 2,
+        "gist": "much of the plan re-derives what the analyst already knows (vendor pricing sensitivity) instead of addressing the new question raised by the call",
+        "surfaced": false
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 3,
+        "gist": "the per-customer realized uplift distribution underpinning the likelihood weighting is private/unobtainable; benchmarks give only directional ranges",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "n": 1,
+        "gist": "the design is infeasible for a five-person nontechnical team and produces a black box the investment committee won't trust or want",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "n": 2,
+        "gist": "given the error asymmetry, tying up the only analyst on this research while the renegotiation resolves risks being blindsided on the key risk",
+        "surfaced": true
+      }
+    ],
+    "buckets": [
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. A concrete, plan-specific sequencing objection: the raw event-time plot of DraftKings dollars around first Kalshi debit is cheap and is the premise test, yet the plan schedules it inside Validation after the full taxonomy/matching/stacked-DiD build. A desk with one engineer and a three-person data team would take the ordering point seriously."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Correctly reads the plan's own design: held-out FanDuel dollars appear only as a balance covariate, and the placebos are non-gambling categories plus a FanDuel-only-user pipeline. Treating competitor sportsbook spend as an outcome that should NOT fall if the mechanism is Kalshi-specific substitution is a legitimate discriminator against category-wide gambling attrition, and it is earned from this plan's specifics rather than recited."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Firm context explicitly requires output that changes position sizing on named companies and survives a PM's challenge; the plan stops at per-user deposit-dollar deltas with no stated bridge to DraftKings revenue/GGR via Kalshi penetration and panel representativeness. Specific to this plan's stated deliverable, not a generic complaint."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#1: the existence/direction question can be answered with a simple within-user event study, and the plan's regression-first apparatus displaces the cheap decisive test. Concretely grounded in the plan's own subsamples (non-brokerage, legal states, t-6..t+6)."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": true,
+        "why": "Substantially the same complaint as blocking#1's 'spends its design budget' point \u2014 the estimator stack is publication-grade for a desk whose deliverable is position sizing, and the reviewer's implication is that the decision rests on a few simple checks. Overlap is close enough to call matched, though it is framed as complexity/defensibility rather than wrong-tool, hence flagged uncertain."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Directly the denominator/simultaneity problem named in blocking#1, and it goes further by showing the plan's stated fix is incomplete: fixed W\\u0304 leaves rising K/W\\u0304 with falling DK under a common wallet-shrinkage shock, which the within-user permutation null does not cover. Engaged with the plan's specific defences rather than recited."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold but a legitimate desk-level gap: the plan converts deposits to revenue via take rates yet never builds the panel-coverage/representativeness bridge from a panel-local '$ displaced per 10-point share rise' to a DKNG revenue delta, which is exactly the number a PM would size on. Specific to this plan's headline metric, not a generic alt-data caveat."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Legitimate and grounded in named plan components (pooled-plus-ten-splits, IV, Arellano-Bond run regardless of the headline result): kill criteria are pre-set but no branch-pruning logic is specified. Risks being partly a restatement of [0]/[1] on effort allocation, so flagged uncertain."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a sharp, plan-specific point: the plan licenses Visible Alpha consensus point items (subscription revenue, ARR, NRR, billings) at print morning yet only ever uses consensus as a dispersion yardstick, never as the benchmark to beat. Benchmarks A/B/C are all mechanical extrapolations. Given the mandate (change position sizing on named names, defend to a PM), incrementality to the priced expectation is a legitimate desk-level objection and is earned from the plan's own text rather than recited generically."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate and specific to this plan's ordering: the consumption-priced-names falsifier (Snowflake, Datadog, etc.) is cheap, could kill the seat-billing mechanism outright, and is placed after the full estimation/validation build. Sequencing critique that a desk with three data staff and one engineer would take seriously; not a canonical recitation."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Engages the plan's own stated mechanism condition ('MAU is not seats; the mechanism needs MAU-per-seat and price per seat drifting slowly') and notes the plan never measures it despite disclosed seat/customer counts and NRR being available for these named issuers, and despite shelfware being handled only as a post-hoc asymmetry interaction. That is a concrete gap, not a generic proxy-validity complaint, and it bears directly on short-side reliability at this horizon."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Borders on the canonical sample-size objection, but it is at least partly earned: it quotes the plan's own ~40 effective clusters and argues the CIPS/Westerlund/ECM/CD layer adds researcher degrees of freedom the PM cannot defend. The specific claim that wild cluster bootstrap is 'near its reliability floor' at 40 clusters is shaky \u2014 that bootstrap is precisely the recommended fix for few clusters \u2014 which weakens the technical basis. Kept as real_unlisted because the broader 'too much machinery for this N, the credible evidence is within-name consistency' point is a legitimate desk objection; flagged uncertain given the mis-stated statistical premise."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate and firm-specific: output is position sizing on named companies, so an accurate ARR nowcast that matches consensus moves nothing, and these vendors' panels are sold widely. The plan does carry a pre-print consensus baseline and a surprise-space regression, which the evaluator concedes, so the point is about ordering/gating rather than absence \u2014 but a desk would still take seriously the demand that beating consensus be the gate rather than a validation appendix."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, and earned on this plan's specifics rather than recited. It engages the plan's own machinery \u2014 that enterprise blindness is listed as the dominant failure mode yet handled only by a coverage-trend kill (>10%/yr drift) and a second vendor \u2014 and makes the sharper point that a stable-but-biased coverage floor passes that kill while the invisible high-value cohort drives ARR. Names the affected companies (Atlassian, Smartsheet, monday). A desk would take this."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Tied concretely to the firm context (6\u201318 month horizon) and to the plan's own design choice (contemporaneous claim, nowcast five business days after quarter end, lead quarter demoted to a diagnostic). The objection that learning a number a few weeks before it is disclosed rarely justifies a year-long sizing change is specific and defensible, not a generic horizon complaint."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "contradicts_gold",
+        "uncertain": false,
+        "why": "This is the objection the reviewer explicitly ruled out. The reviewer wrote that the thinness of the seat-disclosing gate sample is not an objection because the output is per-name and an analysis working on one or two relevant companies is fine if defensible on those names. Issue [3]'s core complaint is exactly that the sample is 'a handful of seat-disclosing names' with 'thin' cross-sectional generalization and that the calibration names are not the tradable names \u2014 i.e. it demands the cross-sectional breadth the reviewer said is unnecessary given per-name output."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Reads as a canonical-overfitting theme but is actually earned here: it points at the specific machinery in this plan (ridge with nested CV plus empirical-Bayes shrinkage on roughly a dozen companies), ties it to the firm's stated constraint of not building production ML and needing to defend to a PM, and even acknowledges the mitigating damped-AR(1) baseline. Legitimate desk-level concern about researcher degrees of freedom relative to marginal forecast gain."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#2 (gates test stability, not correctness; no external ground truth ever brought to bear) and overlaps blocking#1 (rank-agreement naming is a heuristic, not evidence). Framed as sequencing but the substance is the reviewer's objection."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Attacks the same constrained-assignment naming rule as gold blocking#1 \u2014 the accept margin and '\\u22643 candidates' are asserted, with no false-match rate and no external calibration. This is the reviewer's 'not the evidence-based identification this task needs' point expressed as a missing quantified Type I rate, and ties to blocking#2's lack of external truth."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in the gold, but a legitimate desk objection specific to this plan: the plan commits three clusterers, co-association reconciliation, NMF, PageRank, GMM, UMAP and a 500-iteration Hennig bootstrap before testing the binding feasibility question, when the panel actually contains cheap deterministic tells (two-legged-transfer counterparty institution IDs, domestic-scheme membership, unique merchant/counterparty IDs) that could triage easy named cases first. The critique is earned from this plan's own data fields and its 3-person team, not recited generically."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "contradicts_gold",
+        "uncertain": false,
+        "why": "The reviewer explicitly ruled this out in anti_objection#3: an unidentifiable but stable cluster is a Type II miss, and the tiering is judged to handle it correctly by leaving IDs at country+archetype rather than forcing a name. Issue [3] recasts precisely that fallback as a defect ('collapses to a restatement of ECB/EBA market structure', 'no tradeable output'), i.e. treats the reviewer's accepted Type II outcome as a failure the reviewer had already considered and dismissed."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. It is anchored in this firm's stated constraint (must be defensible to a PM asking what would have to be true for it to be wrong) and names the specific machinery (min-cost flow, Sinkhorn marginals, Venn-Abers) rather than reciting a generic 'black box' worry, so a desk would take it seriously. Discounted somewhat because the plan does supply hand-checkable corroboration the evaluator claims is absent: acceptance requires max p >= 0.80, margin >= 0.25, and >= 3 comparators favouring, plus typed abstain reasons and near-tie candidate sets \\u2014 which is close to the 'simple corroborating check' being asked for. Legitimate but partly overstated."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not the gold objection (gold's disproportionality points at manufactured labels, anchor maintenance, and the GDPR gate, not the assignment layer). The point is nonetheless earned on this plan's own internal logic: the plan predicts identification succeeds where markets are concentrated (few candidates, separable on n_share/geo) and fails where they are fragmented (350 Sparkassen), so the capacitated transport plus Sinkhorn/Gibbs entropy-matching apparatus is heaviest exactly where the plan expects a null. That is a specific, checkable sequencing critique, not a canonical complexity complaint. Marked uncertain because it partially rhymes with the gold's 'everything else is disproportionate' framing."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Overlaps the gold's topic (validation labels) but makes a different objection: power rather than feasibility. It is quantitatively grounded in the plan's own numbers \\u2014 certifying >= 95% precision off 25-60 labels per country under leave-one-institution-out refitting, against a 40% deposit-volume gate \\u2014 so it is not a recited small-sample platitude; it bites on this specific acceptance criterion. Uncertain because a desk might treat it as the same conversation as the gold's label critique."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold, and legitimate here: the firm named four specific behaviours to underwrite (deposit flows, salary capture, acquisition, attrition), while the plan's deliverable is a per-country boolean identifiability verdict at a single 95% precision bar. Asking which signals survive a 92%-precision match \\u2014 directional attrition read versus a levered pairs trade \\u2014 is specific to this mandate and this precision target, not a generic 'link to P&L' complaint, and the evaluator correctly concedes the capability-build framing is right. Uncertain only because the gold implicitly credits the plan for narrowing to a ticker, which sits adjacent to this point."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches gold blocking#3 (dataset build beyond desk capacity) and overlaps the subject of blocking#1, framed as unnecessary complexity/duplication of the document read."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches gold blocking#2: the 20:1-30:1 prior and 25x LR hurdle are invented precision that reads as discipline; evaluator adds the specific point that the qualitative evidence stream cannot feed a calibrated LR."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate and specific to this situation: the plan concedes H3 is externally identical to H1 and defers to demand-side evidence, but node slip / insourcing / demand shortfall are precisely what a hyperscaler and a foundry disclose last, so the trade sign may stay undetermined even after H0 is cleared. Earned against this plan's own pitfall list rather than recited boilerplate."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but earned and plan-specific: it attacks the very disclosure the plan nominates as its 'best H3 test', noting VIE maximum-exposure-to-loss is reported in aggregate and lagged, so a single new SPV's delta may be unattributable \u2014 and pairs that with the acknowledged 601(b)(10)(iv) redactions. A desk would take this seriously; it is not a recited canonical objection."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a legitimate and specific critique: the plan makes 'no qualification predating the change' a named killer while sourcing timing from PDK licensing, conference papers, job postings and trade data, which signal engagement rather than committed second-sourcing and carry fuzzy dates. It bites on this plan's own falsification rule rather than being generic."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "contradicts_gold",
+        "uncertain": false,
+        "why": "The reviewer explicitly ruled this out (anti_objection#2): the volume of reading B requires is not a negative because an AI reader handles the volume, and the '300 pages' framing is aimed at the wrong thing. This issue makes precisely that objection \u2014 heavy document pull, analyst time as the binding constraint on a two-analyst desk, gate the reading behind a lighter first pass \u2014 which is the concern the reviewer considered and dismissed in writing."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#2: the expensive custom encoder is built before establishing that a cheap tone measure (LM/FinBERT) produces a signal surviving controls and costs; LM/FinBERT used as benchmarks rather than a gate."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. The specific point \u2014 that parser/Q&A-section reconstruction and tone-distribution inspection should be a gate before the encoder build, since H2 (Q&A vs prepared remarks) depends entirely on correct section and speaker labelling \u2014 is a legitimate desk concern and is tied to concrete artifacts in this plan. Uncertain because the plan does already schedule a 200-call EDGAR audit, coverage-by-size-decile/year tables and section markers from the vendor, so the objection is partly about framing/sequencing rather than a missing check."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "manufactured",
+        "uncertain": true,
+        "why": "Largely restates a pitfall the plan already names and mitigates ('timestamps recording publication not call time; audit 200 calls against EDGAR 8-Ks', imputed flag, pre-open/intraday/post-close classification) without showing the mitigation is insufficient. The look-ahead mechanics also do not bite as claimed: entry is t+1 close with a t+2 conservative variant, and the 8-K release generally precedes the call on the same or prior day, so the imputed time errs early, leaving the entry point after the call; and the (-1,+1) return is a control window, so misalignment is measurement error, not forward-looking signal. Flagged uncertain because minute-level alignment for the aggressive same-day-close bound is a real residual concern."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Legitimate and specific to this plan: the only duplication test is a one-month rank-correlation screen at 0.7, and the vendor score is used as a control rather than orthogonalized against before computing the net spread \u2014 a real gap for a desk that judges work on crowding. Overlaps in topic with blocking#2 and asks for a similar missing test (incremental alpha vs the licensed score), but inverts the reviewer's diagnosis by endorsing the availability-implies-crowding inference, so it is not the same concern; flagged uncertain because a human may prefer to score it as matched to blocking#2."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Earned against this specific design rather than recited: the Days 6-7 gate requires t near 3 on a 2004-2010 Capital IQ/WRDS replication whose transcript coverage and publication-timestamp reliability genuinely are thinner and more size-skewed than the post-2015 primary sample, and the plan's whole one-third-of-published-coefficient prior plus decay-curve estimate rests on that comparison. A desk would take the point seriously; it is not in the reviewer's list."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold as a standalone item (gold#3 is about answering the wrong question, not about method opacity). The objection is earned against this specific plan: it names the actual machinery in the plan (Bai-Perron sup-F with 15% trimming, Kalman \u03b2 path, VR\u22652 rule, 2SLS, DCF-derived \u03b2*) and ties it to the stated firm constraint that output must be defensible to a PM asking what would have to be true for it to be wrong, at a shop with one engineer and no production ML. A desk would take this seriously."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#3: the project is scoped around regime stability and efficiency rather than delivering the elasticity/sizing input the seed question and the firm's 6-18 month decision horizon require."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. Borderline canonical ('no stated edge vs. consensus') but it is specified concretely: revision momentum and PEAD are among the most documented and decayed anomalies, and the plan's split-sample test (fit 2003-2014, test 2015-2025) checks statistical significance rather than post-crowding economic availability, which is the actual gating question for H2's underreaction leg. Earned enough to escalate rather than dismiss, but the justification edges toward the generic 'is the effect already priced' recitation."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, and it bites on specific numbers in this plan: the first-stage stop rule of \u03b2\u226520bp with t>5 and the VR\u22652-plus-bootstrap-p<0.05 instability rule are unusually conservative for a diversified cross-sectional peer-relative signal where a missed modest effect is the costly error. The point engages the plan's own thresholds rather than reciting a generic power complaint."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same target as gold blocking#2 \u2014 the TAQ intraday reverse-causality check. Raised on the firm's lack of tick data, which the reviewer also names, though the evaluator misses the stronger horizon-mismatch reason and rates it only secondary."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same core concern as blocking#1: the contemporaneous DV/regressor pairing measures mechanical simultaneous adjustment; the fix is to move to a temporally separated (predictive) specification as the headline rather than a robustness check."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. Legitimate for a fund that must justify sizing changes: revision-driven re-rating is a heavily mined effect and the plan never residualizes against standard revision/momentum factors, so a clean \u03b2 says little that is incremental. Slight overlap with [0] and arguably off-brief for a descriptive fundamental study rather than a factor build, hence flagged for escalation."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold but a sharp desk-level point about this plan specifically: the only investability test (out-of-sample within-industry quintile sort from 2012) is the last item behind a heavy point-in-time EV build, EB shrinkage, DK SEs and a large robustness grid, and a crude version on raw I/B/E/S CAGR could be run first with a three-person data team and one engineer."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Grounded in the plan's own text: the 8-12%/100bp two-stage figure and the '25-50% of theoretical is coherent' rule rest on hand-picked WACC/terminal growth and create a wide unfalsifiable acceptance band, which matters because the PM's test is 'what would have to be true for it to be wrong'."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Fits this firm's stated constraints (one engineer, no production ML, PM-defensible output): 150x80 FE, dual SE regimes, EB shrinkage with rank-stability tests and three dispersion proxies add researcher degrees of freedom without moving the go/no-go, and the critique is specific enough to name what should be kept (the identity decomposition)."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Engages the plan's actual pitfall list rather than reciting generically, and 'verify the priced EBITDA matches the tape before modelling' is a fair premise-testing demand. But the plan already flags definitional drift, prefers Visible Alpha for EBITDA, flags IFRS16, and applies a screen; and the stated mechanism ('FE will not absorb it') is inconsistent with sub-industry x quarter FE, which absorbs sub-industry-common drift. Torn between engaged critique and a data-quality concern already handled \u2014 escalate."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Genuine and plan-specific: the guidance-policy base rate at this fiscal quarter is the cheap, near-deterministic kill and the plan's own default-no rests on it, yet it sits behind the expensive event-study gate. Not in gold; a desk with one PM and two analysts would take the effort-ordering point seriously."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Legitimate and tied to this plan's specific machinery: the 'CAR under arithmetic-implied CAR' gate depends on undisclosed ACV and this-fiscal-year ramp fraction, so the gate is analyst-tunable. Overlaps the spirit of the gold blocking issue (unreliable numbers driving stop-go) without making that objection, so scored as an unlisted real point."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Reads like the canonical small-sample recital but is actually earned here: the plan explicitly proposes regressing earnings-day CAR on guidance revision size off a 12-16 quarter table where only a handful of quarters had meaningful revisions, and then feeds that coefficient into straddle-relative sizing. The evaluator did the arithmetic on this plan's own data, so the objection bites."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Directly corresponds to gold blocking#2: the fitted ramp curve and Monte Carlo distributional output are over-engineered false precision for a single-name, single-print decision at a desk with no quant staff, and the p10/50/90 anchors the gating threshold with an illusory confidence band."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": true,
+        "why": "Same family of concern as blocking#2 (statistical inference from tiny N in a single-name event setting), here applied to the 8-print return regression, and it also grazes secondary#4 on the arbitrariness of the \u22651.2x gate. It is an earned point rather than a recited small-sample reflex \u2014 the plan really does propose regressing 8 observations to set a sizing hurdle \u2014 but it is close enough to gold that I treat it as matched rather than novel; flagged uncertain because a desk might score it as a distinct, unlisted hit on the position section."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Legitimate in the abstract \u2014 the arithmetic-vs-CFO-discretion gap is the crux of whether the print is the catalyst \u2014 but only weakly earned against this plan, which already tags three years of transcripts for guidance language, tabulates guided-vs-actual flow-through, gates on 'a raise at/below flow-through', and whose backtest (positive checks 6/8, raises only 3/8) is precisely a measurement of the gap. The plan's stated hypothesis is already that management won't raise, so the objection largely pushes where the plan is already pointed; kept as real_unlisted because 'no step that explicitly weights CFO discretion' is a fair desk request."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. The substance \u2014 RLOIB's incremental value over the established subpenny retail signal \u2014 is exactly the plan's own stated falsification test, so the objection reduces to sequencing/ordering rather than a missing test, which softens it. Still, 'gate the ten-year pipeline on a cheap RETOIB-spanning check first' is a point a desk would take seriously and is tied to this plan's specific signals rather than recited generically. Borderline between real_unlisted and manufactured; escalating."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "manufactured",
+        "uncertain": false,
+        "why": "Canonical evidence-standard recital: 'high t-bar risks Type II error, would you revisit t=2.5?' would read identically against any quant plan. The justification is generic ('for a diversified quant book a missed real effect is the expensive error') and the evaluator concedes the bar is partly defensible, so no earned bite. Worse, it presumes the diversified-sleeve framing that the reviewer's blocking critique says is the wrong business for this firm entirely \u2014 arguing about 3.0 vs 2.5 net alpha on a daily long-short book is inert when the binding question is spread capture net of adverse selection inside the quoting loop."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Plan-specific and checkable: G1-G5 have pre-registered numeric kill thresholds while Benchmark C \u2014 the item the plan itself bills as the cheap standalone killer \u2014 has no stated decision rule or threshold, so the ordering is asserted rather than enforced against a quarter's TAQ build. Not in gold, but a desk would take the sequencing/cost point seriously."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Legitimate and earned on this plan's specifics: RLP flags do double duty as the precision/lift basis (G1) and the scoring set for signing accuracy (G3), and the plan itself concedes RLP recall is very low, so the G3 validation slice is non-representative of the round-lot population. Adjacent to gold blocking#1's label-quality theme but a distinct mechanism (circularity / false pass rather than false kill), so scored as unlisted rather than matched."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "manufactured",
+        "uncertain": false,
+        "why": "Not an objection at all \u2014 the text concedes Hui-Walter is defensible, that the plan already pairs it with hand-checkable Rule 605 accounting, that this 'resolves the tension rather than creating one', and that nothing breaks. Filed as a secondary issue while containing no criticism that bites on the plan; it also implicitly accepts the 'no ground truth exists' premise the reviewer rejects for this firm."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. A concrete, plan-specific sequencing point: the four-episode backtest is the heaviest item while the Tier 1/2 attribute read on this company's own 8-Ks, commitments footnote and transcripts is a days-long kill. Fits the five-person, one-analyst constraint and a desk would take it seriously."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#3 (haircuts calibrated off the 2021-23 semi episode, thin and possibly wrong-industry base) and overlapping secondary#2 (the 90-95/70/25-35 haircuts and the 60%/40% thresholds are asserted rather than derived)."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and not a recited canonical. It bites specifically on this plan's mechanics: net bookings is solved as a plug, cancellations are backed out of book-to-bill, and 'negative implied gross bookings two straight quarters' is a hard negative trigger \u2014 so FX, M&A or rev-rec contamination in the plug can fire a kill criterion on an artifact. Measurement fragility in a stated falsifier is a legitimate desk objection."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a legitimate and plan-specific objection: the seed is a single-name call and the plan's deliverable is a cross-industry conditional base rate that never instantiates the named company's qualification lag, customer set, or LTA book. Steps 5 and 6 are indeed specified per-market rather than for the actual position. A concentrated committee would push on this."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Earned from the plan's own logic: the plan asserts switching cost / in-term requalification feasibility is the single determining variable, which for one named company is largely knowable from product type in days. Putting the 20-30 episode coding, capacity ledger, and breach arithmetic ahead of that classification is a real sequencing critique, not a canned one."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1 \u2014 the data/vendor stack and overall scope exceed what one analyst on Bloomberg/Excel/filings at a five-person shop can execute or the firm can operate."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Specific to this plan's stated output: the plan promises a 'probability-weighted haircut' while its measurement is ordinal outcome scoring and ranked (not regressed) conditional base rates, with no modeling of the name's LTA share of revenue or the duration premium in the multiple. The gap between the ordinal machinery and a quantified haircut is a fair, non-generic point."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a specific, earned critique of Step 1: the bottom-up spend build anchors on GSA/Crown Commercial/state schedule list pricing plus an unobservable discount-tier haircut, and the +/-20% top-down/bottom-up reconciliation can be spuriously satisfied since both legs lean on the same weak anchor. This bites on this plan's named sources rather than being a generic data-quality complaint, and a desk would take it seriously since the whole sensitivity table scales off that number."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#3 \u2014 the comparable-customer uplift distribution underpinning Step 3's likelihood weighting is largely unobservable/biased from public sources, undermining the central-case call and the 75bps trigger."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#1's second sentence plus praise#3's prescription: the plan builds market-wide panel machinery when the desk needs the two questions asked of this one company; the deliverable does not match the decision or the firm's interest."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Direct restatement of blocking#1 \u2014 infeasible for a nontechnical five-person shop and unverifiable by the IC."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": true,
+        "why": "Argues the relevant unit of evidence is this firm's own renegotiation/disclosure history rather than a 40k-panel t-stat, which is the same substitution the reviewer prescribes in praise#3 and the same scale objection as blocking#1. Framed as an evidence-standard problem rather than a feasibility one, so arguably a distinct sharpening, but the underlying concern is the gold's."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Maps onto blocking#2: the plan yields no usable read until the pipeline is finished, so the analyst's time is consumed while the actual situation moves; also aligns with the reviewer's 'ask this company's own history' remedy by pointing to filings first."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a legitimate and specific point about this plan: purchase obligations, supplier-risk language and vendor pricing are already in the plan's own 'case-specific' list and are direct measurements of the margin risk, yet tone is made the primary instrument. The failure mode named (concluding 'no signal' from tone while cost pressure is visible in disclosure) is concrete to this question, not a canned proxy complaint."
+      }
+    ]
+  },
+  "claude-opus-5": {
+    "scorer": "claude-opus-5",
+    "recall": [
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 1,
+        "gist": "Kalshi users trading via Robinhood produce no Kalshi descriptor, so treated users sit in the control group, attenuating estimates; misclassification never addressed",
+        "surfaced": true
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 2,
+        "gist": "Panel from Jan 2022 pools politics/election adopters with post-2025 sports adopters as one population instead of estimating distinct regimes separately",
+        "surfaced": true
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "n": 3,
+        "gist": "Promotional free credit means adopters trade without a qualifying $5 bank debit, so treatment definition misdates or misses them and contaminates controls",
+        "surfaced": false
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "n": 1,
+        "gist": "regression is the wrong test for a switching/cannibalization question, and the regressor mechanically contains the outcome",
+        "surfaced": true
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "n": 1,
+        "gist": "headline validation uses a random company-quarter holdout that leaks future quarters for the same company, so the reported out-of-sample number is not clean; the honest rolling-origin test is demoted to a gate",
+        "surfaced": false
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "n": 1,
+        "gist": "the gate wrongly constrains beta magnitude (band [0.5,1.5] plus beta=1 test) instead of just requiring a positive significant per-company MAU correlation, so it can kill real per-name signal",
+        "surfaced": true
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "n": 1,
+        "gist": "identification by size-ranking panel customer counts against market share is not evidence-based and inherits panel skew; should match geographic/demographic properties to researched institution properties",
+        "surfaced": true
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "n": 2,
+        "gist": "no external ground truth, so validation gates only measure cluster stability, not naming correctness",
+        "surfaced": true
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "n": 1,
+        "gist": "Plan B is disproportionate to the setting: it needs nonexistent ground-truth labels manufactured via an uncommissionable 500-per-country survey, an unmaintainable anchor stack for a three-person team, and a GDPR gate that can kill the project before output",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 1,
+        "gist": "coding 40-60 guarantor releases wrongly treats idiosyncratic structures as draws from a common distribution; base rate is not a valid reference frame for this case",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 2,
+        "gist": "the prior on cause mix is asserted rather than derived, so the 25x likelihood-ratio bar rests on an invented denominator",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "n": 3,
+        "gist": "the plan requires a dataset build the desk has no quantitative staff or capacity to do",
+        "surfaced": true
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "n": 1,
+        "gist": "plan only sizes the numbers (notional, expected loss, spread) and has no view on how the market narrative reprices, which is how event-desk trades actually work",
+        "surfaced": true
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 1,
+        "gist": "kitchen-sink fit-everything-then-orthogonalize approach instead of starting from strong priors on targeted subsets",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 2,
+        "gist": "leads with custom-trained transformer domain adaptation without first establishing what cheap baselines (FinBERT, z-score) deliver",
+        "surfaced": true
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "n": 3,
+        "gist": "no vendor-provided score set as the hurdle the custom signal must beat",
+        "surfaced": true
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 2,
+        "gist": "treats commoditization as dispositive, conflating alpha decay with death and never testing whether a published signal still carries alpha",
+        "surfaced": true
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 3,
+        "gist": "single pooled specification estimates only the average effect and cannot detect surviving niche pockets, so killing on a t of 2.1 is uninformative",
+        "surfaced": false
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "n": 4,
+        "gist": "cost/constraint modeling too thin (flat 20bp, no borrow, no ADV cap, no capacity) to give a defensible net number",
+        "surfaced": true
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 1,
+        "gist": "EV/LTM trailing EBITDA does not reflect how public markets price assets (forward earnings), so the fix substitutes an invalid measure",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 2,
+        "gist": "TAQ tick data is horizon-mismatched: multiple re-rating plays out over months to years, not milliseconds",
+        "surfaced": true
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "n": 3,
+        "gist": "plan never delivers the elasticity estimate that is the actual deliverable, substituting regime-stability and efficiency questions",
+        "surfaced": true
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 1,
+        "gist": "circularity should be fixed by making the independent variable backward-looking realized CAGR and dependent forward-looking; the EV identity decomposition is only a workaround",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 2,
+        "gist": "log multiples are inappropriate here",
+        "surfaced": false
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "n": 3,
+        "gist": "screening to positive NTM/N2Y EBITDA drops exactly the firm-quarters with the most violent re-rating; a revenue multiple would retain them",
+        "surfaced": true
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "n": 1,
+        "gist": "the four decision thresholds (0.5% revision, 0.2%, one estimation-window SD on CAR, 1.2x straddle median) are arbitrary and undermined by not being derived, yet carry the whole stop-go decision",
+        "surfaced": false
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 1,
+        "gist": "solving for initial land value is irrelevant to the question",
+        "surfaced": false
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 2,
+        "gist": "Monte Carlo/distributional apparatus implies false precision with a single name and single print, no law of large numbers",
+        "surfaced": true
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "n": 3,
+        "gist": "the plan's horizon is wrong \u2014 suited to fast swing trading, not the longer horizon here",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 1,
+        "gist": "horizon mismatch: daily signal with t+1 entry and five-day hold instead of nanosecond-to-second liquidity provision",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 2,
+        "gist": "cost and capacity constraints modeled are wrong for a quoting business; should be realized spread net of adverse selection and in-loop classification",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "n": 4,
+        "gist": "fails to address half-penny tick regime break that degrades sub-penny retail classification underlying RETOIB",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 1,
+        "gist": "gating the project on retail-vs-institutional labels that cannot be established cleanly means label failure is mistaken for signal failure",
+        "surfaced": true
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 2,
+        "gist": "plan uses public-data proxies for retail labels when the firm has proprietary ground truth on its own internalized flow",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 3,
+        "gist": "truncating the sample before the half-penny compliance date instead of modelling the structural break",
+        "surfaced": true
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 4,
+        "gist": "horizon mismatch: daily decile sorts and Fama-MacBeth for a nanosecond-to-second market-making question",
+        "surfaced": false
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "n": 5,
+        "gist": "all economic content deferred to a Phase 2 conditional on passing all five gates",
+        "surfaced": true
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "n": 1,
+        "gist": "tiers agreements on contract-language attributes rather than switching cost and requalification lag, so it sorts on the wrong axis",
+        "surfaced": false
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "n": 3,
+        "gist": "haircuts calibrated off a single episode (2021-23 semis) that may be the wrong prior for a different industry",
+        "surfaced": true
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "n": 1,
+        "gist": "plan assumes access to a long list of expensive vendor data subscriptions the firm does not have; must be redesigned around analyst-assembled data points",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 1,
+        "gist": "plan sidesteps the core question of whether the CFO's language is informative, merely sizing impact and asserting tone is uninformative rather than establishing it",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 2,
+        "gist": "much of the plan re-derives what the analyst already knows (vendor pricing sensitivity) instead of addressing the new question raised by the call",
+        "surfaced": false
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "n": 3,
+        "gist": "the per-customer realized uplift distribution underpinning the likelihood weighting is private/unobtainable; benchmarks give only directional ranges",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "n": 1,
+        "gist": "the design is infeasible for a five-person nontechnical team and produces a black box the investment committee won't trust or want",
+        "surfaced": true
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "n": 2,
+        "gist": "given the error asymmetry, tying up the only analyst on this research while the renegotiation resolves risks being blindsided on the key risk",
+        "surfaced": true
+      }
+    ],
+    "buckets": [
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Specific to this name and moment \u2014 DKNG cannibalization is an actively debated bear thesis with published sell-side scenarios, so an unbenchmarked ATT genuinely cannot be classified as variant. Ties directly to the firm's stated requirement that output move position sizing on named companies."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but bites on this plan: the eligibility screen plus balanced -6..+6 requirement could leave qualifying adopters at a trivial share of panel DK dollars, and the taxonomy week yields that number for free. A concrete, cheap materiality gate the plan omits."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches gold blocking#1 (Robinhood-routed Kalshi users misclassified as controls); the crypto on-ramp false-positive half is an additional specific reading of the plan's own taxonomy language."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. The plan does list reverse causality from limiting/self-exclusion, but every defense it names is pre-trend based; the evaluator's point that a contemporaneous t=0 DK-side shock produces flat pre-trends and survives the F-test, fade exclusion and shrinking-deposit strata is a sharp, plan-specific gap with a real interpretation flip for the PM."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Anchored on this plan's own admitted leakage channels (PayPal, Play+, joint accounts) which it relegates to a coverage audit with no external benchmark; reconciling panel aggregates against reported DK handle/revenue is a concrete one-day check and the only route from an ATT to a revenue number the PM recognizes."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches gold blocking#2 \u2014 politics vs sports adoption regimes should be estimated separately rather than controlled away or dropped; also adds the balanced-window early-adopter selection twist."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 6,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Attacks the specific MDE formula printed in the plan (dividing by 7 post-months) and the specific decision rule it triggers ('above 5% of baseline mean spend ... widen window or pool cohorts'). Autocorrelation in monthly gambling deposits is a real, quantified defect here, not a generic power complaint."
+      },
+      {
+        "item": "S1",
+        "slot": "A",
+        "idx": 7,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Correct mechanical point about a secondary outcome the plan actually lists twice (wallet share, and wallet share as a seasonality cross-check): including Kalshi in the denominator makes the ratio fall at t=0 even under the stated additivity null."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and not a canned objection: it is built from the specific institutional timeline in the plan (Kalshi's 2023-24 variation is elections/macro, sports contracts arrive 2025, window ends the month before DK's own launch, >=6 pre and >=6 post filters). The point that the pooled beta is dominated by an off-thesis regime while the on-thesis regime is the thin one, and that power is only computed pooled, bites directly on this plan's stated regime split and headline. A desk would take this seriously."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate and earned. The plan explicitly frames broker-distributed Kalshi as a coverage/undercount problem to be reported; the evaluator correctly reclassifies it as treatment misclassification that pollutes the never-adopter pool, the pseudo-adoption-date strata and the Callaway-Sant'Anna not-yet-adopter set. It names the concrete channels (Robinhood, Webull) and the direction of bias (attenuation toward a false null), and ties the asymmetry to the fund's ability to take the long side of DKNG. Not a generic 'measurement error' recitation."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Specific to this instrument: with month FE, Z = affinity_u x V_t identifies off differential response to national non-sports Kalshi volume, V_t peaks at the Nov 2024 election which sits inside the NFL season and DK's promo window, and affinity is fit on covariates that select exactly the users whose DK spend trends differentially then. It also correctly notes Kleibergen-Paap F tests relevance not exogeneity, so the plan's own stated diagnostic does not address it. Overlaps the gold's 'design budget' theme but is a distinct, unlisted objection."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Concrete internal inconsistency in the plan as written: the estimating equation is in first differences on delta-DK, the preferred outcome is net funding which goes negative on withdrawal months, and ppmlhdfe is a non-negative levels estimator that 'leads.' The consequence flagged (headline silently reverts to gross deposits, the measure the plan itself calls inferior because Kalshi round-trips capital) is a real hit to the deliverable, not a textbook aside."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Fits this firm's stated output requirement (change position sizing on named companies, defensible to a PM). The specific bite is that the plan converts panel dollars at 'explicit take rates' without ever validating that panel net funding x take rate reconciles to DKNG reported NGR, and never states the market-assumed magnitude that would make a result bullish vs bearish. That is plan-specific, not a generic 'where is the alpha' complaint."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Sharp and cheap: the plan already holds DK sportsbook, DFS and casino in separate columns and then sums them, so the sportsbook-vs-casino wedge is a zero-cost mechanism test the plan collects and discards. Correctly identifies that a pooled DK decline cannot separate product substitution from a generic wallet/income shock, which the plan's grocery/streaming placebos do not resolve. Legitimate unlisted addition."
+      },
+      {
+        "item": "S1",
+        "slot": "B",
+        "idx": 6,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1, reached from the sequencing side: the regression/IV stack is front-loaded while the thing that would settle the premise is a countable eligible-N and a raw event-time plot of adopters vs pre-period-matched non-adopters, i.e. does a break exist and in which direction. Matches the reviewer's 'magnitudes matter less than whether the effect exists and in which direction' and the misallocated design budget, though it stops short of the reviewer's point that the share regressor mechanically contains the outcome."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a sharp, plan-specific measurement objection: the hypothesis explicitly conditions on slowly-drifting MAU-per-seat, and the plan never tests it. The free/freemium-tier share for the exact names listed (Atlassian, Asana, Monday, Smartsheet, Figma, Zoom) moved violently through COVID and the 2022-23 seat rationalisation, so company FE + quarter FE cannot absorb a company-specific, time-varying paid/free login ratio. A desk would take this seriously."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate sequencing critique earned against this plan: wildcard tenant-subdomain rollup confirmation, SSO/corporate-network under-panelling, and the 10-30% re-basings the plan itself anticipates are all cheap kill-checks scheduled as 'Pitfalls' after estimation and validation, and no coverage-by-name-quarter table or single-name MAU-to-consensus-gap trace is produced. Ties directly to the firm's requirement that output be defensible on named companies to a PM."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not the gold objection (which is about the leaky random-split headline), but a distinct and non-generic point-in-time argument: web-panel vendors restate history, the plan acknowledges the lookahead in a single clause without gating on it, and both the Bai-Perron break screen and the 'never trade within two quarters of a break' rule require post-break data that a live user would not have. That specificity lifts it above a recited look-ahead objection."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Real defect in the pre-commitment as written. For Snowflake/Datadog/MongoDB/Confluent, portal logins plausibly proxy workload, which is the billed driver, so 'equal performance sinks the thesis' can retire a true seat-mechanism effect \u2014 and the alternative (reasoning around the result post hoc) destroys the pre-commitment. Engages the plan's own falsification clause rather than reciting a template."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Firm-specific and correct: h in {0,1,2} quarters with a consensus-dispersion benchmark is a print-cycle nowcast, while the mandate is a 6-18 month book with no execution infrastructure. The plan offers no evidence that MAU trend carries information about ARR trajectory four to six quarters out, which is what the stated holding period requires."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Borderline canonical ('is it in the price?'), but earned here: the plan's entire edge claim is beating Visible Alpha cross-analyst dispersion, and Similarweb/Datos/Sensor Tower panels on these specific SaaS names are among the most widely licensed alt-data sets, so analyst point estimates are a lagging benchmark for what is priced. The plan's closing note about scaling capital rests on this untested step."
+      },
+      {
+        "item": "S2",
+        "slot": "A",
+        "idx": 6,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Concrete power argument, not a generic complexity gripe: with ~20 quarters per name CIPS and Westerlund are near-uninformative, yet the plan conditions the ECM branch on them, and the specification most defensible to this PM (YoY log differences against the three simple benchmarks) is demoted to robustness. The branch-proliferation/researcher-degrees-of-freedom consequence is spelled out for this design."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Sharp and plan-specific: the second-stage identity ARR = seats x revenue-per-seat and the pre-published variance decomposition (which gates the 'scope to seats where price/mix dominates' decision) genuinely do not hold for cRPO, billings or ratable subscription revenue, and the evaluator names the specific listed companies that lack a clean ARR. Timing/duration variance would be mis-attributed to the price or residual term. A desk would take this seriously."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Overlaps gold#1's implied remedy (estimate per company rather than pool), but the stated objection is different and independently earned: the LHS 'seat-like' constructs are heterogeneous (pays-per-control and employees-per-client are near-definitional restatements of the billed unit for payroll portals; Atlassian/Asana/monday/Smartsheet are customer counts and spend bands), company fixed effects absorb level but not slope heterogeneity, so a pass driven by HCM names gets extrapolated to collaboration SaaS. Torn between matched-to-gold#1 and real_unlisted; scored real_unlisted."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, and not a canonical look-ahead recital: it engages the plan's own stated remedy (store vintages 'day one') and correctly observes the remedy only works prospectively, while Similarweb/Comscore/Sensor Tower historical panel rebalancing and host re-tagging cannot be un-restated for a 2018-onward backtest. It also ties this directly to the headline validation numbers the PM will be shown. Legitimate and specific to this data."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Directly grounded in the stated firm context: every success criterion (Delta4 ln ARR for the quarter about to print, consensus-surprise slope, sign hits, five-business-day delivery) is a print-event product, while the mandate is 6-18 month sizing with no execution infrastructure. Also notes the symmetric failure mode (killing a signal with real multi-quarter content). A desk would take this seriously."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "matched",
+        "uncertain": true,
+        "why": "Credited as the vehicle that surfaces gold blocking#1: it states the [0.5,1.5] band can produce a false negative on a real effect. Its distinctive content \u2014 that the \u00b12-quarter lead/lag search cannot see a 4-6 quarter contractual renewal transmission the plan itself posits \u2014 is also a legitimate unlisted point, so the match is partial; flagged uncertain."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Mechanism-discriminating point that bites on this plan specifically: the exclusion of consumption-metered and end-customer-portal names by construction removes the falsification test that would separate 'MAU proxies billable seats' from generic 'web traffic tracks business momentum' \u2014 and the whole value of the exercise is extrapolating the seat mechanism to non-disclosing names."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 6,
+        "bucket": "contradicts_gold",
+        "uncertain": true,
+        "why": "The load-bearing premise is that the universe is only ten to fifteen names with ~40-60 out-of-sample company-quarters, i.e. exactly the thin-gate-sample objection the reviewer explicitly ruled out on the grounds that a per-name output only needs to be defensible on one or two names. The over-engineering angle (ridge tuned by nested CV, EB shrinkage weights estimated on the same data, low-power Clark-West) and the closing preference for per-name sign/magnitude evidence are partly aligned with the reviewer's own stance, which is why this is flagged uncertain, but the objection as written rests on the ruled-out small-N complaint."
+      },
+      {
+        "item": "S2",
+        "slot": "B",
+        "idx": 7,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Crowding is a canonical alt-data objection and the framing is close to generic, but it is anchored on the specific vendors the plan names, on the fact that brokers publish traffic-based nowcasts on several of these exact tickers, and on a correct technical observation that published pre-print consensus lags what pods trade, weakening the surprise-space test as evidence of an unpriced edge. Borderline manufactured; scored real_unlisted per the tie-break."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#2: gates test cohesion/stability/non-randomness, nothing tests whether a named ID is that institution, and the plan flags but does not resolve it. Also correctly ties it to the desk's stated killer."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1: rank-by-panel-count vs rank-by-market-share is size-ordering that inherits the plan's own documented panel skew, so the acceptance margin gives false reassurance."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and not a recited canonical objection: it is grounded in specific plan text ('else reconstructed from anchor', balance-Gini, sub-EUR-50 months, overdrafts, salary detection via stable counterparty) and shows why institution-level provisioning heterogeneity would be structural, hence survive customer bootstraps, all four windows and a size-only null, and could trigger the private-bank and card-monoline/neobank rubrics from missing fields. A desk would take this seriously."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate sequencing point specific to this plan and staffing: whether the >=200-customer/>=30,000-transaction filter leaves enough IDs per country to contain the six to ten listed banks the desk wants, whether vendor IDs are stable across monthly deliveries, and whether one target can be hand-fingerprinted at all \u2014 all cheap and all absent, while the ~30-partition ensemble and 500-iteration refeaturing bootstrap precede the first nameable output with one engineer."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Sharp, plan-specific critique of the gate ladder: the global silhouette >0.40 threshold and a permutation that reassigns customers at fixed institution size are cleared by country and demographic composition, which the plan itself says dominate leading components, yet naming happens inside country-archetype cells and the within-country re-run is only a diagnostic. Not in gold."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate and precisely targeted: the plan's stated white-label/aggregator check (near-identical feature vectors with never-overlapping customer sets) detects one institution split across IDs but not several institutions collapsed into one ID, and a collapsed ID passes every stability gate and gets a name from the rank match. Related to gold blocking#1's failure mode but a distinct mechanism the reviewer did not list."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 6,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Modest but earned: given the plan's own <=3-candidate acceptance rule, the Hungarian optimisation is enumerable in a small table, and it is the one link in the naming chain a fundamental PM cannot audit \u2014 relevant to the stated requirement of defensibility to a PM. Not raised in gold."
+      },
+      {
+        "item": "S3",
+        "slot": "A",
+        "idx": 7,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Argues resource allocation and expected value: the guaranteed Tier A output (country+archetype for 150-400 IDs) is untradeable while Tier B, the only tradeable tier, is the thinnest-engineered part. This brushes against the reviewer's anti_objection that leaving unidentifiable clusters at country+archetype is correct handling (a Type II miss, not a Type I failure), but the evaluator does not claim the tiering is wrong or that a name should be forced \u2014 it objects to where design and validation effort sit. Borderline against the anti_objection, so flagged for human review."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and genuinely earned on this plan's own field list: the panel delivers merchant name and transaction type, and internal-bank debits (Kontof\u00fchrungsgeb\u00fchr, package fees, interest credits) and SEPA counterparty names routinely carry the institution name in the narrative string. That makes the 'IDs are opaque' premise testable rather than assumed, and the partial-scrubbing variant (leaked names for easy institutions, noise for confusable ones) is exactly the confident-wrong-match pathway the desk fears. Plan-specific, cheap to check, desk-relevant."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1's proportionality core: the global one-to-one assignment couples the handful of tradeable names to mis-costed edges in the 350-Sparkassen/ex-caja mass, while the names the desk needs are the ones best served by a simple per-name verification against independent anchors. Reaches the reviewer's 'everything else is disproportionate to the setting' from the estimator side."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Attacks the same object as gold blocking#1 \u2014 the manufactured ground truth (consented survey, provider-revealed seeds, 'unambiguous public cases') \u2014 and is earned with plan specifics: 25\u201360 labels minus abstentions gives ~20\u201340 accepted assignments, at which N 95% precision is indistinguishable from 80%, and the label sources concentrate on the very institutions that cannot be confused. Not a recited sample-size objection; it is tied to the plan's own pre-committed gate."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and a sharp, plan-specific point: 'growth correlation' is a term in S[i,r] and a fingerprint component, so the one out-of-sample confirmation a PM could check unaided \u2014 does panel deposit volume for candidate ID k track the bank's reported quarterly deposit growth on quarters the matcher never saw \u2014 is spent as a feature and becomes circular. Directly bears on the firm's stated need for a PM-defensible exhibit."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, legitimate, and specifically diagnosed: log10(n_share/deposit_share) is the load-bearing comparator, and every remedy the plan names (Eurostat raking, post-stratification, per-type selection term, a single country-level \u03bc_c) is demographic, whereas the dominant source of institution-level panel-share distortion in a European open-banking panel is PSD2 API/aggregator coverage, which is bank-specific and orthogonal to customer characteristics. It also notes the plan's own fallback ('drop size comparator') removes the strongest signal with no replacement. This is not the generic panel-bias recital \u2014 it identifies why the named correction cannot reach the named bias."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold; a concrete measurement-validity defect in the fee_signature feature. Free current accounts at N26/Revolut/bunq/Nickel and threshold-waived package fees at NL/ES incumbents mean the modal recurring debit is often not a tariff at all, so the exact-match bonus can fire spuriously and the heavy contradiction penalty misfires; tariff versions also drift across the \u226518-month window. Also bites the clustering step, which groups IDs by fee signature."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 6,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Grounded in this setting rather than generic: the deliverable is a per-quarter map built on history but used to hold positions six to eighteen months forward on live deliveries, and vendor re-keying or panel refreshes of anonymized provider IDs would silently re-point flows onto another institution \u2014 the desk's exact stated failure mode, arriving post-sign-off. The plan commits to quarterly anchor versioning but never to monitoring ID stability going forward."
+      },
+      {
+        "item": "S3",
+        "slot": "B",
+        "idx": 7,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and tied to the firm's explicit requirement that the work be defensible to a PM asking what would have to be true for a match to be wrong. The plan's reporting layer (precision, risk\u2013coverage, type-level confusion, Venn\u2013Abers) characterises the procedure, not the individual name, and the per-name dossier (margin, near-tie candidate set, which comparators carried the decision) is never committed to. Legitimate sign-off-stage gap."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate and earned against this specific plan: the terminal output is a posterior on H1, the pricing section only measures the SPV's own spread, and nothing establishes what is discounted in the foundry's or hyperscaler's price \u2014 decisive for a desk whose mandate is 'is this situation mispriced right now' over weeks to months. The point also notes the asymmetry that the mechanical-release finding may be the tradable one, which is plan-specific rather than boilerplate."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#3 (dataset build beyond desk capacity), with blocking#1's 'three unrelated asset classes' folded in."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Maps onto blocking#1 (pooling non-comparable structures into a base rate) and supports blocking#2 (coded cause imported from the same ambiguous record, so the prior is the coder's judgement recycled as data)."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#2: asserted prior and asserted 25x hurdle. Adds the one-sided-falsifier extension (nothing could clear the bar, so 'confident no' is pre-committed), which is a direct elaboration of the gold objection rather than a separate one."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold but a genuine internal-consistency problem with this plan's own text: falsifiers keyed to 'no independent qualification within twelve months', '9\u201318 months pre-product' silicon and '12-month relationship expansion/contraction' cannot discipline a weeks-to-months position, and the plan's own pitfall (foundry decisions lead silicon by 2\u20133 years) implies the release is a lagging artefact. Cites the plan's specific clauses, not a generic horizon complaint."
+      },
+      {
+        "item": "S4",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold but legitimate and specific: reticle customs data, mask-shop/MPW activity and monthly-counted hiring reqs naming a DFM flow are unobtainable or unvalidated at this resourcing, while the expert-network calls that are the desk's actual advantage (project-finance counsel/lender on why the release date was structured that way, ASIC design services, OSAT capacity) are absent. Distinct from the dataset-build objection in blocking#3 because it concerns the H1 evidence leg and the misallocation of the desk's comparative advantage."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and specifically earned rather than recited: it names which documents carry the near-dispositive tests (LLC agreement/A&R, Sponsor Support, capacity-reservation agreement), notes that an 8-K 1.01/2.03 describes rather than attaches, and observes that the 601(b)(10)(iv) redaction back-solve presumes an exhibit was filed at all. It does under-credit the plan's own syndicate/lender-desk and counsel-off-deal channels, which are the normal route to an OM or credit agreement for this kind of desk, so the bite is somewhat softer than stated \u2014 but the feasibility question of whether 'release language verbatim as-signed' is obtainable is a real desk-level gate."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "A sharp, plan-specific measurement objection the reviewer did not list. The plan designates the QoQ delta in maximum-exposure-to-loss as the 'best H3 test' and compares it against released notional; the point that hyperscaler VIE disclosure is aggregated across non-consolidated VIEs, materiality-gated, and absent entirely if the entity is consolidated or not a VIE, goes directly at the hinge of the H2/H3-then-H1 decision tree. Not a canned measurement complaint."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate and specific: H1 as drafted does fuse a qualification/share-shift claim, a demand-softening claim about the hyperscaler's own capex outlook, and a bargaining-power claim that survives with volumes flat, and the seed question likewise contains two independently-true claims. Since the output is a 'trade sized to the weakest link' and killers are counted 'any two,' composite-hypothesis slippage genuinely corrupts both the verdict and the kill rule. Not in gold."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "An internal contradiction inside the plan's own text \u2014 'volumes flat or rising' as a pre-committed killer versus the pitfall that dual sourcing is about pricing power not volumes \u2014 which makes the two-of-five threshold manipulable after the fact. Concrete, checkable against the plan, and not raised in gold."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Earned rather than a generic overfitting/precision complaint: it points at a specific unsourced number ('60-90bp plus funded reserve = real risk moved') that the H3-versus-H1 adjudication turns on, and at LGD for purpose-built advanced-node shells and consigned narrow-use tooling where there is effectively no default/recovery history. This is a false-precision objection tied to this plan's actual sizing chain."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Maps onto gold blocking#1 from the catalyst-timing side: the plan sizes the fundamentals but identifies no forcing event inside the weeks-to-months window, so a correct read can be stopped out before the market moves. Same underlying gap \u2014 no view on when or how the situation reprices \u2014 even though the evaluator graded it secondary and framed it as horizon rather than as the prevailing market narrative."
+      },
+      {
+        "item": "S4",
+        "slot": "B",
+        "idx": 6,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Legitimate on the informativeness argument: HS lines and bills of lading do not resolve design family or foundry, and OSAT-routed packaged parts break origin inference, so this stream is weak relative to the EDA/IP, rival-foundry RFQ and OSAT-quoting channels the plan already has. Flagged uncertain because the cost half of the argument ('weeks of work for two analysts') runs adjacent to the reviewer's anti-objection that reading volume is not a defect under tenet 10 \u2014 though trade-statistics assembly is dataset work the firm explicitly cannot do, not reading, so I do not score it as contradicting gold."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Specific and earned against this design: the plan demeans by an equal-weighted peer Delta-tone over 45 trailing days, and because calls cluster in a ~3-week window per fiscal quarter, the demeaning basis differs systematically between early and late reporters, importing a known return-predictive characteristic (reporting order / intra-industry information transfer) that the stated control set does not span. Bites on the exact step that defines the signal residual."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#2: establish what the cheap measure (LM/FinBERT) delivers end to end before spending on domain-adaptive pretraining and gold annotation. The timestamp/coverage-audit half is an additional sequencing point folded into the same issue."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#3: the relevant hurdle is the vendor-provided/productized transcript sentiment score (off the same S&P Global feed), not LM or FinBERT, and the plan never sets that threshold. Framed as crowding/incrementality but it is the reviewer's objection."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Not a recited power boilerplate: it computes the specific holdout structure this plan creates (~8 non-overlapping quarterly cohorts at a 3-month horizon in 2023-24), notes the expected holdout t-stat under the plan's own 2015-22 effect size is well below the gate, and points out the plan states no action at right-sign/insufficient-t while that same window is confounded by the plan's own manager-adaptation concern. A desk would take this seriously."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate firm-fit point grounded in the stated mandate (days to weeks) versus the plan's headline 3-month K-cohort specification, and it connects to the firm's execution edge and the minute-level timestamps the plan already collects. Arguable at the boundary (1-3 months overlaps 'weeks'), but it is a concrete objection to the pre-registered primary specification rather than a generic complaint."
+      },
+      {
+        "item": "S5",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold, and in mild tension with the reviewer's praise of the constraint layering (praise#4 is labelled praise, not anti_objection, so not contradicts_gold). The point is firm-specific rather than canonical: with tick data and in-house fills, the square-root impact coefficient and 40bp borrow fallback can be calibrated from realized executions, and the two committee-facing outputs (break-even vs 30bp, capacity where net alpha halves) are near-linear in them. Flagged uncertain because it refines the very machinery the reviewer endorsed."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#2 approached via gate calibration: the plan expects a decayed effect yet pre-commits to thresholds that will kill it, producing a false null on a signal family that may still carry alpha. Also plan-specific (cites the one-third prior, Bonferroni 2.9, IR 0.4, ~40 quarter clusters)."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Earned and specific: the firm's stated horizon is days to weeks, yet the only tested horizons are [0,+1] (declared a fail) and [+2,+63] with 60-day holds and monthly calendar rebalancing of an event-time signal. The days-to-weeks middle, which is what would actually be traded, is never estimated. A desk judged on tradeability would take this seriously."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold, and in some tension with the reviewer's view that the plan already over-weights crowding. But the objection is different in kind and firm-specific: crowding is inferred from vendor seat costs and a one-month rank-correlation trial, never from regressing the tone spread on the firm's own production PEAD/news-sentiment/guidance signals, which the firm context makes cheap and decisive ('not already crowded' is an explicit judging criterion). Flagged uncertain because of the tension with gold blocking#2."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate and grounded in the plan's own text: a single 2011 bag-of-words dictionary is the sole primary measure of 'sentiment', the leakage-free point-in-time vendor scores are demoted to a duplication control, and Q&A answers are precisely the register where dictionary tone is weakest. This makes the negative memo unfalsifiably ambiguous between 'tone not priced' and 'LM does not measure tone'."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Specific to this pipeline: the entire signal hinges on separating management Q&A answers from analyst turns across ~90,000 Capital IQ transcripts spanning format changes, and the shuffled-label placebo tests label relevance, not parse correctness. With no specification allowed to change after day 3, an undetected parsing defect is uncorrectable inside the gate. A real desk-level engineering objection."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Earned: the plan's implicit mechanism (unscripted leakage) implies prepared remarks are a free, in-hand negative control, and the plan discards that text while relying only on pipeline placebos. Distinguishing spontaneous leakage from a generic textual-style or stale-news proxy bears directly on whether the effect should be expected to persist."
+      },
+      {
+        "item": "S5",
+        "slot": "B",
+        "idx": 6,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#4: the flat 20bp round-trip is not a defensible net number for a Russell 3000 long-short with a $5 floor at a firm with tick data and in-house execution, and it conflicts with Gate 4's small-cap concentration check."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Contains the TAQ objection (gold blocking#2) \u2014 flagged as data the firm does not have and cannot defend. The surrounding execution-capacity argument (one engineer, three-person data team vs Bai-Perron/Kalman/block bootstrap/2SLS/TNIC-3) is an additional firm-fit point the reviewer did not list, but it is grounded in the stated staffing and in the PM-inspectability requirement rather than recited generically, so the issue as a whole lands on gold."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and specific to this plan's own text: H2's benchmark \u03b2* comes from a two-stage DCF with r=9% and g=3% asserted flat across 2003-2025, while H1's premise is that discount rates and their volatility are the time-varying driver of \u03b2. The internal inconsistency and the observation that the over/under verdict flips within plausible r ranges (a 100bp r move dwarfs the 20bp effect under test) is earned against this plan's numbers, and it goes to whether the H2 verdict is identified at all."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not the reviewer's DV objection, but a sharp and plan-specific one a desk would take seriously: over CAR(+2,+63) and (+64,+252) the LTM denominator rolls through the very periods the revision forecast, so either the revision re-enters the denominator (circularity returns) or, held fixed, \u0394ln(EV/LTM EBITDA) collapses to \u0394ln(EV) and the 'multiple re-rating' label is wrong for exactly the 6-18 month horizon this fund cares about. The plan never states which convention it uses, so the gap is real."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "matched",
+        "uncertain": true,
+        "why": "Overlaps gold blocking#3 from the identification side: the off-cycle lone-broker \u226550bp event (after discarding 60-70% of events) is not the sustained variant-view divergence the fund trades, so the elasticity that survives is not a usable one for sizing, and the t>5 first-stage gate can kill on the wrong quantity. Judged the same underlying concern as 'never produces a usable elasticity', though the gate-asymmetry framing adds something the reviewer did not spell out."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate sequencing point specific to this build: unrestated Compustat, contemporaneous GICS, split-unadjusted detail files, same-analyst-set reconstruction, TNIC-3 and filing-date-lagged net debt are all committed before anything shows the first-order sign is present, and a crude peer-demeaned version needs none of them. Given a three-person data team with a 6-18 month decision clock, front-loading the most expensive item is a real desk objection rather than a canonical recital."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Touches the same margin\u22652% screen as gold secondary#4 but makes a different objection: the screens (plus same-analyst-live-at-both-endpoints, which fails more in turnover-heavy stress periods) bind hardest in 2008-09 and 2020, the exact high-VIX/high-dispersion buckets where H1 predicts larger \u03b2, so the regime Wald test and VR statistic can pick up composition drift. That is a specific threat to H1's headline result, not a generic selection complaint, so scored as a legitimate addition rather than a match."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 6,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and defensible: H2's underreaction leg is revisions momentum, a long-documented and widely harvested effect, and the plan nowhere diffs against it or explains why a crowded factor should persist. The issue also correctly identifies where the plan's genuine novelty sits (constant-horizon same-analyst 24-month path; industry- and regime-conditional elasticity for calibrating this desk's variant views), which makes it a framing critique earned on this plan's content."
+      },
+      {
+        "item": "S6",
+        "slot": "A",
+        "idx": 7,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Direct match to gold blocking#3 \u2014 the elasticity the PM would size on is not among the stated outputs, only hypothesis verdicts and test statistics. The added demand for an early inspectable artefact (\u0394CAGR distribution, coverage-by-year table, a hand-traced named example) is a natural extension of the same objection."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Not in gold. The generic 'no stated prior / no decision change' framing is the sort of recitation that can be unearned, but it is anchored to specifics of this plan and desk: H1 benchmarks to a textbook DCF rather than to the desk's implicit turns-per-point rule, the elasticity is never connected to the transaction/web panels that are the fund's only route to forecasting revisions ahead of consensus, and the closing quintile sort is correctly identified as a crowded revision-momentum backtest dressed as validation. A PM asking 'what changes' would take this seriously. Flagged uncertain because the edge argument overlaps the contemporaneity point the reviewer treated as a design flaw rather than an edge flaw."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a sharp and plan-specific catch: the Pitfalls screen drops |\u0394CAGR|>20pp unless there is an earnings event or a >5% price move, and a >5% price move is essentially the dependent variable. That conditions sample inclusion on the outcome in the tail where \u03b21 has most of its leverage, and the robustness grid never varies this filter. This is not a canonical objection recited \u2014 it reads the plan's own screening rule."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate given the stated resourcing (three-person data team, one engineer): a global 2005-present PIT panel spanning I/B/E/S or Visible Alpha, Compustat and Worldscope filing-dated balance-sheet items and 8-digit PIT GICS is a multi-month build with licence spend, while the cheap entropy-reducing test (US large caps, I/B/E/S, binned scatter, hand-traced FY1/FY2 interpolation examples to separate growth from EBITDA definitional drift) is nearly free and absent. Concretely tied to this plan's build, not a generic 'do a pilot' note."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Directly earned from the firm context: the book is six to eighteen months, but every estimate is QoQ contemporaneous or one-month-ahead, and the plan's own rationale for expecting only 2-5%/100bp (revisions partly treated as transitory) implies possible unwind over the following two to four quarters. The 'turns at industry median multiple' translation PMs would actually use is therefore quoted at the wrong horizon. Specific, not boilerplate."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches gold blocking#3: the NTM/N2Y EBITDA > 0 screen excludes the firm-quarters with the most violent re-ratings, the exclusion is correlated with the regressor (negative-to-positive crossers have the largest \u0394CAGR), and the plan's diagnostic only tests the retained sample."
+      },
+      {
+        "item": "S6",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimately reads the plan's own 'economic validation' gate: the 8-12%/100bp theoretical elasticity depends on assuming the revision persists into the terminal period, which is precisely the persistence question H1 claims to be measuring, so benchmark and object of study share the same unknown. The observation that the 25-50% band is applied one-sidedly (above the band triggers a bug hunt, below does not) is a genuine evidence-standard flaw specific to this plan's validation design."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but a sharp and plan-specific point: the plan explicitly makes the reconstructed 'information date' the anchor for both the consensus-revision window (info-date minus 5 days) and the CAR windows, and the sources named (broker portals, ANR, Visible Alpha) do timestamp publication rather than sales-coverage circulation. The error is also directional \u2014 late dating understates what is priced and green-lights the long \u2014 which is the failure mode this desk cares about. Earned, not recited."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Superficially the canonical sample-size objection, but it is earned against this specific design: the plan proposes a regression of earnings-day CAR on guidance revision size fit on 12-16 quarters in which most observations are 'held guidance,' leaving very few revision events, and then feeds that coefficient into an EV number used for sizing against the straddle. The plan concedes wide CIs on base rates but not on the regression, so the point adds something. Not in gold."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate and specific: the plan uses the same check-derived logo count it elsewhere calls a non-random undersized sample, times an assumed ACV, times an assumed in-year ramp fraction, as the arithmetic benchmark the observed CAR must fall below. A modest swing in ACV flips that leg of the gate. A desk would take this seriously; it is distinct from the gold's complaint about the numeric cutoffs themselves."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Reasonable sequencing critique tailored to this plan and this desk: the plan lists 'check prior check episodes' actual outcomes' under Validation, after the event study and 12-16 quarter guidance table are built. Given a two-analyst team and a weeks-long catalyst horizon, moving the cheapest premise-killing test to step zero is a real efficiency objection, not a generic one."
+      },
+      {
+        "item": "S7",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and not a criticism of validity, but a legitimate desk-fit observation: the plan's own outcome map (checks priced, policy is to hold the guide, straddle rich) is a short-into-print setup for an event-driven book with a fast-cutting risk manager, yet stage-one failure only produces a pass note. The evaluator correctly flags severity as secondary and that nothing analytical breaks."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#2 (distributional/bps precision unsupportable given how the model is calibrated) and also hits secondary#4 (the 75bps gate as an arbitrary threshold sitting inside the model's own residual)."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Specific to this plan: the plan itself designates the 8-print base-rate check as a stop condition yet places it after the 12-quarter reconstruction and Monte Carlo, with a print imminent and two analysts. A desk would take the ordering complaint seriously."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and earned from the plan's own numbers: 6/8 positive-check quarters leaves only two contrast observations, so the declared kill test cannot establish lift against the unconditional Q2 raise rate. This is a reading of the stated design, not a recited sample-size complaint."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "matched",
+        "uncertain": true,
+        "why": "Substantially the reviewer's secondary#4 point that the thresholds are arbitrary \u2014 the 1.2x expected-vs-implied gate rests on an 8-observation regression with no stable slope. Torn because the statistical-instability framing is a distinct argument, but the conclusion is the same unsupported-threshold objection."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and specific: an 8% price stop cannot bound loss through an event whose implied/realized single-day move the plan itself gathers and which is plausibly near or above that level, while the 12% downside driving the 4% NAV sizing is asserted rather than derived. Concrete internal inconsistency in the risk section."
+      },
+      {
+        "item": "S7",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not covered by gold as written (blocking#2 is about statistical precision, not desk capacity). Grounded in the stated firm context \u2014 no quant staff, no dataset-building capacity \u2014 against a plan that stacks HG Insights/Enlyft, G2 velocity, job-posting series and a fitted cohort model ahead of the cheap kill test."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Specific and earned: RLOIB and ALLOIB come off the same signed tape, the plan names residualization but no variance-retained floor or coverage/stationarity gate, so a near-degenerate residual would yield an uninterpretable null after the whole TAQ/RETOIB build is sunk. A desk would take the sequencing point seriously."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Checks the plan's actual placebo list (mixed lots, exact-100, forward shift, sign randomization) and correctly notes none tests the retail mechanism; retail intensity enters only as a linear institutional-ownership control. The proposed negative control (low-retail, high-price mega-cap names) is a concrete, plan-specific fix bearing on the interpretation of the portfolio result."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold, but legitimate and specific: the plan literally says 'signal at t, entry t+1' without specifying open or close, and the half-spread-plus-square-root-impact model is calibrated on continuous-session prints. Given that daily order-flow reversal accrues overnight/early, this materially moves the headline breakeven-cost output."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Quotes the plan's own escape clause ('a positive 20-day coefficient is reinterpreted, not failure') and correctly notes the tradeable claim is directional while sign and horizon remain unpinned across h=1/5/20 and two subsamples. Concrete and cheap to fix with the split the plan already builds."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Earned rather than recited: it uses the plan's own choice of RETOIB as a control to argue the team knows the neighbourhood is populated, and adds a firm-specific mechanism (wholesalers internalising the good retail flow leave adversely selected residual on the exchange tape as round lots) that bears directly on forward availability of the alpha."
+      },
+      {
+        "item": "S8",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "The constructive core \u2014 the plan's binary standalone t>3 / 'unharvestable' terminus discards information about marginal contribution to a multi-signal book or an execution-scheduling overlay \u2014 is a real gap in the evaluation stage. But the stated error-asymmetry rationale sits awkwardly with this firm's context, where the stated killer is quoting into informed flow labelled uninformed (a Type I failure), and the 'firm runs breadth, absorbs false positives' framing reads as generic multi-strategy boilerplate. Escalating rather than calling it manufactured."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as blocking#1 (and overlaps blocking#5): conjunctive kill gates with un-derived thresholds against imperfect labels mean the project dies on threshold calibration rather than economics. The why_it_applies_here misdescribes the firm as a diversified systematic book judged across ~2,000 names, but the objection itself is the reviewer's."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "A specific instantiation of blocking#1: G4's 0.40 correlation floor is set against a benchmark whose sign-error rate the plan itself documents, with no attenuation correction, so measurement error is read as signal absence. Correctly earned on this plan's own text (latent-class used at G1 but not G4; VandaTrack aggregate vs stock-day)."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches blocking#5 \u2014 economics/incremental-content test deferred behind label gates \u2014 and adds the correct observation that pre-registration, not last position, is what protects against a retrofitted retail story."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Matches blocking#3: the half-penny/tiered-round-lot break is dodged by truncating to a pre-compliance window, so identification is established under a round-lot definition and tick regime that will not exist at deployment."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold as a distinct item, but a legitimate, plan-specific point: G3 is a hard stop estimated on RMO-certified lit RLP prints \u2014 a selected, admittedly very-low-recall residual \u2014 while the bulk of retail in this sample internalizes to the TRF, which is the partition where the signal would live. A desk would take the transfer-validity objection seriously."
+      },
+      {
+        "item": "S8",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "manufactured",
+        "uncertain": true,
+        "why": "Rests on a false premise about this firm ('the firm's horizon is days to weeks', weekly retail-imbalance effects), and the capacity/crowding demand is the generic systematic-equity checklist rather than something earned against a nanosecond-to-seconds internalizer whose economics are spread capture net of adverse selection and inventory risk. The kernel that Phase 2 leaves the return horizon unspecified is real, but the objection as written points away from the reviewer's actual horizon complaint."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Legitimate and earned against this firm specifically: one analyst, no infrastructure, and the plan enumerates a customer-cash check (contract liabilities, deposits, capex funding) and a reverse DCF alongside multi-episode prior-cycle reconstruction as if equal cost. The 'if there is no cash and no minimums, the tiering apparatus is moot' gate is a real sequencing observation about this plan's own stated prior (enforceable cash-backed commitment is usually weak), not a generic 'do it in stages' complaint."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and not generic. It engages the specific ASC 606-10-50-13 machinery the plan names: practical expedients for sub-one-year contracts and wholly unsatisfied variable consideration, plus issuer discretion on cancellable amounts, mean the LTA-to-RPO gap the plan calls 'the key signal' can be a disclosure-policy artifact. 'In RPO' appears in the tier definitions, so the point bites on the mechanism. A desk would take this seriously."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold secondary#2 (the 90-95/70/25-35 haircuts and the 60%/40% gates are asserted rather than derived, and the verdict is set by an uninspectable parameter), and it overlaps gold blocking#3 on the thinness of the calibration source. The added 'IC cannot inspect the calibration' framing is the same objection dressed for this firm."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold. Specific to the plan's own stated identity: net bookings solved as a plug and cancellations backed out of the same equation, with FX, M&A, modifications and 12-month/remainder reallocation all landing in one residual \u2014 and 'negative implied gross bookings two straight quarters' is a pre-committed kill criterion. That is a genuine underdetermination critique of a named mechanism, not a recited overfitting concern."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Carries gold blocking#3's substance: the backtest that was supposed to calibrate the haircuts cannot deliver for two of the four named episodes, collapsing the calibration base. The added feasibility limb (four episodes plus peers plus customer mirror tables is not one-analyst work at a two-analyst shop covering 25-30 names) is a legitimate firm-fit extension rather than a separate manufactured point."
+      },
+      {
+        "item": "S9",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Adjacent to gold secondary#2 but a distinct objection: not that the thresholds are underived, but that two of them are structurally unobservable \u2014 customer purchase-obligation tables are aggregate and do not name suppliers, and segment-level RPO/LTA allocation is rarely disclosed \u2014 so an all-six conjunctive gate auto-fails on disclosure availability rather than business quality. Earned from the actual disclosure regime, not recited."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate and specific to this plan: the seed question is about one name, the plan's own thesis makes the subject's requalification lag/single-sourcing the decisive variable, and no step measures it for the subject. The output would be assigned to the company by assertion. Not in gold, but a desk would take it seriously."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1 \u2014 the plan is built on vendor datasets and infrastructure this five-person, no-engineer shop cannot buy or operate, and commits the analyst before any cheap test. Adds the execution-scale angle but the core is the reviewer's data-constraint objection."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Earned and plan-specific: the plan cites the ~$16bn LTSA figure, the Renesas-Wolfspeed deposit and 'the 2023-2025 correction' while proposing to hold out that same cycle, and pre-labels aerospace/LNG 'best case' and MLCC/containers 'worst case' before declaring the validation to be that aerospace/LNG score durable and MLCC/containers fragile. That is a concrete circularity in the stated validation, not a recited canonical objection."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "contradicts_gold",
+        "uncertain": true,
+        "why": "The dominant thrust \u2014 effective N is three or four correlated shocks rather than thirty, and conditioning on qualification lag x sourcing x credit x pricing leaves cells of one or two so probabilities are unsupported \u2014 is precisely the 'twenty to thirty episodes is too few or too heterogeneous' objection the reviewer explicitly ruled out, noting the plan ranks by conditional base rate rather than regressing and within-industry behavior is stable across cycles once cause and regime are accounted for. Flagged uncertain because the accompanying outcome-bracketed-selection point (episodes chosen to span 'best case'/'worst case', so unconditional frequencies are not base rates) is a distinct objection the reviewer did not address; if scored alone it would be real_unlisted."
+      },
+      {
+        "item": "S9",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Sharp sequencing point tied to this plan and firm: the thesis is bimodal on one determinable variable, the subject's in-term requalification feasibility, which an analyst could settle in days, yet it sits behind episode coding, capacity ledgers and breach arithmetic, and the HBM pre-registration checks resolve in twelve months against a decision due now. Not in gold and not a generic recitation."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#3 \u2014 the 5\u201310 comparable uplift distribution is unobservable, so the likelihood weighting and the ~75bps trigger rest on a judgment dressed as a percentile. Correctly diagnoses why the named proxies (NRR blends price/volume/cross-sell; RPO vs billings) cannot recover single-contract price."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 1,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and legitimately earned: an ordinary-course vendor licence is not a filed material contract for the issuer, so material-contract exhibits, risk factors and prior 8-Ks will not yield caps, true-up rights, MFN or audit clauses. This bites precisely because the plan self-declares metric changes the highest-priority input and the step-function tail is the only thesis-relevant branch for a 3\u20135 year holder. (Minor sloppiness: '$400M-cap-relevant customer' confuses the firm's AUM with the issuer's size, but the substance stands.)"
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Specific and sequencing-aware rather than canonical: on the plan's own hypothesis a mid-single-digit-of-opex line reprice phased over years is likely below reported-opex noise, so the single named validation (back-test against the prior renewal) may be unexecutable \u2014 and that same finding tells you the current renewal will not be observable ex post either. Worth doing first, cheaply, before Steps 1\u20133 are sunk."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": true,
+        "why": "Legitimate and firm-anchored \u2014 GSA/Crown Commercial triangulation, LinkedIn headcount reconstruction, migration-NPV integration-point costing and covenant headroom are analyst-weeks in a two-analyst shop against a self-declared 30\u201390bps base case, and the expensive branches are not gated. Overlaps partially with gold blocking#2's 'much of the plan is wasted' sentiment but argues proportionality/gating rather than redundancy with what the analyst already holds, so scored as unlisted with uncertainty."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold and specific to this firm's 3\u20135 year concentrated holding period: the decision-relevant quantity is whether vendor share of opex ratchets each renewal cycle as switching cost grows, which Step 4's reconstruction could support if extended forward instead of used only as calibration. Identifies a real failure mode \u2014 'immaterial this year' while the structural repricing path is the actual finding."
+      },
+      {
+        "item": "S10",
+        "slot": "A",
+        "idx": 5,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as gold blocking#1 \u2014 the plan asserts rather than establishes that the language is uninformative, and closes the fundamentals half of the seed question with immateriality plus a logged open question. Proposes the discriminating checks (topic-specificity of the evasiveness, degradation of disclosure granularity on this line) the plan omits."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 0,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Same concern as the reviewer's core diagnosis (praise#3's corollary plus blocking#2): the plan's centre of gravity is a market-wide panel when what is needed is the same two questions asked of this issuer's own transcript history and disclosable exposure, delivered before the renegotiation resolves."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 1,
+        "bucket": "matched",
+        "uncertain": false,
+        "why": "Direct match to blocking#1 \u2014 infeasibility for a five-person non-technical desk and non-inspectability of the composite at committee."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 2,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Not in gold but earned on this plan: the seed is explicitly a variant-view question ('worse than management has communicated'), and Visible Alpha GM consensus appears only as a regression outcome, never as the benchmark for what is already discounted. Defensiveness on a live negotiation is public to every listener, so the plan can be right and non-differentiated. Desk-relevant and specific."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 3,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Legitimate and plan-specific: the direct margin driver (purchase-obligations tables, vendor price changes, licence share of COGS) is partly disclosable, yet the plan routes the inference through a linguistic composite whose margin link is a pooled-panel average, and the within-firm 1.5 SD baseline is built from calls with no renegotiation underway. Sharpens the plan's own 'legal-constraint mimics guilt' pitfall by noting the post-conclusion test arrives after the decision."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 4,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Concrete against this plan's stated gates: >=3 vendor exchanges, >=150 words, >=4 prior calls per speaker and a trailing-eight-call vendor-topic baseline are unlikely to be met for a name whose licence only became a call topic because it is now being renegotiated, and the gate is checked last. Not a generic sequencing complaint."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 5,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Real: the plan pre-commits thresholds (|t|>=2.5, 15bp, 5pp lift, Romano-Wolf) for the panel but states no judgement rule for the N=1 IC decision the seed actually poses. Closely adjacent to the reviewer's 'scale it to this desk' remedy but adds a distinct point about where the evidence standard is placed."
+      },
+      {
+        "item": "S10",
+        "slot": "B",
+        "idx": 6,
+        "bucket": "real_unlisted",
+        "uncertain": false,
+        "why": "Specific and decision-relevant for a three-to-five-year holder: a repriced licence hits COGS on an effective date with step-ups, prepaids or capitalisation, not smoothly across t+1..t+4 as the outcome definition assumes, and one-year step-down versus permanent structural cost shift is the distinction that drives the hold decision. Not a recited canonical objection."
+      }
+    ]
+  }
+}
