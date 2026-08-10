@@ -64,7 +64,7 @@ finding only means something once `goal_type` says breadth applies, and
 **Weighted by `preference_strength`.** Gold picks A or B but marks the call
 `strong` or `weak`. Report three ways: overall, strong-only, weak-only.
 Strong-only is the headline — disagreement on a weak item is a different failure
-from missing a clear one, and on a fourteen-item eval a few coin-flips would
+from missing a clear one, and on a ten-item eval a few coin-flips would
 otherwise swamp the signal. Read against the model's `confidence` for calibration.
 
 **`decisive_tenets` replaces five free-text note fields** and is more scoreable
@@ -149,13 +149,23 @@ are themselves scoreable: a capability build returns `not_applicable`, and
 `speed` is a legitimate edge, so a model recognizing only `variant_view` will
 wrongly penalize an arbitrage-shaped plan.
 
-**4. Context sensitivity — the flip items.** `S2F`, `S5F`, `S8F`, `S9F` are the
-same seed and plans under a different firm. Where gold preference changes, the
-evaluator should change; where gold holds, an evaluator that flips is
-over-reading. **A model that never changes across a flip is not applying tenet 2
-at all**, whatever its raw accuracy. Cross-check: `plan_implied_asker` should
-stay the same across a flip — the plan didn't change — while `fits_firm` moves.
-Drift there means the model is reading the context into the plan.
+**4. Context sensitivity — `fits_firm` against `plan_implied_asker`.** Every item
+states who is asking, and the two fields separate reading the plan from reading
+the brief: `plan_implied_asker` is a property of the plan alone, `fits_firm` is
+the match between that plan and this desk. A model that returns the same
+`fits_firm` verdict regardless of which firm the item names is not applying
+tenet 2, whatever its raw accuracy — compare its `fits_firm` distribution across
+the four firms (`systematic`, `midsize_ls`, `small_lo`, `event_desk`,
+`ls_altdata`) against gold's.
+
+This axis was originally carried by four **context-flip items** — the same seed
+and plans shown under a different firm, so preference change could be measured
+directly. They were cut to keep the eval at one item per seed; the mechanism is
+retained in `contexts.json` and restoring them is a config edit plus a rebuild.
+Cross-firm comparison within the ten items is the weaker substitute: it cannot
+hold the plan fixed, so a difference in `fits_firm` confounds firm with seed.
+**If this axis matters to a conclusion, restore the flips rather than lean on
+the substitute.**
 
 ## Conflicts are scored, not averaged
 
@@ -179,7 +189,7 @@ Haiku 4.5 → Sonnet 5 → Opus 4.8 → Opus 5.
 - **Tenets 7 and 10 are pointwise-only.** No plan states a low-N conviction
   design (20/20) or names an inspectable checkpoint (19/20), because generation
   predated the tenets. Pointwise still works — the test becomes whether the model
-  notices a *universal* absence, and empty findings across all 14 items is a
+  notices a *universal* absence, and empty findings across all 10 items is a
   visible failure. Pairwise cannot use them. **Empty is a property of the item
   set, not a model error.** We deliberately did not build probe pairs: making a
   plan that *has* checkpoints means instructing a generator to include them,
@@ -193,5 +203,10 @@ Haiku 4.5 → Sonnet 5 → Opus 4.8 → Opus 5.
 - **Gold is one reviewer**, and the tenets come from the same person. This
   measures agreement with a stated desk standard, not objective plan quality.
 - **n = 1 per call.** No re-rolls; run-to-run variance unmeasured.
-- **Fourteen items.** A 7-point accuracy difference is one item. Treat small gaps
-  between adjacent models as noise unless the pointwise metrics agree.
+- **Ten items.** A 10-point accuracy difference is one item. Treat small gaps
+  between adjacent models as noise unless the pointwise metrics agree. This is
+  the binding limitation on the whole eval: with A/B order swaps there are 20
+  pairwise judgments per model, and the model-intelligence gradient the brief
+  asks for has to be visible against that. Replicates are cheap (see the cost
+  note in REPORT-NOTES.md) — run several and report the spread, or the gradient
+  is unreadable.

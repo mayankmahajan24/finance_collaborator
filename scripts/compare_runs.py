@@ -37,9 +37,24 @@ BOTH_WAYS = {
 }
 
 
+LIVE = {p.stem for p in (ROOT / "part2" / "items").glob("*.json")}
+
+
 def load(model: str, mode: str) -> dict | None:
+    """Load a run, keeping only calls for items that still exist.
+
+    Items can be cut between sweeps (the four context-flip items were). Comparing
+    a 14-item run against a 10-item one would be meaningless, so every run is
+    restricted to the live item set and the drop is reported."""
     p = RUNS / model / f"{mode}.json"
-    return json.loads(p.read_text()) if p.exists() else None
+    if not p.exists():
+        return None
+    d = json.loads(p.read_text())
+    kept = [r for r in d["results"] if r["id"] in LIVE]
+    d["dropped"] = len(d["results"]) - len(kept)
+    d["results"] = kept
+    d["n_errors"] = sum(1 for r in kept if r["status"] == "error")
+    return d
 
 
 def pairwise_stats(d: dict) -> dict:
@@ -117,7 +132,7 @@ def main() -> None:
             continue
         fps.setdefault(("pairwise", d["prompt_fingerprint"]), []).append(m)
         s = pairwise_stats(d)
-        print(f"{m:<22}{s['calls']:>6}{s['errors']:>5}"
+        print(f"{m:<22}{len(d['results']):>6}{s['errors']:>5}"
               f"{s['consistent']}/{s['pairs']:<7}{s['slot_a_rate']:>6.0%}"
               f"{s['frame_stable']:>8}{s['decisive_mean']:>7.1f}{s['conf_mean']:>6.1f}")
 
@@ -133,8 +148,14 @@ def main() -> None:
             continue
         fps.setdefault(("pointwise", d["prompt_fingerprint"]), []).append(m)
         s = pointwise_stats(d)
-        print(f"{m:<22}{s['calls']:>6}{s['errors']:>5}{s['issues_mean']:>8.1f}"
+        print(f"{m:<22}{len(d['results']):>6}{s['errors']:>5}{s['issues_mean']:>8.1f}"
               f"{s['issues_max']:>5}{s['blocking_mean']:>10.1f}{s['no_falsifier']:>14}")
+
+    drops = {m: load(m, "pairwise")["dropped"] for m in models if load(m, "pairwise")}
+    if any(drops.values()):
+        print()
+        print("Calls excluded (item no longer in the set):",
+              ", ".join(f"{m}:{n}" for m, n in drops.items() if n))
 
     print()
     print("Both-directions fields — times the OVER- value was used")
