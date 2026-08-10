@@ -72,6 +72,23 @@ than they were: it says directly which tenets did the work, comparable against
 gold's own list. A model reaching the right answer for the wrong reason is
 visible here and nowhere else. Listing many tenets means nothing decided it.
 
+**Score it as overlap with partial credit, never as set equality.** Gold lists
+what drove the *preference*, not everything wrong with the two plans, and a tenet
+can dominate a critique without being decisive. S8 is the clearest case: the
+gold's `critique_A` opens on horizon — trading against retail flow is a
+market-making activity at nanoseconds to seconds, and both plans build daily
+signals — which is tenet 6 exactly, while `decisive_tenets` is `1, 2` because
+goal identification and firm fit are what settled the choice. A model naming
+tenet 6 there has found the sharpest issue in the item and would score zero under
+exact match.
+
+Across the ten base items gold uses tenet 2 five times, 7 four times, 1 and 5
+three times each, and 3, 4, 8, 10, 11 once each. **Tenets 6, 9 and 12 are never
+decisive, and 13 never appears by design** (it is scored through
+`why_it_applies_here` on every issue). Their absence is a property of this item
+set, not evidence that a model citing them is wrong — before scoring such an
+answer as a miss, check whether the tenet appears in gold's critique prose.
+
 Each pair runs **both ways** (A/B and B/A):
 
 | Diagnostic | What it catches |
@@ -124,13 +141,21 @@ Ordinary accuracy separates models weakly. These four separate them sharply,
 because each traps a model that maximizes a single virtue.
 
 **1. Error asymmetry — there is no fixed standard of rigor.** On a
-`type_i_dominant` item (`small_lo`, `event_desk` — concentrated, explicit loss) a
-demanding plan is correct and `too_permissive` is the failure. On a
-`type_ii_dominant` item (`systematic` — breadth, symmetric payoff) the *same*
-plan becomes `too_conservative`. A model preferring the thorough plan everywhere
-is right on the concentrated items and wrong on the systematic ones. **Report
-`error_posture_fit` accuracy split by the item's true asymmetry — the pattern is
-the finding, not the aggregate.**
+`type_i_dominant` item a demanding plan is correct and `too_permissive` is the
+failure; on a `type_ii_dominant` item the *same* plan becomes
+`too_conservative`. A model preferring the thorough plan everywhere is right on
+the first kind and wrong on the second. **Report `error_posture_fit` accuracy
+split by the item's true asymmetry — the pattern is the finding, not the
+aggregate.**
+
+**Asymmetry is a property of the item, not of the firm**, and the gold proves
+it: `event_desk` carries `type_i_dominant` on S4 (reading strategy into a
+scheduled financing event) and `type_ii_dominant` on S7 (incrementally positive
+news, so the exposure is missing the raise rather than being wrong in the name).
+`midsize_ls` and `systematic` likewise split across items. This makes the axis
+sharper than a firm-level mapping would: a model that infers the asymmetry from
+the firm label is reasoning from a correlation that does not hold, and S4 against
+S7 is the pair that catches it.
 
 It also constrains the evaluator's own behaviour, checkably: on
 `type_ii_dominant` items a long issue list has inflated the reviewer's own Type I
@@ -195,6 +220,15 @@ Haiku 4.5 → Sonnet 5 → Opus 4.8 → Opus 5.
   then ambiguous between "items too easy" and "rubric too explicit." If Haiku
   scores near the top, run a no-tenets control on 3–4 items before concluding
   anything about difficulty.
+- **`goal_type` is not always single-valued.** On S8 the gold labeller judged
+  `mechanism_test`, `blind_fit_oos` and `broad_market_effect` all partially
+  right, and picked `blind_fit_oos` as primary only because the field needs one
+  value to score. Exact-match accuracy on `goal_type` therefore overstates its
+  own precision: a model answering `mechanism_test` on S8 is marked wrong for a
+  distinction the human could not make cleanly either. Read `goal_type` accuracy
+  as a floor, and where a model's `goal_type` differs from gold, check whether
+  its downstream judgments are coherent *with its own answer* before scoring it
+  as an error.
 - **Gold is one reviewer**, and the tenets come from the same person. This
   measures agreement with a stated desk standard, not objective plan quality.
 - **n = 1 per call.** No re-rolls; run-to-run variance unmeasured.

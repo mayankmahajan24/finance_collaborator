@@ -484,3 +484,159 @@ with model intelligence; if Haiku gets 90% the items are too easy* — is an
 **accuracy** claim, and accuracy needs gold, which is still empty. The diagnostics
 show Haiku is clearly separated on process; they cannot yet show it is separated
 on being right.
+
+---
+
+# Note 6 — What the gold pass exposed about the plans
+
+**Date:** 2026-08-09
+**Produced by:** labelling `part2/gold/S1..S10` item by item against `TENETS.md`.
+
+Part 1 measured Claude critiquing itself. This note is different evidence: a human
+reading twenty plans closely enough to pick between them and say why. The failure
+modes below recur across items, slots and methodologies, so they are properties of
+how Claude plans research — not of any one seed.
+
+## The headline: manufactured precision
+
+Part 1's finding was that **Claude buys recall with volume**. The gold pass found
+the same instinct in a second register: **Claude buys credibility with precision.**
+It reaches for exact-looking numbers that were never derived from anything, and the
+numbers then carry decisions.
+
+**Arbitrary numeric thresholds — flagged on five of ten items, in both slots:**
+
+| Item | The numbers | What rests on them |
+|---|---|---|
+| S4_A | prior of 20:1–30:1 against, ~25x likelihood ratio required, "leverage-driven one to three in fifty" | The entire evidence bar. The denominator was invented |
+| S7_A | >0.5% priced / <0.2% dismissed, CAR under 1 SD, straddle under 1.2x trailing median | The stop-go gate before any fundamental work |
+| S7_B | ≥75bp above midpoint, ≥50bp above consensus, raise >1.5x median, move ≥1.2x implied | Whether the trade goes on at all |
+| S8_B | lift ≥2.0x, recall ≥35%, signing ≥70%, r ≥0.40, t ≥3 | Five conjunctive kills on labels with no ground truth |
+| S9_A | tier haircuts 90–95 / 70 / 25–35%, six constructive conditions | The coverage math and the verdict |
+| S10_A | under 25bp makes tone moot, over 75bp forces a call | The materiality frame |
+
+Human verdict, recurring verbatim: *"the explicit numeric thresholds seem
+arbitrary"*, *"the thresholds for both are a bit arbitrary."* This is distinct from
+a missed issue. A plan that says "we will stop if the effect is small" is honest; a
+plan that says "we will stop below 0.5%" has produced an unearned decision rule and
+made it load-bearing. It reads as discipline and functions as decoration.
+
+## Recurring failure modes, with citations
+
+**1. Horizon set by data availability, not by the phenomenon (tenet 6).** S6_A
+proposed a TAQ tick-data check for a question about multiple re-rating — *"the time
+horizon for a multiple rerating is months to years NOT milliseconds."* S8: both
+plans built daily signals with next-day entry when fading retail order flow is a
+market-making activity at nanoseconds to seconds. Claude reaches for the highest
+resolution available rather than the resolution the phenomenon lives at.
+
+**2. Plans that don't scale to the asker (tenet 2).** S6_A wanted TAQ at a firm
+with no tick data. S9_B assumed a subscription stack — TrendForce, Fastmarkets,
+UxC, Argus/ICIS, Drewry/Xeneta, Panjiva, PACER, SEMI — at a five-person Bloomberg
+shop; the human's fix was that *"the firm would need to cobble together data points
+individually using their analysts."* S10_B proposed a 40,000 firm-quarter panel
+with embeddings and a pinned LLM at that same shop: *"you can't do a 40,000
+firm-quarter panel in excel, nor would that firm be interested in that kind of
+analysis even if it is stronger statistically."*
+
+**3. Reasoning like an outsider when the asker has better data.** S8: both plans
+triangulated public retail-identification labels — Rule 605 reports, RLP flags,
+sub-penny classification — at a firm that *internalizes retail flow* and therefore
+holds real labels in its own systems. Neither considered it. Claude imports the
+data constraints of an academic researcher into firms that don't have them.
+
+**4. Fixing the mechanics by breaking the measure (tenet 5).** S6_A killed the
+circularity correctly, then adopted a trailing LTM multiple — *"an alternate
+valuation metric that doesn't reflect how assets are priced in public markets
+(mostly on forward earnings not prior earnings)."* One error traded for a worse one.
+
+**5. Naming a leak and keeping it anyway.** S2_A headlines a random 20%
+company-quarter holdout and states *in the same sentence* that random splits leak,
+demoting rolling-origin to a gate. Claude can identify the contamination and still
+report the contaminated number. This is the brief's own named failure — "propose
+validation that leaks" — in a form where the plan diagnoses itself and does not act.
+
+**6. Generalizing what shouldn't be generalized.** S4_A coded 40–60 comparable
+guarantor releases as draws from a common distribution: *"tries to generalize
+something that should not be generalized."*
+
+**7. Kitchen-sink fitting over hypothesis-led subsetting.** S5_A: *"it's better to
+start with strong priors / subsets of the data and market you think the signal will
+work on and test that."* Related, same item: the custom domain-adapted transformer
+may be unnecessary if *"finbert or some time series z score with a standard scoring
+model works well"* — Claude reaches for the most capable method rather than
+establishing what the cheap one delivers first.
+
+**8. No commercial baseline.** S5_A never sets a licensed vendor score as the
+hurdle a custom build must clear. Claude benchmarks against academic baselines and
+factor models; it does not ask whether you could simply buy the signal.
+
+**9. Human-fatigue caveats under AI execution (tenet 10).** S4_B warns that *"after
+300 pages every clause looks intentional."* The volume of reading is not a cost
+when an AI reads it; the missing content is a rule for separating genuinely salient
+clauses from precedent boilerplate.
+
+**10. Gating on evidence the setting cannot produce (tenet 7).** S8_B stakes five
+conjunctive kills on labels with no ground truth, so a label-quality failure reads
+as a signal failure. S3_B manufactures ground truth with a consented survey of 500
+respondents per country — *"it should not have required any survey work."*
+
+**11. Screening out the interesting observations.** S6: both plans screen away
+negative and near-zero EBITDA denominators. *"The negative denominator multiples
+can be handled by switching to a revenue multiple instead of EBITDA multiple"* —
+the cases dropped are the ones where re-rating is most violent.
+
+**12. Not questioning the primitive.** S8 fixes round lots at 100 shares
+(A explicitly holds it fixed against the SEC's own tiered redefinition). *"100
+shares can be a lot, we should also consider 1, 5, 10, 20 shares as round."*
+
+**13. Delivering the framework instead of the answer.** S9_B ends at *"a
+probability-weighted haircut, not a verdict"*; S3_A's primary output is country
+plus archetype, which is not a tradable name. The work stops one step short of the
+decision it was commissioned for.
+
+## What the plans got right
+
+Recording these because precision is only measurable against sound work.
+
+- **Both plans on S4 and S7 refused the seed's embedded conclusion.** S4 enumerated
+  five mundane nulls before the strategic reading; S7 gated on whether the checks
+  were already priced. Anchoring on the question's framing — a Part 1 failure — did
+  not recur here.
+- **Circularity was caught unprompted on S6 by both plans**, and on S1_B, which
+  states the denominator problem explicitly and builds a permutation null against it.
+- **Self-diagnosis is strong even where self-correction is not.** S2_A names its own
+  leak; S3_A states "cohesion isn't correctness"; S8_A concedes a one-day sign would
+  be liquidity provision. In each case the plan sees the problem and proceeds anyway
+  — which is a more specific and more actionable finding than "misses the flaw."
+
+## Findings about the eval itself
+
+- **`goal_type` is not always single-valued.** On S8 three of five categories were
+  judged partially right. Exact-match scoring on that field overstates its precision.
+  Written into `SCORING.md`.
+- **Error asymmetry is a property of the item, not the firm.** `event_desk` came
+  back `type_i_dominant` on S4 and `type_ii_dominant` on S7. The original scoring
+  design asserted a firm-to-asymmetry mapping; the gold disproves it, and S4 vs S7
+  is now the pair that catches a model inferring asymmetry from the firm label.
+- **`decisive_tenets` is not the same as critique content.** S8's sharpest issue is
+  horizon (tenet 6) while its decisive tenets are 1 and 2. Scored as set equality,
+  a model naming tenet 6 there would be marked wrong for finding the best objection
+  in the item. Now scored as overlap with partial credit.
+- **Tenets 6, 9 and 12 are never decisive** across the ten items; 13 never appears
+  by design. Their absence is an item-set property, not a model error.
+- **The pairs are unbiased by construction.** The winning plan came from methodology
+  M1 five times and M2 five times, with plans matched within ~2% on length. The
+  pairwise metric is measuring judgment, not generation style or verbosity.
+- **Issue count does not track preference.** S1's gold carries three issues against
+  the winner and one against the loser. A discriminator scoring by defect tally gets
+  that item exactly backwards, which is the property that makes it worth including.
+- **Context is load-bearing and was wrong twice.** S3 and S8 both needed their firm
+  reassigned once the seed's natural asker became clear — S8 to a market maker,
+  because the horizon critique was otherwise punishing a model for correctly
+  following the stated brief. Seeds carry an implied asker, and the assignment has
+  to match it or the item tests the wrong thing.
+- **"Say when an objection doesn't apply" was exercised repeatedly** — the thin gate
+  sample on S2, the event-count and heterogeneity objections on S9, the reading
+  volume on S4. These are the precision anchors: without them a model manufacturing
+  plausible objections scores well on recall and its noise stays invisible.

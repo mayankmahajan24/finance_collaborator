@@ -5,6 +5,7 @@
     "small_lo": "A five-person old-school long-only manager, ~$400M AUM, 25-30 concentrated positions held three to five years. Two PMs, two analysts, one operations person. Tooling is Bloomberg, Excel, and filings; there are no engineers and no data scientists, and nobody here maintains a database. They buy research and datasets occasionally but cannot operate infrastructure. What kills them is being wrong about a business, not transaction costs. Anything proposed must be executable by one analyst and defensible to an investment committee that is skeptical of models it cannot inspect.",
     "midsize_ls": "A mid-size fundamental long/short equity fund. ~30 investment staff, a three-person data team that licenses and cleans alt-data panels, and one engineer. Horizon is six to eighteen months. They can run a panel study or a cohort analysis and routinely buy transaction and web data, but they do not have tick data or execution infrastructure and will not build production ML. Output is expected to change position sizing on named companies, and to be defensible to a PM who will ask what would have to be true for it to be wrong.",
     "event_desk": "A single-name event-driven desk inside a multi-manager platform. One PM, two analysts. Horizon is weeks to a few months around a catalyst. Deep primary-source and legal-document work, expert networks, and a risk manager who cuts positions fast. No quantitative research staff and no capacity to build datasets; they consume sell-side, filings, and expert calls. The question is always whether this specific situation is mispriced right now, not whether an effect holds on average.",
+    "market_maker": "An electronic market-making firm that internalizes and quotes against retail order flow. ~60 engineers and quantitative researchers, colocated infrastructure, full order-book and tick data, and its own matching, quoting and risk systems. Horizon is nanoseconds to seconds; inventory held overnight is a failure of the hedging stack rather than a trade. Work is judged on realized spread capture net of adverse selection, on inventory risk, and on whether a classification can run inside the quoting loop at production latency. What kills them is systematically quoting into informed flow they had labelled uninformed.",
     "ls_altdata": "A mid-size long/short equity fund that has just licensed a European retail transaction panel. ~30 investment staff, a three-person data team that cleans alt-data panels, and one engineer. Horizon is six to eighteen months. They want to take positions in specific listed European banks and to use the panel to underwrite them \u2014 deposit flows, salary capture, customer acquisition, attrition. The obstacle is that the panel's institution IDs are anonymized: until an ID is matched to a bank, none of the behavioral data can be attached to a ticker. What kills the work is a confident wrong match, because the desk would then be sizing a position on another bank's customers. Must be defensible to a PM who will ask what would have to be true for it to be wrong."
   },
   "assignment": {
@@ -15,7 +16,7 @@
     "S5": "systematic",
     "S6": "midsize_ls",
     "S7": "event_desk",
-    "S8": "systematic",
+    "S8": "market_maker",
     "S9": "small_lo",
     "S10": "small_lo"
   },
