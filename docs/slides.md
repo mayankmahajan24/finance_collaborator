@@ -47,19 +47,19 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Claude buys recall with volume, and credibility with precision
+# Recall cannot rank judgment. Precision can.
 
-**Across 10 investment-research seeds, a weaker model matches a stronger one's issue coverage by firing 9× more objections — half of them invented. The same failure appears in the plans themselves as arbitrary numeric thresholds.**
+**Across 10 investment-research seeds, Haiku 4.5 covers 53% of the blocking issues a human reviewer found and Opus 5 covers 62%. Haiku gets there by raising 28.6 objections per review against Opus 5's 6.7, and half of Haiku's are invented.**
 
-So the metric that ranks discriminators is not recall or F1, but **manufactured objections per review** — and the eval must be built to make that visible.
+Ranked on recall, the weakest model comes second. F1 does not fix it. So the eval scores precision alongside recall.
 
 <span class="byline">Mayank Mahajan</span>
 
 <!--
 Part 1 asks whether Claude turns a half-formed research idea into an executable plan. Part 2 builds
-an eval for whether it can tell a good plan from a bad one, and runs four models against human gold.
-Part 3 proposes how to collect that gold at scale. The spine is one finding in two registers:
-volume substitutes for judgment, and it looks like rigor until you score precision.
+an eval for whether it can tell a good plan from a bad one and runs four models against human gold.
+Part 3 proposes how to collect that gold at scale. One finding runs through all three: volume
+substitutes for judgment, and it reads as rigor until precision is scored.
 -->
 
 ---
@@ -68,22 +68,24 @@ volume substitutes for judgment, and it looks like rigor until you score precisi
 
 ## Key takeaways
 
-- **Recall does not rank the models, and F1 does not fix it.** Haiku 4.5 covers 53% of blocking gold issues — beating Sonnet 5 (29%) and Opus 4.8 (33%) — by raising **28.6 objections per review against Opus 5's 6.7**. Only **manufactured-per-review** produces the expected gradient: **14.0 / 0.10 / 0.15 / 0.05**.
+- Haiku 4.5 covers 53% of blocking gold issues, beating Sonnet 5 (29%) and Opus 4.8 (33%), by raising **28.6 objections per review against Opus 5's 6.7**. Recall ranks it second; F1 does not fix the ordering.
 
 | | Haiku 4.5 | Sonnet 5 | Opus 4.8 | Opus 5 |
 |---|---|---|---|---|
 | Pairwise accuracy, **strong** items *(baseline 50%)* | 58% | 67% | 67% | **75%** |
 | Blocking-issue recall *(of 45)* | 53% | 29% | 33% | **62%** |
-| **Manufactured objections / review** | **14.0** | 0.10 | 0.15 | 0.05 |
+| **Invented objections / review** | **14.0** | 0.10 | 0.15 | 0.05 |
+| Precision | 50.0% | 97.0% | 91.7% | **97.7%** |
 
-- **Confidence is a free difficulty label.** On items I marked `strong`, the ranking holds and all four beat chance. On `weak` items **all four lose to always-answer-A** — those items measure nothing. Score the sure items as the headline.
-- **The same defect shows up in the plans.** *Manufactured precision* — invented numeric thresholds (a 20:1 prior, a 25× likelihood-ratio bar, 0.5%/0.2% entry gates) — appeared in **5 of 10** pairs. Unearned specificity reads as rigor.
-- **Two generators are the whole ceiling.** Haiku ∪ Opus 5 covers **76%** of blocking issues; **Sonnet 5 and Opus 4.8 contribute zero unique findings.**
+- **Invented-per-review is precision rescaled by volume** — same ranking. The count is what reaches the reviewer: at 90% precision, 3 issues/review costs 0.3 junk items, 100 costs 10.
+- On `strong` items the ranking holds and all four beat chance. On `weak` items all four lose to always-answer-A, so those items measure nothing.
+- Invented numeric thresholds — a 20:1 prior, a 25× likelihood-ratio bar, 0.5%/0.2% entry gates — appear in **5 of 10** plan pairs.
+- Haiku ∪ Opus 5 covers **76%** of blocking issues. Sonnet 5 and Opus 4.8 contribute zero unique findings.
 
 <!--
-The headline table is the deliverable's core. The weak-item result is the one I'd most want
-challenged: two of four models sit exactly at 50% there, and the correct baseline is not a coin
-flip but always-answer-A, which scores 75% on the weak subset given its 3A/1B split.
+The weak-item result is the one I would most want challenged: two of four models sit exactly at 50%
+there, and the right baseline is not a coin flip but always-answer-A, which scores 75% on the weak
+subset given its 3A/1B split.
 -->
 
 ---
@@ -100,14 +102,13 @@ flip but always-answer-A, which scores 75% on the weak subset given its 3A/1B sp
 | **D · Honesty** | **11** Always ask what would make this wrong · **12** Do not invent economics — stay inside the question as framed |
 | **E · Review** | **13** Standard objections must earn their place in *this* context |
 
-- Groups are **ordered** — a frame error (A) invalidates everything downstream — and precedence rules resolve the designed conflicts: rigor *vs* speed, breadth *vs* firm fit, explainability *vs* performance.
-- **Tenet 13 is the precision tenet**, added because of the failure on slide 2. Every item carries firm context: a plan is good or bad **for someone**.
-- Decisive tenets cluster hard — **2** and **7** drove five items each; **6, 9, 12** were never decisive.
+- A frame error (A) invalidates everything downstream, so the groups are ordered, and precedence rules resolve the designed conflicts: rigor *vs* speed, breadth *vs* firm fit, explainability *vs* performance.
+- Tenet 13 makes an invented objection a scoreable error rather than a matter of taste. Every item carries firm context, because a plan is good or bad **for someone**.
+- **2** and **7** were decisive on five items each. **6**, **9** and **12** were never decisive.
 
 <!--
-The tenets are the shared standard for the human gold and the model under test — same document,
-both sides. Tenet 13 was added after Part 1, and it is the one that makes manufactured objections
-scoreable rather than a matter of taste.
+The tenets are the shared standard for the human gold and the model under test — same document, both
+sides. Tenet 13 was added after Part 1, and it is what makes the precision axis scoreable.
 -->
 
 ---
@@ -116,7 +117,7 @@ scoreable rather than a matter of taste.
 
 ## Part III — spend the expert only where models are weakest
 
-**24% of blocking issues** are proposed by no generator, and recovering them needs an expert who has read both plans — irreducible at ~18 min. So **vary how many items get that pass, don't degrade it.**
+No model proposes 24% of blocking issues; only an expert reading both plans and writing from scratch finds them, at ~18 min an item. **Run the full pass on fewer items, not a cheaper one on all.**
 
 | # | Step | Expert min |
 |---|---|---|
@@ -128,13 +129,13 @@ scoreable rather than a matter of taste.
 | 7–9 | **Merge** · **audit** ~4 auto-accepted cards · **publish** recall beside audited precision | **2** |
 | | **Total — 92 min / 10 items** | **9.2 / item** |
 
-- **≈2× cheaper than free-hand (18 min/item) at F1 ≈ 0.90.** F1 0.95 costs 13.1 min.
-- **Skip expert triage of candidates** — worst value in the protocol: 9.4 min for ~8pp.
-- <span class="heldfixed">The cost:</span> auto-accepting leaves Haiku's ~22 confidently-manufactured cards/item unlabelled — the negatives that ranked the models.
+- **9.2 expert min/item at F1 ≈ 0.90**, against 18 min/item free-hand. F1 0.95 costs 13.1 min.
+- Expert triage is the worst value here: 9.4 min for ~8pp. A second model takes the uncertain pile.
+- <span class="heldfixed">The cost:</span> auto-accepting leaves Haiku's ~22 invented cards/item unlabelled — the negatives that ranked the models.
 
 <!--
 The 18 min/item free-hand figure is the one observational number here: 10 items in a ~3-hour block.
-Everything else on this slide is an estimate. The frontier is a mix, not a compromise: every
+Everything else on this slide is an estimate. The frontier is a mix, not a compromise — every
 intermediate uniform protocol is dominated, because a partial pass still costs 16 of the 18 minutes
 and caps at F1 0.86.
 -->
@@ -145,10 +146,10 @@ and caps at F1 0.86.
 
 ## Next steps
 
-1. **Measure the one unmeasured number.** Adjudicator precision on candidates it confidently marks real is assumed, not known, and the whole Part III frontier rests on it. An audit of ~4 cards per 10 items settles it in the first session; at 0.70 rather than 0.95 the cost rises only to 11.5 min/item.
-2. **Break the single-reviewer dependency.** All gold is one desk, so *"wrong"* and *"disagrees with me"* are nowhere separable. A second labeller on the same 10 items turns `weak` from a self-report into measured inter-expert disagreement.
+1. **Measure adjudicator precision.** How often the model is wrong on candidates it confidently marks real is assumed, not known, and the whole Part III cost model rests on it. An audit of ~4 cards per 10 items settles it in the first session; at 0.70 rather than 0.95 the cost rises only to 11.5 min/item.
+2. **Add a second labeller.** All gold is one desk, so *"wrong"* and *"disagrees with me"* are nowhere separable. A second labeller on the same 10 items turns `weak` from a self-report into measured inter-expert disagreement.
 3. **Fill the four context-flip items.** Same seed, same plans, different firm — the one axis isolating tenet 2. Measured gold-free only today, so context-sensitivity is unquantified.
-4. **Rescore with a non-Opus-5 adjudicator.** Opus 5 scored its own reviews and posts the best recall *and* precision under its own judge; the Sonnet / Opus 4.8 inversion (97.0 *vs* 91.7) is where that could move the ranking.
+4. **Rescore with a non-Opus-5 adjudicator.** Opus 5 scored its own reviews and posts the best recall *and* precision under its own judge. The Sonnet / Opus 4.8 inversion (97.0 *vs* 91.7) is where that could move the ranking.
 
 <span class="small">Ordered by what each unblocks: (1) the cost model · (2) every accuracy number · (3) a missing axis · (4) the margin on one comparison.</span>
 
