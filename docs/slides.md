@@ -75,13 +75,13 @@ substitutes for judgment, and it reads as rigor until precision is scored.
 |---|---|---|---|---|
 | Pairwise accuracy, **strong** items *(baseline 50%)* | 58% | 67% | 67% | **75%** |
 | Blocking-issue recall *(of 45)* | 53% | 29% | 33% | **62%** |
+| Blocking issues **no other model found** | **4** | 0 | 0 | **6** |
 | **Invented objections / review** | **14.0** | 0.10 | 0.15 | 0.05 |
 | Precision | 50.0% | 97.0% | 91.7% | **97.7%** |
 
 - **Invented-per-review is precision rescaled by volume** — same ranking. The count is what reaches the reviewer: at 90% precision, 3 issues/review costs 0.3 junk items, 100 costs 10.
 - On `strong` items the ranking holds and all four beat chance. On `weak` items all four lose to always-answer-A, so those items measure nothing.
-- Invented numeric thresholds — a 20:1 prior, a 25× likelihood-ratio bar, 0.5%/0.2% entry gates — appear in **5 of 10** plan pairs.
-- Haiku ∪ Opus 5 covers **76%** of blocking issues. Sonnet 5 and Opus 4.8 contribute zero unique findings.
+- Haiku's objections are **not a subset** of Opus 5's — 6 blocking issues Opus 5 misses, lifting the pair to **76%** from 62%. Less overlap buys a more complete review; precision is the price.
 
 <!--
 The weak-item result is the one I would most want challenged: two of four models sit exactly at 50%
@@ -106,6 +106,7 @@ subset given its 3A/1B split.
 - A frame error (A) invalidates everything downstream, so the groups are ordered, and precedence rules resolve the designed conflicts: rigor *vs* speed, breadth *vs* firm fit, explainability *vs* performance.
 - Tenet 13 makes an invented objection a scoreable error rather than a matter of taste. Every item carries firm context, because a plan is good or bad **for someone**.
 - **2** and **7** were decisive on five items each. **6**, **9** and **12** were never decisive.
+- Invented numeric thresholds appear in **5 of 10** plan pairs — the failure tenet 12 exists to catch.
 
 <!--
 The tenets are the shared standard for the human gold and the model under test — same document, both
