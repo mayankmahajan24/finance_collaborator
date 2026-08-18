@@ -34,14 +34,14 @@ style: |
   .small { font-size: 19px; color: #6b6a63; }
   .heldfixed { color: #6a9bcc; font-weight: 600; }
   .byline { color: #6b6a63; font-weight: 600; }
-  section.tight { font-size: 21.5px; line-height: 1.42; padding: 40px 52px; }
-  section.tight h2 { font-size: 31px; margin: 0 0 14px 0; padding-bottom: 5px; }
-  section.tight p { margin: 9px 0; }
-  section.tight ul { margin: 11px 0; padding-left: 24px; }
-  section.tight li { margin-bottom: 7px; }
-  section.tight table { font-size: 17.5px; margin: 12px 0; }
-  section.tight td, section.tight th { padding: 4px 9px; line-height: 1.34; }
-  section.tight .small { font-size: 17px; }
+  section.tight { font-size: 23.5px; line-height: 1.5; padding: 38px 52px; }
+  section.tight h2 { font-size: 33px; margin: 0 0 18px 0; padding-bottom: 6px; }
+  section.tight p { margin: 12px 0; }
+  section.tight ul { margin: 15px 0; padding-left: 26px; }
+  section.tight li { margin-bottom: 11px; }
+  section.tight table { font-size: 19px; margin: 16px 0; }
+  section.tight td, section.tight th { padding: 6px 10px; line-height: 1.4; }
+  section.tight .small { font-size: 18px; }
 ---
 
 <!-- _class: lead -->
@@ -116,7 +116,7 @@ scoreable rather than a matter of taste.
 
 ## Part III — spend the expert only where models are weakest
 
-No generator proposes **24% of blocking issues**; recovering them needs an expert who has read both plans writing from scratch — irreducible at ~18 min. So **don't degrade the protocol, vary how many items receive it.**
+**24% of blocking issues** are proposed by no generator, and recovering them needs an expert who has read both plans — irreducible at ~18 min. So **vary how many items get that pass, don't degrade it.**
 
 | # | Step | Expert min |
 |---|---|---|
@@ -130,7 +130,7 @@ No generator proposes **24% of blocking issues**; recovering them needs an exper
 
 - **≈2× cheaper than free-hand (18 min/item) at F1 ≈ 0.90.** F1 0.95 costs 13.1 min.
 - **Skip expert triage of candidates** — worst value in the protocol: 9.4 min for ~8pp.
-- <span class="heldfixed">The cost:</span> auto-accepting leaves Haiku's ~22 confidently-manufactured cards per item unlabelled — the very negatives that ranked the models.
+- <span class="heldfixed">The cost:</span> auto-accepting leaves Haiku's ~22 confidently-manufactured cards/item unlabelled — the negatives that ranked the models.
 
 <!--
 The 18 min/item free-hand figure is the one observational number here: 10 items in a ~3-hour block.
