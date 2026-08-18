@@ -42,16 +42,17 @@ style: |
   section.tight table { font-size: 19px; margin: 16px 0; }
   section.tight td, section.tight th { padding: 6px 10px; line-height: 1.4; }
   section.tight .small { font-size: 18px; }
+  section.tenets td:first-child { white-space: nowrap; }
 ---
 
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Recall cannot rank judgment. Precision can.
+# Two models, paired, grade plans at half the expert cost
 
-**Across 10 investment-research seeds, Haiku 4.5 covers 53% of the blocking issues a human reviewer found and Opus 5 covers 62%. Haiku gets there by raising 28.6 objections per review against Opus 5's 6.7, and half of Haiku's are invented.**
+**Across 10 investment-research seeds, Haiku 4.5 and Opus 5 together propose 76% of the blocking issues a human reviewer found — the whole achievable ceiling, since Sonnet 5 and Opus 4.8 add nothing the pair misses. Opus 5 then adjudicates both models' candidates and resolves ~70% of them without a human.**
 
-Ranked on recall, the weakest model comes second. F1 does not fix it. So the eval scores precision alongside recall.
+Neither model does this alone. Opus 5 supplies coverage and confident adjudication; Haiku supplies the volume of invented objections that makes precision measurable. Estimated cost: **9.2 expert min an item against 18 free-hand**, at F1 ≈ 0.90.
 
 <span class="byline">Mayank Mahajan</span>
 
@@ -90,7 +91,7 @@ subset given its 3A/1B split.
 
 ---
 
-<!-- _class: tight -->
+<!-- _class: tight tenets -->
 
 ## The instrument: 13 tenets, grouped by when they apply
 
