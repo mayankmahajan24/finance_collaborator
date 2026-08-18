@@ -34,8 +34,14 @@ style: |
   .small { font-size: 19px; color: #6b6a63; }
   .heldfixed { color: #6a9bcc; font-weight: 600; }
   .byline { color: #6b6a63; font-weight: 600; }
-  section.tight { font-size: 22px; }
-  section.tight li { margin-bottom: 2px; }
+  section.tight { font-size: 21.5px; line-height: 1.42; padding: 40px 52px; }
+  section.tight h2 { font-size: 31px; margin: 0 0 14px 0; padding-bottom: 5px; }
+  section.tight p { margin: 9px 0; }
+  section.tight ul { margin: 11px 0; padding-left: 24px; }
+  section.tight li { margin-bottom: 7px; }
+  section.tight table { font-size: 17.5px; margin: 12px 0; }
+  section.tight td, section.tight th { padding: 4px 9px; line-height: 1.34; }
+  section.tight .small { font-size: 17px; }
 ---
 
 <!-- _class: lead -->
@@ -88,15 +94,15 @@ flip but always-answer-A, which scores 75% on the weak subset given its 3A/1B sp
 
 | | Tenet |
 |---|---|
-| **A · Establish the frame** | **1** Understand the actual goal before judging anything · **2** Fit the plan to the firm and the person · **3** Establish the variant view — where is the edge? |
-| **B · Is the design right for that frame** | **4** Simplest thing that could resolve the question, first · **5** Measure the actual target, keep the measure meaningful · **6** Match horizon to phenomenon, not data frequency · **7** Match evidence standard to what the setting supports · **8** Breadth over strength — test where it should *not* work |
+| **A · Frame** | **1** Understand the actual goal before judging anything · **2** Fit the plan to the firm and the person · **3** Establish the variant view — where is the edge? |
+| **B · Design** | **4** Simplest thing that could resolve the question, first · **5** Measure the actual target, keep the measure meaningful · **6** Match horizon to phenomenon, not data frequency · **7** Match evidence standard to what the setting supports · **8** Breadth over strength — test where it should *not* work |
 | **C · Execution** | **9** Sequence for information — get to 60 before going to 99 · **10** Assume AI execution; human checkpoints, calibrated explainability |
-| **D · Intellectual honesty** | **11** Always ask what would make this wrong · **12** Do not invent economics — stay inside the question as framed |
-| **E · The review itself** | **13** Standard objections must earn their place in *this* context |
+| **D · Honesty** | **11** Always ask what would make this wrong · **12** Do not invent economics — stay inside the question as framed |
+| **E · Review** | **13** Standard objections must earn their place in *this* context |
 
-- Groups are **ordered**: a frame error (A) invalidates everything downstream, so precedence rules resolve the designed conflicts — rigor *vs* speed, breadth *vs* firm fit, explainability *vs* performance.
-- **Tenet 13 is the precision tenet** and exists because of the failure on slide 2. Every item carries firm context, because a plan is good or bad **for someone**.
-- Decisive tenets in gold cluster hard: **2** and **7** drove five items each; **6, 9, 12** were never decisive.
+- Groups are **ordered** — a frame error (A) invalidates everything downstream — and precedence rules resolve the designed conflicts: rigor *vs* speed, breadth *vs* firm fit, explainability *vs* performance.
+- **Tenet 13 is the precision tenet**, added because of the failure on slide 2. Every item carries firm context: a plan is good or bad **for someone**.
+- Decisive tenets cluster hard — **2** and **7** drove five items each; **6, 9, 12** were never decisive.
 
 <!--
 The tenets are the shared standard for the human gold and the model under test — same document,
@@ -110,21 +116,21 @@ scoreable rather than a matter of taste.
 
 ## Part III — spend the expert only where models are weakest
 
-Models cannot produce the **24% of blocking issues no generator proposes**; recovering those needs an expert who has read both plans writing from scratch. That pass is irreducible at ~18 min. So **don't degrade the protocol — vary how many items receive it.**
+No generator proposes **24% of blocking issues**; recovering them needs an expert who has read both plans writing from scratch — irreducible at ~18 min. So **don't degrade the protocol, vary how many items receive it.**
 
 | # | Step | Expert min |
 |---|---|---|
-| 1 | **Generate** — Haiku 4.5 + Opus 5 critique both plans, every item (~70 candidates/item) | 0 |
+| 1 | **Generate** — Haiku 4.5 + Opus 5 critique both plans, all items (~70 candidates/item) | 0 |
 | 2 | **Adjudicate** — Opus 5 buckets + dedups, confidence-flagged | 0 |
 | 3 | **Re-adjudicate** — a second model forces a call on the *uncertain* pile only | 0 |
 | 4–5 | **Rank & split** — score items by auto-tier weakness; top ~5 of 10 to full depth | 0 |
-| 6 | **Full-depth pass**, 5 items × 18 min — frame enums · read both plans · free-recall write, *candidates unseen* | **90** |
-| 7–9 | **Merge · audit** ~4 auto-accepted cards · **publish** recall beside audited precision | **2** |
+| 6 | **Full-depth pass**, 5 × 18 min — frame enums · read both plans · free-recall write, *candidates unseen* | **90** |
+| 7–9 | **Merge** · **audit** ~4 auto-accepted cards · **publish** recall beside audited precision | **2** |
 | | **Total — 92 min / 10 items** | **9.2 / item** |
 
 - **≈2× cheaper than free-hand (18 min/item) at F1 ≈ 0.90.** F1 0.95 costs 13.1 min.
 - **Skip expert triage of candidates** — worst value in the protocol: 9.4 min for ~8pp.
-- <span class="heldfixed">The cost:</span> auto-accepting discards Haiku's ~22 confidently-manufactured cards per item unlabelled — the very negatives that ranked the models.
+- <span class="heldfixed">The cost:</span> auto-accepting leaves Haiku's ~22 confidently-manufactured cards per item unlabelled — the very negatives that ranked the models.
 
 <!--
 The 18 min/item free-hand figure is the one observational number here: 10 items in a ~3-hour block.
@@ -139,10 +145,10 @@ and caps at F1 0.86.
 
 ## Next steps
 
-1. **Measure the one unmeasured number.** Adjudicator precision on candidates it confidently marks real is assumed, not known — the whole Part III frontier rests on it. An audit of ~4 cards per 10 items settles it in the first session; at 0.70 rather than 0.95 the cost rises only to 11.5 min/item.
-2. **Break the single-reviewer dependency.** All gold is one desk, so *"wrong"* and *"disagrees with me"* are not separable anywhere in this repo. A second labeller on the same 10 items converts `weak` from a self-report into measured inter-expert disagreement.
-3. **Fill the four context-flip items.** Same seed, same plans, different firm — the one axis that isolates tenet 2. Currently measured gold-free only, so context-sensitivity is unquantified.
-4. **Rescore with a non-Opus-5 adjudicator.** Opus 5 scored its own reviews and posts the best recall *and* precision under its own judge; the Sonnet / Opus 4.8 inversion (97.0 *vs* 91.7) is where that could be moving the ranking.
+1. **Measure the one unmeasured number.** Adjudicator precision on candidates it confidently marks real is assumed, not known, and the whole Part III frontier rests on it. An audit of ~4 cards per 10 items settles it in the first session; at 0.70 rather than 0.95 the cost rises only to 11.5 min/item.
+2. **Break the single-reviewer dependency.** All gold is one desk, so *"wrong"* and *"disagrees with me"* are nowhere separable. A second labeller on the same 10 items turns `weak` from a self-report into measured inter-expert disagreement.
+3. **Fill the four context-flip items.** Same seed, same plans, different firm — the one axis isolating tenet 2. Measured gold-free only today, so context-sensitivity is unquantified.
+4. **Rescore with a non-Opus-5 adjudicator.** Opus 5 scored its own reviews and posts the best recall *and* precision under its own judge; the Sonnet / Opus 4.8 inversion (97.0 *vs* 91.7) is where that could move the ranking.
 
 <span class="small">Ordered by what each unblocks: (1) the cost model · (2) every accuracy number · (3) a missing axis · (4) the margin on one comparison.</span>
 
