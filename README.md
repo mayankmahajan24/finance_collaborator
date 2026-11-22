@@ -1,4 +1,4 @@
-# Finance Domain Research Lead — take-home
+# Can Claude plan finance research, and judge a plan?
 
 Can Claude turn a half-formed investment research idea into an executable plan,
 and can it tell a good plan from a bad one? Part 1 measures the first. Part 2

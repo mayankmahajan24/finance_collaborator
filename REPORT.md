@@ -1,6 +1,6 @@
 # Can Claude tell good research from bad?
 
-**Mayank Mahajan · Finance Domain Research Lead take-home**
+**Mayank Mahajan**
 
 Repo: `github.com/mayankmahajan24/finance_collaborator` — seeds, scripts, eval items, gold labels, scoring, and every raw model call.
 

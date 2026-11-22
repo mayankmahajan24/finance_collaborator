@@ -12,7 +12,7 @@ they're established, with the numbers that back them.
 
 ### What the brief constrains
 
-The only length cap in the take-home is on the report: "≤3 pages text + **unlimited
+The only length cap in the brief is on the report: "≤3 pages text + **unlimited
 examples/tables**." Plans, critiques, and eval items are repo artifacts and appendix
 material. They do not count against the cap. Nothing in the current repo violates the
 instructions on length.
